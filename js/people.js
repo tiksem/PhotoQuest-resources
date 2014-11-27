@@ -49,7 +49,7 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
     };
 
     $scope.writeMessage = function(user) {
-        $location.hash("messages_" + user.id);
+        $location.hash("path=messages&id=" + user.id);
     };
 
     var url;

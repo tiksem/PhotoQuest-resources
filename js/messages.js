@@ -21,7 +21,7 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
     );
 
 
-    var userId = parseInt(Utilities.parseHashPath($location.hash())[1]);
+    var userId = Utilities.parseQuery($location.hash())["id"];
 
     $scope.getMessageAvatar = function(message) {
         var signedIn = $scope.getSignedInUser();

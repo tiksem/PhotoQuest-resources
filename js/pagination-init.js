@@ -41,8 +41,6 @@ PhotoquestUtils.initPagination = function($scope, $http, params) {
         }
     };
 
-    loadData();
-
     $scope.onPageChanged = function(pageNumber) {
         $scope.pageNumber = pageNumber - 1;
         loadData();
