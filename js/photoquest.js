@@ -54,5 +54,17 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         $location.hash("path=photo&id=" + photo.id);
     }
 
+    var url = "//getPhotosOfPhotoquest";
+    var countUrl = "//getPhotosOfPhotoquestCount"
+
+    PhotoquestUtils.initPagination($scope, $http, $location, {
+        url: url,
+        countUrl: countUrl,
+        scopeArrayName: "quests",
+        args: {
+            id: questId
+        }
+    });
+
     Utilities.applyStylesToHtml($element);
 })

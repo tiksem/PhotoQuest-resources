@@ -22,24 +22,16 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
 
     $scope.openQuest = function(quest) {
         $location.hash("path=quest&id=" + quest.id);
-    }
-
-    var getOrder = function() {
-        return Utilities.parseQuery($location.hash())["order"] || "newest";
-    }
-
-    var loadData = function() {
-        Utilities.loadDataToScope(window.location.origin + "//getPhotoquests", {
-            order: getOrder()
-        }, $scope, $http);
     };
 
-    $scope.$watch(
-        function($scope) {
-            return getOrder();
-        },
-        loadData
-    );
+    var url = "//getPhotoquests";
+    var countUrl = "//getPhotoquestsCount"
+
+    PhotoquestUtils.initPagination($scope, $http, $location, {
+        url: url,
+        countUrl: countUrl,
+        scopeArrayName: "quests"
+    });
 
     Utilities.applyStylesToHtml($element);
 });

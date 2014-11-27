@@ -63,7 +63,7 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         countUrl = "//getUsersCount";
     }
 
-    PhotoquestUtils.initPagination($scope, $http, {
+    PhotoquestUtils.initPagination($scope, $http, $location, {
         url: url,
         countUrl: countUrl,
         scopeArrayName: "users"

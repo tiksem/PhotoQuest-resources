@@ -1,6 +1,6 @@
 PhotoquestUtils = {};
-PhotoquestUtils.initPagination = function($scope, $http, params) {
-    $scope.pageSize = params.pageSize || 2;
+PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
+    $scope.pageSize = params.pageSize || 10;
     $scope.totalItems = 0;
     $scope.pageNumber = 0;
     var url = window.location.origin + params.url;
@@ -13,6 +13,10 @@ PhotoquestUtils.initPagination = function($scope, $http, params) {
         throw new Error("define scopeArrayName");
     }
 
+    var getOrder = params.getOrder || function() {
+        return Utilities.parseQuery($location.hash())["order"];
+    };
+
     var getTotalItems = function(callback) {
         Utilities.getTotalCount(countUrl, countArgs, $http, function(count){
             $scope.totalItems = count;
@@ -23,7 +27,8 @@ PhotoquestUtils.initPagination = function($scope, $http, params) {
     var loadPages = function() {
         var urlParams = {
             offset: $scope.pageNumber * $scope.pageSize,
-            limit: $scope.pageSize
+            limit: $scope.pageSize,
+            order: getOrder()
         };
 
         Utilities.addProperties(urlParams, args);
@@ -50,6 +55,13 @@ PhotoquestUtils.initPagination = function($scope, $http, params) {
     $scope.$watch(
         function($scope) {
             return $scope.getSignedInUser();
+        },
+        loadData
+    );
+
+    $scope.$watch(
+        function($scope) {
+            return getOrder();
         },
         loadData
     );

@@ -92,12 +92,12 @@ Utilities = {
                 console.log("Success " + url);
                 console.log(data);
             } else {
-                console.log("Error " + url);
-                console.log(data);
+                console.error("Error " + url);
+                console.error(data);
             }
         }).error(function(data){
-            console.log("Error " + url);
-            console.log(data);
+            console.error("Error " + url);
+            console.error(data);
         });
     },
     parseHashPath: function(hash) {

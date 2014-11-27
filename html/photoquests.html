@@ -25,7 +25,8 @@
         <button ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
     </div>
     <div class="quest_container">
-        <div ng-repeat="quest in quests" ng-click="openQuest(quest)">
+        <div dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
+             ng-click="openQuest(quest)">
             <div style="position: relative; width: 200px; height: 200px">
                 <img width="200px" height="200px" ng-src="{{quest.avatar}}"/>
                 <div class="count_widget photoquest_views_count">
@@ -36,5 +37,12 @@
                 <h1>{{quest.name}}</h1>
             </div>
         </div>
+    </div>
+
+    <div>
+        <dir-pagination-controls boundary-links="true"
+                                 on-page-change="onPageChanged(newPageNumber)"
+                                 template-url="html/pagination_template.html">
+        </dir-pagination-controls>
     </div>
 </div>
