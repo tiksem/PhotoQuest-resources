@@ -48,30 +48,29 @@
                     return defaultContent;
                 }
 
-                var path = Utilities.parseHashPath(hash);
-                if(path[0] == "quest"){
-                    var questId = path[1];
-                    if(questId && questId.isNumber()){
+                var query = Utilities.parseQuery(hash);
+                var path = query["path"];
+                var id = query["id"];
+
+                if(path == "quest"){
+                    if(id && id.isNumber()){
                         return 'html/photoquest.html';
                     }
-                } else if(path[0] == "people") {
+                } else if(path == "people") {
                     return 'html/people.html';
-                } else if(path[0] == "friends") {
+                } else if(path == "friends") {
                     return 'html/friends.html';
-                } else if(path[0] == "photo"){
-                    var photoId = path[1];
-                    if(photoId && photoId.isNumber()){
+                } else if(path == "photo"){
+                    if(id && id.isNumber()){
                         return 'html/photo.html';
                     }
-                } else if(path[0] == "profile") {
-                    var id = path[1];
+                } else if(path == "profile") {
                     if(id && id.isNumber()){
                         return 'html/profile.html';
                     }
-                } else if(path[0] == "dialogs") {
+                } else if(path == "dialogs") {
                     return 'html/dialogs.html';
-                } else if(path[0] == "messages") {
-                    var id = path[1];
+                } else if(path == "messages") {
                     if(id && id.isNumber()){
                         return 'html/messages.html';
                     }

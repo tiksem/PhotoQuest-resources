@@ -4,7 +4,7 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
 
     $scope.openProfile = function(user) {
-        $location.hash("profile_" + user.id);
+        $location.hash("path=profile&id=" + user.id);
     };
 
     $scope.addOrRemoveFriend = function(user) {
@@ -54,10 +54,10 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
     var url;
     var countUrl;
-    var requestType = Utilities.parseHashPath($location.hash())[0];
+    var requestType = Utilities.parseQuery($location.hash())["path"];
     if(requestType == "friends"){
         url = "//friends";
-        url = "//getFriendsCount";
+        countUrl = "//getFriendsCount";
     } else {
         url = "//users";
         countUrl = "//getUsersCount";

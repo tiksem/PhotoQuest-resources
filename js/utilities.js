@@ -61,12 +61,12 @@ Utilities = {
             object[i] = properties[i];
         }
     },
-    loadDataToScope: function(url, params, jQueryscope, jQueryhttp, onSuccess) {
-        jQueryhttp.get(url, {
+    loadDataToScope: function(url, params, $scope, $http, onSuccess) {
+        $http.get(url, {
             params: params
         }).success(function(data){
             if (!data.error) {
-                Utilities.addProperties(jQueryscope, data);
+                Utilities.addProperties($scope, data);
                 if (onSuccess) {
                     onSuccess(data);
                 }
@@ -81,8 +81,8 @@ Utilities = {
             console.log(data);
         })
     },
-    getTotalCount: function(url, params, jQueryhttp, onSuccess) {
-        jQueryhttp.get(url, {
+    getTotalCount: function(url, params, $http, onSuccess) {
+        $http.get(url, {
             params: params
         }).success(function(data){
             if (!data.error) {
@@ -102,5 +102,29 @@ Utilities = {
     },
     parseHashPath: function(hash) {
         return hash.split("_");
+    },
+    parseQuery: function(qstr)
+    {
+        var query = {};
+        var a = qstr.split('&');
+        for (var i in a)
+        {
+            if (a.hasOwnProperty(i)) {
+                var b = a[i].split('=');
+                query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
+            }
+        }
+
+        return query;
+    },
+    createQueryString: function(map) {
+        var strs = [];
+        for (var i in map) {
+            if (map.hasOwnProperty(i)) {
+                strs.push(encodeURIComponent(i) + "=" + encodeURIComponent(map[i]));
+            }
+        }
+
+        return strs.join("&");
     }
 }

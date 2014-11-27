@@ -1,6 +1,6 @@
 var main = angular.module("main");
 main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $upload){
-    var photoId = parseInt(Utilities.parseHashPath($location.hash())[1]);
+    var photoId = Utilities.parseQuery($location.hash())["id"];
     $scope.image = window.location.origin + "/image/" + photoId;
 
     Utilities.loadDataToScope(window.location.origin + "//getCommentsOnPhoto", {

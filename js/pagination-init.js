@@ -1,6 +1,6 @@
 PhotoquestUtils = {};
 PhotoquestUtils.initPagination = function($scope, $http, params) {
-    $scope.pageSize = params.pageSize || 10;
+    $scope.pageSize = params.pageSize || 2;
     $scope.totalItems = 0;
     $scope.pageNumber = 0;
     var url = window.location.origin + params.url;

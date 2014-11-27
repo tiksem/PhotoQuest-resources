@@ -21,7 +21,7 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
     };
 
     $scope.openQuest = function(quest) {
-        $location.hash("quest_" + quest.id);
+        $location.hash("path=quest&id=" + quest.id);
     }
 
     Utilities.loadDataToScope(window.location.origin + "//getPhotoquests", {}, $scope, $http)

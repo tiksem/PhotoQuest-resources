@@ -2,7 +2,7 @@ var main = angular.module("main");
 main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $location, $upload){
     $scope.contentLoaded = false;
 
-    var questId = parseInt(Utilities.parseHashPath($location.hash())[1]);
+    var questId = Utilities.parseQuery($location.hash())["id"];
     var scope = $scope.quest = {};
     var url = window.location.origin + "//getPhotoquestById";
     var params = {
@@ -51,7 +51,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     };
 
     $scope.onPhotoClick = function(photo) {
-        $location.hash("photo_" + photo.id);
+        $location.hash("path=photo&id=" + photo.id);
     }
 
     Utilities.applyStylesToHtml($element);
