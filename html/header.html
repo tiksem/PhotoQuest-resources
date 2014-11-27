@@ -2,19 +2,20 @@
   
 </style>
 <div id="header" ng-controller="HeaderController">
-    <a ng-href="##people">
+   <img id="logo"  src="../images/logo.png"/> <span id="logo_text">Photo Quest</span>
+    <a class="menu" ng-href="##people">
         People
     </a>
-    <a ng-href="##quests">
+    <a class="menu" ng-href="##quests">
         Photoquests
     </a>
-    <a ng-href="##friends">
+    <a  class="menu" ng-href="##friends">
         Friends
     </a>
-    <a ng-href="{{'##profile_' + getSignedInUser().id}}" ng-show="getSignedInUser()">
+    <a class="menu" ng-href="{{'##profile_' + getSignedInUser().id}}" ng-show="getSignedInUser()">
         Profile
     </a>
-    <a ng-href="##dialogs" ng-show="getSignedInUser()">
+    <a  class="menu" ng-href="##dialogs" ng-show="getSignedInUser()">
         Messages
     </a>
 </div>
