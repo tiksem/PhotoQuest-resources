@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/ngDialog-theme-default.css">
     <link rel="stylesheet" href="css/ngDialog-theme-plain.css">
     <link rel="stylesheet" href="css/perfect-scrollbar.css">
+	<link rel="stylesheet" href="css/main.css">
 
     <script type="application/javascript" src="js/angular-file-upload-shim.js"></script>
     <script type="application/javascript" src="js/angular.js"> </script>
@@ -80,34 +81,38 @@
     </script>
 </head>
 <body ng-controller="Main">
-
-<script type="application/javascript" src="js/header.js"> </script>
-<div ng-include="'html/header.html'">
-
-</div>
-
-<div style="position: relative">
-    <script type="application/javascript" src="js/login.js"> </script>
-    <script type="application/javascript" src="js/register.js"> </script>
-    <div id="login_form_container" ng-include="'html/login.html'">
-
+   
+    
+        <script type="application/javascript" src="js/header.js"> </script>
+        <div ng-include="'html/header.html'" >
+        
+        </div >
+        <div id="container">
+        
+        <div style="position: relative">
+            <script type="application/javascript" src="js/login.js"> </script>
+            <script type="application/javascript" src="js/register.js"> </script>
+            <div id="login_form_container" ng-include="'html/login.html'">
+        
+            </div>
+        
+            <script type="application/javascript" src="js/photoquests.js"> </script>
+            <script type="application/javascript" src="js/photoquest.js"> </script>
+            <script type="application/javascript" src="js/people.js"> </script>
+            <script type="application/javascript" src="js/photo.js"> </script>
+            <script type="application/javascript" src="js/profile.js"> </script>
+            <script type="application/javascript" src="js/dialogs.js"> </script>
+            <script type="application/javascript" src="js/messages.js"> </script>
+            <div id="center_page_container" ng-include="getCenterPageContent()" align="center">
+        
+        </div>
+        
+            <script type="application/javascript">
+                Utilities.applyStylesToHtml();
+            </script>
+        </div>    
+        
     </div>
-
-    <script type="application/javascript" src="js/photoquests.js"> </script>
-    <script type="application/javascript" src="js/photoquest.js"> </script>
-    <script type="application/javascript" src="js/people.js"> </script>
-    <script type="application/javascript" src="js/photo.js"> </script>
-    <script type="application/javascript" src="js/profile.js"> </script>
-    <script type="application/javascript" src="js/dialogs.js"> </script>
-    <script type="application/javascript" src="js/messages.js"> </script>
-    <div id="center_page_container" ng-include="getCenterPageContent()" align="center">
-
-    </div>
-
-    <script type="application/javascript">
-        Utilities.applyStylesToHtml();
-    </script>
-</div>
 
 </body>
 </html>
