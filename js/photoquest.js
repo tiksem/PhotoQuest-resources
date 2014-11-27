@@ -12,12 +12,18 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
 
     Utilities.loadDataToScope(url, params, scope, $http, function(){
         $scope.contentLoaded = true;
-    });
 
-    url = window.location.origin + "//getPhotosOfPhotoquest";
+        var url = "//getPhotosOfPhotoquest";
+        var countUrl = "//getPhotosOfPhotoquestCount"
 
-    Utilities.loadDataToScope(url, params, $scope, $http, function(data){
-        console.log(data);
+        PhotoquestUtils.initPagination($scope, $http, $location, {
+            url: url,
+            countUrl: countUrl,
+            scopeArrayName: "photos",
+            args: {
+                id: questId
+            }
+        });
     });
 
     $scope.openAddPhotoDialog = function() {
@@ -54,17 +60,5 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         $location.hash("path=photo&id=" + photo.id);
     }
 
-    var url = "//getPhotosOfPhotoquest";
-    var countUrl = "//getPhotosOfPhotoquestCount"
-
-    PhotoquestUtils.initPagination($scope, $http, $location, {
-        url: url,
-        countUrl: countUrl,
-        scopeArrayName: "quests",
-        args: {
-            id: questId
-        }
-    });
-
     Utilities.applyStylesToHtml($element);
-})
+});

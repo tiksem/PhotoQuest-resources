@@ -126,5 +126,12 @@ Utilities = {
         }
 
         return strs.join("&");
+    },
+    setQueryParam: function($location, key, value) {
+        var hash = $location.hash();
+        var map = this.parseQuery(hash);
+        map[key] = value;
+        hash = this.createQueryString(map);
+        $location.hash(hash);
     }
 }

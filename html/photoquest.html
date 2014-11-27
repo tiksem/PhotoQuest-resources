@@ -11,6 +11,15 @@
             <button ng-click="openAddPhotoDialog()">Add Photo</button>
         </div>
         <br>
+        <div>
+            <a ng-href="##path=quest&id={{quest.id}}&order=newest">
+                Newest
+            </a>
+            <a ng-href="##path=quest&id={{quest.id}}&order=rated">
+                Most rated
+            </a>
+        </div>
+        <br>
         <div dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
              ng-click="onPhotoClick(photo)">
             <img width="200" height="200" ng-src="{{photo.url + '?width=200&height=200'}}" />

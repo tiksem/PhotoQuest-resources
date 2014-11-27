@@ -14,7 +14,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     }
 
     var getOrder = params.getOrder || function() {
-        return Utilities.parseQuery($location.hash())["order"];
+        return Utilities.parseQuery($location.hash())["order"] || "newest"
     };
 
     var getTotalItems = function(callback) {
@@ -51,17 +51,10 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
         loadData();
     };
 
-    // reload data, when user sign out/sign in
     $scope.$watch(
         function($scope) {
-            return $scope.getSignedInUser();
-        },
-        loadData
-    );
-
-    $scope.$watch(
-        function($scope) {
-            return getOrder();
+            var user = $scope.getSignedInUser();
+            return getOrder() + " " + (user ? user.id : "null");
         },
         loadData
     );
