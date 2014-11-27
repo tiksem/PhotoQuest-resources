@@ -15,7 +15,7 @@
 
     <script type="application/javascript" src="js/angular-file-upload-shim.js"></script>
     <script type="application/javascript" src="js/angular.js"> </script>
-    <script type="application/javascript" src="js/jquery-2.1.0.min.js"> </script>
+    <script type="application/javascript" src="js/jquery-2.1.1.js"> </script>
     <script type="application/javascript" src="jquery-ui-1.11.2.custom/jquery-ui.js"></script>
     <script type="application/javascript" src="js/utilities.js"></script>
     <script type="application/javascript" src="js/ngDialog.js"></script>
@@ -24,10 +24,14 @@
     <script type="application/javascript" src="js/angular-cookies.js"> </script>
     <script type="application/javascript" src="js/array.js"> </script>
     <script type="application/javascript" src="js/perfect-scrollbar.js"> </script>
+    <script type="application/javascript" src="js/dirPagination.js"> </script>
+    <script type="application/javascript" src="js/object.js"> </script>
+    <script type="application/javascript" src="js/pagination-init.js"> </script>
 
 
     <script>
-        var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies']);
+        var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
+            'angularUtils.directives.dirPagination']);
         main.controller("Main", function($scope, $location, $cookies){
             var signedInUser = null;
             $scope.getSignedInUser = function() {

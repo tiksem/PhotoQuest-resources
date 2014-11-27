@@ -1,5 +1,8 @@
 var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http){
+    $scope.pageNumber = 0;
+
+
     $scope.openProfile = function(user) {
         $location.hash("profile_" + user.id);
     };
@@ -47,28 +50,24 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
     $scope.writeMessage = function(user) {
         $location.hash("messages_" + user.id);
-    }
-
-    var loadData = function() {
-        var url = window.location.origin;
-        var requestType = Utilities.parseHashPath($location.hash())[0];
-        if(requestType == "friends"){
-            url += "//friends";
-        } else {
-            url += "//users"
-        }
-
-        Utilities.loadDataToScope(url, {}, $scope, $http);
     };
 
-    // reload data, when user sign out/sign in
-    $scope.$watch(
-        function($scope) {
-            return $scope.getSignedInUser();
-        },
-        loadData
-    );
+    var url;
+    var countUrl;
+    var requestType = Utilities.parseHashPath($location.hash())[0];
+    if(requestType == "friends"){
+        url = "//friends";
+        url = "//getFriendsCount";
+    } else {
+        url = "//users";
+        countUrl = "//getUsersCount";
+    }
 
-    loadData();
+    PhotoquestUtils.initPagination($scope, $http, {
+        url: url,
+        countUrl: countUrl,
+        scopeArrayName: "users"
+    });
+
     Utilities.applyStylesToHtml($element);
 });
