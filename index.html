@@ -27,11 +27,13 @@
     <script type="application/javascript" src="js/dirPagination.js"> </script>
     <script type="application/javascript" src="js/object.js"> </script>
     <script type="application/javascript" src="js/pagination-init.js"> </script>
+    <script type="application/javascript" src="js/infinite_scroll.js"> </script>
+    <script type="application/javascript" src="js/http.js"> </script>
 
 
     <script>
         var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
-            'angularUtils.directives.dirPagination']);
+            'angularUtils.directives.dirPagination', 'infinite-scroll']);
         main.controller("Main", function($scope, $location, $cookies){
             var signedInUser = null;
             $scope.getSignedInUser = function() {

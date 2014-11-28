@@ -20,7 +20,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
                 photoId: photoId,
                 message: message
             }
-        }
+        };
         $http.get(url, config).success(function(data){
             if(!data.error){
                 var comments = $scope.comments = $scope.comments || [];

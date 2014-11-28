@@ -58,7 +58,9 @@ Utilities = {
     },
     addProperties: function(object, properties) {
         for(var i in properties){
-            object[i] = properties[i];
+            if (properties.hasOwnProperty(i)) {
+                object[i] = properties[i];
+            }
         }
     },
     loadDataToScope: function(url, params, $scope, $http, onSuccess) {
@@ -133,5 +135,23 @@ Utilities = {
         map[key] = value;
         hash = this.createQueryString(map);
         $location.hash(hash);
+    },
+    get: function($http, url, params, success) {
+        $http.get(window.location.origin + url, {
+            params: params
+        }).success(function(data) {
+            if (!data.error) {
+                success(data);
+                console.log("Success " + url);
+                console.log(data);
+            } else {
+                console.error("Error " + url);
+                console.error(data);
+            }
+        }).error(function(){
+            console.error("Error " + url);
+            console.error(data);
+        })
     }
+
 }

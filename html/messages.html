@@ -2,8 +2,8 @@
     #messages_container {
         margin: 30px;
         width: 400px;
-        height: 250px;
-        overflow: hidden;
+        height: 300px;
+        overflow: scroll;
         border-radius: 6px;
         border-width: 2px;
         border-color: #1c94c4;
@@ -18,7 +18,10 @@
     <div style="text-align: center; position: relative">
         <h1>Messages</h1>
     </div>
-    <div id="messages_container" class="wrapper">
+    <div id="messages_container"
+         top-infinite-scroll="messages" stopped="{{!user}}"
+         page-size="3"
+         load-url="//messages?userId={{userId}}" class="wrapper">
         <div>
             <table>
                 <tr ng-repeat="message in messages" ng-click="openMessages(dialog)">

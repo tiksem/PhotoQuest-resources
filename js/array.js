@@ -10,3 +10,9 @@ Array.prototype.remove = function(item) {
 
     return false;
 };
+
+Array.prototype.unshiftAll = function(items) {
+    for(var i = 0; i < items.length; i++){
+        this.unshift(items[i]);
+    }
+};

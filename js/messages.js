@@ -1,6 +1,10 @@
 var main = angular.module("main");
 main.controller("MessagesController", function($scope, $location, $element, ngDialog, $http){
-    var updateSignedInStatus = function() {
+    var updateSignedInStatus = function(oldValue, newValue) {
+        if(!oldValue && !newValue){
+            return;
+        }
+
         if(!$scope.getSignedInUser()){
             $location.hash("quests");
             return false;
@@ -9,10 +13,6 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         return true;
     };
 
-    if(!updateSignedInStatus()) {
-        return;
-    }
-
     $scope.$watch(
         function($scope) {
             return $scope.getSignedInUser();
@@ -20,8 +20,8 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         updateSignedInStatus
     );
 
-
-    var userId = Utilities.parseQuery($location.hash())["id"];
+    var userId = $scope.userId = Utilities.parseQuery($location.hash())["id"];
+    Http.loadUserToScope($scope.user = $scope.user || {}, $http, userId);
 
     $scope.getMessageAvatar = function(message) {
         var signedIn = $scope.getSignedInUser();
@@ -61,14 +61,10 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
             } else {
                 console.error(data.error);
             }
+        }).error(function(data){
+            console.error(data);
         })
     };
 
-    Utilities.loadDataToScope(window.location.origin + "//messages", {
-        userId: userId
-    }, $scope, $http);
-
     Utilities.applyStylesToHtml($element);
-
-    $($element).find("#messages_container").perfectScrollbar();
 });
