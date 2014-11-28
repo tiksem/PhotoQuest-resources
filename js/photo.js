@@ -1,11 +1,7 @@
 var main = angular.module("main");
-main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $upload){
+main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
     var photoId = Utilities.parseQuery($location.hash())["id"];
     $scope.image = window.location.origin + "/image/" + photoId;
-
-    Utilities.loadDataToScope(window.location.origin + "//getCommentsOnPhoto", {
-        photoId: photoId
-    }, $scope, $http)
 
     $scope.putComment = function() {
         var message = $scope.message;
@@ -25,6 +21,10 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
             if(!data.error){
                 var comments = $scope.comments = $scope.comments || [];
                 comments.push(data);
+                $timeout(function(){
+                    var commentsController = $("#comments_container")[0];
+                    commentsController.scrollTop = commentsController.scrollHeight;
+                });
             } else {
                 console.error(data);
             }
@@ -38,6 +38,8 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
     };
 
     Utilities.loadDataToScope(url, params, scope, $http, function(){
+        $scope.photoId = photoId;
+
         var unlike = function(item) {
             var url = window.location.origin + "//unlike";
             var config = {

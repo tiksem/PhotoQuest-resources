@@ -19,9 +19,9 @@
         <h1>Messages</h1>
     </div>
     <div id="messages_container"
-         top-infinite-scroll="messages" stopped="{{!user}}"
-         page-size="3"
-         load-url="//messages?userId={{userId}}" class="wrapper">
+        top-infinite-scroll="messages" stopped="{{!user}}"
+        page-size="3"
+        load-url="//messages?userId={{userId}}" class="wrapper">
         <div>
             <table>
                 <tr ng-repeat="message in messages" ng-click="openMessages(dialog)">

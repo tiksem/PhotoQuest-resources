@@ -16,6 +16,16 @@
     .comment_likes_count {
         margin: 10px;
     }
+    #comments_container {
+        margin: 30px;
+        width: 400px;
+        height: 300px;
+        overflow: scroll;
+        border-radius: 6px;
+        border-width: 2px;
+        border-color: #1c94c4;
+        border-style: solid;
+    }
 </style>
 <div id="photo_content" ng-controller="PhotoController" >
     <div id="photo_container">
@@ -40,7 +50,11 @@
         </table>
     </div>
     <div style="width: 100%">
-        <div ng-repeat="comment in comments">
+        <div id="comments_container"
+             top-infinite-scroll="comments" stopped="{{!photoId}}"
+             page-size="5"
+             load-url="//getCommentsOnPhoto?photoId={{photoId}}" class="wrapper">
+            <div ng-repeat="comment in comments">
             <table>
                 <tr>
                     <td>
@@ -69,6 +83,7 @@
             <button ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
                 Delete
             </button>
+        </div>
         </div>
     </div>
     <div>
