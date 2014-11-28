@@ -17,11 +17,14 @@
             <img width="100px" height="100px" ng-src="{{avatar}}" />
         </div>
         <div ng-controller="HeaderController">
-            <a class="user_info" ng-href="{{'##profile_' + getSignedInUser().id}}" ng-show="getSignedInUser()">
+            <a class="user_info" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
                 Profile
             </a><br />
-            <a  class="user_info" ng-href="##dialogs" ng-show="getSignedInUser()">
+            <a  class="user_info" ng-href="##path=dialogs" ng-show="getSignedInUser()">
                 Messages
+            </a><br />
+            <a class="user_info" ng-href="##path=friends" ng-show="getSignedInUser()">
+                Friends
             </a>
     </div>
 </div>
