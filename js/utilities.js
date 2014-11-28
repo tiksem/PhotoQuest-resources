@@ -5,33 +5,7 @@
 Utilities = {
     ajax_request_base_url: location.origin,
     applyStylesToHtml: function(element) {
-        element = element || document;
-        jQuery(document).ready(function(){
-            jQuery(element).find( "input[type=submit], a, button" )
-                .button().click(function(){
-                    jQuery(this).removeClass("ui-state-focus").removeClass("ui-state-hover").button("refresh");
-                });
-            jQuery(element).find(".list_item").hover(function(){
-                jQuery(this).addClass("list_item_hover");
-            }, function() {
-                jQuery(this).removeClass("list_item_hover");
-            })
-
-            var emptyAvatar = location.origin + "/images/empty_avatar.png";
-            jQuery("element").find("img.avatar").attr("src", function(i, origin) {
-                if(!origin){
-                    return emptyAvatar;
-                }
-
-                return origin;
-            }).error(function() {
-                jQuery(this).attr("href", emptyAvatar);
-            });
-
-            jQuery("element").find("form").attr("action", function(i, origin) {
-                return location.origin + origin;
-            })
-        });
+        
     },
     ajax: function(params){
         var url = this.ajax_request_base_url + params.url;

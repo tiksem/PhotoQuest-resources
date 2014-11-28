@@ -15,6 +15,7 @@
     border-bottom: 1px solid silver;
     padding-bottom: 100px;
     padding-top: 15px;
+    background-color: #ffffff;
 }
 
 #logo
@@ -25,14 +26,123 @@
 }
 .menu
 {
-    margin-top: -40px;
+     position: relative;
+     bottom: 15px;
+     font-size: 12pt; 
+     color: #ffffff; 
+     text-decoration: none;
+     font-weight: bold;
+     font-family: sans-serif; 
+     font-variant: normal;
+     padding: 10px 10px 15px 10px;
+    
 }
+#header a:hover
+{
+    color:#E4E4E4;
+    background:#449DA7;
+       
+}
+
+#first_item
+{
+    margin-left: 60px;   
+}
+
+#button_blok
+{
+    margin-right: 15px;
+    margin-top: 13px;
+    width: 80px; 
+    float: right;
+    height: 45px;    
+}
+#sign_out
+{
+    background-color: #4DB1BC;
+    font-size: 12pt; 
+    color: #ffffff; 
+    font-weight: bold;
+    font-family: sans-serif; 
+    font-variant: normal;
+    cursor: pointer;
+    width: 80px;
+    height: 45px;
+    border: none;
+    position: relative;
+    top: 2px;
+}
+
 #logo_text
 {
     margin-right:15px;
-    font-family: Verdana;
-    font-size: 14pt;
+    font-family: sans-serif; 
+    font-variant: normal;
+    font-size: 16pt;
     color: #ffffff;
     position: relative;
     bottom:15px;
-}   
+} 
+
+#sign_out:hover
+{
+    background:#449DA7;
+    color:#E4E4E4;    
+}
+
+#sign_out_text
+{
+    position: relative;
+    bottom: 2px;      
+}
+
+.pagination_type
+{
+  margin: 20px auto 0 auto;
+ 
+  width:700px;
+  height: auto;
+  min-height: 100px;
+  color:#696969;  
+}  
+
+.pagination_type ul
+{
+   margin: 0 0 0 10%;
+
+  
+}
+ 
+.type
+{
+    list-style-type: none;  
+    float:left;  
+    margin: 1px;
+    border: solid 1px #058FF9;
+    padding:3px 8px 3px 8px;
+          
+}
+
+
+.pagination_type ul li a
+{
+    text-decoration: none;
+    color: #696969;
+    
+}
+
+#user_avatar
+{
+    margin-bottom: 30px;    
+}
+
+.user_info
+{
+    margin-bottom: 20px;
+    font-family: sans-serif; 
+    font-variant: normal;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+}

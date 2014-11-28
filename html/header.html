@@ -3,19 +3,18 @@
 </style>
 <div id="header" ng-controller="HeaderController">
    <img id="logo"  src="../images/logo.png"/> <span id="logo_text">Photo Quest</span>
-    <a class="menu" ng-href="##path=people">
+    <a id="first_item" class="menu" ng-href="##people">
         People
     </a>
-    <a class="menu" ng-href="##path=quests">
+    <a class="menu" ng-href="##quests">
         Photoquests
     </a>
-    <a  class="menu" ng-href="##path=friends">
+    <a class="menu" ng-href="##friends">
         Friends
     </a>
-    <a class="menu" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
-        Profile
-    </a>
-    <a  class="menu" ng-href="##path=dialogs" ng-show="getSignedInUser()">
-        Messages
-    </a>
+    
+     <div id="button_blok" ng-controller="LoginController" ng-show="getSignedInUser()">             
+        <button id="sign_out" ng-click="signout()"><span id="sign_out_text">Sign out</span></button>       
+    </div>
+        
 </div>
