@@ -2,9 +2,10 @@
 {
     width: 900px;
     height: 60px;
+    line-height: 60px;
     margin: 0 auto 0 auto;
     background-color: #4DB1BC;
-
+    position: relative;
 }
 
 #body_container
@@ -42,9 +43,10 @@
     float: left;
     width: 100px;
     position: relative;
-    top: 50%; 
-    margin-top: -0.7em; 
-    margin-left: 5px; 
+    display: inline-block;
+    height: inherit;
+    line-height: inherit;
+    vertical-align: middle;
 }
 
 #logo_text_link
@@ -58,24 +60,20 @@
 {
     float: left;
     position: relative;
-    top: 50%; 
     margin-top: -0.65em; 
     margin-left: 180px; 
 }
 
 .header_menu
 {
-     
      font-size: 1.3em; 
      color: #ffffff; 
      text-decoration: none;
      font-weight: bold;
-     font-family: sans-serif; 
+     font-family: sans-serif;
      font-variant: normal;
      border-right: solid 1px #449DA7;
-     padding: 23px 15px 19px 15px ;
-
-                   
+     padding: 15px 15px;
 }
 #header_menu_container a:hover
 {
@@ -103,10 +101,9 @@
 #sign_out_button_container
 {
     margin-right: 15px;
-    margin-top: 13px;
     width: 80px; 
     float: right;
-    height: 45px;    
+    height: 45px;
 }
 #sign_out_button
 {
@@ -121,7 +118,6 @@
     height: 45px;
     border: none;
     position: relative;
-    top: 2px;
 }
 
 #logo_text
