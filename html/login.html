@@ -14,7 +14,7 @@
 
     <div ng-show="getSignedInUser()">
         <div id="user_avatar">
-            <img width="100px" height="100px" ng-src="{{avatar}}" />
+            <img width="100px" height="100px" ng-src="{{getSignedInUser().avatar}}" />
         </div>
         <div>
             <a class="user_info" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
