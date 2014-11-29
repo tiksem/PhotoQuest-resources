@@ -47,6 +47,7 @@
     height: inherit;
     line-height: inherit;
     vertical-align: middle;
+    margin-left: 5px;
 }
 
 #logo_text_link
@@ -54,14 +55,36 @@
     text-decoration: none;
 }
 
-
-
-#header_menu_container
+#people_link_container
 {
     float: left;
     position: relative;
-    margin-top: -0.65em; 
     margin-left: 180px; 
+    border-right: solid 1px #449DA7; 
+    border-left:solid 1px #449DA7; 
+    padding-left: 15px; 
+    padding-right: 15px;
+}
+
+#photoquest_link_container
+{
+    float: left;
+    position: relative;
+    border-right: solid 1px #449DA7;
+    padding-left: 15px; 
+    padding-right: 15px;
+}
+
+#people_link_container:hover
+{
+    background:#449DA7;
+    color:#E4E4E4;
+}
+
+#photoquest_link_container:hover
+{
+    background:#449DA7;
+    color:#E4E4E4;
 }
 
 .header_menu
@@ -71,13 +94,14 @@
      text-decoration: none;
      font-weight: bold;
      font-family: sans-serif;
-     font-variant: normal;
-     border-right: solid 1px #449DA7;
+     font-variant: normal;     
 }
-#header_menu_container a:hover
+
+#header_menu_container:hover
 {
     color:#E4E4E4;
     background:#449DA7;
+    height: inherit;
        
 }
 #logo_text_link:hover

@@ -10,14 +10,16 @@
             <span id="logo_text">PhotoQuest</span>
         </a>
     </div>
-    <div id="header_menu_container">
-        <a id="people_link" class="header_menu" ng-href="##path=people">
-            People
-        </a>    
-        <a class="header_menu" ng-href="##path=quests">
-            Photoquests
-        </a>
-    </div>
+    <a  class="header_menu" ng-href="##path=people">
+        <div id="people_link_container">           
+                People           
+        </div>
+     </a> 
+    <a class="header_menu" ng-href="##path=quests">
+        <div id="photoquest_link_container">                  
+                Photoquests           
+        </div>
+    </a>
     <div id="sign_out_button_container" ng-show="getSignedInUser()">             
         <button id="sign_out_button" ng-click="signout()"><span id="sign_out_text">Sign out</span></button>       
     </div>
