@@ -19,7 +19,9 @@ Http = {
             }
         })
     },
-    signin: function($scope, $http, login, password) {
+    signin: function($scope, $http, login, password, callback) {
+        callback = callback || function(){};
+
         if(login == ""){
             alert("Enter login!");
             return;
@@ -46,13 +48,14 @@ Http = {
                 alert(message);
                 console.error(message);
             }
-        })
+            callback();
+        }).error(callback);
     },
-    trySignInFromCookies: function($cookies, $scope, $http) {
+    trySignInFromCookies: function($cookies, $scope, $http, callback) {
         var login = $cookies.login;
         var password = $cookies.password;
         if(login && password){
-            Http.signin($scope, $http, login, password);
+            Http.signin($scope, $http, login, password, callback);
         }
     }
 }

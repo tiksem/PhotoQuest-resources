@@ -9,9 +9,7 @@ main.controller("Main", function($http, $scope, $location, $cookies){
         signedInUser = user;
     };
 
-    Http.trySignInFromCookies($cookies, $scope, $http);
-
-    $scope.getCenterPageContent = function(){
+    var getCenterPageContent = function(){
         var defaultContent = 'html/photoquests.html'
         var hash = $location.hash();
         if(!hash){
@@ -49,5 +47,7 @@ main.controller("Main", function($http, $scope, $location, $cookies){
         return defaultContent;
     }
 
-
+    Http.trySignInFromCookies($cookies, $scope, $http, function(){
+        $scope.getCenterPageContent = getCenterPageContent;
+    });
 })
