@@ -235,6 +235,10 @@
                     }
                 };
 
+                scope.getCurrent = function() {
+                    return paginationService.getCurrentPage(paginationId);
+                };
+
                 function goToPage(num) {
                     if (isValidPageNumber(num)) {
                         scope.pages = generatePagesArray(num, paginationService.getCollectionLength(paginationId), paginationService.getItemsPerPage(paginationId), paginationRange);
