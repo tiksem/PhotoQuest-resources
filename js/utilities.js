@@ -5,7 +5,7 @@
 Utilities = {
     ajax_request_base_url: location.origin,
     applyStylesToHtml: function(element) {
-        
+
     },
     ajax: function(params){
         var url = this.ajax_request_base_url + params.url;

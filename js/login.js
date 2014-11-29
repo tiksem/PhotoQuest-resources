@@ -41,16 +41,7 @@ main.controller("LoginController", function($rootScope, $scope, ngDialog, $eleme
     };
 
     $scope.signout = function() {
-        $http.get(window.location.origin + "//logout").success(function(data){
-            if (!data.error) {
-                $scope.setSignedInUser(null);
-                alert("Success!");
-            } else {
-                var message = data.error + " " + data.message;
-                alert(message);
-                console.error(message);
-            }
-        })
+        Http.signout($http);
     };
 
     var login = $cookies.login;

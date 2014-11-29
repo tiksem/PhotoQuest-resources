@@ -1,17 +1,17 @@
 <style>
-  
+
 </style>
 <div id="header" ng-controller="HeaderController">
-   <img id="logo"  src="../images/logo.png"/> <span id="logo_text">Photo Quest</span>
+    <img id="logo" src="../images/logo.png"/> <span id="logo_text">Photo Quest</span>
     <a id="first_item" class="menu" ng-href="##path=people">
         People
     </a>
     <a class="menu" ng-href="##path=quests">
         Photoquests
     </a>
-    
-     <div id="button_blok" ng-controller="LoginController" ng-show="getSignedInUser()">             
-        <button id="sign_out" ng-click="signout()"><span id="sign_out_text">Sign out</span></button>       
+
+    <div id="button_blok" ng-show="getSignedInUser()">
+        <button id="sign_out" ng-click="signout()"><span id="sign_out_text">Sign out</span></button>
     </div>
-        
+
 </div>
