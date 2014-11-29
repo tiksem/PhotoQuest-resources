@@ -104,6 +104,7 @@
     width: 80px; 
     float: right;
     height: 45px;
+    vertical-align: bottom;
 }
 #sign_out_button
 {
@@ -118,6 +119,7 @@
     height: 45px;
     border: none;
     position: relative;
+    vertical-align: bottom;
 }
 
 #logo_text
