@@ -4,9 +4,10 @@
     height: 60px;
     margin: 0 auto 0 auto;
     background-color: #4DB1BC;
+
 }
 
-#container
+#body_container
 {
     width: 898px;
     margin: 0 auto 0 auto;
@@ -21,35 +22,85 @@
 #logo
 {
     width:50px;
-    height:50px;
-    margin: 5px 5px 0 20px;
+    height:50px;    
 }
-.menu
+
+#logo_container
 {
-     position: relative;
-     bottom: 15px;
-     font-size: 12pt; 
+    width:50px;
+    height:50px;
+    float: left;
+    position: relative;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: 20px;
+    
+}
+
+#logo_text_container
+{
+    float: left;
+    width: 100px;
+    position: relative;
+    top: 50%; 
+    margin-top: -0.7em; 
+    margin-left: 5px; 
+}
+
+#logo_text_link
+{
+    text-decoration: none;
+}
+
+
+
+#header_menu_container
+{
+    float: left;
+    position: relative;
+    top: 50%; 
+    margin-top: -0.65em; 
+    margin-left: 180px; 
+}
+
+.header_menu
+{
+     
+     font-size: 1.3em; 
      color: #ffffff; 
      text-decoration: none;
      font-weight: bold;
      font-family: sans-serif; 
      font-variant: normal;
-     padding: 10px 10px 15px 10px;
-    
+     border-right: solid 1px #449DA7;
+     padding: 23px 15px 19px 15px ;
+
+                   
 }
-#header a:hover
+#header_menu_container a:hover
 {
     color:#E4E4E4;
     background:#449DA7;
        
 }
-
-#first_item
+#logo_text_link:hover
 {
-    margin-left: 60px;   
+    background: #4DB1BC;
+    color: #ffffff;
 }
 
-#button_blok
+#people_link
+{   
+    border-left:solid 1px #449DA7;
+}
+
+#sign_out_button:hover
+{
+    color:#E4E4E4;
+    background:#449DA7;
+}
+
+#sign_out_button_container
 {
     margin-right: 15px;
     margin-top: 13px;
@@ -57,7 +108,7 @@
     float: right;
     height: 45px;    
 }
-#sign_out
+#sign_out_button
 {
     background-color: #4DB1BC;
     font-size: 12pt; 
@@ -75,16 +126,12 @@
 
 #logo_text
 {
-    margin-right:15px;
-    font-family: sans-serif; 
-    font-variant: normal;
-    font-size: 16pt;
-    color: #ffffff;
-    position: relative;
-    bottom:15px;
+    font-family: Gautami; 
+    font-size: 1.4em;
+    color: #ffffff;        
 } 
 
-#sign_out:hover
+#sign_out_buttont:hover
 {
     background:#449DA7;
     color:#E4E4E4;    
@@ -96,39 +143,37 @@
     bottom: 2px;      
 }
 
-.pagination_type
+.pagination_container
 {
-  margin: 20px auto 0 auto;
- 
-  width:700px;
-  height: auto;
-  min-height: 100px;
-  color:#696969;  
+    border: solid 1px black;
+    width:1000px;
+    height: auto;
+    min-height: 100px;
+    color:#696969; 
 }  
-
-.pagination_type ul
-{
-   margin: 0 0 0 10%;
-
-  
-}
  
-.type
+.pagination_link
 {
     list-style-type: none;  
     float:left;  
-    margin: 1px;
-    border: solid 1px #058FF9;
-    padding:3px 8px 3px 8px;
-          
+    
+    margin-right: -1px;
+            
 }
 
 
-.pagination_type ul li a
+.pagination_list li a
 {
     text-decoration: none;
-    color: #696969;
-    
+    color: #46172B;
+    padding:3px 8px 3px 9px;
+    border: solid 1px #858585;        
+}
+
+.pagination_list li a:hover
+{
+    color: #ffffff;
+    background:#46172B ;
 }
 
 #user_avatar
@@ -136,7 +181,7 @@
     margin-bottom: 30px;    
 }
 
-.user_info
+.user_info_link
 {
     margin-bottom: 20px;
     font-family: sans-serif; 
@@ -146,3 +191,21 @@
     color: #000000;
     text-decoration: none;
 }
+
+.pagination_list
+{
+    margin: 20px auto 0 auto;
+    height: 30px;
+    display:inline-block;
+    margin-left: -40px;   
+}
+
+.active
+{    
+    background-color:#D5D5D5;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+    bottom: 3px;      
+}
+

@@ -2,16 +2,24 @@
 
 </style>
 <div id="header" ng-controller="HeaderController">
-    <img id="logo" src="../images/logo.png"/> <span id="logo_text">Photo Quest</span>
-    <a id="first_item" class="menu" ng-href="##path=people">
-        People
-    </a>
-    <a class="menu" ng-href="##path=quests">
-        Photoquests
-    </a>
-
-    <div id="button_blok" ng-show="getSignedInUser()">
-        <button id="sign_out" ng-click="signout()"><span id="sign_out_text">Sign out</span></button>
+    <div id="logo_container">
+        <a id="logo_link" ng-href="##path=people" ><img id="logo"  src="../images/logo.png"/></a>
+    </div>
+    <div id="logo_text_container">
+        <a id="logo_text_link" ng-href="##path=people">
+            <span id="logo_text">PhotoQuest</span>
+        </a>
+    </div>
+    <div id="header_menu_container">
+        <a id="people_link" class="header_menu" ng-href="##path=people">
+            People
+        </a>    
+        <a class="header_menu" ng-href="##path=quests">
+            Photoquests
+        </a>
+    </div>
+    <div id="sign_out_button_container" ng-show="getSignedInUser()">             
+        <button id="sign_out_button" ng-click="signout()"><span id="sign_out_text">Sign out</span></button>       
     </div>
 
 </div>

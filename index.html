@@ -29,7 +29,15 @@
     <script type="application/javascript" src="js/pagination-init.js"> </script>
     <script type="application/javascript" src="js/infinite_scroll.js"> </script>
     <script type="application/javascript" src="js/http.js"> </script>
-
+    
+    <script>  $(function() {
+        $(«.pagination_link»).click(function(e) {
+        e.preventDefault();
+        $(«.pagination_link»).removeClass(«active»);
+        $(this).addClass(«active»);
+        });
+        });
+    </script>
 
     <script type="application/javascript" src="js/main.js">
 
@@ -42,30 +50,30 @@
         <div ng-include="'html/header.html'" >
         
         </div >
-        <div id="container">
-        
-        <div style="position: relative">
-            <script type="application/javascript" src="js/login.js"> </script>
-            <script type="application/javascript" src="js/register.js"> </script>
-            <div id="login_form_container" ng-include="'html/login.html'">
-        
+        <div id="body_container">
+            
+            <div style="position: relative">
+                <script type="application/javascript" src="js/login.js"> </script>
+                <script type="application/javascript" src="js/register.js"> </script>
+                <div id="login_form_container" ng-include="'html/login.html'">
+            
+                </div>
+            
+                <script type="application/javascript" src="js/photoquests.js"> </script>
+                <script type="application/javascript" src="js/photoquest.js"> </script>
+                <script type="application/javascript" src="js/people.js"> </script>
+                <script type="application/javascript" src="js/photo.js"> </script>
+                <script type="application/javascript" src="js/profile.js"> </script>
+                <script type="application/javascript" src="js/dialogs.js"> </script>
+                <script type="application/javascript" src="js/messages.js"> </script>
+                <div id="center_page_container" ng-include="getCenterPageContent()" align="center">
+            
             </div>
-        
-            <script type="application/javascript" src="js/photoquests.js"> </script>
-            <script type="application/javascript" src="js/photoquest.js"> </script>
-            <script type="application/javascript" src="js/people.js"> </script>
-            <script type="application/javascript" src="js/photo.js"> </script>
-            <script type="application/javascript" src="js/profile.js"> </script>
-            <script type="application/javascript" src="js/dialogs.js"> </script>
-            <script type="application/javascript" src="js/messages.js"> </script>
-            <div id="center_page_container" ng-include="getCenterPageContent()" align="center">
-        
-        </div>
-        
-            <script type="application/javascript">
-                Utilities.applyStylesToHtml();
-            </script>
-        </div>    
+            
+                <script type="application/javascript">
+                    Utilities.applyStylesToHtml();
+                </script>
+            </div>    
         
     </div>
 
