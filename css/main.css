@@ -27,8 +27,9 @@
     color: #ffffff;
     border-radius: 5px;
     border-style: none;
-    padding: 3px 5px;
-    font-size: 10pt;
+    /*padding: 3px 5px;*/
+    font-weight: bold;
+    padding: 0.5em 0.8em;
 }
 
 
