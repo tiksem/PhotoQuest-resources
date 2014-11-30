@@ -56,6 +56,8 @@ Http = {
         var password = $cookies.password;
         if(login && password){
             Http.signin($scope, $http, login, password, callback);
+        } else {
+            callback();
         }
     }
 }
