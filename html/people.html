@@ -23,12 +23,12 @@
                         <div style="display: inline-block; height: 200px">
                             <h1>{{user.name}}</h1>
                             <div>
-                                <button ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
+                                <button  class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
                                     {{getToggleFriendStatusButtonName(user)}}
                                 </button>
                             </div>
                             <div>
-                                <button ng-show="getSignedInUser()" ng-click="writeMessage(user)">
+                                <button class="button" ng-show="getSignedInUser()" ng-click="writeMessage(user)">
                                     Write message
                                 </button>
                             </div>

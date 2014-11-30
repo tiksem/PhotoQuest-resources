@@ -16,12 +16,12 @@
             Enter your last name
             <input name="lastName" ng-model="lastName" type="text">
         </label>
-        <label>
+        <label >
             Choose avatar
             <input type="file" name="file" ng-file-select="onFileSelect($files)"
                    multiple accept="image/*">
         </label>
-        <br>
-        <button ng-click="register()">Register</button>
+        <br/>
+        <button class="button" ng-click="register()">Register</button>
     </form>
 </div>

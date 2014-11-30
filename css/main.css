@@ -15,10 +15,29 @@
     border-left: 1px solid silver;
     border-right: 1px solid silver;
     border-bottom: 1px solid silver;
-    padding-bottom: 100px;
+    min-height: 500px;
     padding-top: 15px;
     background-color: #ffffff;
 }
+
+
+.button
+{
+    background:#4DB1BC;
+    color: #ffffff;
+    border-radius: 5px;
+    border-style: none;
+    padding: 3px 5px;
+    font-size: 10pt;
+}
+
+
+.button:hover
+{
+    background:#46172B;
+    color: #ffffff;
+}
+
 
 #logo
 {

@@ -22,7 +22,7 @@
     </div>
     <div style="text-align: center; position: relative">
         <h1>Photoquests</h1>
-        <button ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
+        <button class="button" ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
     </div>
     <div class="quest_container">
         <div dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
