@@ -23,13 +23,15 @@
 
 .button
 {
-    background:#FFFFDC;
-    color: #46172B;
+    background:#FFFFE4;
+    color: #1c94c4;
     border-radius: 5px;
-    padding: 3px 5px;
-    font-size: 11pt;
+    padding: 4px 10px;
+    font-family: "Trebuchet MS";
+    font-size: 10pt;
     font-weight: bold;
-    border: solid 1px #46172B;
+    border: solid 1px #C0C0C0;
+    
 }
 
 
