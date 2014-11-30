@@ -23,12 +23,13 @@
 
 .button
 {
-    background:#4DB1BC;
-    color: #ffffff;
+    background:#FFFFDC;
+    color: #46172B;
     border-radius: 5px;
-    border-style: none;
     padding: 3px 5px;
-    font-size: 10pt;
+    font-size: 11pt;
+    font-weight: bold;
+    border: solid 1px #46172B;
 }
 
 
