@@ -110,7 +110,17 @@ Utilities = {
         hash = this.createQueryString(map);
         $location.hash(hash);
     },
-    get: function($http, url, params, success) {
+    get: function($http, url, params, argsOrOnSuccess) {
+        var success = argsOrOnSuccess;
+        var finished;
+        var error;
+
+        if(typeof argsOrOnSuccess !== "function"){
+            success = argsOrOnSuccess.success;
+            finished = argsOrOnSuccess.finished;
+            error = argsOrOnSuccess.error;
+        }
+
         $http.get(window.location.origin + url, {
             params: params
         }).success(function(data) {
@@ -121,10 +131,26 @@ Utilities = {
             } else {
                 console.error("Error " + url);
                 console.error(data);
+                if(error){
+                    error(data);
+                }
             }
+
+            if(finished){
+                finished();
+            }
+
         }).error(function(){
             console.error("Error " + url);
             console.error(data);
+
+            if(error){
+                error(data);
+            }
+
+            if(finished){
+                finished();
+            }
         })
     }
 

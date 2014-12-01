@@ -1,6 +1,6 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
     'angularUtils.directives.dirPagination', 'infinite-scroll']);
-main.controller("Main", function($http, $scope, $location, $cookies){
+main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
     var signedInUser = null;
     $scope.getSignedInUser = function() {
         return signedInUser;
@@ -49,7 +49,7 @@ main.controller("Main", function($http, $scope, $location, $cookies){
         return defaultContent;
     }
 
-    Http.trySignInFromCookies($cookies, $scope, $http, function(){
+    Http.trySignInFromCookies($cookies, $timeout, $scope, $http, function(){
         $scope.getCenterPageContent = getCenterPageContent;
     });
 })

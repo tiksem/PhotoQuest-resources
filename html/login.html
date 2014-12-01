@@ -22,7 +22,7 @@
                 Profile
             </a><br />
             <a  class="user_info_link" ng-href="##path=dialogs" ng-show="getSignedInUser()">
-                Messages
+                Messages {{getSignedInUser().unreadMessagesCount}}
             </a><br />
             <a class="user_info_link" ng-href="##path=friends" ng-show="getSignedInUser()">
                 Friends

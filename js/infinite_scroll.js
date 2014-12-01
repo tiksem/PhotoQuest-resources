@@ -60,7 +60,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             load
         );
 
-        $interval(function() {
+        var handle = $interval(function() {
             if(busy){
                 return;
             }
@@ -70,6 +70,10 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             if (raw.scrollTop <= distance) {
                 load();
             }
+        });
+
+        scope.$on('$destroy', function() {
+            $interval.close(handle);
         });
     };
 }]);
