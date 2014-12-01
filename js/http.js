@@ -59,5 +59,6 @@ Http = {
         } else {
             callback();
         }
-    }
-}
+    },
+    GOOGLE_API_KEY: "AIzaSyAfhfIJpCrb29TbTafQ1UWSqqaSaOuVCIg"
+};

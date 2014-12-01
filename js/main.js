@@ -42,6 +42,8 @@ main.controller("Main", function($http, $scope, $location, $cookies){
             if(id && id.isNumber()){
                 return 'html/messages.html';
             }
+        } else if(path == "register") {
+            return 'html/register_dialog.html';
         }
 
         return defaultContent;

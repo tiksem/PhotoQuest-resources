@@ -30,6 +30,7 @@
     /*padding: 3px 5px;*/
     font-weight: bold;
     padding: 0.5em 0.8em;
+    text-decoration: none;
 }
 
 
@@ -248,5 +249,14 @@
     padding-bottom: 3px;
     position: relative;
     bottom: 3px;      
+}
+
+.count_widget {
+    background-color: #560400;
+    color: #ffffff;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    cursor: hand;
 }
 

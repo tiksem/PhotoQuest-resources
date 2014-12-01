@@ -1,5 +1,5 @@
-<div>
-    <form id="register_form" ng-controller="RegisterController">
+<div ng-controller="RegisterController">
+    <form id="register_form">
         <label>
             Enter your login
             <input name="login" ng-model="login" type="text">
@@ -22,6 +22,20 @@
                    multiple accept="image/*">
         </label>
         <br/>
+        <label>
+            Enter your city
+            <input id="register_location_input" />
+        </label>
+        <br />
+        <div ng-show="country && city">
+            <div>
+                Country: {{country}}
+            </div>
+            <div>
+                City: {{city}}
+            </div>
+        </div>
         <button class="button" ng-click="register()">Register</button>
+
     </form>
 </div>

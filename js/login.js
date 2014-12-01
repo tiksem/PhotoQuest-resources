@@ -10,12 +10,5 @@ main.controller("LoginController", function($rootScope, $scope, ngDialog, $eleme
         Http.signout($http);
     };
 
-    $scope.register = function(){
-        ngDialog.open({
-            template: 'html/register_dialog.html',
-            className: 'ngdialog-theme-default'
-        });
-    };
-
     Utilities.applyStylesToHtml($element);
 })

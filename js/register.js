@@ -4,12 +4,26 @@ main.controller("RegisterController", function($scope, $element, $http, $upload)
         $scope.avatar = $files[0];
     };
 
+    var register_location_input = $($element).find("#register_location_input")
+    register_location_input.autocomplete({
+        serviceUrl: '/getLocationSuggestions',
+        onSelect: function(suggestion) {
+            $scope.$apply(function(){
+                $scope.country = suggestion.country;
+                $scope.city = suggestion.city;
+                $scope.placeId = suggestion.placeId;
+            });
+            register_location_input.val("");
+        }
+    });
+
     $scope.register = function(){
         var data = {
             login: $scope.login,
             password: $scope.password,
             name: $scope.name,
-            lastName: $scope.lastName
+            lastName: $scope.lastName,
+            location: $scope.placeId
         };
 
         var url = window.location.origin + "//register";
@@ -22,10 +36,13 @@ main.controller("RegisterController", function($scope, $element, $http, $upload)
             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
         }).success(function (data, status, headers, config) {
             if (!data.error) {
-                $scope.closeThisDialog(null);
+                alert("Success!")
+                console.log(data);
             } else {
-                alert(data.error + " " + data.message)
-        }
+                var message = data.error + " " + data.message;
+                console.error(data);
+                alert(message)
+            }
         }).error(function(data){
             console.error(data);
         });
