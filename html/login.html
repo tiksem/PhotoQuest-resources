@@ -1,4 +1,4 @@
-<div class="left_container" ng-controller="LoginController">
+<div id="user_left_sidebar_block" ng-controller="LoginController">
     <form id="login_form" ng-show="!getSignedInUser()">
         <label>
             Enter your login
@@ -12,12 +12,12 @@
         <a href="##path=register" class="button" ng-click="register()">Register</a>
     </form>
 
-    <div ng-show="getSignedInUser()">
+    <div id="user_menu_block" ng-show="getSignedInUser()">
         <div id="user_avatar">
             <img width="100px" height="100px" ng-src="{{getSignedInUser().avatar}}" />
         </div>
 
-        <div >
+        <div id="user_menu" >
             <a class="user_info_link" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
                 Profile
             </a><br />
@@ -26,6 +26,15 @@
             </a><br />
             <a class="user_info_link" ng-href="##path=friends" ng-show="getSignedInUser()">
                 Friends
+            </a><br />
+            <a class="user_info_link" ng-show="getSignedInUser()">
+                News
+            </a><br />
+            <a class="user_info_link" ng-show="getSignedInUser()">
+                Replies
+            </a><br />
+            <a class="user_info_link" ng-show="getSignedInUser()">
+                Settings
             </a>
         </div>
     </div>

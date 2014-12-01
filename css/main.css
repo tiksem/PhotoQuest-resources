@@ -1,23 +1,9 @@
-#header 
-{
-    width: 900px;
-    height: 60px;
-    line-height: 60px;
-    margin: 0 auto 0 auto;
-    background-color: #4DB1BC;
-    position: relative;
-}
 
 #body_container
 {
-    width: 898px;
-    margin: 0 auto 0 auto;
-    border-left: 1px solid silver;
-    border-right: 1px solid silver;
-    border-bottom: 1px solid silver;
-    min-height: 500px;
-    padding-top: 15px;
-    background-color: #ffffff;
+    width: 900px;
+    margin: 0 auto 0 auto;            
+    padding-bottom: 70px;
 }
 
 
@@ -35,223 +21,40 @@
     cursor: pointer;
 }
 
-
 .button:hover
-{
+{   
     background:#46172B;
     color: #ffffff;
-}
-
-
-#logo
-{
-    width:50px;
-    height:50px;    
-}
-
-#logo_container
-{
-    width:50px;
-    height:50px;
-    float: left;
-    position: relative;
-    top: 50%;
-    margin-top: -25px;
-    margin-left: 20px;
-    
-}
-
-#logo_text_container
-{
-    float: left;
-    width: 100px;
-    position: relative;
-    display: inline-block;
-    height: inherit;
-    line-height: inherit;
-    vertical-align: middle;
-    margin-left: 5px;
-}
-
-#logo_text_link
-{
-    text-decoration: none;
-}
-
-#people_link_container
-{
-    float: left;
-    position: relative;
-    margin-left: 180px; 
-    border-right: solid 1px #449DA7; 
-    border-left:solid 1px #449DA7; 
-    padding-left: 15px; 
-    padding-right: 15px;
-}
-
-#photoquest_link_container
-{
-    float: left;
-    position: relative;
-    border-right: solid 1px #449DA7;
-    padding-left: 15px; 
-    padding-right: 15px;
-}
-
-#people_link_container:hover
-{
-    background:#449DA7;
-    color:#E4E4E4;
-}
-
-#photoquest_link_container:hover
-{
-    background:#449DA7;
-    color:#E4E4E4;
-}
-
-.header_menu
-{
-     font-size: 1.3em; 
-     color: #ffffff; 
-     text-decoration: none;
-     font-weight: bold;
-     font-family: sans-serif;
-     font-variant: normal;     
-}
-
-#header_menu_container:hover
-{
-    color:#E4E4E4;
-    background:#449DA7;
-    height: inherit;
-       
-}
-#logo_text_link:hover
-{
-    background: #4DB1BC;
-    color: #ffffff;
-}
-
-#people_link
-{   
-    border-left:solid 1px #449DA7;
-}
-
-#sign_out_button:hover
-{
-    color:#E4E4E4;
-    background:#449DA7;
-}
-
-#sign_out_button_container
-{
-    margin-right: 15px;
-    width: 80px; 
-    float: right;
-    height: 45px;
-    vertical-align: bottom;
-}
-#sign_out_button
-{
-    background-color: #4DB1BC;
-    font-size: 12pt; 
-    color: #ffffff; 
-    font-weight: bold;
-    font-family: sans-serif; 
-    font-variant: normal;
     cursor: pointer;
-    width: 80px;
-    height: 45px;
-    border: none;
-    position: relative;
-    vertical-align: bottom;
 }
 
-#logo_text
+#center_page_container
 {
-    font-family: Gautami; 
-    font-size: 1.4em;
-    color: #ffffff;        
-} 
-
-#sign_out_buttont:hover
-{
-    background:#449DA7;
-    color:#E4E4E4;    
-}
-
-#sign_out_text
-{
-    position: relative;
-    bottom: 2px;      
-}
-
-.pagination_container
-{
-    border: solid 1px black;
-    width:1000px;
-    height: auto;
-    min-height: 100px;
-    color:#696969; 
-}  
- 
-.pagination_link
-{
-    list-style-type: none;  
-    float:left;  
+    width: 696px;
+    margin-left:200px;
+    border-left: solid 1px silver;
+    border-top: solid 1px white;
+    min-height: 500px;
+    border-bottom: 1px solid silver;
+    margin-bottom: -1px;
     
-    margin-right: -1px;
-            
+    
+    
 }
 
+#center_and_user_block_container
 
-.pagination_list li a
-{
-    text-decoration: none;
-    color: #46172B;
-    padding:3px 8px 3px 9px;
-    border: solid 1px #858585;        
+{   
+    position: relative; 
+    height: 100%;   
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+    min-height: 500px;
+    background-color: #ffffff;
+    width: 898px;
 }
 
-.pagination_list li a:hover
-{
-    color: #ffffff;
-    background:#46172B ;
-}
-
-#user_avatar
-{
-    margin-bottom: 30px;    
-}
-
-.user_info_link
-{
-    margin-bottom: 20px;
-    font-family: sans-serif; 
-    font-variant: normal;
-    font-size: 10pt;
-    font-weight: bold;
-    color: #000000;
-    text-decoration: none;
-}
-
-.pagination_list
-{
-    margin: 20px auto 0 auto;
-    height: 30px;
-    display:inline-block;
-    margin-left: -40px;   
-}
-
-.active
-{    
-    background-color:#D5D5D5;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    position: relative;
-    bottom: 3px;      
-}
 
 .count_widget {
     background-color: #560400;

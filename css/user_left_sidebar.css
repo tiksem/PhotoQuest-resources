@@ -1,0 +1,61 @@
+#user_avatar
+{
+    border:solid 1px #46172B;
+    width: 100px;
+    height: 100px; 
+    margin-bottom: 20px;  
+}
+
+.user_info_link
+{
+    font-family: sans-serif; 
+    font-variant: normal;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+}
+
+#user_left_sidebar_block
+{
+    width: 160px;
+    margin: 20px auto 0 auto;
+    
+    
+  
+}
+
+#left_user_block
+{
+    height: inherit;
+    width: 200px;
+    position: absolute;
+    background: #F0F0F0;
+}
+
+#user_menu_block
+{
+    width: 100px;
+    margin-left: 50px;
+    
+    
+    
+}
+
+#user_menu a
+{
+   border-bottom: solid 1px silver;
+   display: block;
+   padding-top: 5px;
+   margin-bottom: -5px;  
+}
+
+#user_menu a:hover
+{
+    background:#87C8CF ;
+}
+
+
+
+
+
