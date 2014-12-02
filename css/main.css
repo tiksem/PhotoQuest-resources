@@ -1,3 +1,10 @@
+body {
+    font: 10pt "Trebuchet MS", sans-serif;
+    margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;
+    padding: 0;
+    background-color: aliceblue;
+    position: relative;
+}
 
 #body_container
 {
@@ -8,17 +15,18 @@
 
 
 .button
-{
+{   
+    font-size: 10pt;
     background:#4DB1BC;
     color: #ffffff;
     border-radius: 5px;
     border-style: none;
     /*padding: 3px 5px;*/
     font-weight: bold;
-    padding: 0.5em 0.8em;
+    padding:5px 10px;
     text-decoration: none;
-    cursor: hand;
     cursor: pointer;
+    font-size:10pt
 }
 
 .button:hover
@@ -65,3 +73,9 @@
     cursor: hand;
 }
 
+#login_form a
+{
+    font-size:10pt ;
+    padding: 4px 9px;
+    border-radius: 5px;
+}
