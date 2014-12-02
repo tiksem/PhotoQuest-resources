@@ -2,17 +2,27 @@
     #photo_content {
         align-self: center;
     }
+
     #photo_info {
         width: 300px;
         height: 50px;
         position: relative;
     }
+
     #photo_likes_count {
         position: absolute;
         left: 0;
         top: 0;
         margin: 10px;
     }
+
+    #photo_position {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 10px;
+    }
+
     .comment_likes_count {
         margin: 10px;
     }
@@ -44,6 +54,12 @@
                             <span>{{photo.likesCount + " like it!"}}</span>
                             <span ng-show="photo.yourLike">&nbsp; including You</span>
                         </div>
+                        <a href="##path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
+                            <div id="photo_position">
+                                <img src="../images/rating.png" width="20px" height="20px"/>
+                                <span>&nbsp; {{photo.position}}</span>
+                            </div>
+                        </a>
                     </div>
                 </td>
             </tr>

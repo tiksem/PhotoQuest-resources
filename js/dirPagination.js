@@ -229,13 +229,13 @@
                     }
                 });
 
-                scope.setCurrent = function(num) {
+                scope.setCurrentPage = function(num) {
                     if (isValidPageNumber(num)) {
                         paginationService.setCurrentPage(paginationId, num);
                     }
                 };
 
-                scope.getCurrent = function() {
+                scope.getCurrentPage = function() {
                     return paginationService.getCurrentPage(paginationId);
                 };
 
@@ -258,7 +258,7 @@
                     scope.pagination.current = page;
                     scope.pagination.last = scope.pages[scope.pages.length - 1];
                     if (scope.pagination.last < scope.pagination.current) {
-                        scope.setCurrent(scope.pagination.last);
+                        scope.setCurrentPage(scope.pagination.last);
                     }
                 }
 

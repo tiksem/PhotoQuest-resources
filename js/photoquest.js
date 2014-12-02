@@ -2,7 +2,9 @@ var main = angular.module("main");
 main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $location, $upload){
     $scope.contentLoaded = false;
 
-    var questId = Utilities.parseQuery($location.hash())["id"];
+    var query = Utilities.parseQuery($location.hash());
+    var questId = query["id"];
+
     var scope = $scope.quest = {};
     var url = window.location.origin + "//getPhotoquestById";
     var params = {
@@ -16,14 +18,29 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         var url = "//getPhotosOfPhotoquest";
         var countUrl = "//getPhotosOfPhotoquestCount"
 
-        PhotoquestUtils.initPagination($scope, $http, $location, {
-            url: url,
-            countUrl: countUrl,
-            scopeArrayName: "photos",
-            args: {
-                id: questId
-            }
-        });
+        var initPagination = function() {
+            PhotoquestUtils.initPagination($scope, $http, $location, {
+                url: url,
+                countUrl: countUrl,
+                scopeArrayName: "photos",
+                args: {
+                    id: questId
+                }
+            });
+        };
+
+        var photoId = query["photoId"];
+        if(photoId){
+            Utilities.get($http, '//getPhotoPosition', {
+                id: photoId
+            }, function(data) {
+                var page = data.result / $scope.pageSize;
+                Utilities.setQueryParam($location, "page", page);
+                initPagination();
+            });
+        } else {
+            initPagination();
+        }
     });
 
     $scope.openAddPhotoDialog = function() {

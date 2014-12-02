@@ -110,6 +110,9 @@ Utilities = {
         hash = this.createQueryString(map);
         $location.hash(hash);
     },
+    getQueryParam: function($location, key) {
+        return Utilities.parseQuery($location.hash())[key];
+    },
     get: function($http, url, params, argsOrOnSuccess) {
         var success = argsOrOnSuccess;
         var finished;
