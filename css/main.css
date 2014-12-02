@@ -26,7 +26,8 @@ body {
     padding:5px 10px;
     text-decoration: none;
     cursor: pointer;
-    font-size:10pt
+    font-size:10pt;
+    font-family: sans-serif;
 }
 
 .button:hover
@@ -71,11 +72,4 @@ body {
     border-radius: 2px;
     cursor: pointer;
     cursor: hand;
-}
-
-#login_form a
-{
-    font-size:10pt ;
-    padding: 4px 9px;
-    border-radius: 5px;
 }
