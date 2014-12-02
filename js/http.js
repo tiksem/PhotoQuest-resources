@@ -55,7 +55,7 @@ Http = {
                         }
                     },
                     valueProvider: function(data) {
-                        return data.unreadMessagesCount;
+                        return data.result;
                     }
                 });
 
@@ -104,6 +104,8 @@ Http = {
                 }
             });
         };
+
+        runTimeout();
 
         this.destroy = function() {
             $timeout.cancel(handle);
