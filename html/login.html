@@ -9,7 +9,9 @@
             <input name="password" ng-model="password" type="password">
         </label>
         <button class="button" ng-click="signin();">Sign In</button>
-        <a href="##path=register" class="button" ng-click="register()">Register</a>
+        <a href="##path=register">
+            <button class="button">Register</button>
+        </a>
     </form>
 
     <div id="user_menu_block" ng-show="getSignedInUser()">
