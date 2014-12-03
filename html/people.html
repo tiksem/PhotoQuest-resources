@@ -14,10 +14,12 @@
         <div dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems">
             <table>
                 <tr>
-                    <td ng-click="openProfile(user)">
-                        <div style="display: inline-block">
-                            <img width="200px" height="200px" ng-src="{{user.avatar}}"/>
-                        </div>
+                    <td>
+                        <a ng-href="#?path=profile&id={{user.id}}">
+                            <div style="display: inline-block">
+                                <img width="200px" height="200px" ng-src="{{user.avatar}}"/>
+                            </div>
+                        </a>
                     </td>
                     <td>
                         <div style="display: inline-block; height: 200px">
@@ -28,9 +30,11 @@
                                 </button>
                             </div>
                             <div>
-                                <button class="button" ng-show="getSignedInUser()" ng-click="writeMessage(user)">
-                                    Write message
-                                </button>
+                                <a ng-href="#?path=messages&id={{user.id}}">
+                                    <button class="button" ng-show="getSignedInUser()">
+                                        Write message
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </td>

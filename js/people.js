@@ -1,10 +1,5 @@
 var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http){
-    $scope.openProfile = function(user) {
-        $location.search("path", "profile");
-        $location.search("id", user.id);
-    };
-
     $scope.addOrRemoveFriend = function(user) {
         var config = {
             params: {
@@ -44,11 +39,6 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         } else {
             return "Add friend";
         }
-    };
-
-    $scope.writeMessage = function(user) {
-        $location.search("path", "messages");
-        $location.search("id" + user.id);
     };
 
     var url;
