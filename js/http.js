@@ -12,7 +12,7 @@ Http = {
             if (!data.error) {
                 $scope.setSignedInUser(null);
                 alert("Success!");
-                $scope.unreadMessagesCountUpdater.destroy();
+                $scope.statsUpdater.destroy();
             } else {
                 var message = data.error + " " + data.message;
                 alert(message);
@@ -43,19 +43,10 @@ Http = {
             if (!data.error) {
                 $scope.setSignedInUser(data);
 
-                $scope.unreadMessagesCountUpdater = new Http.RemoteValueUpdater($http, $timeout, {
-                    url: '/getUnreadMessagesCount',
-                    args: {
-                        userId: data.id
-                    },
-                    onValueChanged: function(oldValue, newValue) {
-                        $scope.getSignedInUser().unreadMessagesCount = newValue;
-                        if (oldValue && newValue > oldValue) {
-                            console.log("Message received");
-                        }
-                    },
-                    valueProvider: function(data) {
-                        return data.result;
+                $scope.statsUpdater = new Http.RemoteValueUpdater($http, $timeout, {
+                    url: "//getUserStats",
+                    onValueChanged: function (oldValue, newValue) {
+                        Utilities.addProperties($scope.getSignedInUser(), newValue);
                     }
                 });
 
@@ -79,7 +70,9 @@ Http = {
         }
     },
     RemoteValueUpdater: function($http, $timeout, params) {
-        var valueProvider = params.valueProvider;
+        var valueProvider = params.valueProvider || function(data) {
+                return data;
+            };
         var onValueChanged = params.onValueChanged;
         var value;
         var handle;

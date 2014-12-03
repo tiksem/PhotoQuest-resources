@@ -27,7 +27,7 @@
                 Messages {{getSignedInUser().unreadMessagesCount}}
             </a><br />
             <a class="user_info_link" ng-href="##path=friends" ng-show="getSignedInUser()">
-                Friends
+                Friends {{getSignedInUser().friendRequestsCount}}
             </a><br />
             <a class="user_info_link" ng-show="getSignedInUser()">
                 News

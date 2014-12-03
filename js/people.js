@@ -13,7 +13,7 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
         var removeFriend = user.relation == "friend" || user.relation == "request_sent";
         var url = window.location.origin +
-            (removeFriend ? "/removeFriend" : "/addFriend");
+            (removeFriend ? "//removeFriend" : "//addFriend");
 
         $http.get(url, config).success(function(data){
             if(!data.error){
