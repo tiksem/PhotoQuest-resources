@@ -1,6 +1,7 @@
 var main = angular.module("main");
 main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $location, $upload){
     $scope.contentLoaded = false;
+    $scope.pageSize = 10;
 
     var query = Utilities.parseQuery($location.hash());
     var questId = query["id"];
@@ -25,6 +26,9 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                 scopeArrayName: "photos",
                 args: {
                     id: questId
+                },
+                onPageChanged: function() {
+                    Utilities.setQueryParam($location, "photoId", undefined);
                 }
             });
         };
@@ -34,7 +38,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             Utilities.get($http, '//getPhotoPosition', {
                 id: photoId
             }, function(data) {
-                var page = data.result / $scope.pageSize;
+                var page = Math.floor(data.result / $scope.pageSize);
                 Utilities.setQueryParam($location, "page", page);
                 initPagination();
             });

@@ -73,7 +73,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
         });
 
         scope.$on('$destroy', function() {
-            $interval.close(handle);
+            $interval.cancel(handle);
         });
     };
 }]);

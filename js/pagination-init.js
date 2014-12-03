@@ -2,13 +2,14 @@ PhotoquestUtils = {};
 PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     $scope.pageSize = params.pageSize || 10;
     $scope.totalItems = 0;
-    $scope.pageNumber = Utilities.getQueryParam($location, "page") || 0;
+    $scope.pageNumber = Utilities.getQueryParam($location, "page") || 1;
     var url = window.location.origin + params.url;
     var countUrl = window.location.origin + params.countUrl;
     var args = params.args;
     var countArgs = params.countArgs || args;
     var success = params.success;
     var scopeArrayName = params.scopeArrayName;
+    var onPageChanged = params.onPageChanged;
     if(!scopeArrayName){
         throw new Error("define scopeArrayName");
     }
@@ -26,7 +27,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
 
     var loadPages = function() {
         var urlParams = {
-            offset: $scope.pageNumber * $scope.pageSize,
+            offset: ($scope.pageNumber - 1) * $scope.pageSize,
             limit: $scope.pageSize,
             order: getOrder()
         };
@@ -47,7 +48,10 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     };
 
     $scope.onPageChanged = function(pageNumber) {
-        $scope.pageNumber = --pageNumber;
+        if(onPageChanged){
+            onPageChanged();
+        }
+
         Utilities.setQueryParam($location, "page", pageNumber);
         loadData();
     };

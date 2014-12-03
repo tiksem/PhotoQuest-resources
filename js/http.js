@@ -102,7 +102,7 @@ Http = {
                 finished: function() {
                     runTimeout();
                 }
-            });
+            }, false);
         };
 
         runTimeout();
