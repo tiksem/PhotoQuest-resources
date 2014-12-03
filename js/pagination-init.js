@@ -53,6 +53,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
         }
 
         $location.search("page", pageNumber);
+        $scope.pageNumber = pageNumber;
         loadData();
     };
 
