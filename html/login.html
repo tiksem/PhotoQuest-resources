@@ -9,7 +9,7 @@
             <input name="password" ng-model="password" type="password">
         </label>
         <button class="button" ng-click="signin();">Sign In</button>
-        <a href="##path=register">
+        <a href="#?path=register">
             <button class="button">Register</button>
         </a>
     </form>
@@ -21,32 +21,32 @@
 
         <div id="user_menu" >
             <div class="user_menu_link_container">
-                <a class="user_info_link" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
+                <a class="user_info_link" ng-href="{{'#?path=profile&id=' + getSignedInUser().id}}">
                     Profile
                 </a>
             </div>
             <div class="user_menu_link_container">
-                <a  class="user_info_link" ng-href="##path=dialogs" ng-show="getSignedInUser()">
+                <a  class="user_info_link" ng-href="#?path=dialogs">
                     Messages {{getSignedInUser().unreadMessagesCount}}
                 </a>
             </div>
             <div class="user_menu_link_container">
-                <a class="user_info_link" ng-href="##path=friends" ng-show="getSignedInUser()">
+                <a class="user_info_link" ng-href="#?path=friends">
                     Friends {{getSignedInUser().friendRequestsCount}}
                 </a>
             </div>
             <div class="user_menu_link_container">
-                <a class="user_info_link" ng-show="getSignedInUser()">
+                <a class="user_info_link">
                     News
                 </a>
             </div>
             <div class="user_menu_link_container">
-                <a class="user_info_link" ng-show="getSignedInUser()">
+                <a class="user_info_link" ng-href="#?path=replies">
                     Replies {{getSignedInUser().unreadRepliesCount}}
                 </a>
             </div>    
             <div class="user_menu_link_container">
-                <a class="user_info_link" ng-show="getSignedInUser()">
+                <a class="user_info_link">
                     Settings
                 </a>
             </div>

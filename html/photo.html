@@ -54,7 +54,7 @@
                             <span>{{photo.likesCount + " like it!"}}</span>
                             <span ng-show="photo.yourLike">&nbsp; including You</span>
                         </div>
-                        <a href="##path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
+                        <a href="#?path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
                             <div id="photo_position">
                                 <img src="../images/rating.png" width="20px" height="20px"/>
                                 <span>&nbsp; {{photo.position}}</span>
@@ -79,7 +79,7 @@
                     </td>
                     <td>
                         <h2>
-                            <a ng-href="##profile_{{comment.user.id}}">
+                            <a ng-href="#?profile_{{comment.user.id}}">
                                 {{comment.user.name + " " + comment.user.lastName}}
                             </a>
                         </h2>

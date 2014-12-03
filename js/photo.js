@@ -1,6 +1,6 @@
 var main = angular.module("main");
 main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
-    var photoId = Utilities.parseQuery($location.hash())["id"];
+    var photoId = $location.search()["id"];
     $scope.image = window.location.origin + "/image/" + photoId;
 
     $scope.putComment = function() {

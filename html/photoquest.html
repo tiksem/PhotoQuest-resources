@@ -12,18 +12,19 @@
         </div>
         <br>
         <div>
-            <a ng-href="##path=quest&id={{quest.id}}&order=newest">
+            <a ng-href="#?path=quest&id={{quest.id}}&order=newest">
                 Newest
             </a>
-            <a ng-href="##path=quest&id={{quest.id}}&order=rated">
+            <a ng-href="#?path=quest&id={{quest.id}}&order=rated">
                 Most rated
             </a>
         </div>
         <br>
         <div dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
-             current-page="pageNumber"
-             ng-click="onPhotoClick(photo)">
-            <img width="200" height="200" ng-src="{{photo.url + '?width=200&height=200'}}" />
+             current-page="pageNumber">
+            <a ng-href="#?path=photo&id={{photo.id}}">
+                <img width="200" height="200" ng-src="{{photo.url + '?width=200&height=200'}}" />
+            </a>
         </div>
     </div>
 

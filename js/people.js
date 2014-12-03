@@ -1,7 +1,8 @@
 var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http){
     $scope.openProfile = function(user) {
-        $location.hash("path=profile&id=" + user.id);
+        $location.search("path", "profile");
+        $location.search("id", user.id);
     };
 
     $scope.addOrRemoveFriend = function(user) {
@@ -46,12 +47,13 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
     };
 
     $scope.writeMessage = function(user) {
-        $location.hash("path=messages&id=" + user.id);
+        $location.search("path", "messages");
+        $location.search("id" + user.id);
     };
 
     var url;
     var countUrl;
-    var requestType = Utilities.parseQuery($location.hash())["path"];
+    var requestType = $location.search()["path"];
     if(requestType == "friends"){
         url = "//friends";
         countUrl = "//getFriendsCount";

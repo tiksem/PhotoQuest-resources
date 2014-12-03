@@ -3,7 +3,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     $scope.contentLoaded = false;
     $scope.pageSize = 10;
 
-    var query = Utilities.parseQuery($location.hash());
+    var query = $location.search();
     var questId = query["id"];
 
     var scope = $scope.quest = {};
@@ -28,7 +28,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                     id: questId
                 },
                 onPageChanged: function() {
-                    Utilities.setQueryParam($location, "photoId", undefined);
+                    $location.search("photoId", null);
                 }
             });
         };
@@ -39,7 +39,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                 id: photoId
             }, function(data) {
                 var page = Math.floor(data.result / $scope.pageSize) + 1;
-                Utilities.setQueryParam($location, "page", page);
+                $location.search("page", page);
                 initPagination();
             });
         } else {
@@ -76,10 +76,6 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             })
         }
     };
-
-    $scope.onPhotoClick = function(photo) {
-        $location.hash("path=photo&id=" + photo.id);
-    }
 
     Utilities.applyStylesToHtml($element);
 });

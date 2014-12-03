@@ -103,20 +103,6 @@ Utilities = {
 
         return strs.join("&");
     },
-    setQueryParam: function($location, key, value) {
-        var hash = $location.hash();
-        var map = this.parseQuery(hash);
-        if (value === undefined || value === null) {
-            delete map[key];
-        } else{
-            map[key] = value;
-        }
-        hash = this.createQueryString(map);
-        $location.hash(hash);
-    },
-    getQueryParam: function($location, key) {
-        return Utilities.parseQuery($location.hash())[key];
-    },
     get: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         var success = argsOrOnSuccess;
         var finished;

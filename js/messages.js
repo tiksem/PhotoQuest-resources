@@ -1,26 +1,6 @@
 var main = angular.module("main");
 main.controller("MessagesController", function($scope, $location, $element, ngDialog, $http){
-    var updateSignedInStatus = function(oldValue, newValue) {
-        if(!oldValue && !newValue){
-            return;
-        }
-
-        if(!$scope.getSignedInUser()){
-            $location.hash("quests");
-            return false;
-        }
-
-        return true;
-    };
-
-    $scope.$watch(
-        function($scope) {
-            return $scope.getSignedInUser();
-        },
-        updateSignedInStatus
-    );
-
-    var userId = $scope.userId = Utilities.parseQuery($location.hash())["id"];
+    var userId = $scope.userId = $location.search()["id"];
     Http.loadUserToScope($scope.user = $scope.user || {}, $http, userId);
 
     $scope.getMessageAvatar = function(message) {

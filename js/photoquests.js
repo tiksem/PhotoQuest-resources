@@ -20,10 +20,6 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
-    $scope.openQuest = function(quest) {
-        $location.hash("path=quest&id=" + quest.id);
-    };
-
     var url = "//getPhotoquests";
     var countUrl = "//getPhotoquestsCount"
 

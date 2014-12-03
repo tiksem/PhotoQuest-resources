@@ -11,14 +11,14 @@ main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
 
     var getCenterPageContent = function(){
         var defaultContent = 'html/photoquests.html'
-        var hash = $location.hash();
-        if(!hash){
+
+        var search = $location.search();
+        if(!search){
             return defaultContent;
         }
 
-        var query = Utilities.parseQuery(hash);
-        var path = query["path"];
-        var id = query["id"];
+        var path = search["path"];
+        var id = search["id"];
 
         if(path == "quest"){
             if(id && id.isNumber()){
@@ -44,6 +44,8 @@ main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
             }
         } else if(path == "register") {
             return 'html/register_dialog.html';
+        } else if(path == "replies") {
+            return 'html/replies.html';
         }
 
         return defaultContent;
