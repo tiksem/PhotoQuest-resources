@@ -38,7 +38,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             Utilities.get($http, '//getPhotoPosition', {
                 id: photoId
             }, function(data) {
-                var page = Math.floor(data.result / $scope.pageSize);
+                var page = Math.floor(data.result / $scope.pageSize) + 1;
                 Utilities.setQueryParam($location, "page", page);
                 initPagination();
             });
