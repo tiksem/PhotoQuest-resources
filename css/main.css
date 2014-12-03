@@ -73,3 +73,8 @@ body {
     cursor: pointer;
     cursor: hand;
 }
+
+a {
+    color:black;
+    text-decoration:none
+}
