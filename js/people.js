@@ -1,8 +1,5 @@
 var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http){
-    $scope.pageNumber = 0;
-
-
     $scope.openProfile = function(user) {
         $location.hash("path=profile&id=" + user.id);
     };
