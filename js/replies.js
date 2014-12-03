@@ -12,7 +12,16 @@ main.controller("RepliesController", function($scope, $location, $element, $http
         } else if(type === 2) { //COMMENT
             return "commented your photo";
         }
-    }
+    };
+
+    $scope.getReplyLink = function(reply) {
+        var type = reply.type;
+        if(type === 0 || type === 1) {
+            return "#?path=profile&id=" + reply.user.id;
+        } else if(type === 2) { //COMMENT
+            return "#?path=photo&id=" + reply.comment.photoId;
+        }
+    };
 
     PhotoquestUtils.initPagination($scope, $http, $location, {
         url: url,
