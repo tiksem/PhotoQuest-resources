@@ -112,9 +112,7 @@
 #sign_out_button_container
 {
     margin-right: 15px;
-    width: 80px; 
     float: right;
-    height: 45px;
     vertical-align: bottom;
 }
 #sign_out_button
@@ -126,11 +124,13 @@
     font-family: sans-serif; 
     font-variant: normal;
     cursor: pointer;
-    width: 80px;
-    height: 45px;
     border: none;
     position: relative;
     vertical-align: bottom;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 #logo_text
