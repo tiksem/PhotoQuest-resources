@@ -20,24 +20,36 @@
         </div>
 
         <div id="user_menu" >
-            <a class="user_info_link" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
-                Profile
-            </a><br />
-            <a  class="user_info_link" ng-href="##path=dialogs" ng-show="getSignedInUser()">
-                Messages {{getSignedInUser().unreadMessagesCount}}
-            </a><br />
-            <a class="user_info_link" ng-href="##path=friends" ng-show="getSignedInUser()">
-                Friends {{getSignedInUser().friendRequestsCount}}
-            </a><br />
-            <a class="user_info_link" ng-show="getSignedInUser()">
-                News
-            </a><br />
-            <a class="user_info_link" ng-show="getSignedInUser()">
-                Replies
-            </a><br />
-            <a class="user_info_link" ng-show="getSignedInUser()">
-                Settings
-            </a>
+            <div class="user_menu_link_container">
+                <a class="user_info_link" ng-href="{{'##path=profile&id=' + getSignedInUser().id}}" ng-show="getSignedInUser()">
+                    Profile
+                </a>
+            </div>
+            <div class="user_menu_link_container">
+                <a  class="user_info_link" ng-href="##path=dialogs" ng-show="getSignedInUser()">
+                    Messages {{getSignedInUser().unreadMessagesCount}}
+                </a>
+            </div>
+            <div class="user_menu_link_container">
+                <a class="user_info_link" ng-href="##path=friends" ng-show="getSignedInUser()">
+                    Friends {{getSignedInUser().friendRequestsCount}}
+                </a>
+            </div>
+            <div class="user_menu_link_container">
+                <a class="user_info_link" ng-show="getSignedInUser()">
+                    News
+                </a>
+            </div>
+            <div class="user_menu_link_container">
+                <a class="user_info_link" ng-show="getSignedInUser()">
+                    Replies
+                </a>
+            </div>    
+            <div class="user_menu_link_container">
+                <a class="user_info_link" ng-show="getSignedInUser()">
+                    Settings
+                </a>
+            </div>
         </div>
     </div>
 </div>
