@@ -16,3 +16,9 @@ Array.prototype.unshiftAll = function(items) {
         this.unshift(items[i]);
     }
 };
+
+Array.prototype.pushAll = function(items) {
+    for(var i = 0; i < items.length; i++){
+        this.push(items[i]);
+    }
+};

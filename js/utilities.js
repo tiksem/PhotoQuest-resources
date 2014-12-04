@@ -147,6 +147,35 @@ Utilities = {
                 finished();
             }
         })
+    },
+    addCounterWatcher: function($scope, params) {
+        var valueProvider = params.valueProvider;
+        var onIncrease = params.onIncrease;
+        var onChanged = params.onChanged;
+        var onDecrease = params.onDecrease;
+
+        $scope.$watch(
+            function($scope){
+                return valueProvider($scope);
+            },
+            function(newValue, oldValue) {
+                if(newValue !== undefined && oldValue !== undefined){
+                    if(newValue > oldValue){
+                        if (onIncrease) {
+                            onIncrease(oldValue - newValue);
+                        }
+                    } else {
+                        if (onDecrease) {
+                            onDecrease(newValue - oldValue);
+                        }
+                    }
+
+                    if(onChanged){
+                        onChanged(newValue, oldValue);
+                    }
+                }
+            }
+        )
     }
 
 }

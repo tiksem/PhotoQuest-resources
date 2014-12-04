@@ -1,9 +1,17 @@
+<style>
+    #replies_container {
+        align-self: center;
+        margin: 30px;
+        display: inline;
+    }
+
+</style>
 <div ng-controller="RepliesController" style="width: 600px; align-self: center;">
     <div style="text-align: center; position: relative">
         <h1>Replies</h1>
     </div>
 
-    <div class="replies_container">
+    <div id="replies_container">
         <div dir-paginate="reply in replies | itemsPerPage: pageSize" total-items="totalItems">
             <a ng-href="{{getReplyLink(reply)}}">
                 <div>
@@ -17,12 +25,12 @@
                 </div>
             </a>
         </div>
-    </div>
 
-    <div>
-        <dir-pagination-controls boundary-links="true"
-                                 on-page-change="onPageChanged(newPageNumber)"
-                                 template-url="html/pagination_template.html">
-        </dir-pagination-controls>
+        <div>
+            <dir-pagination-controls boundary-links="true"
+                                     on-page-change="onPageChanged(newPageNumber)"
+                                     template-url="html/pagination_template.html">
+            </dir-pagination-controls>
+        </div>
     </div>
 </div>

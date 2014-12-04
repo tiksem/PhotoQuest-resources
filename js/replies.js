@@ -26,7 +26,8 @@ main.controller("RepliesController", function($scope, $location, $element, $http
     PhotoquestUtils.initPagination($scope, $http, $location, {
         url: url,
         countUrl: countUrl,
-        scopeArrayName: "replies"
+        scopeArrayName: "replies",
+        reloadOnUserCounterChanged: "unreadRepliesCount"
     });
 
     Utilities.applyStylesToHtml($element);

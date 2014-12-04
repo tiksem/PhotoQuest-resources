@@ -1,5 +1,5 @@
 <style>
-    .people_container {
+    #people_container {
         align-self: center;
         margin: 30px;
         display: inline;
@@ -10,7 +10,7 @@
     <div style="text-align: center; position: relative">
         <h1>People</h1>
     </div>
-    <div class="people_container">
+    <div id="people_container">
         <div dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems">
             <table>
                 <tr>
