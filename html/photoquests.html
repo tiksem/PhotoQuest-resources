@@ -25,7 +25,9 @@
         <button class="button" ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
     </div>
     <div class="quest_container">
-        <div dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems">
+        <div dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
+             current-page="pageNumber"
+                >
             <a ng-href="#?path=quest&id={{quest.id}}">
                 <div style="position: relative; width: 200px; height: 200px">
                     <img width="200px" height="200px" ng-src="{{quest.avatar}}"/>

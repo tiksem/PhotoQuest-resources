@@ -12,7 +12,9 @@
     </div>
 
     <div id="replies_container">
-        <div dir-paginate="reply in replies | itemsPerPage: pageSize" total-items="totalItems">
+        <div dir-paginate="reply in replies | itemsPerPage: pageSize" total-items="totalItems"
+             current-page="pageNumber"
+                >
             <a ng-href="{{getReplyLink(reply)}}">
                 <div>
                     <img width="50px" height="50px" ng-src="{{reply.user.avatar + '?width=50&height=50'}}"/>
