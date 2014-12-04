@@ -13,13 +13,23 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     );
 
     var url = params.url;
-    var countUrl = window.location.origin + params.countUrl;
+    var countUrl = params.countUrl ? window.location.origin + params.countUrl : undefined;
     var args = params.args;
     var countArgs = params.countArgs || args;
     var success = params.success;
     var scopeArrayName = params.scopeArrayName;
     var onPageChanged = params.onPageChanged;
     var reloadOnUserCounterChanged = params.reloadOnUserCounterChanged;
+    var countProvider = params.countProvider;
+
+    if(countProvider){
+        $scope.$watch(
+            countProvider,
+            function(newValue) {
+                $scope.totalItems = newValue || 0;
+            }
+        );
+    }
 
     if(!scopeArrayName){
         throw new Error("define scopeArrayName");
@@ -30,10 +40,15 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     };
 
     var getTotalItems = function(callback) {
-        Utilities.getTotalCount(countUrl, countArgs, $http, function(count){
-            $scope.totalItems = count;
-            callback(count);
-        });
+        if (countUrl) {
+            Utilities.getTotalCount(countUrl, countArgs, $http, function (count) {
+                $scope.totalItems = count;
+                callback(count);
+            });
+        } else {
+            $scope.totalItems = countProvider();
+            callback();
+        }
     };
 
     var loadPages = function(limit, offset, shouldAppend) {

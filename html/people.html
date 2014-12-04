@@ -10,6 +10,17 @@
     <div style="text-align: center; position: relative">
         <h1>People</h1>
     </div>
+    <div ng-show="showFriendTabs">
+        <a ng-href="#?path=friends">
+            Friends
+        </a>
+        <a ng-href="#?path=sent_requests">
+            Sent requests
+        </a>
+        <a ng-href="#?path=received_requests">
+            Received requests
+        </a>
+    </div>
     <div id="people_container">
         <div dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"

@@ -46,6 +46,10 @@ main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
             return 'html/register_dialog.html';
         } else if(path == "replies") {
             return 'html/replies.html';
+        } else if(path == "sent_requests") {
+            return 'html/sent_requests.html';
+        } else if(path == "received_requests") {
+            return 'html/received_requests.html';
         }
 
         return defaultContent;
