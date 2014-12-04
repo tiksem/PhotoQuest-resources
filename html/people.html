@@ -34,7 +34,7 @@
                         </a>
                      </div>
                         <div class="people_info_container">
-                            <span>{{user.name}}</span><br />
+                            <span>{{user.name + " " + user.lastName}}</span><br />
                             Ukraine, Kharkov<br /><br />
                             <div>
                                 <button  class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
