@@ -50,6 +50,8 @@ main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
             return 'html/sent_requests.html';
         } else if(path == "received_requests") {
             return 'html/received_requests.html';
+        } else if(path == "following_quests") {
+            return 'html/following_photoquests.html';
         }
 
         return defaultContent;

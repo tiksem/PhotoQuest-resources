@@ -12,7 +12,7 @@
     }
 </style>
 <div ng-controller="PhotoQuests" style="width: 600px; align-self: center;">
-    <div>
+    <div ng-show="showRatingTab">
         <a ng-href="#?path=quests&order=newest">
             Newest
         </a>
@@ -21,7 +21,7 @@
         </a>
     </div>
     <div style="text-align: center; position: relative">
-        <h1>Photoquests</h1>
+        <h1>{{title}}</h1>
         <button class="button" ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
     </div>
     <div class="quest_container">

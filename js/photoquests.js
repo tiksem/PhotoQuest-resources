@@ -20,8 +20,22 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
-    var url = "//getPhotoquests";
-    var countUrl = "//getPhotoquestsCount"
+    var url;
+    var countUrl;
+    var requestType = $location.search()["path"];
+
+    if(requestType == "quests" || !requestType){
+        url = "//getPhotoquests";
+        countUrl = "//getPhotoquestsCount";
+        $scope.showRatingTab = true;
+        $scope.title = "Photoquests";
+    } else if(requestType == "following_quests") {
+        url = "//getFollowingPhotoquests";
+        countUrl = "//getFollowingPhotoquestsCount";
+        $scope.title = "Following photoquests";
+    } else {
+        throw new Error("Invalid path");
+    }
 
     PhotoquestUtils.initPagination($scope, $http, $location, {
         url: url,
