@@ -28,17 +28,30 @@
         <div dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
-            <a ng-href="#?path=quest&id={{quest.id}}">
-                <div style="position: relative; width: 200px; height: 200px">
-                    <img width="200px" height="200px" ng-src="{{quest.avatar}}"/>
-                    <div class="count_widget photoquest_views_count">
-                        {{quest.viewsCount}}
-                    </div>
-                </div>
-                <div>
-                    <h1>{{quest.name}}</h1>
-                </div>
-            </a>
+            <table>
+                <tr>
+                    <td>
+                        <a ng-href="#?path=quest&id={{quest.id}}">
+                            <div style="position: relative; width: 200px; height: 200px">
+                                <img width="200px" height="200px" ng-src="{{quest.avatar}}"/>
+                                <div class="count_widget photoquest_views_count">
+                                    {{quest.viewsCount}}
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <div>
+                            <button class="button" ng-click="toggleFollowState(quest);">
+                                {{quest.isFollowing ? "Unfollow" : "Follow"}}
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <h1>{{quest.name}}</h1>
+            </div>
         </div>
     </div>
 

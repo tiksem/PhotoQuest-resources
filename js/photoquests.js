@@ -20,6 +20,16 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
+    $scope.toggleFollowState = function(quest) {
+        var isFollowing = quest.isFollowing;
+        var url = isFollowing ? "//unfollowQuest" : "//followQuest";
+        Utilities.get($http, url, {
+            questId: quest.id
+        }, function(){
+            quest.isFollowing = !quest.isFollowing;
+        });
+    };
+
     var url;
     var countUrl;
     var requestType = $location.search()["path"];
