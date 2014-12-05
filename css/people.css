@@ -27,12 +27,15 @@
 {
     font-size: 12pt;
     height: 150px;
-    display: inline-block;
+    width: 185px;
     text-align: left;
-    min-width: 180px;  
-    padding-left: 15px;
+    max-width: 185px;
+    margin-left: 150px; 
+    padding-left: 10px; 
+   
     color:#44192D ;
     word-wrap: break-word;
+    word-break: break-all;
 }
 
 
@@ -44,12 +47,13 @@
 
 #add_friend_button
 {
-     position: relative;
-     bottom: -22px;
+ 
+     margin-left: -1px;
 }
 
 #send_message_button
 {
-     position: relative;
-     bottom: -28px;
+     
+    margin-top: 5px;
+     margin-left: -1px;
 }
