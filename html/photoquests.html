@@ -41,7 +41,7 @@
                         </a>
                     </td>
                     <td>
-                        <div>
+                        <div ng-show="getSignedInUser()">
                             <button class="button" ng-click="toggleFollowState(quest);">
                                 {{quest.isFollowing ? "Unfollow" : "Follow"}}
                             </button>
