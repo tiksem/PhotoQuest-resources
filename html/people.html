@@ -28,12 +28,17 @@
                         <div class="people_info_container">
                             <span>{{user.name + " " + user.lastName}}</span><br />
                             {{user.country}}<br /> {{user.city}}<br />
-                            <div id="add_friend_button">
+                            <div class="add_friend_button">
                                 <button  class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
                                     {{getToggleFriendStatusButtonName(user)}}
                                 </button>
                             </div>
-                            <div id="send_message_button">
+                            <div ng-show="user.relation === 'request_received'">
+                                <button  class="button" ng-click="addOrRemoveFriend(user, true)">
+                                    Decline friend request
+                                </button>
+                            </div>
+                            <div class="send_message_button">
                                 <a ng-href="#?path=messages&id={{user.id}}">
                                     <button class="button" ng-show="getSignedInUser()">
                                         Write message

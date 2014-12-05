@@ -42,14 +42,13 @@
 }
 
 
-#add_friend_button
+.add_friend_button
 {
- 
      margin-left: -1px;
      margin-top: 15px;
 }
 
-#send_message_button
+.send_message_button
 {
      
     margin-top: 5px;

@@ -1,20 +1,24 @@
 var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http){
-    $scope.addOrRemoveFriend = function(user) {
+    $scope.addOrRemoveFriend = function(user, decline) {
         var config = {
             params: {
                 id: user.id
             }
         };
 
-        var removeFriend = user.relation == "friend" || user.relation == "request_sent";
+        var removeFriend = user.relation == "friend" || user.relation == "request_sent" || decline;
         var url = window.location.origin +
             (removeFriend ? "//removeFriend" : "//addFriend");
 
         $http.get(url, config).success(function(data){
             if(!data.error){
                 if(removeFriend){
-                    delete user.relation;
+                    if (!decline) {
+                        delete user.relation;
+                    } else {
+                        user.relation = "follows";
+                    }
                 } else {
                     if(user.relation == "request_received"){
                         user.relation = "friend";
@@ -35,6 +39,10 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         } else if(relation == "request_sent") {
             return "Cancel friend request"
         } else if(relation == "request_received") {
+            return "Accept friend request"
+        } else if(relation == "follows") {
+            return "Unfollow"
+        } else if(relation == "followed") {
             return "Accept friend request"
         } else {
             return "Add friend";
