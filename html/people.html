@@ -18,38 +18,35 @@
         <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
-                    <div class="people_avatar" >
-                        <a c ng-href="#?path=profile&id={{user.id}}">
-                            
-                                <img width="150px" height="150px" ng-src="{{user.avatar}}"/>
-                           
-                        </a>
-                     </div>
-                        <div class="people_info_container">
-                            <span>{{user.name + " " + user.lastName}}</span><br />
-                            {{user.country}}<br /> {{user.city}}<br />
-                            <div class="add_friend_button">
-                                <button  class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
-                                    {{getToggleFriendStatusButtonName(user)}}
-                                </button>
-                            </div>
-                            <div ng-show="user.relation === 'request_received'">
-                                <button  class="button" ng-click="addOrRemoveFriend(user, true)">
-                                    Decline friend request
-                                </button>
-                            </div>
-                            <div class="send_message_button">
-                                <a ng-href="#?path=messages&id={{user.id}}">
-                                    <button class="button" ng-show="getSignedInUser()">
-                                        Write message
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                   
-            
+            <div class="people_avatar">
+                <a ng-href="#?path=profile&id={{user.id}}">
+                    <img width="150px" height="150px" ng-src="{{user.avatar}}"/>
+                </a>
+            </div>
+            <div class="people_info_container">
+                <span>{{user.name + " " + user.lastName}}</span><br/>
+                {{user.country}}<br/> {{user.city}}<br/>
+
+                <div class="add_friend_button">
+                    <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
+                        {{getToggleFriendStatusButtonName(user)}}
+                    </button>
+                </div>
+                <div ng-show="user.relation === 'request_received'">
+                    <button class="button" ng-click="addOrRemoveFriend(user, true)">
+                        Decline friend request
+                    </button>
+                </div>
+                <div class="send_message_button">
+                    <a ng-href="#?path=messages&id={{user.id}}">
+                        <button class="button" ng-show="getSignedInUser()">
+                            Write message
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
-        
+
         <div>
             <dir-pagination-controls boundary-links="true"
                                      on-page-change="onPageChanged(newPageNumber)"
