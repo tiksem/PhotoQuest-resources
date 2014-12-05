@@ -3,12 +3,11 @@
 
 .single_people
 {
-   width: 350px;
-   height: 150px;
-   margin-bottom: 20px;
-   margin-left: -250px;
-   padding-bottom: 20px;
-   border-bottom: solid 1px silver;
+    width: 517px;
+    height: 200px; 
+    margin-left: -140px;  
+    margin-bottom: 20px;  
+    border-bottom: solid 1px silver;
  
   
 }
@@ -26,16 +25,14 @@
 .people_info_container
 {
     font-size: 12pt;
-    height: 150px;
-    width: 185px;
+    height: 200px;
+    width: 355px;
     text-align: left;
-    max-width: 185px;
+    max-width: 365px;
     margin-left: 150px; 
     padding-left: 10px; 
-   
     color:#44192D ;
     word-wrap: break-word;
-    word-break: break-all;
 }
 
 
@@ -49,6 +46,7 @@
 {
  
      margin-left: -1px;
+     margin-top: 15px;
 }
 
 #send_message_button
