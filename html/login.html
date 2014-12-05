@@ -22,32 +22,32 @@
         <div id="user_menu" >
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="{{'#?path=profile&id=' + getSignedInUser().id}}">
-                    Profile
+                    <span class="user_button">Profile</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a  class="user_info_link" ng-href="#?path=dialogs">
-                    Messages {{getSignedInUser().unreadMessagesCount}}
+                   <span class="user_button"> Messages {{getSignedInUser().unreadMessagesCount}}</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=friends">
-                    Friends {{getSignedInUser().friendRequestsCount}}
+                     <span class="user_button">Friends {{getSignedInUser().friendRequestsCount}}</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link">
-                    News
+                    <span class="user_button"> News</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=replies">
-                    Replies {{getSignedInUser().unreadRepliesCount}}
+                     <span class="user_button">Replies {{getSignedInUser().unreadRepliesCount}}</span>
                 </a>
             </div>    
             <div class="user_menu_link_container">
                 <a class="user_info_link">
-                    Settings
+                     <span class="user_button">Settings</span>
                 </a>
             </div>
         </div>

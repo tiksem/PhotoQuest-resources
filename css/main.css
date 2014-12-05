@@ -78,3 +78,15 @@ a {
     color:black;
     text-decoration:none
 }
+
+.filters
+{
+    border: solid 1px black;
+    width: 250px;
+    height: 400px;
+    float: right;
+    position: relative;
+    right: -50px;
+    
+    
+}

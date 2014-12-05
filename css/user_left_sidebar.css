@@ -65,3 +65,8 @@
 }
 
 
+.user_button
+{
+    position: relative;
+    left: 5px;
+}

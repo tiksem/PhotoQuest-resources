@@ -1,0 +1,41 @@
+
+
+
+.single_people
+{
+   width: 350px;
+   height: 150px;
+   margin-bottom: 20px;
+   margin-left: -250px;
+   padding-bottom: 20px;
+   border-bottom: solid 1px silver;
+ 
+  
+}
+
+.people_avatar
+{
+   height: 150px;
+   width: 150px;
+   float: left;
+   border: solid 1px #44192D;
+  
+   
+}
+
+.people_info_container
+{
+    font-size: 12pt;
+    height: 150px;
+    display: inline-block;
+    text-align: left;
+    min-width: 180px;  
+    padding-left: 15px;
+    color:#44192D ;
+}
+
+
+.people_info_container span
+{
+    font-weight: bold;
+}

@@ -21,22 +21,21 @@
             Received requests
         </a>
     </div>
-    <div id="people_container">
-        <div dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
+    <div class="people_container">
+        <div class="filters"> Блок фильтров</div>
+        <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
-            <table>
-                <tr>
-                    <td>
-                        <a ng-href="#?path=profile&id={{user.id}}">
-                            <div style="display: inline-block">
-                                <img width="200px" height="200px" ng-src="{{user.avatar}}"/>
-                            </div>
+                    <div class="people_avatar" >
+                        <a c ng-href="#?path=profile&id={{user.id}}">
+                            
+                                <img width="150px" height="150px" ng-src="{{user.avatar}}"/>
+                           
                         </a>
-                    </td>
-                    <td>
-                        <div style="display: inline-block; height: 200px">
-                            <h1>{{user.name}}</h1>
+                     </div>
+                        <div class="people_info_container">
+                            <span>{{user.name}}</span><br />
+                            Ukraine, Kharkov<br /><br />
                             <div>
                                 <button  class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
                                     {{getToggleFriendStatusButtonName(user)}}
@@ -50,10 +49,10 @@
                                 </a>
                             </div>
                         </div>
-                    </td>
-                </tr>
-            </table>
+                   
+            
         </div>
+        
         <div>
             <dir-pagination-controls boundary-links="true"
                                      on-page-change="onPageChanged(newPageNumber)"
