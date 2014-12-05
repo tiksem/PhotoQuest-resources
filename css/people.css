@@ -32,10 +32,24 @@
     min-width: 180px;  
     padding-left: 15px;
     color:#44192D ;
+    word-wrap: break-word;
 }
 
 
 .people_info_container span
 {
     font-weight: bold;
+}
+
+
+#add_friend_button
+{
+     position: relative;
+     bottom: -22px;
+}
+
+#send_message_button
+{
+     position: relative;
+     bottom: -28px;
 }

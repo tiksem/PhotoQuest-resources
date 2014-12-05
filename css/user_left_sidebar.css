@@ -1,8 +1,8 @@
 #user_avatar
 {
     border:solid 1px #46172B;
-    width: 100px;
-    height: 100px; 
+    width: 120px;
+    height: 120px; 
     margin-bottom: 20px;  
 }
 
@@ -35,11 +35,8 @@
 
 #user_menu_block
 {
-    width: 100px;
-    margin-left: 50px;
-    
-    
-    
+    width: 120px;
+    margin-left: 30px;
 }
 
 #user_menu a

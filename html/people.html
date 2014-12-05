@@ -27,13 +27,13 @@
                      </div>
                         <div class="people_info_container">
                             <span>{{user.name + " " + user.lastName}}</span><br />
-                            {{user.country}}, {{user.city}}<br /><br />
-                            <div>
+                            {{user.country}}<br /> {{user.city}}<br />
+                            <div id="add_friend_button">
                                 <button  class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
                                     {{getToggleFriendStatusButtonName(user)}}
                                 </button>
                             </div>
-                            <div>
+                            <div id="send_message_button">
                                 <a ng-href="#?path=messages&id={{user.id}}">
                                     <button class="button" ng-show="getSignedInUser()">
                                         Write message
