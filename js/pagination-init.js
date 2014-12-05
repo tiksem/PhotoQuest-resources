@@ -109,12 +109,17 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
         loadData();
     };
 
+    var centerPageContent = $scope.getCenterPageContent();
     $scope.$watch(
         function($scope) {
             var user = $scope.getSignedInUser();
             return getOrder() + " " + (user ? user.id : "null");
         },
-        loadData
+        function() {
+            if(centerPageContent === $scope.getCenterPageContent()){
+                loadData();
+            }
+        }
     );
 
     return {

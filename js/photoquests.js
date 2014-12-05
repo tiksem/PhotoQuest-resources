@@ -30,6 +30,18 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
+    $scope.getNewestHref = function() {
+        var search = $location.search();
+        search["order"] = "newest";
+        return Utilities.searchToUrlPart(search);
+    };
+
+    $scope.getMostRatedHref = function() {
+        var search = $location.search();
+        search["order"] = "rated";
+        return Utilities.searchToUrlPart(search);
+    };
+
     var url;
     var countUrl;
     var requestType = $location.search()["path"];

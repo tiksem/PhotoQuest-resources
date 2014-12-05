@@ -13,10 +13,10 @@
 </style>
 <div ng-controller="PhotoQuests" style="width: 600px; align-self: center;">
     <div ng-show="showRatingTab">
-        <a ng-href="#?path=quests&order=newest">
+        <a ng-href="{{getNewestHref()}}">
             Newest
         </a>
-        <a ng-href="#?path=quests&order=rated">
+        <a ng-href="{{getMostRatedHref()}}">
             Most rated
         </a>
     </div>

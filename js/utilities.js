@@ -176,6 +176,32 @@ Utilities = {
                 }
             }
         )
-    }
+    },
+    searchToUrlPart: function(search) {
+        var pairs = [];
+        for(var key in search){
+            if(search.hasOwnProperty(key)){
+                pairs.push(key + "=" + search[key]);
+            }
+        }
 
+        if(pairs.length <= 0){
+            return "";
+        }
+
+        return "#?" + pairs.join("&");
+    },
+
+    getUrlSearchPath: function($location) {
+        var search = $location.search();
+        return this.searchToUrlPart(search);
+    },
+    addToSearchPath: function($location, add) {
+        var search = this.getUrlSearchPath($location);
+        if(search){
+            return search + "&" + add;
+        }
+
+        return "#?" + add;
+    }
 }
