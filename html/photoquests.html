@@ -12,6 +12,14 @@
     }
 </style>
 <div ng-controller="PhotoQuests" style="width: 600px; align-self: center;">
+    <div ng-show="showCategoryTab">
+        <a ng-href="#?path=created_quests&order=rated">
+            Created
+        </a>
+        <a ng-href="#?path=following_quests&order=rated">
+            Following
+        </a>
+    </div>
     <div ng-show="showRatingTab">
         <a ng-href="{{getNewestHref()}}">
             Newest

@@ -4,19 +4,19 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         ngDialog.open({
             template: 'html/create_photo_quest_dialog.html',
             className: 'ngdialog-theme-default',
-            controller: 'PhotoQuests'
-        });
-    };
-
-    $scope.createPhotoquest = function() {
-        var config = {
-            params: {
-                name: $scope.createQuestName
+            controller: function($scope){
+                $scope.createPhotoquest = function() {
+                    var config = {
+                        params: {
+                            name: $scope.createQuestName
+                        }
+                    };
+                    var url = window.location.origin + "/createPhotoquest";
+                    $http.get(url, config).success(function(){
+                        $scope.closeThisDialog(null);
+                    });
+                };
             }
-        };
-        var url = window.location.origin + "/createPhotoquest";
-        $http.get(url, config).success(function(){
-            $scope.closeThisDialog(null);
         });
     };
 
@@ -46,18 +46,25 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
     var countUrl;
     var requestType = $location.search()["path"];
 
+    $scope.showCategoryTab = true;
     if(requestType == "quests" || !requestType){
         url = "//getPhotoquests";
         countUrl = "//getPhotoquestsCount";
-        $scope.showRatingTab = true;
         $scope.title = "Photoquests";
+        $scope.showCategoryTab = false;
     } else if(requestType == "following_quests") {
         url = "//getFollowingPhotoquests";
         countUrl = "//getFollowingPhotoquestsCount";
         $scope.title = "Following photoquests";
+    } else if(requestType == "created_quests") {
+        url = "//getCreatedPhotoquests";
+        countUrl = "//getCreatedPhotoquestsCount";
+        $scope.title = "Created photoquests";
     } else {
         throw new Error("Invalid path");
     }
+
+    $scope.showRatingTab = true;
 
     PhotoquestUtils.initPagination($scope, $http, $location, {
         url: url,
