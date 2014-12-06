@@ -18,7 +18,8 @@
         <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
-            <div class="people_avatar">
+
+ <div class="people_avatar">
                 <a ng-href="#?path=profile&id={{user.id}}">
                     <thumbnail size="150" src="user.avatar"></thumbnail>
                 </a>

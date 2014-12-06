@@ -1,16 +1,4 @@
-<style>
-    .quest_container {
-        align-self: center;
-        margin: 30px;
-    }
 
-    .photoquest_views_count {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        margin: 10px;
-    }
-</style>
 <div ng-controller="PhotoQuests" style="width: 600px; align-self: center;">
     <div ng-show="showCategoryTab">
         <a ng-href="#?path=created_quests&order=rated">
@@ -28,37 +16,32 @@
             Most rated
         </a>
     </div>
-    <div style="text-align: center; position: relative">
+    <div >
         <h1>{{title}}</h1>
         <button class="button" ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
     </div>
-    <div class="quest_container">
-        <div dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
+    <div class="quests_container">
+        <div  class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
-            <table>
-                <tr>
-                    <td>
-                        <a ng-href="#?path=quest&id={{quest.id}}">
-                            <div style="position: relative; width: 200px; height: 200px">
-                                <thumbnail size="200" src="quest.avatar"></thumbnail>
-                                <div class="count_widget photoquest_views_count">
+                       
+                        <div class="photoquest_img_container">                                
+                                <a ng-href="#?path=quest&id={{quest.id}}"><thumbnail size="150" src="quest.avatar"></thumbnail></a>
+                                <div class="photoquest_views_count">
                                     {{quest.viewsCount}}
                                 </div>
-                            </div>
-                        </a>
-                    </td>
-                    <td>
-                        <div ng-show="getSignedInUser()">
+                           
+                          </div>   
+    
+                        <div class="photoquest_info_container" ng-show="getSignedInUser()">
+                             <span>{{quest.name}}</span>
                             <button class="button" ng-click="toggleFollowState(quest);">
                                 {{quest.isFollowing ? "Unfollow" : "Follow"}}
                             </button>
                         </div>
-                    </td>
-                </tr>
-            </table>
+
             <div>
-                <h1>{{quest.name}}</h1>
+                
             </div>
         </div>
     </div>

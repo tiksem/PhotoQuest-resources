@@ -2,11 +2,12 @@
 
 
 .single_people
-{
+{   
+    padding-top: 45px;
     width: 517px;
     height: 200px; 
     margin-left: -140px;  
-    margin-bottom: 20px;  
+  
     border-bottom: solid 1px silver;
  
   
