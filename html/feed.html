@@ -1,0 +1,46 @@
+<style>
+    #feed_content {
+        align-self: center;
+    }
+</style>
+<div id="feed_content" ng-controller="FeedController" >
+    <div>
+        <div dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
+             current-page="pageNumber"
+                >
+            <table>
+                <tr>
+                    <td>
+                        <img width="50px" height="50px"
+                             ng-src="{{feed.user.avatar || avatar}}?width=50&height=50"
+                                />
+                    </td>
+                    <td>
+                        <div>
+                            {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
+                        </div>
+                        <div>
+                            {{
+                            feed.photo ?
+                            "published photo on " + feed.photoquest.name + " photoquest" :
+                            "created photoquest " + feed.photoquest.name
+                            }}
+                        </div>
+                    </td>
+                    <td ng-show="feed.photo">
+                        <img width="50px" height="50px"
+                             ng-src="{{feed.photo.url}}?width=50&height=50"
+                                />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <dir-pagination-controls boundary-links="true"
+                                 on-page-change="onPageChanged(newPageNumber)"
+                                 template-url="html/pagination_template.html">
+        </dir-pagination-controls>
+    </div>
+</div>

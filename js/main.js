@@ -52,6 +52,8 @@ main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
             return 'html/received_requests.html';
         } else if(path == "following_quests") {
             return 'html/following_photoquests.html';
+        } else if(path == "news") {
+            return 'html/news.html';
         }
 
         return defaultContent;
