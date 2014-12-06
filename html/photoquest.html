@@ -23,7 +23,7 @@
         <div dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber">
             <a ng-href="#?path=photo&id={{photo.id}}">
-                <img width="200" height="200" ng-src="{{photo.url + '?width=200&height=200'}}" />
+                <thumbnail size="200" src="photo.url"></thumbnail>
             </a>
         </div>
     </div>

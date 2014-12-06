@@ -28,6 +28,7 @@
                     <td>
                         <img width="30px" height="30px"
                              ng-src="{{getMessageAvatar(message) + '?width=30&height=30'}}" />
+                        <thumbnail size="120" src="getSignedInUser().avatar"></thumbnail>
                     </td>
                     <td>
                         <h2>
@@ -45,8 +46,7 @@
     </div>
     <div id="message_form">
         <div style="display: inline-flex">
-            <img width="50px" height="50px"
-                 ng-src="{{getSignedInUser().avatar + '?width=50&height=50'}}" />
+            <thumbnail size="50" src="getSignedInUser().avatar"></thumbnail>
         </div>
         <div style="display: inline-flex">
             <div>
@@ -54,8 +54,7 @@
             </div>
         </div>
         <div style="display: inline-flex">
-            <img width="50px" height="50px"
-                 ng-src="{{user.avatar + '?width=50&height=50'}}" />
+            <thumbnail size="50" src="user.avatar"></thumbnail>
         </div>
         <div style="display: block">
             <button ng-show="messageText != ''" ng-click="sendMessage()">

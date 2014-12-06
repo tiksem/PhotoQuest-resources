@@ -13,7 +13,7 @@
             <tr ng-repeat="dialog in dialogs">
                 <td>
                     <a ng-href="#?path=profile&id={{dialog.user.id}}">
-                        <img width="50px" height="50px" ng-src="{{dialog.user.avatar + '?width=50&height=50'}}" />
+                        <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
                     </a>
                 </td>
                 <td>
