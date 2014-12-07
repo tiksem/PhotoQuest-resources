@@ -68,8 +68,14 @@
                 <script type="application/javascript" src="js/messages.js"> </script>
                 <script type="application/javascript" src="js/replies.js"> </script>
                 <script type="application/javascript" src="js/feed.js"> </script>
+                <script type="application/javascript" src="js/refresh_directive.js"> </script>
 
-                <div align="center" id="center_page_container" ng-include="getCenterPageContent()">
+                <div ng-if="getCenterPageContent">
+                    <div refresh-include
+                     align="center" id="center_page_container"
+                     url="getCenterPageContent()">
+
+                    </div>
                 </div>
             
                 </div>

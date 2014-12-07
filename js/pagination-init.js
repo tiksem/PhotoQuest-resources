@@ -3,14 +3,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     $scope.pageSize = params.pageSize || 10;
     $scope.totalItems = 0;
 
-    $scope.$watch(
-        function($scope) {
-            return $location.search()["page"];
-        },
-        function(newValue) {
-            $scope.pageNumber = newValue || 1;
-        }
-    );
+    $scope.pageNumber = $location.search()["page"] || 1;
 
     var url = params.url;
     var countUrl = params.countUrl ? window.location.origin + params.countUrl : undefined;
@@ -105,21 +98,14 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
         }
 
         $location.search("page", pageNumber);
-        $scope.pageNumber = pageNumber;
-        loadData();
     };
 
-    var centerPageContent = $scope.getCenterPageContent();
     $scope.$watch(
         function($scope) {
             var user = $scope.getSignedInUser();
-            return getOrder() + " " + (user ? user.id : "null");
+            return (user ? user.id : "null");
         },
-        function() {
-            if(centerPageContent === $scope.getCenterPageContent()){
-                loadData();
-            }
-        }
+        loadData
     );
 
     return {
