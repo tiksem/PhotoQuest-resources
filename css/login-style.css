@@ -80,3 +80,23 @@ input[type="text"]:focus, input[type="password"]:focus
 {
     color:#51A1F1;
 }
+
+#button_sign_in
+{
+    position: relative;
+    left: -1px;
+}
+
+#register_link
+{
+    color:#0B68B4;
+    font-weight: bold;
+    position: relative;
+    top:5px;
+    left: 2px;
+}
+
+#register_link:hover
+{
+    text-decoration: underline;
+}

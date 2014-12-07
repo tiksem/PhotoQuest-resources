@@ -1,5 +1,5 @@
 
-<div ng-controller="PhotoQuests" style="width: 600px; align-self: center;">
+<div ng-controller="PhotoQuests" >
     <div ng-show="showCategoryTab">
         <a ng-href="#?path=created_quests&order=rated">
             Created
@@ -23,26 +23,27 @@
     <div class="quests_container">
         <div  class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
-                >
-                       
-                        <div class="photoquest_img_container">                                
-                                <a ng-href="#?path=quest&id={{quest.id}}"><thumbnail size="150" src="quest.avatar"></thumbnail></a>
-                                <div class="photoquest_views_count">
-                                    {{quest.viewsCount}}
-                                </div>
-                           
-                          </div>   
-    
-                        <div class="photoquest_info_container" ng-show="getSignedInUser()">
-                             <span>{{quest.name}}</span>
-                            <button class="button" ng-click="toggleFollowState(quest);">
-                                {{quest.isFollowing ? "Unfollow" : "Follow"}}
-                            </button>
-                        </div>
+                >                     
+             <div class="photoquest_img_container">                                
+                <a ng-href="#?path=quest&id={{quest.id}}"><thumbnail class="photoquest_img" size="150" src="quest.avatar"></thumbnail></a>
+                    <div class="photoquest_views_count">
+                        {{quest.viewsCount}}
+                    </div>
+               
+            </div>   
 
-            <div>
+            <div class="photoquest_info_container">
+                <a ng-href="#?path=quest&id={{quest.id}}">
+                    <span class="photoquest_info_quest_name">{{quest.name}}</span><br /><br />
+                </a>
                 
+                Created by ##########<br /><br />
+                
+                <button  class="button" class="photoquest_info_follow_button" ng-click="toggleFollowState(quest);" ng-show="getSignedInUser()">
+                    {{quest.isFollowing ? "Unfollow" : "Follow"}}
+                </button>
             </div>
+            
         </div>
     </div>
 

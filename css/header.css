@@ -114,6 +114,8 @@
     margin-right: 15px;
     float: right;
     vertical-align: bottom;
+    position: relative;
+    top:2px;
 }
 #sign_out_button
 {

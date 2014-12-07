@@ -1,5 +1,6 @@
-<div ng-controller="PeopleController" style="width: 600px; align-self: center;">
-    <div style="text-align: center; position: relative">
+<div class="filters"> Блок фильтров</div>
+<div ng-controller="PeopleController" class="people_page">
+    <div style="text-align: center; ">
         <h1>People</h1>
     </div>
     <div ng-show="showFriendTabs">
@@ -13,8 +14,8 @@
             Received requests
         </a>
     </div>
-    <div class="people_container">
-        <div class="filters"> Блок фильтров</div>
+    <div>
+        
         <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
@@ -25,7 +26,10 @@
                 </a>
             </div>
             <div class="people_info_container">
-                <span>{{user.name + " " + user.lastName}}</span><br/>
+                <a ng-href="#?path=profile&id={{user.id}}">
+                    <span class="user_info_text">{{user.name + " " + user.lastName}}</span><br/>
+                </a> 
+                   
                 {{user.country}}<br/> {{user.city}}<br/>
 
                 <div class="add_friend_button">

@@ -2,13 +2,11 @@
 {
         
     margin: 30px 0 50px 0px;
-    border: solid 1px black;
 }
 .photoquest_views_count 
 {
     text-align: left;
-    position: relative;
-    
+    position: relative;   
     border:solid 1px black;
     display: inline-block;
     float: right;
@@ -22,25 +20,48 @@
 
 .photoquest_container
 {
-    border: solid 1px black;
+    border-bottom: solid 1px silver;
     width: 600px;
     text-align: left;
+    max-height:200px ;
+    margin-top: 47px;
     
 }
 
 .photoquest_img_container
 {
     width: 150px; 
-    height: 150px;
-    border:solid 1px black;
+    height: 200px;    
 }
 
 .photoquest_info_container
 {
     position: relative;
-    border:solid 1px black;
-    width: 300px;
-    left: 150px;
-    bottom: 150px;
-    
+    width: 430px;
+    max-width: 430px;
+    max-height: 198px;
+    height: 198px;
+    left: 165px;
+    bottom: 201px;
+    font-size: 10pt;
+    color:#000000;    
+}
+
+.photoquest_info_quest_name
+{
+    font-size: 13pt;
+    color: #381323;    
+    word-wrap: break-word;
+}
+
+.photoquest_info_container button
+{
+    margin-left: -1px;
+}
+
+.photoquest_img
+{
+	position:absolute;
+	width:150px;
+	height:150px;
 }

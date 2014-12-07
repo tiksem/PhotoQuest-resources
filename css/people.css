@@ -5,10 +5,10 @@
 {   
     padding-top: 45px;
     width: 517px;
-    height: 200px; 
-    margin-left: -140px;  
-  
+    height: 200px;   
     border-bottom: solid 1px silver;
+    position: relative;
+    left: 10px;
  
   
 }
@@ -17,8 +17,8 @@
 {
    height: 150px;
    width: 150px;
+   margin-right: 10px;
    float: left;
-   border: solid 1px #44192D;
   
    
 }
@@ -30,16 +30,17 @@
     width: 355px;
     text-align: left;
     max-width: 365px;
-    margin-left: 150px; 
-    padding-left: 10px; 
-    color:#44192D ;
+    position: absolute;    
+    color:#000000 ;
+    right: #44192D;
     word-wrap: break-word;
+    left: 165px;
 }
 
 
 .people_info_container span
 {
-    font-weight: bold;
+   font-size: 13pt;
 }
 
 
@@ -53,5 +54,18 @@
 {
      
     margin-top: 5px;
-     margin-left: -1px;
+    margin-left: -1px;
+}
+
+.people_page
+{
+    width: 545px;
+    padding: 0;
+    position: relative;
+    right: 75px;
+}
+
+.user_info_text
+{
+    color:#44192D ;
 }
