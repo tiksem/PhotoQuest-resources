@@ -16,7 +16,21 @@
     </div>
     <div>
         <h1>{{title}}</h1>
-        <button class="button" ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
+        <div>
+            <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
+                Create PhotoQuest
+            </button>
+        </div>
+        <br />
+        <div>
+            <input ng-model="filter" />
+            <br/>
+            <a ng-href="{{getFilterHref(filter)}}">
+                <button class="button">
+                    Search
+                </button>
+            </a>
+        </div>
     </div>
     <div class="quests_container">
         <div class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize"

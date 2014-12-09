@@ -9,14 +9,12 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                     var tags = $.map($scope.tags, function(tag){
                         return tag.text;
                     });
-                    var config = {
-                        params: {
-                            name: $scope.createQuestName,
-                            tags: tags.join(" ")
-                        }
+                    var params = {
+                        name: $scope.createQuestName,
+                        tags: tags.join(" ")
                     };
-                    var url = window.location.origin + "/createPhotoquest";
-                    $http.get(url, config).success(function(){
+                    var url = "//createPhotoquest";
+                    Utilities.get($http, url, params, function(){
                         $scope.closeThisDialog(null);
                     });
                 };

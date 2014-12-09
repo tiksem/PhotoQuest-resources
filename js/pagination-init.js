@@ -58,6 +58,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, pa
         var urlParams = {
             offset: offset || (($scope.pageNumber - 1) * $scope.pageSize),
             limit: limit || $scope.pageSize,
+            filter: $scope.filter,
             order: getOrder()
         };
 
