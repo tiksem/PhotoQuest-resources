@@ -1,0 +1,63 @@
+.profile_container
+{
+    padding-top: 15px;   
+}
+
+.profile_avatar
+{
+
+    position:absolute;
+    left: 215px;
+    padding: 0;
+}
+
+.profile_feed_container
+{   
+    position: relative;
+    margin-top: 30px;
+    border-top: solid 1px silver;
+    width: 90%;
+    padding-top: 20px;
+}
+
+.profile_info_container
+{   
+    position: relative;
+    width: 380px;
+    text-align: left;
+    height: 250px;
+    left: 125px;
+    word-wrap: break-word;
+    font-size:12pt;
+    
+}
+
+.profile_user_name
+{
+    font-size: 14pt;
+    color: #46172B;
+}
+
+.feed_content
+{
+
+}
+.single_post
+{
+    border: solid 1px #4DB1BC;
+    width: 500px;
+    margin: 0 auto 20px auto;
+    text-align: left;
+    word-wrap: break-word;
+    font-size: 12pt;
+    font-family: "Trebuchet MS";
+    padding: 5px 5px;
+}
+
+.post_photo
+{
+    position: relative;
+    left: 100px;
+    top:20px;
+    padding-bottom: 20px;    
+}

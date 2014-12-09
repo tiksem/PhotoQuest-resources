@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<style>
-
-</style>
-<div id="profile" ng-controller="ProfileController" style="align-self: center">
-    <h1>
-        {{name + " " + lastName}}
-    </h1>
+<div class="profile_container" ng-controller="ProfileController" >
     <div>
-        <thumbnail size="300" src="avatar"></thumbnail>
+        <thumbnail class="profile_avatar" size="250" src="avatar"></thumbnail>
     </div>
+    <div class="profile_info_container">
+        <span class="profile_user_name">
+            {{name + " " + lastName}}
+        </span><br />
+        Ukraine, Kharkov<br />
+        Another Info <br /><br />
+        
+       <div class="add_friend_button">
+            <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
+               Add friend
+            </button>
+       </div>
+        <div ng-show="user.relation === 'request_received'">
+            <button class="button" ng-click="addOrRemoveFriend(user, true)">
+                Decline friend request
+            </button>
+        </div>
+        <div class="send_message_button">
+            <a ng-href="#?path=messages&id={{user.id}}">
+                <button class="button" ng-show="getSignedInUser()">
+                    Write message
+                </button>
+            </a>
+        </div>
+        
+    </div>
+
     <div>
-        <div ng-include="'html/feed.html'">
+        <div class="profile_feed_container" ng-include="'html/feed.html'">
 
         </div>
     </div>
