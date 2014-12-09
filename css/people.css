@@ -3,12 +3,13 @@
 
 .single_people
 {   
-    padding-top: 45px;
+    padding-top: 20px;
     width: 517px;
-    height: 200px;   
+    height: 170px;   
     border-bottom: solid 1px silver;
     position: relative;
     left: 10px;
+    max-height: 200px;
  
   
 }
@@ -26,7 +27,7 @@
 .people_info_container
 {
     font-size: 12pt;
-    height: 200px;
+    height: 170px;
     width: 355px;
     text-align: left;
     max-width: 365px;

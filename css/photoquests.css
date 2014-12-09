@@ -23,15 +23,15 @@
     border-bottom: solid 1px silver;
     width: 600px;
     text-align: left;
-    max-height:200px ;
-    margin-top: 47px;
+    max-height:170px ;
+    margin-top: 20px;
     
 }
 
 .photoquest_img_container
 {
     width: 150px; 
-    height: 200px;    
+    height: 170px;    
 }
 
 .photoquest_info_container
@@ -39,10 +39,10 @@
     position: relative;
     width: 430px;
     max-width: 430px;
-    max-height: 198px;
-    height: 198px;
+    max-height: 170px;
+    height: 170px;
     left: 165px;
-    bottom: 201px;
+    bottom: 170px;
     font-size: 10pt;
     color:#000000;    
 }

@@ -1,18 +1,20 @@
 <div class="filters"> Блок фильтров</div>
 <div ng-controller="PeopleController" class="people_page">
+    <div class="tab_container" style="width: 697px; height: 19px; padding-right:0;" ng-show="showFriendTabs">
+        <div class="category_tab" style="position: absolute; left: 193px;"  >
+            <a class="tab" ng-href="#?path=friends">
+                Friends
+            </a>
+            <a class="tab" ng-href="#?path=sent_requests">
+                Sent requests
+            </a>
+            <a class="tab" ng-href="#?path=received_requests">
+                Received requests
+            </a>
+        </div> 
+    </div>                     
     <div style="text-align: center; ">
         <h1>People</h1>
-    </div>
-    <div ng-show="showFriendTabs">
-        <a ng-href="#?path=friends">
-            Friends
-        </a>
-        <a ng-href="#?path=sent_requests">
-            Sent requests
-        </a>
-        <a ng-href="#?path=received_requests">
-            Received requests
-        </a>
     </div>
     <div>
         

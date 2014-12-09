@@ -4,20 +4,21 @@
     }
 </style>
 <div id="photoquest_content" ng-controller="PhotoQuest" >
+    <div class="tab_container">
+        <div  class="rating_tab" >
+            <a class="tab" ng-href="#?path=quest&id={{quest.id}}&order=newest">
+                    Newest
+            </a>
+            <a class="tab" ng-href="#?path=quest&id={{quest.id}}&order=newest">
+                Most rated
+            </a>
+        </div>              
+    </div>
     <h1 ng-show="!contentLoaded">Loading...</h1>
     <div ng-show="contentLoaded">
         <h1>{{quest.name}}</h1>
         <div>
             <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
-        </div>
-        <br>
-        <div>
-            <a ng-href="#?path=quest&id={{quest.id}}&order=newest">
-                Newest
-            </a>
-            <a ng-href="#?path=quest&id={{quest.id}}&order=rated">
-                Most rated
-            </a>
         </div>
         <br>
         <div dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
