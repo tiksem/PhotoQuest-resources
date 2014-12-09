@@ -1,8 +1,23 @@
+<style>
+#many_tags_error_message {
+    color: #b10001;
+}
+</style>
 <div style="width: 300px; align-self: center" class="dialog-contents" title="Create new photoquest">
     <h2>Enter photoquest name</h2>
 
-    <form>
+    <form ng-init="maxTags = 7">
         <input ng-model="createQuestName" name="name" type="text"/>
+        <div>
+            <tags-input ng-model="tags"
+                        min-length="3"
+                        max-length="25"
+                        max-tags="{{maxTags}}"
+                    ></tags-input>
+        </div>
+        <div id="many_tags_error_message" ng-show="tags.length > maxTags">
+            Only {{maxTags}} tags are allowed!
+        </div>
         <br>
         <button class="button" ng-click="createPhotoquest()" >Create</button>
     </form>

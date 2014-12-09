@@ -6,9 +6,13 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
             className: 'ngdialog-theme-default',
             controller: function($scope){
                 $scope.createPhotoquest = function() {
+                    var tags = $.map($scope.tags, function(tag){
+                        return tag.text;
+                    });
                     var config = {
                         params: {
-                            name: $scope.createQuestName
+                            name: $scope.createQuestName,
+                            tags: tags.join(" ")
                         }
                     };
                     var url = window.location.origin + "/createPhotoquest";

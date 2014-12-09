@@ -3,15 +3,6 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     $scope.pageSize = params.pageSize || 10;
     $scope.totalItems = 0;
 
-    $scope.$watch(
-        function($scope) {
-            return $location.search()["page"];
-        },
-        function(newValue) {
-            $scope.pageNumber = newValue || 1;
-        }
-    );
-
     var url = params.url;
     var countUrl = params.countUrl ? window.location.origin + params.countUrl : undefined;
     var args = params.args;
@@ -21,6 +12,16 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     var onPageChanged = params.onPageChanged;
     var reloadOnUserCounterChanged = params.reloadOnUserCounterChanged;
     var countProvider = params.countProvider;
+    var initialPath = $location.search()["path"];
+    var onLoadingStarted = params.onLoadingStarted;
+
+    var updatePageNumber = function() {
+        $scope.pageNumber = $location.search()["page"] || 1;
+    };
+
+    var checkPath = function() {
+        return $location.search()["path"] === initialPath;
+    };
 
     if(countProvider){
         $scope.$watch(
@@ -58,6 +59,10 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
             order: getOrder()
         };
 
+        if(onLoadingStarted){
+            onLoadingStarted();
+        }
+
         Utilities.addProperties(urlParams, args);
         Utilities.get($http, url, urlParams, function(data){
             if (!shouldAppend) {
@@ -73,6 +78,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     };
 
     var loadData = function() {
+        updatePageNumber();
         $scope[scopeArrayName] = [];
         if($scope.totalItems){
             loadPages();
@@ -109,18 +115,23 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
         loadData();
     };
 
-    var centerPageContent = $scope.getCenterPageContent();
     $scope.$watch(
         function($scope) {
             var user = $scope.getSignedInUser();
-            return getOrder() + " " + (user ? user.id : "null");
+            return (user ? user.id : "null");
         },
         function() {
-            if(centerPageContent === $scope.getCenterPageContent()){
+            if(checkPath()){
                 loadData();
             }
         }
     );
+
+    $scope.$on('$locationChangeStart', function(event) {
+        if(checkPath()){
+            loadData();
+        }
+    });
 
     return {
         loadData: loadData

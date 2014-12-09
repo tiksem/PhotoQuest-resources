@@ -1,51 +1,57 @@
-
-<div ng-controller="PhotoQuests" >
+<div ng-controller="PhotoQuests">
     <div class="tab_container">
         <div class="category_tab" ng-show="showCategoryTab">
-            <a class="tab" ng-href="#?path=created_quests&order=rated">
+            <a class="tab" ng-href="#?path=created_quests">
                 Created
             </a>
-            <a class="tab" ng-href="#?path=following_quests&order=rated">
+            <a class="tab" ng-href="#?path=following_quests">
                 Following
             </a>
-        </div> 
-        <div  class="rating_tab" ng-show="showRatingTab">
+        </div>
+        <div class="rating_tab" ng-show="showRatingTab">
             <a class="tab" ng-href="{{getNewestHref()}}">
-                    Newest
+                Newest
             </a>
             <a class="tab" ng-href="{{getMostRatedHref()}}">
                 Most rated
             </a>
-        </div>              
+        </div>
     </div>
-    <div >
+    <div>
         <h1>{{title}}</h1>
         <button class="button" ng-click="openCreatePhotoquestDialog()">Create PhotoQuest</button>
     </div>
     <div class="quests_container">
-        <div  class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize" total-items="totalItems"
+        <div class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize"
+             total-items="totalItems"
              current-page="pageNumber"
-                >                     
-             <div class="photoquest_img_container">                                
-                <a ng-href="#?path=quest&id={{quest.id}}"><thumbnail class="photoquest_img" size="150" src="quest.avatar"></thumbnail></a>
-                    <div class="photoquest_views_count">
-                        {{quest.viewsCount}}
-                    </div>
-               
-            </div>   
+                >
+            <div class="photoquest_img_container">
+                <a ng-href="#?path=quest&id={{quest.id}}">
+                    <thumbnail class="photoquest_img" size="150" src="quest.avatar"></thumbnail>
+                </a>
+
+                <div class="photoquest_views_count">
+                    {{quest.viewsCount}}
+                </div>
+
+            </div>
 
             <div class="photoquest_info_container">
                 <a ng-href="#?path=quest&id={{quest.id}}">
-                    <span class="photoquest_info_quest_name">{{quest.name}}</span><br /><br />
+                    <span class="photoquest_info_quest_name">{{quest.name}}</span><br/><br/>
                 </a>
                 
-                Created by ##########<br /><br />
-                
-                <button  class="button" class="photoquest_info_follow_button" ng-click="toggleFollowState(quest);" ng-show="getSignedInUser()">
+                <span ng-show="quest.user">
+                    Created by {{quest.user.name + " " + quest.user.lastName}}<br/><br/>
+                </span>
+
+                <button class="button" class="photoquest_info_follow_button" ng-click="toggleFollowState(quest);"
+                        ng-show="getSignedInUser()">
                     {{quest.isFollowing ? "Unfollow" : "Follow"}}
                 </button>
             </div>
-            
+
         </div>
     </div>
 
