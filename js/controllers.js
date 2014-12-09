@@ -2,8 +2,10 @@ ControllerUtils = {
     getAddSearchParamFunction: function($location, key, value) {
         return function() {
             var search = $location.search();
-            search[key] = value;
-            return Utilities.searchToUrlPart(search);
+            var copy = {};
+            Utilities.addProperties(copy, search);
+            copy[key] = value;
+            return Utilities.searchToUrlPart(copy);
         };
     },
     initPaginationController: function($scope, $location) {
