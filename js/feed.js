@@ -9,7 +9,7 @@ main.controller("FeedController", function($scope, $location, $element, $http){
         userId: search["id"]
     };
 
-    PhotoquestUtils.initPagination($scope, $http, $location, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
         url: url,
         countUrl: countUrl,
         args: args,

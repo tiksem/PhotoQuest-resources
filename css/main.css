@@ -126,7 +126,11 @@ a {
     
 }
 
-.tab:hover
+a.tab.disabledTab {
+    background: #0012d6;
+}
+
+.tab:hover, a.tab.activeTab
 {
     background: white;
 }

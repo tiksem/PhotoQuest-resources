@@ -1,5 +1,7 @@
 PhotoquestUtils = {};
-PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
+PhotoquestUtils.initPagination = function($scope, $http, $location, $element, params) {
+    ControllerUtils.initPaginationController($scope, $location);
+
     $scope.pageSize = params.pageSize || 10;
     $scope.totalItems = 0;
 
@@ -71,6 +73,8 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
                 $scope[scopeArrayName].pushAll(data[scopeArrayName]);
             }
 
+            $scope.contentIsLoading = false;
+
             if(success){
                 success();
             }
@@ -78,8 +82,10 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, params) {
     };
 
     var loadData = function() {
+        $scope.contentIsLoading = true;
         updatePageNumber();
         $scope[scopeArrayName] = [];
+
         if($scope.totalItems){
             loadPages();
         } else {

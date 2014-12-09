@@ -23,7 +23,7 @@ main.controller("RepliesController", function($scope, $location, $element, $http
         }
     };
 
-    PhotoquestUtils.initPagination($scope, $http, $location, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
         url: url,
         countUrl: countUrl,
         scopeArrayName: "replies",

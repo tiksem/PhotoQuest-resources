@@ -83,7 +83,7 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
     $scope.showFriendTabs = requestType !== "people";
 
-    PhotoquestUtils.initPagination($scope, $http, $location, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
         url: url,
         countUrl: countUrl,
         scopeArrayName: "users",

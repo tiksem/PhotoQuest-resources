@@ -20,7 +20,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         var countUrl = "//getPhotosOfPhotoquestCount"
 
         var initPagination = function() {
-            PhotoquestUtils.initPagination($scope, $http, $location, {
+            PhotoquestUtils.initPagination($scope, $http, $location, $element, {
                 url: url,
                 countUrl: countUrl,
                 scopeArrayName: "photos",
