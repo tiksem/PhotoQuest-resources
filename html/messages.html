@@ -26,9 +26,9 @@
             <table>
                 <tr ng-repeat="message in messages" ng-click="openMessages(dialog)">
                     <td>
-                        <img width="30px" height="30px"
-                             ng-src="{{getMessageAvatar(message) + '?width=30&height=30'}}" />
-                        <thumbnail size="120" src="getSignedInUser().avatar"></thumbnail>
+                        <thumbnail size="30" src="message.fromUserId == getSignedInUser().id
+                        ?
+                        getSignedInUser().avatar : user.avatar"></thumbnail>
                     </td>
                     <td>
                         <h2>

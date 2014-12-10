@@ -1,20 +1,26 @@
-<div class="feed_content" ng-controller="FeedController" >
+<div class="feed_content" ng-controller="FeedController">
     <div>
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
+            <div>
+                <thumbnail src="feed.user.avatar || avatar" size="50"></thumbnail>
+                {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
+            </div>
             <div class="post_info">
                 {{
                 feed.photo ?
-                "published photo on "  + feed.photoquest.name  + " photoquest" :
-                "created photoquest " + feed.photoquest.name
-                }}
+                "published photo on " : "created photoquest "}}
+                <a ng-href="#?path=quest&id={{feed.photoquest.id}}">
+                    {{feed.photoquest.name}}
+                </a>
+                {{feed.photo ? " photoquest" : ""}}
             </div>
-            
+
             <div class="post_photo" ng-show="feed.photo">
                 <thumbnail src="feed.photo.url" size="300"></thumbnail>
             </div>
-               
+
         </div>
     </div>
 
