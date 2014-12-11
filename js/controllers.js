@@ -11,9 +11,11 @@ ControllerUtils = {
     initPaginationController: function($scope, $location) {
         $scope.getNewestHref = this.getAddSearchParamFunction($location, "order", "newest");
         $scope.getMostRatedHref = this.getAddSearchParamFunction($location, "order", "rated");
-        $scope.getFilterHref = function(query) {
+        $scope.getSearchHref = function() {
             var search = $location.search();
-            search["filter"] = query;
+            search["filter"] = $scope.filter;
+            search["location"] = $scope.placeId;
+            Utilities.deleteUndefinedValues(search);
             return Utilities.searchToUrlPart(search);
         };
 

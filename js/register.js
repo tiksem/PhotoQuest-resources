@@ -4,19 +4,6 @@ main.controller("RegisterController", function($scope, $element, $http, $upload)
         $scope.avatar = $files[0];
     };
 
-    var register_location_input = $($element).find("#register_location_input")
-    register_location_input.autocomplete({
-        serviceUrl: '/getLocationSuggestions',
-        onSelect: function(suggestion) {
-            $scope.$apply(function(){
-                $scope.country = suggestion.country;
-                $scope.city = suggestion.city;
-                $scope.placeId = suggestion.placeId;
-            });
-            register_location_input.val("");
-        }
-    });
-
     $scope.register = function(){
         var data = {
             login: $scope.login,

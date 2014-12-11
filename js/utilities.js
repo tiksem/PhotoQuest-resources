@@ -207,5 +207,12 @@ Utilities = {
     getDisplayDate: function(rawValue) {
         var date = new Date(rawValue);
         return date.toDateString() + " " + date.toTimeString().replace(/ GMT.+$/, "");
+    },
+    deleteUndefinedValues: function(arr) {
+        for(var i in arr){
+            if(i === undefined || i === null){
+                delete arr[i];
+            }
+        }
     }
 }

@@ -55,10 +55,12 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, pa
     };
 
     var loadPages = function(limit, offset, shouldAppend) {
+        var search = $location.search();
         var urlParams = {
             offset: offset || (($scope.pageNumber - 1) * $scope.pageSize),
             limit: limit || $scope.pageSize,
-            filter: $scope.filter,
+            filter: search["filter"],
+            location: search["location"],
             order: getOrder()
         };
 

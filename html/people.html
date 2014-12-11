@@ -18,9 +18,15 @@
     </div>
 
     <div>
+        <div>
+            Enter location
+            <input location-input />
+        </div>
+
+        Enter filter
         <input ng-model="filter" />
         <br/>
-        <a ng-href="{{getFilterHref(filter)}}">
+        <a ng-href="{{getSearchHref()}}">
             <button class="button">
                 Search
             </button>
