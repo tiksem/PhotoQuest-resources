@@ -5,6 +5,7 @@ ControllerUtils = {
             var copy = {};
             Utilities.addProperties(copy, search);
             copy[key] = value;
+            Utilities.deleteUndefinedValues(copy);
             return Utilities.searchToUrlPart(copy);
         };
     },
@@ -13,10 +14,12 @@ ControllerUtils = {
         $scope.getMostRatedHref = this.getAddSearchParamFunction($location, "order", "rated");
         $scope.getSearchHref = function() {
             var search = $location.search();
-            search["filter"] = $scope.filter;
-            search["location"] = $scope.placeId;
-            Utilities.deleteUndefinedValues(search);
-            return Utilities.searchToUrlPart(search);
+            var copy = {};
+            Utilities.addProperties(copy, search);
+            copy["filter"] = $scope.filter;
+            copy["location"] = $scope.placeId;
+            Utilities.deleteUndefinedValues(copy);
+            return Utilities.searchToUrlPart(copy);
         };
 
         $scope.getDisplayDate = function(addingDate) {

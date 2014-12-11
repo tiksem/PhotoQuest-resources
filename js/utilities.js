@@ -210,8 +210,10 @@ Utilities = {
     },
     deleteUndefinedValues: function(arr) {
         for(var i in arr){
-            if(i === undefined || i === null){
-                delete arr[i];
+            if (arr.hasOwnProperty(i)) {
+                if (i === undefined || i === null || i === "undefined") {
+                    delete arr[i];
+                }
             }
         }
     }
