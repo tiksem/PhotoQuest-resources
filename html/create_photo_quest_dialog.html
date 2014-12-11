@@ -11,8 +11,11 @@
         <div>
             <tags-input ng-model="tags"
                         min-length="3"
-                        max-length="25"
+                        max-length="20"
                         max-tags="{{maxTags}}"
+                        add-on-space="true"
+                        add-on-comma="false"
+                        allowed-tags-pattern="([^\u0000-\u0080]|[a-zA-Z])+"
                     ></tags-input>
         </div>
         <div id="many_tags_error_message" ng-show="tags.length > maxTags">
