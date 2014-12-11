@@ -40,24 +40,51 @@
 
 .feed_content
 {
-
+    width: 410px;
+    margin-bottom: 10px;
 }
 .single_post
 {
-    border: solid 1px #4DB1BC;
-    width: 500px;
-    margin: 0 auto 20px auto;
+    
+    width: 300px;
+    margin: 0 auto 10px auto;
     text-align: left;
     word-wrap: break-word;
     font-size: 12pt;
     font-family: "Trebuchet MS";
     padding: 5px 5px;
+   
 }
 
 .post_photo
 {
+    position: relative;  
+    padding-top: 5px;     
+}
+
+.post_user_avatar{
+    float: left;
+    margin-left: -55px;
+    margin-top: 4px;
+    padding-right: 5px;
+    
+}
+
+.post_container{
     position: relative;
-    left: 100px;
-    top:20px;
-    padding-bottom: 20px;    
+    left: -50px;
+    width: 300px;
+    padding-left: 60px;
+    padding-bottom: 20px; 
+    border-bottom: solid 1px #4DB1BC; 
+    padding-right: 20px;  
+}
+
+.post_info span{
+    color:#46172B;
+    font-weight: bold;
+}
+
+.feed_content h3{
+    color:#46172B;
 }

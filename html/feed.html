@@ -1,27 +1,30 @@
 <div class="feed_content" ng-controller="FeedController">
-    <div>
+    <div>        
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
-             current-page="pageNumber"
-                >
-            <div>
-                <thumbnail src="feed.user.avatar || avatar" size="50"></thumbnail>
-                {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
-            </div>
-            <div>
-                {{getDisplayDate(feed.addingDate)}}
-            </div>
-            <div class="post_info">
-                {{
-                feed.photo ?
-                "published photo on " : "created photoquest "}}
-                <a ng-href="#?path=quest&id={{feed.photoquest.id}}">
-                    {{feed.photoquest.name}}
+             current-page="pageNumber">
+             <div class="post_container">
+                <a ng-href="#?path=profile&id={{feed.user.id}}">
+                    <thumbnail class="post_user_avatar" src="feed.user.avatar || avatar" size="50"></thumbnail>
                 </a>
-                {{feed.photo ? " photoquest" : ""}}
-            </div>
-
-            <div class="post_photo" ng-show="feed.photo">
-                <thumbnail src="feed.photo.url" size="300"></thumbnail>
+                <div>
+                    {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
+                </div>
+                <div>
+                    11 jun 2014 at 20:40
+                </div><br />
+                <div class="post_info">
+                    {{
+                    feed.photo ?
+                    "published photo on " : "created photoquest "}}
+                    <a ng-href="#?path=quest&id={{feed.photoquest.id}}">
+                        <span>{{feed.photoquest.name}}</span>
+                    </a>
+                    {{feed.photo ? " photoquest" : ""}}
+                </div>
+    
+                <div class="post_photo" ng-show="feed.photo">
+                    <thumbnail src="feed.photo.url" size="300"></thumbnail>
+                </div>
             </div>
 
         </div>

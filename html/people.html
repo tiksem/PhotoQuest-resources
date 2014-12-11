@@ -1,5 +1,29 @@
-<div class="filters"> Блок фильтров</div>
 <div ng-controller="PeopleController" class="people_page">
+    <div class="filters"> <span>Filters</span><br/>
+        <div>
+            <div>
+                Sort By
+                <select search-select="order">
+                    <option value="newest">Registration date</option>
+                    <option value="rated">Rating</option>
+                </select>
+            </div><br />
+            <div>
+                Enter location
+                <input location-input />
+            </div>
+    
+            Enter filter
+            <input ng-model="filter" />
+            <br/>
+            <a ng-href="{{getSearchHref()}}">
+                <button class="button">
+                    Search
+                </button>
+            </a>
+            
+        </div>
+    </div>
     <div class="tab_container" style="width: 697px; height: 18px; padding-right:0;" ng-show="showFriendTabs">
         <div class="category_tab" style="position: absolute; left: 193px;"  >
             <a class="tab" ng-href="#?path=friends">
@@ -15,33 +39,7 @@
     </div>                     
     <div style="text-align: center; ">
         <h1>People</h1>
-    </div>
-
-    <div>
-        <div>
-            Enter location
-            <input location-input />
-        </div>
-
-        Enter filter
-        <input ng-model="filter" />
-        <br/>
-        <a ng-href="{{getSearchHref()}}">
-            <button class="button">
-                Search
-            </button>
-        </a>
-        <div>
-            Sort By
-            <select search-select="order">
-                <option value="newest">Registration date</option>
-                <option value="rated">Rating</option>
-            </select>
-        </div>
-    </div>
-
-    <div>
-        
+    </div>        
         <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
                 >
