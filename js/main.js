@@ -57,7 +57,7 @@ main.controller("Main", function($http, $timeout, $scope, $location, $cookies){
         }
 
         return defaultContent;
-    }
+    };
 
     Http.trySignInFromCookies($cookies, $timeout, $scope, $http, function(){
         $scope.getCenterPageContent = getCenterPageContent;

@@ -47,7 +47,12 @@
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=replies">
-                     <span class="user_button">Replies {{getSignedInUser().unreadRepliesCount}}</span>
+                     <span class="user_button">
+                         Replies
+                         <span ng-show="getSignedInUser().unreadRepliesCount">
+                             (+{{getSignedInUser().unreadRepliesCount}})
+                         </span>
+                     </span>
                 </a>
             </div>    
             <div class="user_menu_link_container">
