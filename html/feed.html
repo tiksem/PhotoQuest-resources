@@ -7,6 +7,9 @@
                 <thumbnail src="feed.user.avatar || avatar" size="50"></thumbnail>
                 {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
             </div>
+            <div>
+                {{getDisplayDate(feed.addingDate)}}
+            </div>
             <div class="post_info">
                 {{
                 feed.photo ?

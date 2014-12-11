@@ -125,6 +125,10 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         })
     };
 
+    $scope.getDisplayDate = function(addingDate) {
+        return Utilities.getDisplayDate(addingDate);
+    }
+
     Utilities.applyStylesToHtml($element);
 })
 

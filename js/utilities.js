@@ -203,5 +203,9 @@ Utilities = {
         }
 
         return "#?" + add;
+    },
+    getDisplayDate: function(rawValue) {
+        var date = new Date(rawValue);
+        return date.toDateString() + " " + date.toTimeString().replace(/ GMT.+$/, "");
     }
 }

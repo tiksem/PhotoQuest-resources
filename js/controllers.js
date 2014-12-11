@@ -15,6 +15,10 @@ ControllerUtils = {
             var search = $location.search();
             search["filter"] = query;
             return Utilities.searchToUrlPart(search);
+        };
+
+        $scope.getDisplayDate = function(addingDate) {
+            return Utilities.getDisplayDate(addingDate);
         }
     }
 };
