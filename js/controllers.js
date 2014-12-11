@@ -16,8 +16,12 @@ ControllerUtils = {
             var search = $location.search();
             var copy = {};
             Utilities.addProperties(copy, search);
-            copy["filter"] = $scope.filter;
-            copy["location"] = $scope.placeId;
+            if ($scope.filter) {
+                copy.filter = $scope.filter;
+            }
+            if ($scope.placeId) {
+                copy.location = $scope.placeId;
+            }
             Utilities.deleteUndefinedValues(copy);
             return Utilities.searchToUrlPart(copy);
         };
