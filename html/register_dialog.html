@@ -16,6 +16,11 @@
             Enter your last name
             <input name="lastName" ng-model="lastName" type="text">
         </label>
+        <label>
+            Select gender
+            <input type="radio" ng-model="gender" value="male">  Male <br/>
+            <input type="radio" ng-model="gender" value="female"> Female <br/>
+        </label>
         <label >
             Choose avatar
             <input type="file" name="file" ng-file-select="onFileSelect($files)"

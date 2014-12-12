@@ -10,7 +10,8 @@ main.controller("RegisterController", function($scope, $element, $http, $upload)
             password: $scope.password,
             name: $scope.name,
             lastName: $scope.lastName,
-            location: $scope.placeId
+            location: $scope.placeId,
+            gender: $scope.gender === "male"
         };
 
         var url = window.location.origin + "//register";
