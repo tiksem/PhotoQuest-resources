@@ -12,7 +12,7 @@
         
        <div class="add_friend_button">
             <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
-               Add friend
+                {{getToggleFriendStatusButtonName(user)}}
             </button>
        </div>
         <div ng-show="user.relation === 'request_received'">
