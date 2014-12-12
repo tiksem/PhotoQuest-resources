@@ -17,6 +17,16 @@ angular.module('main')
                         });
                         if (attrs.clearValue) {
                             element.val("");
+                        } else {
+                            var onChange = function(){
+                                element.unbind('change', onChange);
+                                $scope.$apply(function(){
+                                    delete $scope.country;
+                                    delete $scope.city;
+                                    delete $scope.placeId;
+                                });
+                            };
+                            element.change(onChange);
                         }
                     }
                 });
