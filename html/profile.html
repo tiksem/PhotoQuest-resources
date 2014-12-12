@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <div class="profile_container" ng-controller="ProfileController" >
-    <div>
-        <thumbnail class="profile_avatar" size="250" src="avatar"></thumbnail>
-    </div>
+    <a ng-href="#?path=photo&id={{avatarId}}">
+        <div>
+            <thumbnail class="profile_avatar" size="250" src="avatar"></thumbnail>
+        </div>
+    </a>
     <div class="profile_info_container">
         <span class="profile_user_name">
             {{name + " " + lastName}}
