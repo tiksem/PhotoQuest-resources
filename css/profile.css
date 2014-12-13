@@ -52,14 +52,19 @@
     word-wrap: break-word;
     font-size: 12pt;
     font-family: "Trebuchet MS";
-    padding: 5px 5px;
+    padding-left: 50px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #4DB1BC; 
+    margin-top: 20px;
+    
    
 }
 
 .post_photo
 {
     position: relative;  
-    padding-top: 5px;     
+    padding-top: 5px;    
 }
 
 .post_user_avatar{
@@ -76,8 +81,8 @@
     width: 300px;
     padding-left: 60px;
     padding-bottom: 20px; 
-    border-bottom: solid 1px #4DB1BC; 
-    padding-right: 20px;  
+    padding-right: 30px;  
+    background: #DDF4F4;
 }
 
 .post_info span{
@@ -87,4 +92,23 @@
 
 .feed_content h3{
     color:#46172B;
+}
+
+.user_name_of_post{
+    color:#46172B;
+    font-weight: bold;
+}
+
+.user_name_of_post a{
+    color: #46172B;
+    margin-bottom: 3px;    
+}
+
+.post_container a:hover{
+    border-bottom: solid 1px #46172B ;
+}
+
+.post_date{
+    font-family: sans-serif;
+    font-size: 10pt;
 }

@@ -6,10 +6,12 @@
                 <a ng-href="#?path=profile&id={{feed.user.id}}">
                     <thumbnail class="post_user_avatar" src="feed.user.avatar || avatar" size="50"></thumbnail>
                 </a>
-                <div>
-                    {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
+                <div class="user_name_of_post">
+                    <a ng-href="#?path=profile&id={{feed.user.id}}">
+                        {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
+                    </a>
                 </div>
-                <div>
+                <div class="post_date">
                     11 jun 2014 at 20:40
                 </div><br />
                 <div class="post_info">
