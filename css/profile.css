@@ -53,7 +53,7 @@
     font-size: 12pt;
     font-family: "Trebuchet MS";
     padding-left: 50px;
-    padding-right: 40px;
+    padding-right: 45px;
     padding-bottom: 20px;
     border-bottom: solid 1px #4DB1BC; 
     margin-top: 20px;
@@ -63,8 +63,7 @@
 
 .post_photo
 {
-    position: relative;  
-    padding-top: 5px;    
+    position: relative;      
 }
 
 .post_user_avatar{
@@ -79,19 +78,32 @@
     position: relative;
     left: -50px;
     width: 300px;
-    padding-left: 60px;
-    padding-bottom: 20px; 
-    padding-right: 30px;  
-    background: #DDF4F4;
+    padding-left: 75px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    padding-right: 20px;  
+    background: #E8E8E8;
 }
 
-.post_info span{
-    color:#46172B;
+
+.post_info a{
+    display: inline-block;
     font-weight: bold;
+    color:#46172B;
+    
 }
 
-.feed_content h3{
-    color:#46172B;
+
+.post_info{
+    margin-bottom: 5px; 
+    margin-top: -10px;
+    padding: 0;  
+
+     
+}
+
+.post_info a:hover{
+    text-decoration: underline;
 }
 
 .user_name_of_post{
@@ -100,15 +112,37 @@
 }
 
 .user_name_of_post a{
+    position: relative;
     color: #46172B;
-    margin-bottom: 3px;    
+    font-size: 11pt;
+  
 }
 
-.post_container a:hover{
-    border-bottom: solid 1px #46172B ;
+.user_name_of_post a:hover{
+    text-decoration: underline;
 }
 
 .post_date{
     font-family: sans-serif;
     font-size: 10pt;
+    border-bottom: solid 1px silver;
+    padding-bottom: 17px;
+}
+
+.post_photo_likes_count{
+    position: relative;
+    bottom: 5px;
+    display: inline-block;
+    background: #560400;
+    border: solid 1px #560400 ;
+    border-radius: 2px;
+    color: #ffffff;
+    font-size: 10pt;
+    cursor: pointer;
+    cursor: hand;
+    padding: 2px 3px;
+}
+
+.feed_title{
+    font-size: 13pt;
 }

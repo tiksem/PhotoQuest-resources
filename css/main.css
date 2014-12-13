@@ -81,22 +81,82 @@ a {
 
 .filters
 {
-    border: solid 1px #C0C0C0;
-    width: 150px;
-    padding:5px 0  20px 5px;
-    margin-right: -2px;
-    float: right;
-    position: absolute;  
-    left:540px; 
+    border-bottom: solid 1px #C0C0C0;
+    padding:5px 0 5px 10px;
+    width: 687px;
+    margin-top: -1px;
     text-align: left;
-    background-color:#F0F0F0 ;
+    background-color:#D4ECEC;
 }
 
-.filters input {
-    width: 130px;
-    margin-bottom: 0 auto 0 auto;
+.sorting_selector{
+    display: inline-block;
+    float: left;
+    font-size: 11pt;
 }
 
+.location_filter{
+    display: inline-block;
+    width: 500px;
+    clear: left;
+    padding-bottom: 5px;
+}
+
+.filters_title{
+    font-size: 11pt;
+    text-align: center; 
+    font-weight: bold;
+    color:#46172B ;   
+}
+
+
+.name_filter{
+    display: inline-block;
+    width: 530px;
+    clear: left;
+    padding-bottom: 5px;
+    
+}
+
+.inputs_container{
+    position: relative;
+    clear: left;
+}
+
+
+.name_filter_label{
+    width: 100px;
+    height: 25px;
+    float: left;
+    line-height: 25px;
+    padding-bottom: 5px;
+    font-size: 11pt;
+    
+    
+}
+
+.location_filter_label{
+    width: 100px;
+    height: 25px;
+    float: left;
+    line-height: 25px;
+    padding-bottom: 5px;
+    font-size: 11pt;
+}
+
+
+.filter_search_button{
+    position: relative;
+    left: 240px;   
+}
+
+.gender_selector{
+    display: inline-block;
+    position: relative;
+    left: 30px;
+    font-size: 11pt;
+    bottom: 3px;
+}
 .filters span{
     font-weight: bold;    
 }

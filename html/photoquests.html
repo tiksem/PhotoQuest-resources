@@ -1,11 +1,11 @@
 <div ng-controller="PhotoQuests">
     <div class="tab_container">
         <div class="category_tab" ng-show="showCategoryTab">
-            <a tab-link disabled="{{contentIsLoading}}"
+            <a tab-link disabled="{{contentIsLoading}}" class="tab" class="tab activeTab"
                ng-href="#?path=created_quests">
                 Created
             </a>
-            <a tab-link disabled="{{contentIsLoading}}"
+            <a tab-link disabled="{{contentIsLoading}}" class="tab"
                ng-href="#?path=following_quests">
                 Following
             </a>

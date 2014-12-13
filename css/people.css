@@ -14,6 +14,11 @@
   
 }
 
+.people_title{
+    width: 697px;
+    text-align: center;
+}
+
 .people_avatar
 {
    height: 150px;
@@ -69,4 +74,12 @@
 .user_info_text
 {
     color:#44192D ;
+}
+
+.friend_requests_button{
+    display: inline-block;
+}
+
+.add_friend_button{   
+    display: inline-block;
 }
