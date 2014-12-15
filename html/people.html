@@ -1,25 +1,22 @@
 <div ng-controller="PeopleController" class="people_page">
     <div class="filters"> 
-        <div class="filters_title">
-            Filters
-        </div>
         <div>            
             <div class="inputs_container">            
                 <div class="name_filter_label">
                     By name
                 </div>      
                 <div class="name_filter">                   
-                    <input style="width: 175px;" ng-model="filter" />
+                    <input style="width: 273px;" ng-model="filter" />
                 </div>
                 <div class="location_filter_label">
                     Enter location
                 </div>
                 <div class="location_filter">                   
-                    <input style="width: 350px;" location-input />
+                    <input style="width: 273px;" location-input />
                 </div>
             </div>  
             <div class="sorting_selector">
-                Sort By
+                Sort by
                 <select style="position: relative;left: 10px;" search-select="order">
                     <option value="newest">Registration date</option>
                     <option value="rated">Rating</option>
