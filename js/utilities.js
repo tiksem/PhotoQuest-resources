@@ -258,7 +258,30 @@ Utilities = {
     },
     getDisplayDate: function(rawValue) {
         var date = new Date(rawValue);
-        return date.toDateString() + " " + date.toTimeString().replace(/ GMT.+$/, "");
+
+        var months = this.names = this.names || ["Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+            "Oct", "Nov", "Dec"];
+
+        var month = months[date.getMonth()];
+        var year = date.getFullYear();
+
+        var day = date.getDay();
+        if(day < 10){
+            day = "0" + day;
+        }
+
+        var hours = date.getHours();
+        if(hours < 10){
+            hours = "0" + hours;
+        }
+
+        var minutes = date.getMinutes();
+        if(minutes < 10){
+            minutes = "0" + minutes;
+        }
+
+        return day + " " + month + " " + year + " at " + hours + ":" + minutes;
     },
     deleteUndefinedValues: function(arr) {
         for(var i in arr){
