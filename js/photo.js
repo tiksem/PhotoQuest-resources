@@ -129,6 +129,6 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         return Utilities.getDisplayDate(addingDate);
     }
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 })
 

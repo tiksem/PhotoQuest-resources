@@ -62,5 +62,5 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         scopeArrayName: "quests"
     });
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });

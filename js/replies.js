@@ -30,5 +30,5 @@ main.controller("RepliesController", function($scope, $location, $element, $http
         reloadOnUserCounterChanged: "unreadRepliesCount"
     });
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });

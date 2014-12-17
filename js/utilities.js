@@ -4,13 +4,55 @@
 
 Utilities = {
     ajax_request_base_url: location.origin,
-    applyLinksBehavior: function($scope, element) {
+    applyLinksBehavior: function($location, $scope, element) {
+        var scrollHash = this.scrollHash = this.scrollHash || {};
+
+        var locationChangeStarted = this.locationChangeStarted = this.locationChangeStarted ||
+            function(event, next, current) {
+                if (next == current) {
+                    return;
+                }
+
+                scrollHash[current] = {
+                    x: window.scrollX,
+                    y: window.scrollY
+                };
+
+                locationChanged = false;
+            };
+        $scope.$on('$locationChangeStart', locationChangeStarted);
+
+        var applyScroll = this.applyScroll = this.applyScroll || function() {
+            var url = $location.absUrl();
+            var scroll = scrollHash[url];
+            if(scroll){
+                window.scrollTo(scroll.x, scroll.y);
+            }
+        };
+
+        var locationChanged = false;
+        var onLocationChangedDefault = this.onLocationChangedDefault =
+            this.onLocationChangedDefault || function() {
+            locationChanged = true;
+            applyScroll();
+        };
+        var offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
+
         $(element).find("a").click(function(e){
+            offDefault();
             var off = $scope.$on('$locationChangeSuccess', function(event) {
                 window.scrollTo(0, 0);
                 off();
+                offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
             });
         });
+
+        return function() {
+            if(locationChanged){
+                applyScroll();
+                locationChanged = false;
+            }
+        }
     },
     ajax: function(params){
         var url = this.ajax_request_base_url + params.url;

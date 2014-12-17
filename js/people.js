@@ -43,5 +43,5 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         countProvider: countProvider
     });
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });

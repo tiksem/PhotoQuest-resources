@@ -5,5 +5,5 @@ main.controller("ProfileController", function($rootScope, $scope, ngDialog, $ele
         $scope.user = $scope;
     });
     ControllerUtils.initProfileButtons($scope, $http);
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });

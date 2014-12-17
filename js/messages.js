@@ -46,5 +46,5 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         })
     };
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });

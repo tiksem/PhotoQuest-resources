@@ -77,7 +77,8 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             }
 
             $timeout(function(){
-                Utilities.applyLinksBehavior($scope, $element);
+                Utilities.applyLinksBehavior($location, $scope, $element);
+                updateScroll();
             });
             $scope.contentIsLoading = false;
 
@@ -139,11 +140,13 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
         }
     );
 
-    $scope.$on('$locationChangeStart', function(event) {
+    $scope.$on('$locationChangeStart', function(event, next, current) {
         if(checkPath()){
             loadData();
         }
     });
+
+    var updateScroll = Utilities.applyLinksBehavior($location, $scope, $element);
 
     return {
         loadData: loadData

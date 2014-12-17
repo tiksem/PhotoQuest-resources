@@ -36,6 +36,6 @@ main.controller("RegisterController", function($scope, $element, $http, $upload)
         });
     };
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });
 

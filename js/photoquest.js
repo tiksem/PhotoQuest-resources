@@ -77,5 +77,5 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         }
     };
 
-    Utilities.applyLinksBehavior($scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element);
 });
