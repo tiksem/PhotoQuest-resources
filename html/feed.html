@@ -4,11 +4,11 @@
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber">
              <div class="post_container">
-                <a ng-href="#?path=profile&id={{feed.user.id}}">
+                <a ng-href="#?path=profile&id={{feed.user.id || id}}">
                     <thumbnail class="post_user_avatar" src="feed.user.avatar || avatar" size="50"></thumbnail>
                 </a>
                 <div class="user_name_of_post">
-                    <a ng-href="#?path=profile&id={{feed.user.id}}">
+                    <a ng-href="#?path=profile&id={{feed.user.id || id}}">
                         {{(feed.user.name || name) + " " + (feed.user.lastName || lastName)}}
                     </a>
                 </div>

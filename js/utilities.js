@@ -10,6 +10,7 @@ Utilities = {
         var locationChangeStarted = this.locationChangeStarted = this.locationChangeStarted ||
             function(event, next, current) {
                 if (next == current) {
+                    window.scrollTo(0, 0);
                     return;
                 }
 
@@ -39,12 +40,16 @@ Utilities = {
         var offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
 
         $(element).find("a").click(function(e){
-            offDefault();
-            var off = $scope.$on('$locationChangeSuccess', function(event) {
+            if (this.href != $location.absUrl()) {
+                offDefault();
+                var off = $scope.$on('$locationChangeSuccess', function (event) {
+                    window.scrollTo(0, 0);
+                    off();
+                    offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
+                });
+            } else {
                 window.scrollTo(0, 0);
-                off();
-                offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
-            });
+            }
         });
 
         return function() {
