@@ -47,9 +47,9 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
         } else if(path == "replies") {
             return 'html/replies.html';
         } else if(path == "sent_requests") {
-            return 'html/sent_requests.html';
+            return 'html/friends.html';
         } else if(path == "received_requests") {
-            return 'html/received_requests.html';
+            return 'html/friends.html';
         } else if(path == "following_quests") {
             return 'html/following_photoquests.html';
         } else if(path == "news") {

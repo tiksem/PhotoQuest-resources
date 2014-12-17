@@ -1,5 +1,5 @@
 angular.module('main')
-    .directive('tabLink', function() {
+    .directive('tabLink', function($compile) {
         return {
             link: function(scope, element, attrs) {
                 element = $(element);
