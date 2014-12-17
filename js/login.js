@@ -10,5 +10,5 @@ main.controller("LoginController", function($rootScope, $scope, $timeout, $eleme
         Http.signout($http);
     };
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 })

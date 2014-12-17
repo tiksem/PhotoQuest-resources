@@ -1,5 +1,5 @@
 PhotoquestUtils = {};
-PhotoquestUtils.initPagination = function($scope, $http, $location, $element, params) {
+PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $timeout, params) {
     ControllerUtils.initPaginationController($scope, $location);
 
     $scope.pageSize = params.pageSize || 10;
@@ -76,6 +76,9 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, pa
                 $scope[scopeArrayName].pushAll(data[scopeArrayName]);
             }
 
+            $timeout(function(){
+                Utilities.applyLinksBehavior($scope, $element);
+            });
             $scope.contentIsLoading = false;
 
             if(success){

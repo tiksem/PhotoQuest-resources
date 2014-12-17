@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("FeedController", function($scope, $location, $element, $http){
+main.controller("FeedController", function($scope, $location, $element, $http, $timeout){
     var url = "//getNews";
     var countUrl = "//getNewsCount";
 
@@ -9,12 +9,12 @@ main.controller("FeedController", function($scope, $location, $element, $http){
         userId: search["id"]
     };
 
-    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
         url: url,
         countUrl: countUrl,
         args: args,
         scopeArrayName: "feeds"
     });
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 });

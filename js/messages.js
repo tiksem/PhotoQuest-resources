@@ -46,5 +46,5 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         })
     };
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 });

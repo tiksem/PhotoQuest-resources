@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http){
+main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http, $timeout){
     ControllerUtils.initProfileButtons($scope, $http);
 
     var url;
@@ -36,12 +36,12 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
     $scope.showFriendTabs = requestType !== "people";
 
-    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
         url: url,
         countUrl: countUrl,
         scopeArrayName: "users",
         countProvider: countProvider
     });
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 });

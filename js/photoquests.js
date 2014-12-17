@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $http){
+main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $http, $timeout){
     $scope.openCreatePhotoquestDialog = function() {
         ngDialog.open({
             template: 'html/create_photo_quest_dialog.html',
@@ -56,11 +56,11 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
 
     $scope.showRatingTab = true;
 
-    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
         url: url,
         countUrl: countUrl,
         scopeArrayName: "quests"
     });
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 });

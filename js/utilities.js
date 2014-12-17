@@ -4,8 +4,13 @@
 
 Utilities = {
     ajax_request_base_url: location.origin,
-    applyStylesToHtml: function(element) {
-
+    applyLinksBehavior: function($scope, element) {
+        $(element).find("a").click(function(e){
+            var off = $scope.$on('$locationChangeSuccess', function(event) {
+                window.scrollTo(0, 0);
+                off();
+            });
+        });
     },
     ajax: function(params){
         var url = this.ajax_request_base_url + params.url;

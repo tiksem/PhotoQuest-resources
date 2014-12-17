@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $location, $upload){
+main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $location, $upload, $timeout){
     $scope.contentLoaded = false;
     $scope.pageSize = 10;
 
@@ -20,7 +20,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         var countUrl = "//getPhotosOfPhotoquestCount"
 
         var initPagination = function() {
-            PhotoquestUtils.initPagination($scope, $http, $location, $element, {
+            PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
                 url: url,
                 countUrl: countUrl,
                 scopeArrayName: "photos",
@@ -77,5 +77,5 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         }
     };
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 });

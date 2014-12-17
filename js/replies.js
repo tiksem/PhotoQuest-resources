@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("RepliesController", function($scope, $location, $element, $http){
+main.controller("RepliesController", function($scope, $location, $element, $http, $timeout){
     var url = "//getReplies";
     var countUrl = "//getRepliesCount";
 
@@ -23,12 +23,12 @@ main.controller("RepliesController", function($scope, $location, $element, $http
         }
     };
 
-    PhotoquestUtils.initPagination($scope, $http, $location, $element, {
+    PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
         url: url,
         countUrl: countUrl,
         scopeArrayName: "replies",
         reloadOnUserCounterChanged: "unreadRepliesCount"
     });
 
-    Utilities.applyStylesToHtml($element);
+    Utilities.applyLinksBehavior($scope, $element);
 });
