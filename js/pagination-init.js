@@ -68,7 +68,12 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             onLoadingStarted();
         }
 
-        Utilities.addProperties(urlParams, args);
+        var params = args;
+        if (typeof args === "function") {
+            params = args();
+        }
+
+        Utilities.addProperties(urlParams, params);
         Utilities.get($http, url, urlParams, function(data){
             if (!shouldAppend) {
                 $scope[scopeArrayName] = data[scopeArrayName];

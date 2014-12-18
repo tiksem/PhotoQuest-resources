@@ -3,16 +3,14 @@ main.controller("FeedController", function($scope, $location, $element, $http, $
     var url = "//getNews";
     var countUrl = "//getNewsCount";
 
-    var search = $location.search();
-    var requestType = search["path"];
-    var args = {
-        userId: search["id"]
-    };
-
     PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
         url: url,
         countUrl: countUrl,
-        args: args,
+        args: function(){
+            return {
+                userId: $location.search()["id"]
+            }
+        },
         scopeArrayName: "feeds"
     });
 
