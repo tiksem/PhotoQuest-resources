@@ -1,12 +1,27 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
     'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput']);
 main.controller("Main", function($http, $element, $timeout, $scope, $location, $cookies){
+    var onSignedInChanged = [];
+
     var signedInUser = null;
     $scope.getSignedInUser = function() {
         return signedInUser;
     };
     $scope.setSignedInUser = function(user) {
+        if(user === signedInUser){
+            return;
+        }
+
         signedInUser = user;
+        onSignedInChanged.forEach(function(i){
+            i();
+        });
+    };
+    $scope.setOnSignedInChangedListener = function(listener){
+        onSignedInChanged.push(listener);
+        this.$on("$destroy", function() {
+            onSignedInChanged.remove(listener);
+        });
     };
 
     var getCenterPageContent = function(){
