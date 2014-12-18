@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("RegisterController", function($scope, $element, $http, $upload){
+main.controller("RegisterController", function($location, $scope, $element, $http, $upload){
     $scope.onFileSelect = function($files) {
         $scope.avatar = $files[0];
     };
