@@ -40,13 +40,14 @@ Utilities = {
         var offDefault = this.offDefault = this.offDefault ||
         $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
 
+        var that = this;
         $(element).find("a").click(function(e){
             if (this.href != $location.absUrl()) {
                 offDefault();
                 var off = $scope.$on('$locationChangeSuccess', function (event) {
                     window.scrollTo(0, 0);
                     off();
-                    offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
+                    that.offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
                 });
             } else {
                 window.scrollTo(0, 0);
