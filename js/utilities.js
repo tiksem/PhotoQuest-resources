@@ -37,7 +37,8 @@ Utilities = {
             locationChanged = true;
             applyScroll();
         };
-        var offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
+        var offDefault = this.offDefault = this.offDefault ||
+        $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
 
         $(element).find("a").click(function(e){
             if (this.href != $location.absUrl()) {
