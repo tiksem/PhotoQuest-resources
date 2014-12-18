@@ -36,39 +36,12 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         Utilities.loadDataToScope(url, params, scope, $http, function(){
             $scope.photoId = photoId;
 
-            var unlike = function(item) {
-                var url = "//unlike";
-                var params = {
-                    id: item.yourLike.id
-                };
-                Utilities.get($http, url, params, function(data) {
-                    item.yourLike = null;
-                    item.likesCount--;
-                });
-            };
-
-            var like = function(item, params) {
-                var url = "//like";
-                Utilities.get($http, url, params, function(data) {
-                    item.yourLike = data;
-                    item.likesCount++;
-                });
-            };
-
-            var toggleLikeState = function(item, params) {
-                if (item.yourLike) {
-                    unlike(item);
-                } else {
-                    like(item, params);
-                }
-            };
-
             $scope.likePhoto = function() {
                 var params = {
                     photoId: photoId
                 };
 
-                toggleLikeState($scope.photo, params);
+                Http.toggleLikeState($http, $scope.photo, params);
             };
 
             $scope.likeComment = function(comment) {
@@ -76,7 +49,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
                     commentId: comment.id
                 };
 
-                toggleLikeState(comment, params);
+                Http.toggleLikeState($http, comment, params);
             }
         });
     };

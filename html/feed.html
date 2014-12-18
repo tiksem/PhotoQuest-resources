@@ -30,9 +30,10 @@
                         <thumbnail src="feed.photo.url" size="300"></thumbnail>
                     </div>
                 </a>
-                 <div  class="post_photo_likes_count" class="count_widget" ng-click="likePhoto(comment)" ng-show="feed.photo">
+                 <div  class="post_photo_likes_count count_widget" ng-click="likePhoto(feed.photo)"
+                       ng-show="feed.photo">
                     <span > {{feed.photo.likesCount + " like it!"}}</span>
-                    <span ng-show="photo.yourLike">&nbsp; including You</span>
+                    <span ng-show="feed.photo.yourLike">&nbsp; including You</span>
                  </div>
             </div>
 
