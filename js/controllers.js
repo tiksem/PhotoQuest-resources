@@ -12,6 +12,7 @@ ControllerUtils = {
     initPaginationController: function($scope, $location) {
         $scope.getNewestHref = this.getAddSearchParamFunction($location, "order", "newest");
         $scope.getMostRatedHref = this.getAddSearchParamFunction($location, "order", "rated");
+        $scope.getHottestHref = this.getAddSearchParamFunction($location, "order", "hottest");
         $scope.getSearchHref = function() {
             var search = $location.search();
             var copy = {};
