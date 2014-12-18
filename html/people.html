@@ -6,25 +6,25 @@
                     By name
                 </div>      
                 <div class="name_filter">                   
-                    <input style="width: 273px;" ng-model="filter" />
+                    <input class="filter_input" style="width: 273px;" ng-model="filter" />
                 </div>
                 <div class="location_filter_label">
                     Enter location
                 </div>
                 <div class="location_filter">                   
-                    <input style="width: 273px;" location-input />
+                    <input class="filter_input" style="width: 273px;" location-input />
                 </div>
             </div>  
-            <div class="sorting_selector">
-                Sort by
-                <select style="position: relative;left: 10px;" search-select="order">
+            <div  class="sorting_selector">
+            Sort by
+                <select class="selector" style="position: relative;left: 10px;" search-select="order">
                     <option value="newest">Registration date</option>
                     <option value="rated">Rating</option>
                 </select>
             </div>  
             <div class="gender_selector">
                 Gender
-                <select style="position: relative;left: 10px;">
+                <select class="selector" style="position: relative;left: 10px;">
                     <option value="both">Select gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -57,13 +57,13 @@
              current-page="pageNumber"
                 >
 
- <div class="people_avatar">
+            <div class="people_avatar">
                 <a ng-href="#?path=profile&id={{user.id}}">
                     <thumbnail size="150" src="user.avatar"></thumbnail>
                 </a>
             </div>
             <div class="people_info_container">
-                <a ng-href="#?path=profile&id={{user.id}}">
+                <a class="people_link" ng-href="#?path=profile&id={{user.id}}">
                     <span class="user_info_text">{{user.name + " " + user.lastName}}</span><br/>
                 </a> 
                    

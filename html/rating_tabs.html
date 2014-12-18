@@ -8,3 +8,11 @@
 <a tab-link disabled="{{contentIsLoading}}" class="tab" ng-href="{{getHottestHref()}}">
     Hottest
 </a>
+<a tab-link disabled="{{contentIsLoading}}" class="tab" class="tab activeTab"
+ng-href="#?path=created_quests" ng-show="showCategoryTab">
+    Created
+</a>
+<a tab-link disabled="{{contentIsLoading}}" class="tab"
+ng-href="#?path=following_quests" ng-show="showCategoryTab">
+    Following
+</a>

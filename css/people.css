@@ -8,7 +8,7 @@
     height: 170px;   
     border-bottom: solid 1px silver;
     position: relative;
-    left: 10px;
+    left: -66px;
     max-height: 200px;
  
   
@@ -65,10 +65,8 @@
 
 .people_page
 {
-    width: 545px;
-    padding: 0;
+    width: 697px;
     position: relative;
-    right: 75px;
 }
 
 .user_info_text
@@ -76,10 +74,15 @@
     color:#44192D ;
 }
 
+
 .friend_requests_button{
     display: inline-block;
 }
 
 .add_friend_button{   
     display: inline-block;
+}
+
+.people_link:hover{
+       text-decoration: underline;
 }

@@ -68,3 +68,11 @@
 	width:150px;
 	height:150px;
 }
+.quest_name_link{
+   color:#44192D;
+   font-size: 12pt; 
+}
+
+.quest_name_link:hover{
+    text-decoration: underline;
+}

@@ -82,12 +82,12 @@ a {
 .filters
 {
     border-bottom: solid 1px #C0C0C0;
-    padding:5px 0 5px 10px;
-    width: 687px;
-    margin-top: -1px;
+    padding:5px 0 5px 0px;
+    width: 100%;
     text-align: left;
+    margin-top: -1px;
     background-color:#D4ECEC;
-    margin-left: -1px;
+   
 }
 
 .sorting_selector{
@@ -96,7 +96,7 @@ a {
     font-size: 10pt;
     font-weight: bold;
     position: relative;
-    left: 100px;
+    left: 115px;
 }
 
 .location_filter{
@@ -124,6 +124,7 @@ a {
 .inputs_container{
     position: relative;
     clear: left;
+    left:15px
 }
 
 
@@ -145,14 +146,14 @@ a {
 
 .filter_search_button{
     position: relative;
-    left: 150px; 
+    left: 165px; 
     bottom: 5px;  
 }
 
 .gender_selector{
     display: inline-block;
     position: relative;
-    left: 130px;
+    left: 145px;
     font-size: 10pt;
     bottom: 3px;
     font-weight: bold;
@@ -186,13 +187,10 @@ a {
 .rating_tab a{
     display: inline-block;
     
+    
 }
 
-.category_tab
-{
-    display: inline-block;
-    margin-right: -5px;
-}
+
 
 .tab
 {
@@ -212,4 +210,36 @@ a.tab.disabledTab {
 .tab:hover, a.tab.activeTab
 {
     background: white;
+}
+
+
+.filter_input{
+     padding: 3px 0 3px 3px;
+    -webkit-appearance: none;
+    text-shadow: 0px 1px 0px #fff;
+    outline: none;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E4E4E4), to(#ffffff));
+    background: -moz-linear-gradient(top,  #E4E4E4,  #ffffff);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #76AABA;
+    
+}
+
+.filter_input:focus{
+    background: #ffffff;
+    border: solid 2px #71AAFA;
+    padding: 2px 0px 2px 3px;
+    
+     
+}
+
+
+
+.selector{     
+     border: solid 1px #76AABA;
+     border-radius: 4px;  
+     padding: 1px;  
+     background: #F5F5F5;
 }

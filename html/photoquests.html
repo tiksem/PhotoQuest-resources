@@ -1,18 +1,14 @@
 <div ng-controller="PhotoQuests">
     <div class="tab_container">
-        <div class="category_tab" ng-show="showCategoryTab">
-            <a tab-link disabled="{{contentIsLoading}}" class="tab" class="tab activeTab"
-               ng-href="#?path=created_quests">
-                Created
-            </a>
-            <a tab-link disabled="{{contentIsLoading}}" class="tab"
-               ng-href="#?path=following_quests">
-                Following
-            </a>
-        </div>
+        
         <div  ng-show="showRatingTab" ng-include="'html/rating_tabs.html'">
-
+        
+        
         </div>
+        
+            
+        
+        
     </div>
     <div>
         <h1>{{title}}</h1>
@@ -49,7 +45,7 @@
             </div>
 
             <div class="photoquest_info_container">
-                <a ng-href="#?path=quest&id={{quest.id}}">
+                <a class="quest_name_link" ng-href="#?path=quest&id={{quest.id}}">
                     <span class="photoquest_info_quest_name">{{quest.name}}</span><br/><br/>
                 </a>
                 
