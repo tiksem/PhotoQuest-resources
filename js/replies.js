@@ -11,6 +11,10 @@ main.controller("RepliesController", function($scope, $location, $element, $http
             return "declined your friend request";
         } else if(type === 2) { //COMMENT
             return "commented your photo";
+        } else if(type === 3) { //LIKE
+            if (reply.like.photoId) {
+                return "liked your photo";
+            }
         }
     };
 
@@ -20,6 +24,8 @@ main.controller("RepliesController", function($scope, $location, $element, $http
             return "#?path=profile&id=" + reply.user.id;
         } else if(type === 2) { //COMMENT
             return "#?path=photo&id=" + reply.comment.photoId;
+        } else if(type === 3) { //LIKE
+            return "#?path=photo&id=" + reply.like.photoId;
         }
     };
 
