@@ -2,6 +2,10 @@ PhotoquestUtils = {};
 PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $timeout, params) {
     ControllerUtils.initPaginationController($scope, $location);
 
+    if($scope.___paginationInit){
+        $scope.___paginationInit();
+    }
+
     $scope.pageSize = params.pageSize || $scope.pageSize || 10;
     $scope.totalItems = 0;
 
@@ -133,10 +137,9 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
         loadData();
     };
 
-    $scope.$watch(
+    var unwatch = $scope.$watch(
         function($scope) {
-            var user = $scope.getSignedInUser();
-            return (user ? user.id : "null");
+            return $scope.getSignedInUser();
         },
         function() {
             if(checkPath()){
@@ -145,13 +148,18 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
         }
     );
 
-    $scope.$on('$locationChangeStart', function(event, next, current) {
+    var off = $scope.$on('$locationChangeStart', function(event, next, current) {
         if(checkPath()){
             loadData();
         }
     });
 
     var updateScroll = Utilities.applyLinksBehavior($location, $scope, $element);
+
+    $scope.___paginationInit = function() {
+        unwatch();
+        off();
+    };
 
     return {
         loadData: loadData

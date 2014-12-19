@@ -32,34 +32,56 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
-    var url;
-    var countUrl;
-    var requestType = $location.search()["path"];
+    var init = function () {
+        var url;
+        var countUrl;
+        var search = $location.search();
+        var requestType = search["path"];
+        var args;
 
-    $scope.showCategoryTab = true;
-    if(requestType == "quests" || !requestType){
-        url = "//getPhotoquests";
-        countUrl = "//getPhotoquestsCount";
-        $scope.title = "Photoquests";
-        $scope.showCategoryTab = false;
-    } else if(requestType == "following_quests") {
-        url = "//getFollowingPhotoquests";
-        countUrl = "//getFollowingPhotoquestsCount";
-        $scope.title = "Following photoquests";
-    } else if(requestType == "created_quests") {
-        url = "//getCreatedPhotoquests";
-        countUrl = "//getCreatedPhotoquestsCount";
-        $scope.title = "Created photoquests";
-    } else {
-        throw new Error("Invalid path");
-    }
+        $scope.showCategoryTab = true;
+        if (requestType == "quests" || !requestType) {
+            url = "//getPhotoquests";
+            countUrl = "//getPhotoquestsCount";
+            $scope.title = "Photoquests";
+            $scope.showCategoryTab = false;
+        } else if (requestType == "following_quests") {
+            url = "//getFollowingPhotoquests";
+            countUrl = "//getFollowingPhotoquestsCount";
+            $scope.title = "Following photoquests";
+        } else if (requestType == "created_quests") {
+            url = "//getCreatedPhotoquests";
+            countUrl = "//getCreatedPhotoquestsCount";
+            $scope.title = "Created photoquests";
+        } else {
+            throw new Error("Invalid path");
+        }
 
-    $scope.showRatingTab = true;
+        $scope.showRatingTab = true;
+        if ($scope.showCategoryTab) {
+            args = {
+                userId: search["id"]
+            }
+        }
 
-    PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
-        url: url,
-        countUrl: countUrl,
-        scopeArrayName: "quests"
+        PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
+            url: url,
+            countUrl: countUrl,
+            scopeArrayName: "quests",
+            args: args
+        });
+    };
+    init();
+
+    var checkPath = function() {
+        var path = $location.search()["path"];
+        return path == "quests" || path == "following_quests" || path == "created_quests";
+    };
+
+    $scope.$on('$locationChangeStart', function (event) {
+        if(checkPath()){
+            init();
+        }
     });
 
     Utilities.applyLinksBehavior($location, $scope, $element);

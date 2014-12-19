@@ -1,20 +1,28 @@
-<a tab-link disabled="{{contentIsLoading}}" class="tab activeTab" ng-href="{{getNewestHref()}}">
+<a tab-link disabled="{{contentIsLoading}}"
+   class="tab{{getOrder() === 'newest'  ? ' activeTab' : ''}}"
+   ng-href="{{getNewestHref()}}">
     Newest
 </a>
-<a tab-link disabled="{{contentIsLoading}}" class="tab" ng-href="{{getMostRatedHref()}}">
+<a tab-link disabled="{{contentIsLoading}}"
+   class="tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
+   ng-href="{{getMostRatedHref()}}">
     Most rated
 </a>
 
-<a tab-link disabled="{{contentIsLoading}}" class="tab" ng-href="{{getHottestHref()}}">
+<a tab-link disabled="{{contentIsLoading}}"
+   class="tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
+   ng-href="{{getHottestHref()}}">
     Hottest
 </a>
-<div class="categoty_tabs_container" ng-show="showCategoryTab">
-    <a tab-link disabled="{{contentIsLoading}}" class="tab" 
-    ng-href="#?path=created_quests" >
+<div class="category_tabs_container" ng-show="showCategoryTab">
+    <a tab-link disabled="{{contentIsLoading}}"
+       class="tab{{getPath() === 'created_quests'  ? ' activeTab' : ''}}"
+    ng-href="{{getPathChangeHref('created_quests')}}" >
         Created
     </a>
-    <a tab-link disabled="{{contentIsLoading}}" class="tab" class="tab activeTab"
-    ng-href="#?path=following_quests" >
+    <a tab-link disabled="{{contentIsLoading}}"
+       class="tab{{getPath() === 'following_quests'  ? ' activeTab' : ''}}"
+       ng-href="{{getPathChangeHref('following_quests')}}" >
         Following
     </a>
-</div>    
+</div>

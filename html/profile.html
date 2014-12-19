@@ -11,6 +11,16 @@
         </span><br />
         Ukraine, Kharkov<br />
         Another Info <br /><br />
+        <div>
+            <a ng-href="#?path=photos&id={{id}}">
+                Photos of&nbsp;{{name}}
+            </a>
+        </div>
+        <div>
+            <a ng-href="#?path=created_quests&id={{id}}">
+                Photoquests of&nbsp;{{name}}
+            </a>
+        </div>
         
        <div class="add_friend_button">
             <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">

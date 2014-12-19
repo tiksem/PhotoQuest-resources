@@ -31,8 +31,26 @@ ControllerUtils = {
             return Utilities.searchToUrlPart(copy);
         };
 
+        var that = this;
+        $scope.getPathChangeHref = function(newPath) {
+            return that.getAddSearchParamFunction($location, "path", newPath)();
+        };
+
         $scope.getDisplayDate = function(addingDate) {
             return Utilities.getDisplayDate(addingDate);
+        }
+
+        $scope.getPath = function() {
+            return $location.search()["path"];
+        }
+
+        $scope.getOrder = function() {
+            var order =  $location.search()["order"];
+            if(!order){
+                order = "newest";
+            }
+
+            return order;
         }
     },
     initProfileButtons: function($scope, $http) {

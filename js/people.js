@@ -51,7 +51,7 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         return path == "people" || path == "friends" || path == "sent_requests" || path == "received_requests";
     };
 
-    $scope.$on('$locationChangeStart', function (event) {
+    $scope.$on('$locationChangeSuccess', function (event) {
         if(checkPath()){
             init();
         }
