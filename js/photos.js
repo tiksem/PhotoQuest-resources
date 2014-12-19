@@ -4,37 +4,59 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     $scope.pageSize = 10;
 
     var query = $location.search();
-    var questId = query["id"];
+    var path = query["path"];
+    var id = query["id"];
 
-    var scope = $scope.quest = {};
-    var url = window.location.origin + "//getPhotoquestById";
+    var scope;
+    if (path === "quest") {
+        scope = $scope.quest = {};
+    } else {
+        scope = $scope.user = {};
+    }
+
+    var url = window.location.origin + (path === "quest" ? "//getPhotoquestById" : "//getUserById");
     var params = {
-        id: questId,
+        id: id,
         limit: 50
     };
 
     Utilities.loadDataToScope(url, params, scope, $http, function(){
         $scope.contentLoaded = true;
 
-        var url = "//getPhotosOfPhotoquest";
-        var countUrl = "//getPhotosOfPhotoquestCount"
+
+        var url;
+        var countUrl;
+        var args;
+        if(path === "quest"){
+            url = "//getPhotosOfPhotoquest";
+            countUrl = "//getPhotosOfPhotoquestCount";
+            args = {
+                id: id
+            }
+        } else {
+            url = "//getPhotosOfUser";
+            countUrl = "//getPhotosOfUserCount";
+            args = {
+                userId: id
+            }
+        }
 
         var initPagination = function() {
             PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
                 url: url,
                 countUrl: countUrl,
                 scopeArrayName: "photos",
-                args: {
-                    id: questId
-                },
+                args: args,
                 onPageChanged: function() {
-                    $location.search("photoId", null);
+                    if (path === "quest") {
+                        $location.search("photoId", null);
+                    }
                 }
             });
         };
 
         var photoId = query["photoId"];
-        if(photoId){
+        if(photoId && path === "quest"){
             Utilities.get($http, '//getPhotoPosition', {
                 id: photoId
             }, function(data) {
@@ -53,14 +75,14 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             className: 'ngdialog-theme-default',
             controller: 'PhotoQuest'
         });
-    }
+    };
 
     $scope.onFileSelect = function($files) {
         var length = $files.length;
         for (var i = 0; i < length; i++) {
             var file = $files[i];
             $scope.upload = $upload.upload({
-                url: '/addPhotoToPhotoQuest?photoquest=' + questId,
+                url: '/addPhotoToPhotoQuest?photoquest=' + id,
                 method: 'POST',
                 file: file
             }).progress(function (evt) {

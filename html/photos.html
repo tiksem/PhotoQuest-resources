@@ -7,10 +7,21 @@
     
     <h1 ng-show="!contentLoaded">Loading...</h1>
     <div class="photos_container"  ng-show="contentLoaded">
-        <h1>{{quest.name}}</h1>
-        <div>
-            <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
+        <div ng-show="quest">
+            <h1>{{quest.name}}</h1>
+            <div>
+                <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
+            </div>
         </div>
+
+        <div ng-show="user">
+            <h1>Photos of&nbsp;
+                <a ng-href="#?path=profile&id={{user.id}}">
+                    {{user.name + " " + user.lastName}}
+                </a>
+            </h1>
+        </div>
+
         <br>
         <div class="single_photo_container" dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber">

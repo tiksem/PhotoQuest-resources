@@ -105,7 +105,8 @@ Http = {
                     runTimeout();
                     if(finished){
                         finished();
-                    } },
+                    }
+                },
                 error: params.error
             }, true);
         };

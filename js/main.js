@@ -37,7 +37,7 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
 
         if(path == "quest"){
             if(id && id.isNumber()){
-                return 'html/photoquest.html';
+                return 'html/quest.html';
             }
         } else if(path == "people") {
             return 'html/people.html';
@@ -71,6 +71,10 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             return 'html/news.html';
         } else if(path == "settings") {
             return 'html/settings.html';
+        } else if(path == "photos"){
+            if(id && id.isNumber()){
+                return 'html/photos.html';
+            }
         }
 
         return defaultContent;
