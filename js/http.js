@@ -70,6 +70,52 @@ Http = {
             callback();
         }
     },
+    runRequestPeriodically: function($scope, $http, $timeout, url, params){
+        var handle;
+
+        var runTimeout = function () {
+            handle = $timeout(function () {
+                callback();
+            }, params.interval || 2000);
+        };
+
+        var finished = params.finished;
+        var onPreRequest = params.onPreRequest;
+
+        var callback = function () {
+            if(onPreRequest){
+                if(!onPreRequest()){
+                    return;
+                }
+            }
+
+            var args = params.args;
+            if(typeof args === "function"){
+                args = args();
+            }
+
+            var urlValue = url;
+            if(typeof urlValue == "function"){
+                urlValue = url();
+            }
+
+            Utilities.get($http, urlValue, args, {
+                success: params.success,
+                finished: function () {
+                    runTimeout();
+                    if(finished){
+                        finished();
+                    } },
+                error: params.error
+            }, true);
+        };
+
+        runTimeout();
+
+        $scope.$on("$destroy", function() {
+            $timeout.cancel(handle);
+        });
+    },
     RemoteValueUpdater: function ($http, $timeout, params) {
         var valueProvider = params.valueProvider || function (data) {
                 return data;
@@ -82,7 +128,7 @@ Http = {
             handle = $timeout(function () {
                 callback();
             }, params.interval || 2000);
-        }
+        };
 
         var callback = function () {
             Utilities.get($http, params.url, params.args, {

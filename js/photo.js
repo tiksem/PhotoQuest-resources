@@ -16,12 +16,14 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
             message: message
         };
 
+        $scope.commentsUpdatingStopped = true;
         Utilities.get($http, url, params, function(data) {
             var comments = $scope.comments = $scope.comments || [];
-            comments.push(data);
+            comments.unshift(data);
+            $scope.commentsUpdatingStopped = false;
             $timeout(function(){
                 var commentsController = $("#comments_container")[0];
-                commentsController.scrollTop = commentsController.scrollHeight;
+                commentsController.scrollTop = 0;
             });
         });
     };

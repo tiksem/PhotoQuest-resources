@@ -76,4 +76,73 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             $interval.cancel(handle);
         });
     };
-}]);
+}]).directive('showMoreLoad', function($http, $interval, $timeout){
+    return {
+        link: function(scope, element, attr) {
+            var showMoreId = attr.showMoreId;
+            var scopeArrayName = attr.showMoreLoad;
+            var scopeArray = scope[scopeArrayName] = [];
+            var showMoreButton = $(element).find("#" + showMoreId);
+
+            var loadCallbacks = {
+                success: function(data) {
+                    var arr = data[scopeArrayName];
+                    if(arr.length < attr.limit){
+                        showMoreButton.remove();
+                    }
+
+                    scopeArray.pushAll(arr);
+                },
+                finished: function() {
+                    showMoreButton.show();
+                }
+            };
+
+            var load = function() {
+                if(attr.stopped === true || attr.stopped === "true"){
+                    return;
+                }
+
+                showMoreButton.hide();
+                Utilities.get($http, attr.url, {
+                    limit: attr.limit,
+                    offset: scopeArray.length
+                }, loadCallbacks);
+            };
+
+            var urlProvider = function() {
+                return attr.url;
+            };
+            Http.runRequestPeriodically(scope, $http, $timeout, urlProvider, {
+                onPreRequest: function() {
+                    var stopped = attr.stopped;
+                    if (stopped === true || stopped === "true") {
+                        return false;
+                    }
+
+                    return scopeArray.length > 0;
+                },
+                args: function() {
+                    return {
+                        startingDate: scopeArray[0].addingDate
+                    }
+                },
+                success: function(data) {
+                    var arr = data[scopeArrayName];
+                    for(var i = arr.length - 1; i >= 0; i--) {
+                        scopeArray.unshift(arr[i]);
+                    }
+                }
+            });
+
+            scope.$watch(
+                function() {
+                    return attr.stopped;
+                },
+                load
+            );
+
+            showMoreButton.click(load);
+        }
+    };
+});

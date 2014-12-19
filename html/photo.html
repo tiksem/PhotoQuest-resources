@@ -70,9 +70,11 @@
     </div>
     <div style="width: 100%">
         <div id="comments_container"
-             top-infinite-scroll="comments" stopped="{{!photoId}}"
-             page-size="5"
-             load-url="//getCommentsOnPhoto?photoId={{photoId}}" class="wrapper">
+             show-more-load="comments"
+             stopped="{{!photoId || commentsUpdatingStopped}}"
+             show-more-id="show_more_comments_button"
+             limit="5"
+             url="//getCommentsOnPhoto?photoId={{photoId}}" class="wrapper">
             <div ng-repeat="comment in comments">
             <table>
                 <tr>
@@ -105,6 +107,11 @@
                 Delete
             </button>
         </div>
+            <div>
+                <button id="show_more_comments_button" class="button">
+                    Show More
+                </button>
+            </div>
         </div>
     </div>
     <div>
