@@ -2,7 +2,7 @@ PhotoquestUtils = {};
 PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $timeout, params) {
     ControllerUtils.initPaginationController($scope, $location);
 
-    $scope.pageSize = params.pageSize || 10;
+    $scope.pageSize = params.pageSize || $scope.pageSize || 10;
     $scope.totalItems = 0;
 
     var url = params.url;
