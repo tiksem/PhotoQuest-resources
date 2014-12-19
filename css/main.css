@@ -164,8 +164,7 @@ a {
     left: -2px;
 }
 
-.tab_container
-{
+.tab_container{
     width: 100%;
     text-align: center;
     background-color: #94D6D6;
@@ -176,6 +175,14 @@ a {
     font-weight: bold;
     padding-right: 1px;
     margin-top: -1px;
+}
+
+.categoty_tab_container
+{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    border: solid 1px black;
 }
 
 .rating_tab
@@ -190,7 +197,11 @@ a {
     
 }
 
-
+.select_quests_tab{
+    border: solid 1px black;
+    height: 18px;
+    
+}
 
 .tab
 {
