@@ -1,0 +1,58 @@
+ #replies_container {
+        margin: 30px auto 0 auto;
+        width: 500px;
+        text-align: center;
+ }
+ 
+ .replies_page{
+    width: 100%;
+    text-align: center;
+ }
+ 
+ h1{
+    color:#46172B ;
+ }
+ 
+ .single_reply{
+    width: 400px;
+    word-wrap: break-word;
+    margin: 0 auto 15px auto;
+    text-align: left;
+    font-size: 11pt;
+    background: #E8E8E8;
+    height: 55px;
+    padding-top: 5px;
+ }
+ 
+ .reply_user_link{
+    font-size: 11pt;
+    font-weight: bold;
+    color: #46172B;
+    position: relative;
+    bottom: 35px;
+ }
+ 
+ .reply_user_link:hover{
+    text-decoration: underline;
+ }
+ 
+ .reply_text{
+     position: relative;
+     left: 60px;
+     bottom: 35px;
+ }
+ 
+ .replay_photo{
+    margin-right: 5px;
+    margin-left: 5px;
+    position: relative;
+    bottom: 54px;
+    float: right;
+ }
+ 
+ .single_reply_container{
+    width: 400px;
+    height: 55px;
+    padding-bottom: 7px;
+    border-bottom: solid 1px #4DB1BC;
+ }

@@ -1,40 +1,26 @@
-<style>
-    #photoquest_content {
-        align-self: center;
-    }
-</style>
-<div id="photoquest_content" ng-controller="PhotoQuest" >
-    <div class="tab_container">
-        <div class="rating_tab" ng-include="'html/rating_tabs.html'">
+<div  ng-controller="PhotoQuest" >
+    <div id="photoquest_tab_container" class="tab_container">
+        <div  id="photoquest_rating_tab" class="rating_tab" ng-include="'html/tabs.html'">
 
         </div>       
     </div>
-    <div class="tab_container">
-        <a tab-link disabled="{{contentIsLoading}}" class="tab" class="tab activeTab"
-        ng-href="#?path=created_quests" >
-            Created
-        </a>
-        <a tab-link disabled="{{contentIsLoading}}" class="tab"
-        ng-href="#?path=following_quests" >
-            Following
-        </a>
-    </div>   
+    
     <h1 ng-show="!contentLoaded">Loading...</h1>
-    <div ng-show="contentLoaded">
+    <div class="photos_container"  ng-show="contentLoaded">
         <h1>{{quest.name}}</h1>
         <div>
             <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
         </div>
         <br>
-        <div dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
+        <div class="single_photo_container" dir-paginate="photo in photos | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber">
             <a ng-href="#?path=photo&id={{photo.id}}">
-                <thumbnail size="200" src="photo.url"></thumbnail>
+                <thumbnail size="150" src="photo.url"></thumbnail>
             </a>
         </div>
     </div>
 
-    <div>
+    <div class="photoquest_pagination_container">
         <dir-pagination-controls boundary-links="true"
                                  on-page-change="onPageChanged(newPageNumber)"
                                  template-url="html/pagination_template.html">

@@ -1,0 +1,26 @@
+#photoquest_rating_tab a {
+    margin-left: -5px;
+    display: inline-block;
+}
+
+#photoquest_tab_container{
+    padding: 0;
+    width: 697px;
+}
+
+.single_photo_container{
+    border: solid 1px #45162A;
+    width: 150px;
+    height: 150px;
+    float: left;  
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.photoquest_pagination_container{
+    clear: left;
+}
+
+h1{
+    color:#45162A;
+}
