@@ -157,7 +157,7 @@ Utilities = {
 
         return strs.join("&");
     },
-    get: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+    request: function(type, $http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         var success = argsOrOnSuccess;
         var finished;
         var error;
@@ -168,9 +168,28 @@ Utilities = {
             error = argsOrOnSuccess.error;
         }
 
-        $http.get(window.location.origin + url, {
-            params: params
-        }).success(function(data) {
+        var func = $http[type];
+
+        var call;
+        if (type === "post") {
+            var transform = function (data) {
+                return $.param(data);
+            };
+
+            var config = {
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                transformRequest: transform
+            };
+
+            call = func(window.location.origin + url, params, config);
+        } else {
+            var config = {
+                params: params
+            };
+            call = func(window.location.origin + url, config);
+        }
+
+        call.success(function(data) {
             if (!data.error) {
                 success(data);
                 if (!withoutSuccessLogs) {
@@ -201,6 +220,12 @@ Utilities = {
                 finished();
             }
         })
+    },
+    get: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+        this.request("get", $http, url, params, argsOrOnSuccess, withoutSuccessLogs);
+    },
+    post: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+        this.request("post", $http, url, params, argsOrOnSuccess, withoutSuccessLogs);
     },
     addCounterWatcher: function($scope, params) {
         var valueProvider = params.valueProvider;
