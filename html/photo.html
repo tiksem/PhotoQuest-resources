@@ -88,10 +88,17 @@
                             </a>
                         </h2>
                         <div>
+                            <a ng-href="#?path=profile&id={{comment.toUser.id}}"
+                               ng-show="comment.toUser" style="color: #428bca">
+                                {{comment.toUser.name}}&nbsp;
+                            </a>
                             {{comment.message}}
                         </div>
                         <div>
                             {{getDisplayDate(photo.addingDate)}}
+                        </div>
+                        <div>
+                            <button class="button" ng-click="putComment(comment)">Reply</button>
                         </div>
                     </td>
                 </tr>

@@ -3,7 +3,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
     var photoId = $location.search()["id"];
     $scope.image = window.location.origin + "//image/" + photoId;
 
-    $scope.putComment = function() {
+    $scope.putComment = function(comment) {
         var message = $scope.message;
         if(message == ""){
             alert("Enter message");
@@ -12,9 +12,14 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
 
         var url = "//putComment";
         var params = {
-            photoId: photoId,
             message: message
         };
+
+        if(comment){
+            params.commentId = comment.id;
+        } else {
+            params.photoId = photoId;
+        }
 
         $scope.commentsUpdatingStopped = true;
         Utilities.get($http, url, params, function(data) {

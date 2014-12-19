@@ -17,10 +17,8 @@
                     <span class="reply_text">
                         {{getReplyMessage(reply)}}
                     </span>
-                <a  class="replay_photo" ng-href="{{getReplyLink(reply)}}">
-                    <thumbnail ng-show="reply.comment" size="50" src="reply.comment.photo"></thumbnail>
-                </a>
                 <a class="replay_photo" ng-href="{{getReplyLink(reply)}}">
+                    <thumbnail ng-show="reply.comment" size="50" src="reply.comment.photo"></thumbnail>
                     <thumbnail ng-show="reply.like" size="50" src="reply.like.photo"></thumbnail>
                 </a>
             </div>
