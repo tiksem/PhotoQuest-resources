@@ -10,10 +10,22 @@ main.controller("RepliesController", function($scope, $location, $element, $http
         } else if(type === 1) { //FRIEND_REQUEST_DECLINED
             return "declined your friend request";
         } else if(type === 2) { //COMMENT
-            return "commented your photo";
+            var comment = reply.comment;
+            if(comment.photoId){
+                return "commented your photo";
+            } else if(comment.toCommentId) {
+                return "answered your comment";
+            } else {
+                return "error?";
+            }
         } else if(type === 3) { //LIKE
-            if (reply.like.photoId) {
+            var like = reply.like;
+            if (like.photoId) {
                 return "liked your photo";
+            } else if(like.commentId) {
+                return "liked your comment";
+            } else {
+                return "error?";
             }
         }
     };

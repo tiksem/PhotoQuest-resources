@@ -13,10 +13,17 @@
                 </a>    
                 <a class="reply_user_link" ng-href="#?path=profile&id={{reply.user.id || id}}">
                     {{reply.user.name + " " + reply.user.lastName + " "}}
-                </a><br />
-                    <span class="reply_text">
-                        {{getReplyMessage(reply)}}
+                </a>
+
+                <br />
+                <span class="reply_text">
+                    {{getReplyMessage(reply)}}
+                    <br />
+                    <span ng-show="reply.comment">
+                        {{reply.comment.message.getPreview(30, "...")}}
                     </span>
+                </span>
+
                 <a class="replay_photo" ng-href="{{getReplyLink(reply)}}">
                     <thumbnail ng-show="reply.comment" size="50" src="reply.comment.photo"></thumbnail>
                     <thumbnail ng-show="reply.like" size="50" src="reply.like.photo"></thumbnail>
