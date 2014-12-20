@@ -19,9 +19,9 @@
     margin: 0 auto 15px auto;
     text-align: left;
     font-size: 11pt;
-    background: #E8E8E8;
-    height: 55px;
-    padding-top: 5px;
+    border-bottom: solid 1px #4DB1BC;
+    padding-bottom: 10px;
+    clear: left;
  }
  
  .reply_user_link{
@@ -29,30 +29,50 @@
     font-weight: bold;
     color: #46172B;
     position: relative;
-    bottom: 35px;
+    width: 273px;
+    word-wrap: break-word;
+
  }
  
  .reply_user_link:hover{
     text-decoration: underline;
  }
  
- .reply_text{
-     position: relative;
-     left: 60px;
-     bottom: 35px;
+.reply_text{
+    position: relative;
+    width: 273px;
+    word-wrap: break-word;
+       
  }
  
- .replay_photo{
-    margin-right: 5px;
-    margin-left: 5px;
+ .reply_user_photo{  
+    float: left; 
     position: relative;
-    bottom: 54px;
+    display: inline-block;
+    margin-left: 5px;
+ }
+ 
+.replay_photo{
+    position: relative;
+    float: left;
     float: right;
+    margin-right: 5px;
  }
  
  .single_reply_container{
     width: 400px;
-    height: 55px;
-    padding-bottom: 7px;
-    border-bottom: solid 1px #4DB1BC;
+    display: inline-block;
+    padding-bottom: 2px;
+    padding-top: 5px;
+    background: #E8E8E8;
+    clear: left;
+ }
+ 
+ .reply_text_container{
+    float: left;
+    width: 273px;
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 5px;
+
  }

@@ -8,25 +8,30 @@
              current-page="pageNumber"
                 >
             <div class="single_reply_container">
-                <a style="margin-left: 5px;" ng-href="#?path=profile&id={{reply.user.id || id}}">
-                    <thumbnail  size="50" src="reply.user.avatar"></thumbnail>
+                
+                <a  ng-href="#?path=profile&id={{reply.user.id || id}}">
+                    <div class="reply_user_photo">
+                        <thumbnail  size="50" src="reply.user.avatar"></thumbnail>
+                    </div>
                 </a>    
-                <a class="reply_user_link" ng-href="#?path=profile&id={{reply.user.id || id}}">
-                    {{reply.user.name + " " + reply.user.lastName + " "}}
-                </a>
-
-                <br />
-                <span class="reply_text">
-                    {{getReplyMessage(reply)}}
-                    <br />
-                    <span ng-show="reply.comment">
-                        {{reply.comment.message.getPreview(30, "...")}}
-                    </span>
-                </span>
-
-                <a class="replay_photo" ng-href="{{getReplyLink(reply)}}">
-                    <thumbnail ng-show="reply.comment" size="50" src="reply.comment.photo"></thumbnail>
-                    <thumbnail ng-show="reply.like" size="50" src="reply.like.photo"></thumbnail>
+                <div class="reply_text_container">
+                    <a  ng-href="#?path=profile&id={{reply.user.id || id}}">
+                        <div class="reply_user_link">
+                            {{reply.user.name + " " + reply.user.lastName + " "}}
+                        </div>
+                    </a>
+                    <div class="reply_text">
+                        {{getReplyMessage(reply)}}
+                        <span ng-show="reply.comment">
+                            <br />{{reply.comment.message.getPreview(30, "...")}}
+                        </span>
+                    </div>
+                </div>
+                <a  ng-href="{{getReplyLink(reply)}}">
+                    <div class="replay_photo">
+                        <thumbnail ng-show="reply.comment" size="50" src="reply.comment.photo"></thumbnail>
+                        <thumbnail ng-show="reply.like" size="50" src="reply.like.photo"></thumbnail>
+                    </div>
                 </a>
             </div>
         </div>
