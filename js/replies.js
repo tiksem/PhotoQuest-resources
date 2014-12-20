@@ -20,10 +20,10 @@ main.controller("RepliesController", function($scope, $location, $element, $http
             }
         } else if(type === 3) { //LIKE
             var like = reply.like;
-            if (like.photoId) {
-                return "liked your photo";
-            } else if(like.commentId) {
+            if (like.commentId) {
                 return "liked your comment";
+            } else if(like.photoId) {
+                return "liked your photo";
             } else {
                 return "error?";
             }
