@@ -3,13 +3,13 @@
    ng-href="{{getNewestHref()}}">
     Newest
 </a>
-<a tab-link disabled="{{contentIsLoading}}"
+<a id="most_rated_link" tab-link disabled="{{contentIsLoading}}"
    class="tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
    ng-href="{{getMostRatedHref()}}">
     Most rated
 </a>
 
-<a tab-link disabled="{{contentIsLoading}}"
+<a id="hottest_link"tab-link disabled="{{contentIsLoading}}"
    class="tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
    ng-href="{{getHottestHref()}}">
     Hottest
@@ -20,12 +20,12 @@
     ng-href="{{getPathChangeHref('created_quests')}}" >
         Created
     </a>
-    <a tab-link disabled="{{contentIsLoading}}"
+    <a id="following_quests_link" tab-link disabled="{{contentIsLoading}}"
        class="tab{{getPath() === 'following_quests'  ? ' activeTab' : ''}}"
        ng-href="{{getPathChangeHref('following_quests')}}" >
         Following
     </a>
-    <a tab-link disabled="{{contentIsLoading}}"
+    <a  id="performed_link" tab-link disabled="{{contentIsLoading}}"
        class="tab{{getPath() === 'performed_quests'  ? ' activeTab' : ''}}"
        ng-href="{{getPathChangeHref('performed_quests')}}" >
         Performed

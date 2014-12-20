@@ -170,8 +170,6 @@ a {
     background-color: #94D6D6;
     font-family:"Trebuchet MS";
     font-size: 10pt;
-    padding-top: 5px;
-    padding-bottom: 5px;
     font-weight: bold;
     padding-right: 1px;
     margin-top: -1px;
@@ -183,10 +181,8 @@ a {
     text-align: center;
     position: relative;
     background: #D4ECEC;
-    top: 5px;
     font-family:"Trebuchet MS";
     font-size: 10pt;
-    padding: 5px 0px;
     border-top: solid 1px #6AACAC;
 }
 
@@ -202,7 +198,6 @@ a {
 }
 
 .rating_tab a{
-    display: inline-block;
     border-left: solid 1px #6AACAC;
     border-right: solid 1px #6AACAC;
     
@@ -216,14 +211,37 @@ a {
 }
 
 .tab
-{
-    padding: 5px 9px;
+{   
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
     background: #94D6D6;
     border-left: solid 1px #6AACAC;
     border-right: solid 1px #6AACAC;
-    margin-right: -1px;
     color: #3E4242;
+    display: inline-block;
+    margin: 0px;
+
     
+}
+
+#following_quests_link{
+    border: none;
+    margin-left: -4px;
+}
+
+#performed_link{
+    margin-left: -4px;
+}
+
+#hottest_link{
+    margin-left: -4px;
+}
+
+#most_rated_link{
+    margin-left: -4px;
+    border: none;
 }
 
 a.tab.disabledTab {
