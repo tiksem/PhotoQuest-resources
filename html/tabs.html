@@ -25,4 +25,9 @@
        ng-href="{{getPathChangeHref('following_quests')}}" >
         Following
     </a>
+    <a tab-link disabled="{{contentIsLoading}}"
+       class="tab{{getPath() === 'performed_quests'  ? ' activeTab' : ''}}"
+       ng-href="{{getPathChangeHref('performed_quests')}}" >
+        Performed
+    </a>
 </div>
