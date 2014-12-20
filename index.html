@@ -50,6 +50,7 @@
     <script type="application/javascript" src="js/tab-link.js"> </script>
     <script type="application/javascript" src="js/location_input.js"> </script>
     <script type="application/javascript" src="js/search_select.js"> </script>
+    <script type="application/javascript" src="js/shortcut.js"> </script>
 
 </head>
 <body ng-controller="Main">
@@ -80,7 +81,7 @@
                 <script type="application/javascript" src="js/feed.js"> </script>
                 <script type="application/javascript" src="js/settings.js"> </script>
 
-                <div ng-show="getPath() !== 'photo'"
+                <div ng-if="getPath() !== 'photo'"
                      align="center" id="center_page_container" ng-include="getCenterPageContent()">
                 </div>
 

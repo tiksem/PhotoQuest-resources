@@ -99,5 +99,20 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         }
     };
 
+    $scope.getPhotoHref = function(photo) {
+        var href = "#?path=photo&id=" + photo.id;
+        var search = $location.search();
+        var path = search["path"];
+        var id = search["id"];
+
+        if(path == "quest"){
+            href += "&photoquestId=" + id;
+        } else if(path == "photos") {
+            href += "&userId=" + id;
+        }
+
+        return href;
+    };
+
     Utilities.applyLinksBehavior($location, $scope, $element);
 });

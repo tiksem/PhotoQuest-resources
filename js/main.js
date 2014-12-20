@@ -1,5 +1,5 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
-    'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput']);
+    'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput', 'tiksem-keyboard']);
 main.controller("Main", function($http, $element, $timeout, $scope, $location, $cookies){
     ControllerUtils.initController($scope, $location);
 
@@ -14,9 +14,10 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             return;
         }
 
+        var prev = signedInUser;
         signedInUser = user;
         onSignedInChanged.forEach(function(i){
-            i();
+            i(prev, user);
         });
     };
     $scope.setOnSignedInChangedListener = function(listener){

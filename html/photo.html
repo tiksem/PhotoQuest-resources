@@ -39,11 +39,19 @@
 </style>
 <div id="photo_content" ng-controller="PhotoController" >
     <div id="photo_container">
+        <shortcut></shortcut>
+
         <table>
+            <tr ng-if="showNextPrevButtons()">
+                <td>
+                    <button class="button" ng-click="keyPressed({which: 37})">Prev</button>
+                    <button class="button" ng-click="keyPressed({which: 39})">Next</button>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <div style="position: relative">
-                        <img id="photo_image" ng-src="{{image}}" />
+                        <img id="photo_image" ng-src="{{photo.url}}" />
                     </div>
                 </td>
             </tr>

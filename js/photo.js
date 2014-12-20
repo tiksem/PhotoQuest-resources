@@ -1,8 +1,5 @@
 var main = angular.module("main");
 main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
-    var photoId = $location.search()["id"];
-    $scope.image = window.location.origin + "//image/" + photoId;
-
     $scope.putComment = function(comment) {
         var message = $scope.message;
         if(message == ""){
@@ -18,7 +15,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         if(comment){
             params.commentId = comment.id;
         } else {
-            params.photoId = photoId;
+            params.$location.search()["id"] = $location.search()["id"];
         }
 
         $scope.commentsUpdatingStopped = true;
@@ -33,19 +30,12 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         });
     };
 
-    var loadData = function() {
+    var loadPhotoToScope = function(url, params, $http) {
         var scope = $scope.photo = {};
-        var url = window.location.origin + "//getPhotoById";
-        var params = {
-            id: photoId
-        };
-
-        Utilities.loadDataToScope(url, params, scope, $http, function(){
-            $scope.photoId = photoId;
-
+        Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, function(){
             $scope.likePhoto = function() {
                 var params = {
-                    photoId: photoId
+                    photoId: $location.search()["id"]
                 };
 
                 Http.toggleLikeState($http, $scope.photo, params);
@@ -58,7 +48,18 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
 
                 Http.toggleLikeState($http, comment, params);
             }
+
+            $location.search("id", scope.id);
         });
+    };
+
+    var loadData = function() {
+        var url = "//getPhotoById";
+        var params = {
+            id: $location.search()["id"]
+        };
+
+        loadPhotoToScope(url, params, $http);
     };
     loadData();
 
@@ -87,6 +88,41 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         return Utilities.getDisplayDate(addingDate);
     };
 
+    $scope.keyPressed = function(event) {
+        if(!$scope.photo.id){
+            return;
+        }
+
+        var key = event.which;
+        var next = key == 39;
+        if(!next && key != 37){
+            return;
+        }
+
+        var search = $location.search();
+        var params = {
+            photoId: search["id"],
+            next: next
+        };
+        var url;
+        if(search.userId){
+            params.userId = search.userId;
+            url = "//getNextPrevPhotoOfUser";
+        } else if(search.photoquestId) {
+            params.photoquestId = search.photoquestId
+            url = "//getNextPrevPhotoOfPhotoquest";
+        } else {
+            return;
+        }
+
+        loadPhotoToScope(url, params, $http);
+    };
+
+    $scope.showNextPrevButtons = function() {
+        var search = $location.search();
+        return search.userId || search.photoquestId;
+    };
+
     Utilities.applyLinksBehavior($location, $scope, $element);
-})
+});
 
