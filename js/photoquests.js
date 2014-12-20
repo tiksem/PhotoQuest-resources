@@ -83,7 +83,7 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
             path == "performed_quests";
     };
 
-    $scope.$on('$locationChangeStart', function (event) {
+    $scope.$on('$locationChangeSuccess', function (event) {
         if(checkPath()){
             init();
         }
