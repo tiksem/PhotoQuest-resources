@@ -78,11 +78,12 @@
     </div>
     <div style="width: 100%">
         <div id="comments_container"
+             ng-if="photo"
              show-more-load="comments"
-             stopped="{{!photoId || commentsUpdatingStopped}}"
+             stopped="{{!photo || !photo.id || commentsUpdatingStopped}}"
              show-more-id="show_more_comments_button"
              limit="5"
-             url="//getCommentsOnPhoto?photoId={{photoId}}" class="wrapper">
+             url="//getCommentsOnPhoto?photoId={{photo.id}}" class="wrapper">
             <div ng-repeat="comment in comments">
             <table>
                 <tr>
