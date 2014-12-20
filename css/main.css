@@ -1,9 +1,9 @@
 body {
     font: 10pt "Trebuchet MS", sans-serif;
-    margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;
+    margin: 0;
     padding: 0;
     background-color: aliceblue;
-    position: relative;
+    overflow-y: scroll;
 }
 
 #body_container
