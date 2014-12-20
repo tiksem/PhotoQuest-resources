@@ -33,6 +33,8 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
     var loadPhotoToScope = function(url, params, $http) {
         var scope = $scope.photo = {};
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, function(){
+            $scope.showNextPrevButtons = scope.showNextPrevButtons;
+
             $scope.likePhoto = function() {
                 var params = {
                     photoId: $location.search()["id"]
@@ -55,9 +57,16 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
 
     var loadData = function() {
         var url = "//getPhotoById";
+        var search = $location.search();
         var params = {
-            id: $location.search()["id"]
+            id: search["id"]
         };
+
+        if(search.userId){
+            params.userId = search.userId;
+        } else if(search.photoquestId) {
+            params.photoquestId = search.photoquestId
+        }
 
         loadPhotoToScope(url, params, $http);
     };
@@ -116,11 +125,6 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         }
 
         loadPhotoToScope(url, params, $http);
-    };
-
-    $scope.showNextPrevButtons = function() {
-        var search = $location.search();
-        return search.userId || search.photoquestId;
     };
 
     Utilities.applyLinksBehavior($location, $scope, $element);

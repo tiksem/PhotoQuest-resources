@@ -42,7 +42,7 @@
         <shortcut></shortcut>
 
         <table>
-            <tr ng-if="showNextPrevButtons()">
+            <tr ng-show="showNextPrevButtons">
                 <td>
                     <button class="button" ng-click="keyPressed({which: 37})">Prev</button>
                     <button class="button" ng-click="keyPressed({which: 39})">Next</button>
