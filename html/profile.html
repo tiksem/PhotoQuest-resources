@@ -1,51 +1,55 @@
 <!DOCTYPE html>
-<div class="profile_container" ng-controller="ProfileController" >
-    <a ng-href="#?path=photo&id={{avatarId}}">
-        <div>
-            <thumbnail class="profile_avatar" size="250" src="avatar"></thumbnail>
-        </div>
-    </a>
-    <div class="profile_info_container">
+<div class="profile_container" ng-controller="ProfileController">
+    <div ng-show="id">
+        <a ng-href="#?path=photo&id={{avatarId}}">
+            <div>
+                <thumbnail class="profile_avatar" size="250" src="avatar"></thumbnail>
+            </div>
+        </a>
+
+        <div class="profile_info_container">
         <span class="profile_user_name">
             {{name + " " + lastName}}
-        </span><br />
-        Ukraine, Kharkov<br />
-        Another Info <br /><br />
-        <div>
-            <a ng-href="#?path=photos&id={{id}}">
-                Photos of&nbsp;{{name}}
-            </a>
-        </div>
-        <div>
-            <a ng-href="#?path=created_quests&id={{id}}">
-                Photoquests of&nbsp;{{name}}
-            </a>
-        </div>
-        
-       <div class="add_friend_button">
-            <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
-                {{getToggleFriendStatusButtonName(user)}}
-            </button>
-       </div>
-        <div ng-show="user.relation === 'request_received'">
-            <button class="button" ng-click="addOrRemoveFriend(user, true)">
-                Decline friend request
-            </button>
-        </div>
-        <div class="send_message_button">
-            <a ng-href="#?path=messages&id={{id}}">
-                <button class="button" ng-show="getSignedInUser()">
-                    Write message
+        </span><br/>
+            Ukraine, Kharkov<br/>
+            Another Info <br/><br/>
+
+            <div>
+                <a ng-href="#?path=photos&id={{id}}">
+                    Photos of&nbsp;{{name}}
+                </a>
+            </div>
+            <div>
+                <a ng-href="#?path=created_quests&id={{id}}">
+                    Photoquests of&nbsp;{{name}}
+                </a>
+            </div>
+
+            <div class="add_friend_button">
+                <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
+                    {{getToggleFriendStatusButtonName(user)}}
                 </button>
-            </a>
+            </div>
+            <div ng-show="user.relation === 'request_received'">
+                <button class="button" ng-click="addOrRemoveFriend(user, true)">
+                    Decline friend request
+                </button>
+            </div>
+            <div class="send_message_button">
+                <a ng-href="#?path=messages&id={{id}}">
+                    <button class="button" ng-show="getSignedInUser()">
+                        Write message
+                    </button>
+                </a>
+            </div>
+
         </div>
-        
-    </div>
-    <div>
-        rating: {{rating}}
-    </div>
-    <div>
-        <div class="profile_feed_container" ng-include="'html/feed.html'">
+        <div>
+            rating: {{rating}}
+        </div>
+        <div>
+            <div class="profile_feed_container" ng-include="'html/feed.html'">
+            </div>
         </div>
     </div>
 </div>
