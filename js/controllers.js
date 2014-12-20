@@ -27,6 +27,11 @@ ControllerUtils = {
             } else {
                 delete copy.location;
             }
+            if ($scope.gender) {
+                copy.gender = $scope.gender;
+            } else {
+                delete copy.gender;
+            }
             Utilities.deleteUndefinedValues(copy);
             return Utilities.searchToUrlPart(copy);
         };
@@ -38,11 +43,11 @@ ControllerUtils = {
 
         $scope.getDisplayDate = function(addingDate) {
             return Utilities.getDisplayDate(addingDate);
-        }
+        };
 
         $scope.getPath = function() {
             return $location.search()["path"];
-        }
+        };
 
         $scope.getOrder = function() {
             var order =  $location.search()["order"];
@@ -51,6 +56,15 @@ ControllerUtils = {
             }
 
             return order;
+        };
+
+        $scope.getGender = function() {
+            var gender = $location.search()["gender"];
+            if(gender){
+                return gender;
+            }
+
+            return "";
         }
     },
     initProfileButtons: function($scope, $http) {

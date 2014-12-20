@@ -48,7 +48,15 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
 
     var getTotalItems = function(callback) {
         if (countUrl) {
-            Utilities.getTotalCount(countUrl, countArgs, $http, function (count) {
+            var search = $location.search();
+            var urlParams = {
+                filter: search["filter"],
+                location: search["location"],
+                gender: search["gender"]
+            };
+
+            Utilities.addProperties(urlParams, countArgs);
+            Utilities.getTotalCount(countUrl, urlParams, $http, function (count) {
                 $scope.totalItems = count;
                 callback(count);
             });
@@ -65,6 +73,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             limit: limit || $scope.pageSize,
             filter: search["filter"],
             location: search["location"],
+            gender: search["gender"],
             order: getOrder()
         };
 

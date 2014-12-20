@@ -1,6 +1,6 @@
 <div ng-controller="PeopleController" class="people_page">
     <div class="filters"> 
-        <div>            
+        <div ng-init="gender=getGender()">
             <div class="inputs_container">            
                 <div class="name_filter_label">
                     By name
@@ -24,10 +24,10 @@
             </div>  
             <div class="gender_selector">
                 Gender
-                <select class="selector" style="position: relative;left: 10px;">
-                    <option value="both">Select gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                <select ng-model="gender" class="selector" style="position: relative;left: 10px;">
+                    <option value="">Select gender</option>
+                    <option value="true">Male</option>
+                    <option value="false">Female</option>
                 </select>
             </div>  
             <a class="filter_search_button" ng-href="{{getSearchHref()}}">
