@@ -37,24 +37,22 @@
             </a>          
         </div>
     </div>
-    <div class="tab_container" style="width: 697px; height: 18px; padding-right:0;" ng-show="showFriendTabs">
-        <div class="category_tab" style="position: absolute; left: 193px;"  >
-            <a tab-link disabled="{{contentIsLoading}}"
-               class="tab{{getPath() === 'friends'  ? ' activeTab' : ''}}"
-               ng-href="#?path=friends">
-                Friends
-            </a>
-            <a tab-link disabled="{{contentIsLoading}}"
-               class="tab{{getPath() === 'sent_requests'  ? ' activeTab' : ''}}"
-               ng-href="#?path=sent_requests">
-                Sent requests
-            </a>
-            <a tab-link disabled="{{contentIsLoading}}"
-               class="tab{{getPath() === 'received_requests'  ? ' activeTab' : ''}}"
-               ng-href="#?path=received_requests">
-                Received requests
-            </a>
-        </div> 
+    <div id="friends_tabs" class="tab_container" style="width: 697px;  padding-right:0;" ng-show="showFriendTabs">
+        <a tab-link disabled="{{contentIsLoading}}"
+           class="tab{{getPath() === 'friends'  ? ' activeTab' : ''}}"
+           ng-href="#?path=friends">
+            Friends
+        </a>
+        <a tab-link disabled="{{contentIsLoading}}"
+           class="tab{{getPath() === 'sent_requests'  ? ' activeTab' : ''}}"
+           ng-href="#?path=sent_requests">
+            Sent requests
+        </a>
+        <a tab-link disabled="{{contentIsLoading}}"
+           class="tab{{getPath() === 'received_requests'  ? ' activeTab' : ''}}"
+           ng-href="#?path=received_requests">
+            Received requests
+        </a>
     </div>                     
     <div class="people_title">
         <h1>People</h1>

@@ -226,6 +226,10 @@ a {
     
 }
 
+#friends_tabs a{
+    margin-left: -5px;
+}
+
 #following_quests_link{
     border: none;
     margin-left: -4px;
