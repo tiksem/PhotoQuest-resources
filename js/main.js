@@ -1,6 +1,8 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
     'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput']);
 main.controller("Main", function($http, $element, $timeout, $scope, $location, $cookies){
+    ControllerUtils.initController($scope, $location);
+
     var onSignedInChanged = [];
 
     var signedInUser = null;

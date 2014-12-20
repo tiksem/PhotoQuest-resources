@@ -9,7 +9,7 @@ ControllerUtils = {
             return Utilities.searchToUrlPart(copy);
         };
     },
-    initPaginationController: function($scope, $location) {
+    initController: function($scope, $location) {
         $scope.getNewestHref = this.getAddSearchParamFunction($location, "order", "newest");
         $scope.getMostRatedHref = this.getAddSearchParamFunction($location, "order", "rated");
         $scope.getHottestHref = this.getAddSearchParamFunction($location, "order", "hottest");

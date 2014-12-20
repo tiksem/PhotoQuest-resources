@@ -1,6 +1,6 @@
 PhotoquestUtils = {};
 PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $timeout, params) {
-    ControllerUtils.initPaginationController($scope, $location);
+    ControllerUtils.initController($scope, $location);
 
     if($scope.___paginationInit){
         $scope.___paginationInit();
