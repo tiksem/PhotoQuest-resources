@@ -1,32 +1,23 @@
-<style>
-    #dialogs_container {
-        align-self: center;
-        margin: 30px;
-    }
-</style>
-<div ng-controller="DialogsController" style="width: 600px; align-self: center;">
+<div ng-controller="DialogsController" >
     <div style="text-align: center; position: relative">
         <h1>Messages</h1>
     </div>
     <div id="dialogs_container">
-        <table>
-            <tr ng-repeat="dialog in dialogs">
-                <td>
-                    <a ng-href="#?path=profile&id={{dialog.user.id}}">
-                        <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
-                    </a>
-                </td>
-                <td>
-                    <a ng-href="#?path=messages&id={{dialog.user.id}}">
-                        <h2>
-                            {{dialog.user.name + " " + dialog.user.lastName}}
-                        </h2>
-                        <p>
+            <div class="single_dialog" ng-repeat="dialog in dialogs"> 
+                 <a ng-href="#?path=messages&id={{dialog.user.id}}">
+                    <div class="dialog_container">
+                        <div class="dialog_user_photo">             
+                            <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
+                        </div>  
+                        <div class="dialog_text">
+                            <span>{{dialog.user.name + " " + dialog.user.lastName}}</span><br />                
                             {{dialog.lastMessage.message.getPreview(40, "...")}}
-                        </p>
-                    </a>
-                </td>
-            </tr>
-        </table>
+                        </div>           
+                    </div>
+                </a>
+            </div>  
+    </div>
+            </div> 
+        </a>
     </div>
 </div>
