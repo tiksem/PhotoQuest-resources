@@ -1,0 +1,36 @@
+.single_dialog{
+ 
+    width: 402px;
+    margin: 0 auto 15px auto;
+    display: inline-block;
+    max-width: 400px;
+    clear: left;
+}
+
+.dialog_user_photo{
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.dialog_text{
+    width: 320px;
+    float: left;
+    text-align: left;
+    margin-left: 5px;
+    word-wrap: break-word;
+}
+
+.dialog_text span{
+    font-weight: bold;
+    color:#45162A;
+}
+
+.dialog_container{
+    width: 400px;
+    display: inline-block;
+    clear: left;
+    padding: 5px 0px 5px 5px;
+    background: #DDE5EC;
+    border: solid 1px #BDC5CC;
+}
