@@ -22,6 +22,12 @@
             Only {{maxTags}} tags are allowed!
         </div>
         <br>
-        <button class="button" ng-click="createPhotoquest()" >Create</button>
+        <div ng-init="follow=true">
+            <input id="follow_checkbox" type="checkbox" ng-model="follow" />
+            Follow photoquest
+        </div>
+        <div>
+            <button class="button" ng-click="createPhotoquest()" >Create</button>
+        </div>
     </form>
 </div>

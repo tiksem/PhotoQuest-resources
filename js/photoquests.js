@@ -11,7 +11,8 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                     });
                     var params = {
                         name: $scope.createQuestName,
-                        tags: tags.join(" ")
+                        tags: tags.join(" "),
+                        follow: $("#follow_checkbox").is(':checked')
                     };
                     var url = "//createPhotoquest";
                     Utilities.get($http, url, params, function(){
