@@ -34,3 +34,7 @@
     background: #DDE5EC;
     border: solid 1px #BDC5CC;
 }
+
+.unread_message_dialog_container {
+    background: #2fd1ec;
+}

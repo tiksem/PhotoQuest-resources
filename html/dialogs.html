@@ -5,14 +5,18 @@
     <div id="dialogs_container">
             <div class="single_dialog" ng-repeat="dialog in dialogs"> 
                  <a ng-href="#?path=messages&id={{dialog.user.id}}">
-                    <div class="dialog_container">
+                    <div class="dialog_container{{dialog.lastMessage.read ||
+                    dialog.lastMessage.toUserId != getSignedInUser().id ? '' :
+                        ' unread_message_dialog_container'}}">
                         <div class="dialog_user_photo">             
                             <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
-                        </div>  
+                        </div>
                         <div class="dialog_text">
+                            <thumbnail ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"
+                                       src="getSignedInUser().avatar" size="25"></thumbnail>
                             <span>{{dialog.user.name + " " + dialog.user.lastName}}</span><br />                
                             {{dialog.lastMessage.message.getPreview(40, "...")}}
-                        </div>           
+                        </div>
                     </div>
                 </a>
             </div>  
