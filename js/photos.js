@@ -69,34 +69,40 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         }
     });
 
+    var scope = $scope;
     $scope.openAddPhotoDialog = function() {
         ngDialog.open({
             template: 'html/add_photo_dialog.html',
             className: 'ngdialog-theme-default',
-            controller: 'PhotoQuest'
-        });
-    };
+            controller: function($scope) {
+                $scope.quest = scope.quest;
+                $scope.onFileSelect = function($files) {
+                    $scope.file = $files[0];
+                };
 
-    $scope.onFileSelect = function($files) {
-        var length = $files.length;
-        for (var i = 0; i < length; i++) {
-            var file = $files[i];
-            $scope.upload = $upload.upload({
-                url: '/addPhotoToPhotoQuest?photoquest=' + id,
-                method: 'POST',
-                file: file
-            }).progress(function (evt) {
-                console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-            }).success(function (data, status, headers, config) {
-                if (!data.error) {
-                    alert("Success");
-                } else {
-                    console.error(data);
-                }
-            }).error(function(data){
-                console.error(data);
-            })
-        }
+                $scope.uploadPhoto = function() {
+                    $scope.upload = $upload.upload({
+                        url: '/addPhotoToPhotoQuest?photoquest=' + id,
+                        method: 'POST',
+                        data: {
+                            message: $scope.message,
+                            follow: $("#follow_checkbox").is(':checked')
+                        },
+                        file: $scope.file
+                    }).progress(function (evt) {
+                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                    }).success(function (data, status, headers, config) {
+                        if (!data.error) {
+                            alert("Success");
+                        } else {
+                            console.error(data);
+                        }
+                    }).error(function(data){
+                        console.error(data);
+                    })
+                };
+            }
+        });
     };
 
     $scope.getPhotoHref = function(photo) {

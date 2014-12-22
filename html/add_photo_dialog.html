@@ -4,5 +4,18 @@
     <form>
         <input type="file" ng-file-select="onFileSelect($files)"
                multiple accept="image/*">
+        <label>
+            Enter photo description
+            <textarea ng-model="message">
+
+            </textarea>
+        </label>
+        <div ng-if="quest && !quest.isFollowing" ng-init="follow=true">
+            <input id="follow_checkbox" type="checkbox" ng-model="follow" />
+            Follow photoquest {{quest.name}}
+        </div>
+        <div>
+            <button class="button" ng-click="uploadPhoto()">Publish</button>
+        </div>
     </form>
 </div>
