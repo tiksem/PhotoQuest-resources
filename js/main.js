@@ -44,8 +44,6 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             }
         } else if(path == "people") {
             return 'html/people.html';
-        } else if(path == "friends") {
-            return 'html/friends.html';
         } else if(path == "photo"){
             if(id && id.isNumber()){
                 return 'html/photo.html';
@@ -54,33 +52,39 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             if(id && id.isNumber()){
                 return 'html/profile.html';
             }
-        } else if(path == "dialogs") {
-            return 'html/dialogs.html';
-        } else if(path == "messages") {
-            if(id && id.isNumber()){
-                return 'html/messages.html';
-            }
-        } else if(path == "register") {
-            return 'html/register_dialog.html';
-        } else if(path == "replies") {
-            return 'html/replies.html';
-        } else if(path == "sent_requests") {
-            return 'html/friends.html';
-        } else if(path == "received_requests") {
-            return 'html/friends.html';
-        } else if(path == "following_quests") {
-            return 'html/photoquests.html';
-        } else if(path == "created_quests") {
-            return 'html/photoquests.html';
-        } else if(path == "news") {
-            return 'html/news.html';
-        } else if(path == "settings") {
-            return 'html/settings.html';
-        } else if(path == "photos"){
+        }  else if(path == "photos"){
             if(id && id.isNumber()){
                 return 'html/photos.html';
             }
+        } else if(path == "register") {
+            return 'html/register_dialog.html';
+        } else if(signedInUser) {
+            if(path == "dialogs") {
+                return 'html/dialogs.html';
+            } else if(path == "messages") {
+                if(id && id.isNumber()){
+                    return 'html/messages.html';
+                }
+            } else if(path == "friends") {
+                return 'html/friends.html';
+            } else if(path == "replies") {
+                return 'html/replies.html';
+            } else if(path == "sent_requests") {
+                return 'html/friends.html';
+            } else if(path == "received_requests") {
+                return 'html/friends.html';
+            } else if(path == "following_quests") {
+                return 'html/photoquests.html';
+            } else if(path == "created_quests") {
+                return 'html/photoquests.html';
+            } else if(path == "news") {
+                return 'html/news.html';
+            } else if(path == "settings") {
+                return 'html/settings.html';
+            }
         }
+
+        $location.search("path", "quests");
 
         return defaultContent;
     };
