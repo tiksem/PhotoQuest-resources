@@ -1,5 +1,5 @@
 <div class="feed_content" ng-controller="FeedController">
-    <div class="feed_title">Publications</div>
+    <div class="feed_title" ng-show="getPath() === 'profile'">Activity</div>
     <div>        
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber">
