@@ -15,7 +15,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         if(comment){
             params.commentId = comment.id;
         } else {
-            params.$location.search()["id"] = $location.search()["id"];
+            params.photoId = $location.search()["id"];
         }
 
         $scope.commentsUpdatingStopped = true;
