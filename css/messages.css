@@ -1,0 +1,70 @@
+#messages_container{
+    margin: 30px;
+    width: 400px;
+    height: 300px;
+    overflow: scroll;
+    border-width: 1px;
+    border-color: #4DB1BC;
+    border-style: solid;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align: left;
+    padding-top: 5px;
+}
+
+#message_form{
+    width: 400px;
+    margin: 0 auto 0 auto;
+}
+
+.message_textarea{
+    height: 48px;
+    width: 278px;
+    padding: 0 5px 0 5px;
+    display: inline-block;
+    max-height: 48px;
+    max-width: 278px;
+    margin: 0 5px 0 5px;
+    float: left;
+}
+
+.single_message{
+    width: 370px;
+    clear: left;
+    margin-left: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.message_user_photo{
+    width: 40px;
+    height: 40px;
+    float: left;
+   
+}
+
+.message_text{
+    width: 320px;
+    float: left;
+    margin-left: 5px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.message_text a{
+    font-weight: bold;
+    color: #44192E;
+}
+
+.message_text a:hover{
+    text-decoration: underline;
+}
+
+#message_button_container{ 
+    min-height: 40px;
+    clear: left;
+    margin: 0;
+    width: 400px;
+    text-align: center;
+    position: relative;
+}
