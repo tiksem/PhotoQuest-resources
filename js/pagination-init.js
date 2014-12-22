@@ -55,7 +55,12 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
                 gender: search["gender"]
             };
 
-            Utilities.addProperties(urlParams, countArgs);
+            var params = countArgs;
+            if (typeof countArgs === "function") {
+                params = countArgs();
+            }
+
+            Utilities.addProperties(urlParams, params);
             Utilities.getTotalCount(countUrl, urlParams, $http, function (count) {
                 $scope.totalItems = count;
                 callback(count);
