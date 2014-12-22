@@ -75,6 +75,8 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
                 return 'html/friends.html';
             } else if(path == "following_quests") {
                 return 'html/photoquests.html';
+            } else if(path == "performed_quests") {
+                return 'html/photoquests.html';
             } else if(path == "created_quests") {
                 return 'html/photoquests.html';
             } else if(path == "news") {
