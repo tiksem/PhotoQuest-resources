@@ -1,7 +1,7 @@
 .single_dialog{
  
     width: 402px;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 0px auto;
     display: inline-block;
     max-width: 400px;
     clear: left;
@@ -36,5 +36,13 @@
 }
 
 .unread_message_dialog_container {
-    background: #2fd1ec;
+    background: #A0D6DC;
+    border: solid 1px #4BAFBA;
+}
+
+.last_message_user_photo{
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+    float: left;
 }

@@ -1,85 +1,47 @@
-<style>
-    #photo_content {
-        align-self: center;
-    }
-
-    #photo_info {
-        width: 300px;
-        height: 50px;
-        position: relative;
-    }
-
-    #photo_likes_count {
-        position: absolute;
-        left: 0;
-        top: 0;
-        margin: 10px;
-    }
-
-    #photo_position {
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin: 10px;
-    }
-
-    .comment_likes_count {
-        margin: 10px;
-    }
-    #comments_container {
-        margin: 30px;
-        width: 400px;
-        height: 300px;
-        overflow: scroll;
-        border-radius: 6px;
-        border-width: 2px;
-        border-color: #1c94c4;
-        border-style: solid;
-    }
-</style>
 <div id="photo_content" ng-controller="PhotoController" >
     <div id="photo_container">
         <shortcut></shortcut>
-
-        <table>
-            <tr ng-show="showNextPrevButtons">
-                <td>
-                    <button class="button" ng-click="keyPressed({which: 37})">Prev</button>
-                    <button class="button" ng-click="keyPressed({which: 39})">Next</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div style="position: relative">
-                        <img id="photo_image" ng-src="{{photo.url}}" />
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div id="photo_info">
-                        <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
-                            <span>{{photo.likesCount + " like it!"}}</span>
-                            <span ng-show="photo.yourLike">&nbsp; including You</span>
-                        </div>
-                        <a href="#?path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
-                            <div id="photo_position">
-                                <img src="../images/rating.png" width="20px" height="20px"/>
-                                <span>&nbsp; {{photo.position}}</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div>
-                        {{photo.message}}
-                    </div>
-                    <div>
-                        {{getDisplayDate(photo.addingDate)}}
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div ng-show="showNextPrevButtons">          
+            <button  class="button" id="prev_button" ng-click="keyPressed({which: 37})">Prev</button>
+            <button class="button" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
+        </div>        
+        <div id="photo_img" >
+            <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
+        </div>
+        
+        <div id="photo_info">
+			<div style="font-size: 11pt;">
+				{{photo.message}}
+            </div>
+            <div class="photo_date">
+                {{getDisplayDate(photo.addingDate)}}
+            </div> <br />
+            <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
+                <span>{{photo.likesCount + " like it!"}}</span>
+                <span ng-show="photo.yourLike">&nbsp; including You</span>
+            </div>
+            <a href="#?path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
+                <div id="photo_position" class="count_widget">
+                    position: {{photo.position}}
+                </div>
+            </a>
+        </div>
     </div>
-    <div style="width: 100%">
+    
+    <div style="width: 100%; margin-top: 30px;">
+        <div class="comment_textarea_container">
+            <form>
+                <div>
+                    <textarea ng-model="message">
+    
+                    </textarea>
+                </div>
+                <div class="comment_button">
+                    <button class="button" ng-click="putComment()">Comment</button>
+                </div>
+            </form>
+        </div>
+        
         <div id="comments_container"
              ng-if="photo"
              show-more-load="comments"
@@ -87,62 +49,44 @@
              show-more-id="show_more_comments_button"
              limit="5"
              url="//getCommentsOnPhoto?photoId={{photo.id}}" class="wrapper">
-            <div ng-repeat="comment in comments">
-            <table>
-                <tr>
-                    <td>
-                        <thumbnail size="50" src="comment.user.avatar"></thumbnail>
-                    </td>
-                    <td>
-                        <h2>
-                            <a ng-href="#?profile_{{comment.user.id}}">
-                                {{comment.user.name + " " + comment.user.lastName}}
-                            </a>
-                        </h2>
-                        <div>
-                            <a ng-href="#?path=profile&id={{comment.toUser.id}}"
-                               ng-show="comment.toUser" style="color: #428bca">
-                                {{comment.toUser.name}}&nbsp;
-                            </a>
-                            {{comment.message}}
+            <div  class="single_comment" ng-repeat="comment in comments">
+               
+                <div class="comment_user_photo">     
+                <thumbnail size="50" src="comment.user.avatar"></thumbnail>
+                </div>
+                <div class="comment_text">
+                    <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
+                        {{comment.user.name + " " + comment.user.lastName}}
+                    </a><br />
+                    <span>{{getDisplayDate(photo.addingDate)}}</span><br />
+                    <a ng-href="#?path=profile&id={{comment.toUser.id}}"
+                       ng-show="comment.toUser" style="color: #428bca">
+                        {{comment.toUser.name}},
+                    </a>
+                    {{comment.message}}<br />
+                    <div class="comment_buttons">
+                        <div class="comment_likes_container">
+                            <div class="count_widget comment_likes_count" ng-click="likeComment(comment)">
+                                <span>{{comment.likesCount + " like it!"}}</span>
+                                <span ng-show="comment.yourLike">&nbsp; including You</span>
+                            </div>
                         </div>
-                        <div>
-                            {{getDisplayDate(photo.addingDate)}}
-                        </div>
-                        <div>
+                        <div class="reply_button" >
                             <button class="button" ng-click="putComment(comment)">Reply</button>
                         </div>
-                    </td>
-                </tr>
-            </table>
-
-            <div style="position: relative; display: inline-flex">
-                <div class="count_widget comment_likes_count" ng-click="likeComment(comment)">
-                    <span>{{comment.likesCount + " like it!"}}</span>
-                    <span ng-show="comment.yourLike">&nbsp; including You</span>
+                        
+                        <button class="button"  ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
+                            Delete
+                        </button>
+                    </div>
                 </div>
             </div>
-            <button ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
-                Delete
-            </button>
-        </div>
-            <div>
+            <div style="width: 370px; text-align: center; margin-bottom: 3px; margin-top: 5px;">
                 <button id="show_more_comments_button" class="button">
                     Show More
                 </button>
             </div>
         </div>
     </div>
-    <div>
-        <form>
-            <div>
-                <textarea ng-model="message" style="width: 300px; height: 50px;">
-
-                </textarea>
-            </div>
-            <div>
-                <button ng-click="putComment()">Comment</button>
-            </div>
-        </form>
-    </div>
+    
 </div>

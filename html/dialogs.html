@@ -12,10 +12,9 @@
                             <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
                         </div>
                         <div class="dialog_text">
-                            <thumbnail ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"
-                                       src="getSignedInUser().avatar" size="25"></thumbnail>
                             <span>{{dialog.user.name + " " + dialog.user.lastName}}</span><br />                
-                            {{dialog.lastMessage.message.getPreview(40, "...")}}
+                            <thumbnail class="last_message_user_photo" ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"
+                                       src="getSignedInUser().avatar" size="25"></thumbnail>{{dialog.lastMessage.message.getPreview(40, "...")}}
                         </div>
                     </div>
                 </a>

@@ -1,0 +1,148 @@
+#photo_container{
+
+}
+
+#photo_info {
+    width: inherit;
+    position: relative;
+    text-align: center;
+}
+
+#photo_likes_count {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    
+}
+
+#photo_position {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.comment_likes_count {
+    margin: 10px;
+}
+#comments_container {
+    margin: 0 auto 50px auto;
+    width: 400px;
+    height: 300px;
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border:  solid 1px #4DB1BC;
+    padding: 0;
+    text-align: left;
+
+}
+
+#photo_img{
+    width: inherit;
+    text-align: center;
+}
+
+#photo_content{
+    
+}
+
+#photo_image{
+    margin: 0 auto 0 auto;
+}
+
+#next_button{
+    float: right;
+    position: relative;
+    top:27px;
+    margin-right: 5px;
+}
+
+#prev_button{
+    position: relative;
+    top:27px;
+    margin-left: 5px;
+}
+
+.photo_date{
+    display: inline-block;
+}
+
+.comment_textarea_container{
+    width: 400px;
+    margin: 0 auto 10px auto;
+}
+
+.comment_textarea_container textarea{
+    width: 400px;
+    max-width: 400px;
+    height: 40px;
+    max-height: 40px;
+}
+
+.comment_button{
+    width: inherit;
+    min-height: 30px;
+    max-height: 30px;
+    text-align: center;
+}
+
+.comment_user_photo{
+    display: inline-block;
+    float: left;
+    
+}
+
+.comment_text{
+    width: 320px;
+    float: left;
+}
+
+.commment_user_link{
+    color: #46172B;
+    font-weight: bold;
+}
+
+.comment_text a:hover{
+    text-decoration: underline;
+}
+
+.comment_text span{
+    font-family: sans-serif;
+    font-size: 8pt;
+}
+
+.comment_likes_container{
+    float: left;
+    display: inline-block;
+    
+    padding: 0;
+}
+
+.comment_likes_container .count_widget{
+    margin: 0 5px 0 0;
+}
+
+.reply_button{
+    display: inline-block;
+    
+}
+
+.comment_likes_container .button{
+
+    margin: 5px 5px 5px 0;
+}
+.comment_buttons{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.single_comment{
+    display: inline-block;
+    max-width: 370px;
+    margin-top: 10px;
+    margin-right: 0px;
+    clear: left;
+}
+
+.show_more_comments_button{
+    margin: 5px auto 0 auto;
+}
