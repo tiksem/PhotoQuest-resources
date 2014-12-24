@@ -7,6 +7,10 @@
     clear: left;
 }
 
+.dialog_container:hover{
+    background: #C0C8CF;    
+}
+    
 .dialog_user_photo{
     float: left;
     width: 50px;
@@ -19,9 +23,10 @@
     text-align: left;
     margin-left: 5px;
     word-wrap: break-word;
+    font-size: 11pt;
 }
 
-.dialog_text span{
+.dialog_user_name{
     font-weight: bold;
     color:#45162A;
 }
@@ -36,8 +41,8 @@
 }
 
 .unread_message_dialog_container {
-    background: #A0D6DC;
-    border: solid 1px #4BAFBA;
+    background: #A7D8DE;
+    border: solid 1px #BDC5CC;
 }
 
 .last_message_user_photo{
@@ -45,4 +50,16 @@
     margin-left: 10px;
     margin-right: 5px;
     float: left;
+}
+
+.dialog_date{
+    width: inherit;
+    position: relative;
+    font-size: 8pt;
+    font-family: Arial;
+    color:black;
+    text-decoration: underline;
+    padding-bottom: 5px;
+    
+    
 }

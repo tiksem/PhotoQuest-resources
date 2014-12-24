@@ -6,13 +6,14 @@
     </div>
     
     <h1 ng-show="!contentLoaded">Loading...</h1>
-    <div class="photos_container"  ng-show="contentLoaded">
-        <div ng-show="quest">
-            <h1>{{quest.name}}</h1>
-            <div>
-                <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
-            </div>
+    <div class="quest_info "ng-show="quest">
+        <h1>{{quest.name}}</h1>
+        <div>
+            <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
         </div>
+    </div>
+    <div class="photos_container"  ng-show="contentLoaded">
+        
 
         <div ng-show="user">
             <h1>Photos of&nbsp;

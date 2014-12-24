@@ -78,3 +78,12 @@
 .quest_name_link:hover{
     text-decoration: underline;
 }
+
+.quest_info{
+    text-align: center;
+    width: 100%;
+}
+
+.quest_info h1{
+    color: #46172B;
+}

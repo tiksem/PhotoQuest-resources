@@ -1,90 +1,96 @@
 <div id="photo_content" ng-controller="PhotoController" >
     <div id="photo_container">
         <shortcut></shortcut>
-        <div ng-show="showNextPrevButtons">          
-            <button  class="button" id="prev_button" ng-click="keyPressed({which: 37})">Prev</button>
-            <button class="button" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
-        </div>        
-        <div id="photo_img" >
-            <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
-        </div>
-        
-        <div id="photo_info">
-			<div style="font-size: 11pt;">
-				{{photo.message}}
+        <div  class="photo_controls" ng-show="showNextPrevButtons">          
+            <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">Prev</button>
+            <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
+        </div> 
+        <div class="photo">      
+            <div id="photo_img" >
+                <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
             </div>
-            <div class="photo_date">
-                {{getDisplayDate(photo.addingDate)}}
-            </div> <br />
-            <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
-                <span>{{photo.likesCount + " like it!"}}</span>
-                <span ng-show="photo.yourLike">&nbsp; including You</span>
-            </div>
-            <a href="#?path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
-                <div id="photo_position" class="count_widget">
-                    position: {{photo.position}}
+            
+            <div id="photo_info">
+                <div class="photo_date">
+                    {{getDisplayDate(photo.addingDate)}}
                 </div>
-            </a>
+                <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
+                    <span>{{photo.likesCount + " like it!"}}</span>
+                    <span ng-show="photo.yourLike">&nbsp; including You</span>
+                </div>
+                <a href="#?path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
+                    <div id="photo_position" class="count_widget">
+                        position: {{photo.position}}
+                    </div>
+                </a>
+            </div>
+            <div  class="photo_message">
+                {{photo.message}}
+            </div>         
         </div>
     </div>
-    
-    <div style="width: 100%; margin-top: 30px;">
-        <div class="comment_textarea_container">
-            <form>
-                <div>
-                    <textarea ng-model="message">
-    
-                    </textarea>
-                </div>
-                <div class="comment_button">
-                    <button class="button" ng-click="putComment()">Comment</button>
-                </div>
-            </form>
-        </div>
+    <div style="width: 100%; background:#EFEFEF; padding-top: 15px; padding-bottom: 30px;">
+        <div class="comments_block" >
+            <div class="comment_textarea_container">
+                <form>
+                    <div>
+                        <textarea ng-model="message">
         
-        <div id="comments_container"
-             ng-if="photo"
-             show-more-load="comments"
-             stopped="{{!photo || !photo.id || commentsUpdatingStopped}}"
-             show-more-id="show_more_comments_button"
-             limit="5"
-             url="//getCommentsOnPhoto?photoId={{photo.id}}" class="wrapper">
-            <div  class="single_comment" ng-repeat="comment in comments">
-               
-                <div class="comment_user_photo">     
-                <thumbnail size="50" src="comment.user.avatar"></thumbnail>
-                </div>
-                <div class="comment_text">
-                    <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
-                        {{comment.user.name + " " + comment.user.lastName}}
-                    </a><br />
-                    <span>{{getDisplayDate(photo.addingDate)}}</span><br />
-                    <a ng-href="#?path=profile&id={{comment.toUser.id}}"
-                       ng-show="comment.toUser" style="color: #428bca">
-                        {{comment.toUser.name}},
-                    </a>
-                    {{comment.message}}<br />
-                    <div class="comment_buttons">
-                        <div class="comment_likes_container">
-                            <div class="count_widget comment_likes_count" ng-click="likeComment(comment)">
-                                <span>{{comment.likesCount + " like it!"}}</span>
-                                <span ng-show="comment.yourLike">&nbsp; including You</span>
+                        </textarea>
+                    </div>
+                    <div class="comment_button">
+                        <button class="button" ng-click="putComment()">Comment</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="comments_container"
+                 ng-if="photo"
+                 show-more-load="comments"
+                 stopped="{{!photo || !photo.id || commentsUpdatingStopped}}"
+                 show-more-id="show_more_comments_button"
+                 limit="5"
+                 url="//getCommentsOnPhoto?photoId={{photo.id}}" class="wrapper">
+                <div  class="single_comment" ng-repeat="comment in comments">
+                   
+                    <div class="comment_user_photo">     
+                    <thumbnail size="50" src="comment.user.avatar"></thumbnail>
+                    </div>
+                    <div class="comment_text">
+                        <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
+                            {{comment.user.name + " " + comment.user.lastName}}
+                        </a><br />
+                        <span class="comment_date">{{getDisplayDate(photo.addingDate)}}</span><br />
+                        <div style="width: 420px; word-wrap: break-word; margin-top: 10px;">
+                            <span class="comment">
+                                <a ng-href="#?path=profile&id={{comment.toUser.id}}"
+                                   ng-show="comment.toUser" style="color: #428bca">
+                                    {{comment.toUser.name}},
+                                </a>
+                                {{comment.message}}
+                            </span>
+                        </div>
+                        <div class="comment_buttons">
+                            <div class="comment_likes_container">
+                                <div class="count_widget comment_likes_count" ng-click="likeComment(comment)">
+                                    <span>{{comment.likesCount + " like it!"}}</span>
+                                    <span ng-show="comment.yourLike">&nbsp; including You</span>
+                                </div>
                             </div>
+                            <a class="delete_button"  ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
+                                Delete
+                            </a>
+                            <a class="reply_button" ng-click="putComment(comment)">
+                                Reply
+                            </a>                        
                         </div>
-                        <div class="reply_button" >
-                            <button class="button" ng-click="putComment(comment)">Reply</button>
-                        </div>
-                        
-                        <button class="button"  ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
-                            Delete
-                        </button>
                     </div>
                 </div>
-            </div>
-            <div style="width: 370px; text-align: center; margin-bottom: 3px; margin-top: 5px;">
-                <button id="show_more_comments_button" class="button">
-                    Show More
-                </button>
+                <div  class="show_more_button_container" >
+                    <button id="show_more_comments_button" >
+                        Show More
+                    </button>
+                </div>
             </div>
         </div>
     </div>
