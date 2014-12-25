@@ -1,15 +1,15 @@
 <div id="photo_content" ng-controller="PhotoController" >
     <div id="photo_container">
         <shortcut></shortcut>
-        <div  class="photo_controls" ng-show="showNextPrevButtons">          
+        <div  class="photo_controls" ng-show="showNextPrevButtons">
             <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">Prev</button>
             <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
-        </div> 
-        <div class="photo">      
+        </div>
+        <div class="photo">
             <div id="photo_img" >
                 <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
             </div>
-            
+
             <div id="photo_info">
                 <div class="photo_date">
                     {{getDisplayDate(photo.addingDate)}}
@@ -26,7 +26,7 @@
             </div>
             <div  class="photo_message">
                 {{photo.message}}
-            </div>         
+            </div>
         </div>
     </div>
     <div style="width: 100%; background:#EFEFEF; padding-top: 15px; padding-bottom: 30px;">
@@ -55,7 +55,7 @@
                 <form>
                     <div>
                         <textarea ng-model="message">
-        
+
                         </textarea>
                     </div>
                     <div class="comment_button_container">
@@ -63,17 +63,18 @@
                     </div>
                 </form>
             </div>
-            
+
             <div id="comments_container"
                  ng-if="photo"
                  show-more-load="comments"
                  stopped="{{!photo || !photo.id || commentsUpdatingStopped}}"
                  show-more-id="show_more_comments_button"
                  limit="5"
+                 ng-show="comments.length > 0"
                  url="//getCommentsOnPhoto?photoId={{photo.id}}" class="wrapper">
                 <div  class="single_comment" ng-repeat="comment in comments">
-                   
-                    <div class="comment_user_photo">     
+
+                    <div class="comment_user_photo">
                     <thumbnail size="50" src="comment.user.avatar"></thumbnail>
                     </div>
                     <div class="comment_text">
@@ -102,7 +103,7 @@
                             </a>
                             <a class="reply_button" ng-click="putComment(comment)">
                                 Reply
-                            </a>                        
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -113,5 +114,5 @@
                 </div>
         </div>
     </div>
-    
+
 </div>
