@@ -30,6 +30,26 @@
         </div>
     </div>
     <div style="width: 100%; background:#EFEFEF; padding-top: 15px; padding-bottom: 30px;">
+        <div class="photo_main_info_container">
+            Published by
+            <div class="photo_info_user">
+                <div style="width: 50x; height: 50px; float: left;">
+                    <img src="img.png" alt="" height="50px" width="50px"/>
+                </div>
+                <div style="width: 185px;margin-left: 5px; float: left;word-wrap: break-word;">
+                    <a href="">Ебло Иван</a>
+                </div>
+            </div><br />
+            In photoquest
+            <div class="photo_info_quest">
+                <div style="width: 50x; height: 50px; float: left;">
+                    <img src="img.png" alt="" height="50px" width="50px"/>
+                </div>
+                <div style="width: 185px;margin-left: 5px; float: left;word-wrap: break-word;">
+                    <a href="">Выеби Осла</a>
+                </div>
+            </div>
+        </div>
         <div class="comments_block" >
             <div class="comment_textarea_container">
                 <form>
@@ -38,8 +58,8 @@
         
                         </textarea>
                     </div>
-                    <div class="comment_button">
-                        <button class="button" ng-click="putComment()">Comment</button>
+                    <div class="comment_button_container">
+                        <button class="comment_button" ng-click="putComment()">Comment</button>
                     </div>
                 </form>
             </div>
@@ -91,7 +111,6 @@
                         Show More
                     </button>
                 </div>
-            </div>
         </div>
     </div>
     

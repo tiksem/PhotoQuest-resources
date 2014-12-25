@@ -2,6 +2,7 @@
     text-align: center;
     border-bottom: solid 1px silver;
     padding-bottom: 15px;
+    background: #DCDCDC;
 }
 
 #photo_info {
@@ -35,6 +36,7 @@
     padding: 0;
     margin-top: 10px;
     padding-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 #photo_img{
@@ -65,7 +67,7 @@
 .photo_controls_buttons{
     border-style: none;
     border: solid 1px #B8C0C7;
-    background: #CAD2D9;
+    background: #F2F2F2;
     font-weight: bold;
     color: #383838;
     padding: 4px 14px;
@@ -96,11 +98,27 @@
     max-width: 495px;
     height: 40px;
     max-height: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.comment_button_container{
+    width: inherit;
+    text-align: right;
 }
 
 .comment_button{
-    width: inherit;
-    text-align: right;
+    border-style: none;
+    border: solid 1px silver;
+    background:#ffffff;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 10pt;
+    color:#262626 ;
+}
+
+.comment_button:hover{
+    background: #EAEAEA;
+    cursor: pointer;
 }
 
 .comment_user_photo{
@@ -155,7 +173,7 @@
     line-height: 25px;
     vertical-align: central;
     font-weight: bold;
-    
+    color: #4090E1;
 }
 
 .reply_button:hover{
@@ -181,6 +199,7 @@
     margin-right: 5px;
     border-style: none;
     border: none;
+    color: #4090E1;
 }
 
 .comment_likes_container .button{
@@ -225,9 +244,10 @@
 .photo{
     text-align: center;
     display: inline-block;
-    background: #D0D8DF;
+    background: #ffffff;
     padding: 15px 15px 10px 15px;
     margin: 0 auto 0 auto;
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
 }
 
 .photo_controls{
@@ -242,9 +262,9 @@
 }
 
 .comment_date{
-    font-family: Arial;
+    font-family: sans-serif;
     font-size: 8pt;
-    text-decoration: underline;
+    color: #5B5B5B;
 }
 
 .comment{
@@ -263,4 +283,45 @@
     text-align: left;
     position: relative;
     word-wrap: break-word;
+}
+
+.photo_main_info_container{
+    float: right;
+    width: 250px;
+    margin-right: 50px;
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    padding-top: 5px;
+    padding-left: 9px;
+    padding-bottom: 9px;
+    clear: left;   
+    color: #696969;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.photo_info_user{
+    height: 50px;
+    width: 245px;
+    margin-top: 5px;
+    color: #45172B;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.photo_info_quest{
+    height: 50px;
+    width: 245px;
+    clear: left;
+    margin-top: 5px;
+    color: #45172B;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.photo_main_info_container a{
+    color: #45172B;
+}
+
+.photo_main_info_container a:hover{
+    text-decoration: underline;
 }
