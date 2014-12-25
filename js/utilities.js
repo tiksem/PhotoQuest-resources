@@ -283,32 +283,72 @@ Utilities = {
 
         return "#?" + add;
     },
-    getDisplayDate: function(rawValue) {
-        var date = new Date(rawValue);
-
+    getMonth: function(date) {
         var months = this.names = this.names || ["Jan", "Feb", "Mar",
             "Apr", "May", "Jun", "Jul", "Aug", "Sep",
             "Oct", "Nov", "Dec"];
 
-        var month = months[date.getMonth()];
-        var year = date.getFullYear();
-
+        return months[date.getMonth()];
+    },
+    getDay: function(date) {
         var day = date.getDay();
         if(day < 10){
             day = "0" + day;
         }
 
+        return day;
+    },
+    getHours: function(date) {
         var hours = date.getHours();
         if(hours < 10){
             hours = "0" + hours;
         }
 
+        return hours;
+    },
+    getMinutes: function(date) {
         var minutes = date.getMinutes();
         if(minutes < 10){
             minutes = "0" + minutes;
         }
 
-        return day + " " + month + " " + year + " at " + hours + ":" + minutes;
+        return minutes;
+    },
+    getMonthRaw: function(raw) {
+        var date = new Date(raw);
+        return this.getMonth(date);
+    },
+    getDayRaw: function(raw) {
+        var date = new Date(raw);
+        return this.getDay(date);
+    },
+    getHoursRaw: function(raw) {
+        var date = new Date(raw);
+        return this.getHours(date);
+    },
+    getMinutesRaw: function(raw) {
+        var date = new Date(raw);
+        return this.getMinutes(date);
+    },
+    getHoursAndMinutesRaw: function(raw) {
+        var date = new Date(raw);
+        return this.getHours(date) + ":" + this.getMinutes(date);
+    },
+    getDisplayDate: function(rawValue) {
+        var date = new Date(rawValue);
+
+        var month = this.getMonth(date);
+        var year = date.getFullYear();
+
+        var day = this.getDay(date);
+
+        var hours = this.getHours(date);
+
+        var minutes = this.getMinutes(date);
+
+        var at = " at ";
+
+        return day + " " + month + " " + year + at + hours + ":" + minutes;
     },
     deleteUndefinedValues: function(arr) {
         for(var i in arr){

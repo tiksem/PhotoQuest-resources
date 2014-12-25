@@ -1,5 +1,5 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
-    'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput', 'tiksem-keyboard']);
+    'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput', 'tiksem-keyboard', 'ngSanitize']);
 main.controller("Main", function($http, $element, $timeout, $scope, $location, $cookies){
     ControllerUtils.initController($scope, $location);
 

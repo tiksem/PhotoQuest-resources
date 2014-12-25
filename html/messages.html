@@ -19,10 +19,21 @@
             <div class="message_text">
                 <a ng-href="#?path=profile&id={{message.fromUserId}}">
                     {{getMessageTitle(message)}}
-                </a><br />                                       
+                </a><br />
                 {{message.message}}
            </div>
-           <div class="message_date"> 11 Dec<br />at 20:25</div>
+           <div class="message_date">
+               {{
+               Utilities.getDayRaw(message.addingDate) + " "
+               }}
+               {{
+               Utilities.getMonthRaw(message.addingDate)
+               }}
+               <br />
+               {{
+               "at " + Utilities.getHoursAndMinutesRaw(message.addingDate)
+               }}
+           </div>
         </div>  
                    
     </div>

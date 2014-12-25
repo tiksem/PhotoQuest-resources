@@ -65,7 +65,9 @@ ControllerUtils = {
             }
 
             return "";
-        }
+        };
+
+        $scope.Utilities = Utilities;
     },
     initProfileButtons: function($scope, $http) {
         $scope.addOrRemoveFriend = function(user, decline) {
