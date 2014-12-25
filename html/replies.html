@@ -20,7 +20,7 @@
                             {{reply.user.name + " " + reply.user.lastName + " "}}
                         </div>
                     </a>
-                    <div class="replay_date">вывод даты</div>
+                    <div class="replay_date">{{reply.addingDate}}</div>
                     <div class="reply_text">
                         {{getReplyMessage(reply)}}
                         <span ng-show="reply.comment">

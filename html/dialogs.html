@@ -13,7 +13,7 @@
                         </div>
                         <div class="dialog_text">
                             <span class="dialog_user_name">{{dialog.user.name + " " + dialog.user.lastName}}</span>
-                            <div class="dialog_date">вывод даты</div>              
+                            <div class="dialog_date">{{getDisplayDate(dialog.lastMessage.addingDate)}}</div>
                             <thumbnail class="last_message_user_photo" ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"
                                        src="getSignedInUser().avatar" size="25"></thumbnail>
                                        <p ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"></p>
