@@ -1,7 +1,6 @@
 angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout', '$http', '$interval',
     function($timeout, $http, $interval) {
     return function(scope, element, attr) {
-        var raw = element[0];
         var busy = false;
         var scrollPositionUpdated = false;
 
@@ -36,7 +35,6 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 limit: pageSize
             };
 
-            var scrollHeightBefore = raw.scrollHeight;
             Utilities.get($http, loadUrl, args, function(data) {
                 data = data[attr.topInfiniteScroll];
                 if(data.length <= 0){
@@ -44,9 +42,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 }
 
                 scope[attr.topInfiniteScroll].unshiftAll(data);
-                $timeout(function(){
-                    raw.scrollTop = raw.scrollHeight - scrollHeightBefore;
-                });
+
                 busy = false;
             });
         };
@@ -60,6 +56,17 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             load
         );
 
+        scope.$watch(
+            function() {
+                return scope[attr.topInfiniteScroll].length;
+            },
+            function() {
+                $timeout(function(){
+                    $(element).scrollTop(element[0].scrollHeight);
+                });
+            }
+        );
+
         var handle = $interval(function() {
             if(busy){
                 return;
@@ -67,7 +74,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
 
             var distance = attr.distance || 100;
 
-            if (raw.scrollTop <= distance) {
+            if (element[0].scrollTop <= distance) {
                 load();
             }
         });
