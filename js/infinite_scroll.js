@@ -81,7 +81,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
         link: function(scope, element, attr) {
             var showMoreId = attr.showMoreId;
             var scopeArrayName = attr.showMoreLoad;
-            var scopeArray = scope[scopeArrayName] = [];
+            var scopeArray = scope.$parent[scopeArrayName] = [];
             var showMoreButton = $(element).find("#" + showMoreId);
 
             var loadCallbacks = {
@@ -98,11 +98,15 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 }
             };
 
+            var loadRequested = false;
+
             var load = function() {
                 if(attr.stopped === true || attr.stopped === "true"){
+                    loadRequested = true;
                     return;
                 }
 
+                loadRequested = false;
                 showMoreButton.hide();
                 Utilities.get($http, attr.url, {
                     limit: attr.limit,
@@ -139,8 +143,14 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 function() {
                     return attr.stopped;
                 },
-                load
+                function() {
+                    if(loadRequested){
+                        load();
+                    }
+                }
             );
+
+            load();
 
             showMoreButton.click(load);
         }
