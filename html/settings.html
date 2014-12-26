@@ -1,56 +1,73 @@
-<div ng-controller="SettingsController">
-    <div>
-        <div>
-            <label>
-                Enter your name
-                <input name="name" ng-model="name" type="text">
-            </label>
-            <label>
-                Enter your last name
-                <input name="lastName" ng-model="lastName" type="text" />
-            </label>
-            <label>
-                Enter your city
-                <input location-input clear-value="true"/>
-            </label>
-
-            <div ng-show="country && city">
-                <div>
-                    Country: {{country}}
-                </div>
-                <div>
-                    City: {{city}}
-                </div>
+<div id="settings_page" ng-controller="SettingsController">
+    <div id="settings">
+        <div class="main_info_container">
+            <div style="width: 100%; text-align: center;">
+                <h2>Main information</h2>
             </div>
-
-            <div>
-                <button class="button" ng-click="saveProfile()">Save</button>
+            <div class="change_main_info">
+                <label>
+                    Enter your name
+                </label>
+                <input name="name" ng-model="name" type="text">
+                
+                <label>
+                    Enter your last name
+                </label>
+                <input name="lastName" ng-model="lastName" type="text" />
+                
+                <label>
+                    Enter your city
+                </label>
+                <input style="width: 250px;height: 20px; border: solid 1px #76AABA;" location-input clear-value="true"/>
+                
+    
+                <div ng-show="country && city">
+                    <div>
+                        Country: {{country}}
+                    </div>
+                    <div>
+                        City: {{city}}
+                    </div>
+                </div>
+    
+                <div class="change_button">
+                    <button class="button" ng-click="saveProfile()">Save</button>
+                </div>
+                
             </div>
         </div>
         <br/>
         <br/>
 
-        <div>
-            <h2>Change password</h2>
-
-            <div style="color: #b10001">
-                {{changePasswordError}}
+        <div class="password_info_container">
+            <div style="width: 100%; text-align: center;">
+                <h2>Change password</h2>
             </div>
-            <label>
-                Old password
-                <input name="oldPassword" ng-model="oldPassword" type="text">
-            </label>
-            <label>
-                New password
-                <input name="newPassword" ng-model="newPassword" type="text">
-            </label>
-            <label>
-                Retype new password
-                <input ng-model="retypedPassword" type="text">
-            </label>
-
-            <div>
-                <button class="button" ng-click="changePassword()">Save</button>
+            <div class="change_password">
+                
+    
+                <div style="color: #b10001">
+                    {{changePasswordError}}
+                </div>
+                <label>
+                    Old password
+                </label>
+                    <input name="oldPassword" ng-model="oldPassword" type="text">
+                
+                <label>
+                    New password
+                </label>
+                    <input name="newPassword" ng-model="newPassword" type="text">
+                
+                <label>
+                    Retype new password
+                </label>
+                    <input ng-model="retypedPassword" type="text">
+                
+    
+                <div class="change_button">
+                    <button class="button" ng-click="changePassword()">Save</button>
+                </div>
             </div>
         </div>
     </div>
