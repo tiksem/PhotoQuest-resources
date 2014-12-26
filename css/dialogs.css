@@ -26,6 +26,7 @@
     font-size: 11pt;
 }
 
+
 .dialog_user_name{
     font-weight: bold;
     color:#45162A;
@@ -37,12 +38,12 @@
     clear: left;
     padding: 5px 0px 5px 5px;
     background: #DDE5EC;
-    border: solid 1px #BDC5CC;
+    border: solid 1px #90A1B1;
 }
 
 .unread_message_dialog_container {
     background: #A7D8DE;
-    border: solid 1px #BDC5CC;
+    border: solid 1px #90A1B1;
 }
 
 .last_message_user_photo{

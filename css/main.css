@@ -285,3 +285,7 @@ a.tab.disabledTab {
 .photos_container{
     padding-left: 22px;
 }
+
+.text_font{
+    font-family:jester;
+}

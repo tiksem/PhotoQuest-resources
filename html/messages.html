@@ -16,11 +16,13 @@
                     getSignedInUser().avatar : user.avatar"></thumbnail>
                 </div>
             </a>
-            <div class="message_text">
-                <a ng-href="#?path=profile&id={{message.fromUserId}}">
+            <div class="message_text" >
+                <a  ng-href="#?path=profile&id={{message.fromUserId}}">
                     {{getMessageTitle(message)}}
                 </a><br />
-                {{message.message}}
+                <span class="text_font" style="font-size: 13pt;">
+                    {{message.message}}
+                </span>
            </div>
            <div class="message_date">
                {{

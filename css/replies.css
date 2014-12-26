@@ -42,8 +42,10 @@
     position: relative;
     width: 273px;
     word-wrap: break-word;
+    
        
  }
+ 
  
  .reply_user_photo{  
     float: left; 

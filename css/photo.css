@@ -93,6 +93,7 @@
     width: 500px;
 }
 
+
 .comment_textarea_container textarea{
     width: 495px;
     max-width: 495px;
@@ -298,6 +299,8 @@
     color: #696969;
     font-size: 10pt;
     font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
 }
 .photo_info_user{
     height: 50px;
