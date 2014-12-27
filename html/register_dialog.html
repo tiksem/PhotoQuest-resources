@@ -1,46 +1,59 @@
-<div ng-controller="RegisterController">
+<div style="text-align: left;" ng-controller="RegisterController">
+    <div id="register_title"><h2>Registration</h2></div>
     <form id="register_form">
         <label>
             Enter your login
-            <input name="login" ng-model="login" type="text">
         </label>
+        <input name="login" ng-model="login" type="text">
+        
         <label>
             Enter your password
-            <input name="password" ng-model="password" type="password">
         </label>
+        <input  name="password" ng-model="password" type="password">
+        
         <label>
             Enter your name
-            <input name="name" ng-model="name" type="text">
         </label>
+        <input name="name" ng-model="name" type="text">
+        
         <label>
             Enter your last name
-            <input name="lastName" ng-model="lastName" type="text">
         </label>
+        <input name="lastName" ng-model="lastName" type="text">
+        
         <label>
             Select gender
-            <input type="radio" ng-model="gender" value="male">  Male <br/>
-            <input type="radio" ng-model="gender" value="female"> Female <br/>
         </label>
+        <input type="radio" ng-model="gender" value="male">
+        <span class="location_label">Male</span> <br/>
+        <input style="margin-bottom: 10px;" type="radio" ng-model="gender" value="female">
+        <span class="location_label">Female</span> <br/>
+        
         <label >
             Choose avatar
-            <input type="file" name="file" ng-file-select="onFileSelect($files)"
-                   multiple accept="image/*">
         </label>
+        <input style="margin-bottom: 10px; line-height: 10px;" class="custom-file-input" type="file" name="file" ng-file-select="onFileSelect($files)"
+               multiple accept="image/*">
+        
         <br/>
         <label>
             Enter your city
-            <input location-input clear-value="true" />
         </label>
+        <input id="select_location_input"  style="width: 250px; height: 20px;"
+        location-input clear-value="true" />
+        
         <br />
-        <div ng-show="country && city">
+        <div style="margin-top: 10px;"ng-show="country && city">
             <div>
-                Country: {{country}}
+                <span class="location_label">Country:</span> 
+                <span class="current_location">{{country}}</span>
             </div>
             <div>
-                City: {{city}}
+                <span class="location_label">City:</span> 
+                <span class="current_location">{{city}}</span>
             </div>
         </div>
-        <button class="button" ng-click="register()">Register</button>
+        <button style="margin-top: 15px; margin-bottom: 20px;"class="button" ng-click="register()">Register</button>
 
     </form>
 </div>

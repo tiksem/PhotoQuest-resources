@@ -2,14 +2,25 @@
 .main_info_container{
     text-align:left;
     width: 100%;
-    background: #E8F0F7;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+
 }
 
-.main_info_container input[type="text"]{
-    background: #ffffff;
-    border-radius: 0;
-    width: 150px;
+.main_info_container #change_location_input, input[type="text"]{
+    background: -webkit-gradient(linear, left top, left bottom, from(#D1F3FF), to(#EEFFFF));
+    background: -moz-linear-gradient(top,  #D1F3FF,  #EEFFFF);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #76AABA;
+    box-shadow:  1px 1px 0px #efefef;
+}
+
+#change_location_input:target{
+    border: 1px solid #76AABA;
+    -webkit-box-shadow: 0px 0px 5px #007eff;
+    -moz-box-shadow: 0px 0px 5px #007eff;
+    box-shadow: 0px 0px 5px #007eff;    
 }
 
 #settings{ 
@@ -18,8 +29,7 @@
 }
 
 #settings_page{
-      background: #E8F0F7;
-      padding-top: 1px;
+      background: #ffffff;
 }
 .password_info_container{
      text-align: left;
@@ -31,9 +41,20 @@
      
 }
 .password_info_container input[type="text"]{
-    background: #ffffff;
-    border-radius: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#D1F3FF), to(#EEFFFF));
+    background: -moz-linear-gradient(top,  #D1F3FF,  #EEFFFF);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #76AABA;
+    box-shadow:  1px 1px 0px #efefef;
     width: 150px;
+}
+
+.password_info_container input[type="text"]:focus{
+    -webkit-box-shadow: 0px 0px 5px #007eff;
+    -moz-box-shadow: 0px 0px 5px #007eff;
+    box-shadow: 0px 0px 5px #007eff;    
 }
 
 .change_main_info{
@@ -50,7 +71,7 @@
 .change_button{
     width: 100%;
     text-align: left;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .change_password{
@@ -66,4 +87,14 @@
 
 h2{
     color: #480B1D;
+}
+
+.location_label{
+    font-weight: bold;
+    color: #4772DF;
+}
+
+.current_location{
+    font-weight: bold;
+    color: #696969;
 }

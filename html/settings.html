@@ -18,15 +18,17 @@
                 <label>
                     Enter your city
                 </label>
-                <input style="width: 250px;height: 20px; border: solid 1px #76AABA;" location-input clear-value="true"/>
+                <input id="change_location_input"   style="width: 250px; height: 20px;" location-input clear-value="true"/>
                 
     
-                <div ng-show="country && city">
+                <div ng-show="country && city" style="margin-top: 10px;">
                     <div>
-                        Country: {{country}}
+                        <span class="location_label">Country:</span> 
+                        <span class="current_location">{{country}}</span>
                     </div>
                     <div>
-                        City: {{city}}
+                        <span class="location_label">City:</span> 
+                        <span class="current_location">{{city}}</span>
                     </div>
                 </div>
     
