@@ -146,3 +146,42 @@
 .feed_title{
     font-size: 13pt;
 }
+
+#user_photos_link{
+    width: 300px;
+    word-wrap: break-word;
+    font-weight: bold;
+    padding-top: 5px;
+    border-bottom: solid 1px #BCBCBC;
+   
+}
+
+#user_photos_link a{
+    color: #4772DF;
+    display: block;
+}
+#user_photos_link:hover{
+    background: #CCDBDC;
+}
+
+#user_photoquest_link{
+    width: 300px;
+    border-bottom: solid 1px #BCBCBC;
+    display: inline-block;
+    word-wrap: break-word;
+    clear: left;
+    font-weight: bold;
+    padding-top: 5px;
+    
+}
+#user_photoquest_link a{
+    color: #4772DF;
+    display: block;
+}
+
+#user_photoquest_link:hover{
+    background: #CCDBDC;
+}
+#user_photoquest_link:hover, #user_photos_link:hover{
+    cursor: pointer;
+} 

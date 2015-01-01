@@ -11,19 +11,18 @@
         <span class="profile_user_name">
             {{name + " " + lastName}}
         </span><br/>
-            Ukraine, Kharkov<br/>
-            Another Info <br/><br/>
-
-            <div>
+            Ukraine, Kharkov<br/> <br/>
+          
+            <div id="user_photos_link">
                 <a ng-href="#?path=photos&id={{id}}">
                     Photos of&nbsp;{{name}}
                 </a>
             </div>
-            <div>
+            <div id="user_photoquest_link">
                 <a ng-href="#?path=created_quests&id={{id}}">
                     Photoquests of&nbsp;{{name}}
                 </a>
-            </div>
+            </div><br />
 
             <div class="add_friend_button">
                 <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
@@ -43,9 +42,6 @@
                 </a>
             </div>
 
-        </div>
-        <div>
-            rating: {{rating}}
         </div>
         <div>
             <div class="profile_feed_container" ng-include="'html/feed.html'">
