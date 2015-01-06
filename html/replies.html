@@ -20,7 +20,9 @@
                             {{reply.user.name + " " + reply.user.lastName + " "}}
                         </div>
                     </a>
-                    <div class="replay_date">{{reply.addingDate}}</div>
+                    <div class="replay_date">
+                        {{getDisplayDate(reply.addingDate)}}
+                    </div>
                     <div class="reply_text">
                         {{getReplyMessage(reply)}}
                         <span class="text_font" style="font-size: 11pt;"ng-show="reply.comment">
