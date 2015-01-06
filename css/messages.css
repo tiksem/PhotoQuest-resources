@@ -17,7 +17,7 @@
     margin: 0 auto 0 auto;
 }
 
-.message_textarea{
+#message_textarea{
     height: 48px;
     width: 358px;
     padding: 0 5px 0 5px;

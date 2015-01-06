@@ -23,9 +23,12 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         return user.name + " " + user.lastName;
     };
 
+    var messageArea = $("#message_textarea");
     $scope.sendMessage = function() {
         var text = $scope.messageText;
         var user = $scope.user;
+
+        messageArea.val("");
 
         var config = {
             params: {
