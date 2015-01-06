@@ -91,29 +91,47 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             var scopeArray = scope.$parent[scopeArrayName] = [];
             var showMoreButton = $(element).find("#" + showMoreId);
 
+            var reloadFuncName = attr.reloadFuncName;
+            if(reloadFuncName){
+                scope.$parent[reloadFuncName] = function() {
+                    load(true);
+                }
+            }
+
             var loadCallbacks = {
                 success: function(data) {
-                    var arr = data[scopeArrayName];
-                    if(arr.length < attr.limit){
-                        showMoreButton.remove();
-                    }
+                    if (!loadRequested) {
+                        var arr = data[scopeArrayName];
+                        if (arr.length < attr.limit) {
+                            showMoreButton.remove();
+                        }
 
-                    scopeArray.pushAll(arr);
+                        scopeArray.pushAll(arr);
+                    }
                 },
                 finished: function() {
                     showMoreButton.show();
+                    stopped = false;
                 }
             };
 
             var loadRequested = false;
+            var stopped = false;
+            var isStopped = function() {
+                return stopped || attr.stopped === true || attr.stopped === "true";
+            };
 
-            var load = function() {
-                if(attr.stopped === true || attr.stopped === "true"){
+            var load = function(clearScope) {
+                if(isStopped()){
                     loadRequested = true;
                     return;
                 }
+                if(clearScope){
+                    scopeArray = scope.$parent[scopeArrayName] = [];
+                }
 
                 loadRequested = false;
+                stopped = true;
                 showMoreButton.hide();
                 Utilities.get($http, attr.url, {
                     limit: attr.limit,
@@ -126,8 +144,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             };
             Http.runRequestPeriodically(scope, $http, $timeout, urlProvider, {
                 onPreRequest: function() {
-                    var stopped = attr.stopped;
-                    if (stopped === true || stopped === "true") {
+                    if(isStopped()){
                         return false;
                     }
 
@@ -147,9 +164,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             });
 
             scope.$watch(
-                function() {
-                    return attr.stopped;
-                },
+                isStopped,
                 function() {
                     if(loadRequested){
                         load();

@@ -76,7 +76,9 @@
                  show-more-id="show_more_comments_button"
                  limit="5"
                  ng-show="comments.length > 0"
-                 url="//getCommentsOnPhoto?photoId={{photo.id}}" class="wrapper">
+                 url="//getCommentsOnPhoto?photoId={{photo.id}}"
+                 reload-func-name="reloadComments"
+                 class="wrapper">
                 <div  class="single_comment" ng-repeat="comment in comments">
 
                     <div class="comment_user_photo">

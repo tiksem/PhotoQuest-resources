@@ -127,6 +127,17 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         loadPhotoToScope(url, params, $http);
     };
 
+    var checkPath = function() {
+        var path = $location.search()["path"];
+        return path == "photo";
+    };
+
+    $scope.$on('$locationChangeSuccess', function (event) {
+        if(checkPath()){
+            $scope.reloadComments();
+        }
+    });
+
     Utilities.applyLinksBehavior($location, $scope, $element);
 });
 
