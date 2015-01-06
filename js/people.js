@@ -2,11 +2,12 @@ var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http, $timeout){
     ControllerUtils.initProfileButtons($scope, $http);
 
+    var requestType;
     var init = function() {
         var url;
         var countUrl;
         var countProvider;
-        var requestType = $location.search()["path"];
+        requestType = $location.search()["path"];
         if(requestType == "friends"){
             url = "//friends";
             countUrl = "//getFriendsCount";
@@ -48,7 +49,11 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
 
     var checkPath = function() {
         var path = $location.search()["path"];
-        return path == "people" || path == "friends" || path == "sent_requests" || path == "received_requests";
+        var result = (path == "people" || path == "friends" ||
+            path == "sent_requests" || path == "received_requests") &&
+                requestType != path;
+
+        return result;
     };
 
     $scope.$on('$locationChangeSuccess', function (event) {

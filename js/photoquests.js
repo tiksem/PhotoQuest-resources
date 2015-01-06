@@ -33,11 +33,12 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
+    var requestType;
     var init = function () {
         var url;
         var countUrl;
         var search = $location.search();
-        var requestType = search["path"];
+        requestType = search["path"];
         var args;
 
         $scope.showCategoryTab = true;
@@ -80,8 +81,8 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
 
     var checkPath = function() {
         var path = $location.search()["path"];
-        return path == "quests" || path == "following_quests" || path == "created_quests" ||
-            path == "performed_quests";
+        return (path == "quests" || path == "following_quests" || path == "created_quests" ||
+            path == "performed_quests") && path != requestType;
     };
 
     $scope.$on('$locationChangeSuccess', function (event) {
