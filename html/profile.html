@@ -12,22 +12,25 @@
             {{name + " " + lastName}}
         </span><br/>
             Ukraine, Kharkov<br/> <br/>
-          
-            <div id="user_photos_link">
-                <a ng-href="#?path=photos&id={{id}}">
-                    Photos of&nbsp;{{name}}
-                </a>
-            </div>
-            <div id="user_photoquest_link">
-                <a ng-href="#?path=created_quests&id={{id}}">
-                    Photoquests of&nbsp;{{name}}
-                </a>
-            </div><br />
 
-            <div class="add_friend_button">
-                <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
-                    {{getToggleFriendStatusButtonName(user)}}
-                </button>
+            <div ng-if="getSignedInUser().id !== getId()">
+                <div id="user_photos_link">
+                    <a ng-href="#?path=photos&id={{id}}">
+                        Photos of&nbsp;{{name}}
+                    </a>
+                </div>
+                <div id="user_photoquest_link">
+                    <a ng-href="#?path=created_quests&id={{id}}">
+                        Photoquests of&nbsp;{{name}}
+                    </a>
+                </div><br />
+
+                <div class="add_friend_button">
+                    <button class="button"
+                            ng-click="addOrRemoveFriend(user)">
+                        {{getToggleFriendStatusButtonName(user)}}
+                    </button>
+                </div>
             </div>
             <div ng-show="user.relation === 'request_received'">
                 <button class="button" ng-click="addOrRemoveFriend(user, true)">

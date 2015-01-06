@@ -49,6 +49,10 @@ ControllerUtils = {
             return $location.search()["path"];
         };
 
+        $scope.getId = function() {
+            return parseInt($location.search()["id"]);
+        };
+
         $scope.getOrder = function() {
             var order =  $location.search()["order"];
             if(!order){
