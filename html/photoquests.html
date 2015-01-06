@@ -13,10 +13,9 @@
             </button>
         </div>
         <br />
-        <div>
-            <input ng-model="filter" />
-            <br/>
-            <a ng-href="{{getSearchHref(filter)}}">
+        <div >
+            <input  style="width: 175px; margin-bottom: 5px;" class="filter_input" ng-model="filter" /><br />
+            <a  ng-href="{{getSearchHref(filter)}}">
                 <button class="button">
                     Search
                 </button>
@@ -44,7 +43,7 @@
                     <span class="photoquest_info_quest_name">{{quest.name}}</span><br/><br/>
                 </a>
                 
-                <span ng-show="quest.user">
+                <span >
                     Created by {{quest.user.name + " " + quest.user.lastName}}<br/><br/>
                 </span>
 

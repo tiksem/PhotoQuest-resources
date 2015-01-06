@@ -164,7 +164,9 @@
     
 }
 
-
+#photo_position{
+    background: #24AAD7;
+}
 
 .reply_button{
     border: none;

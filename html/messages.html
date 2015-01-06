@@ -20,7 +20,7 @@
                 <a  ng-href="#?path=profile&id={{message.fromUserId}}">
                     {{getMessageTitle(message)}}
                 </a><br />
-                <span class="text_font" style="font-size: 12pt;">
+                <span class="text_font" style="font-size: 11pt;">
                     {{message.message}}
                 </span>
            </div>
@@ -52,7 +52,7 @@
             <thumbnail size="50" src="user.avatar"></thumbnail>
         </div>
         <div id="message_button_container" >
-            <button class="button" id="button_send" ng-show="messageText != ''" ng-click="sendMessage()">
+            <button class="comment_button" id="button_send" ng-show="messageText != ''" ng-click="sendMessage()">
                 Send
             </button>
         </div>

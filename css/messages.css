@@ -1,7 +1,7 @@
 #messages_container{
     margin: 30px;
     width: 480px;
-    height: 400px;
+    height: 300px;
     overflow: scroll;
     border-width: 1px;
     border-color: #4DB1BC;
@@ -66,8 +66,8 @@
     min-height: 40px;
     clear: left;
     margin: 0;
-    width: 400px;
-    text-align: center;
+    width: 370px;
+    text-align: right;
     position: relative;
 }
 
