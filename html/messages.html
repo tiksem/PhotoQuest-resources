@@ -20,8 +20,7 @@
                 <a  ng-href="#?path=profile&id={{message.fromUserId}}">
                     {{getMessageTitle(message)}}
                 </a><br />
-                <span class="text_font" style="font-size: 11pt;">
-                    {{message.message}}
+                <span ng-bind-html="getMessageText(message)" class="text_font" style="font-size: 11pt;">
                 </span>
            </div>
            <div class="message_date">

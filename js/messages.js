@@ -49,5 +49,9 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         })
     };
 
+    $scope.getMessageText = function(message) {
+        return message.message.replace(/\n/g, "<br />")
+    };
+
     Utilities.applyLinksBehavior($location, $scope, $element);
 });
