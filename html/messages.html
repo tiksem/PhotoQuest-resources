@@ -5,7 +5,7 @@
     </div>
     <div id="messages_container"
         top-infinite-scroll="messages" stopped="{{!user}}"
-        page-size="3"
+        page-size="10"
         load-url="/messages?userId={{userId}}" class="wrapper">              
         
         <div class="single_message" ng-repeat="message in messages" ng-click="openMessages(dialog)">
