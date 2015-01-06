@@ -48,7 +48,8 @@ Http = {
                     url: "//getUserStats",
                     onValueChanged: function (oldValue, newValue) {
                         Utilities.addProperties($scope.getSignedInUser(), newValue);
-                    }
+                    },
+                    interval: 2000
                 });
 
                 console.log("login success");
