@@ -226,6 +226,12 @@ a {
 
     
 }
+
+.table_tab{
+    display: block;
+    color: #3E4242;
+    border: solid 1px black;
+}
 #friends_tabs{
     border-top: solid 1px silver;
 }
@@ -308,6 +314,45 @@ button:focus{
     outline: none;
 }
 
-button:active {
-    padding:0  calc(.35em - 1px); 
-    }
+
+    
+#tabs_table td{
+    
+    padding: 0;
+    margin-left: -1px;
+   
+}
+#tabs_table td a{
+    border: solid 1px #6DAFAF;
+    border-bottom: none;
+    border-top: none; 
+    margin-left: -1px; 
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+#tabs_table td a:hover{
+    background: #ffffff;
+    
+}
+
+#category_tabs{
+    border-top:solid 1px #6DAFAF;    
+}
+#category_tabs a{
+    background: #C6F4F4;
+}
+
+#tabs_table{
+    width:100%;
+    padding: 0;
+    margin: 0 auto 0 auto;
+    border-collapse:collapse;
+    font-size: 10pt;
+}
+#tabs_container{
+    text-align: center;
+}
+
+.support_col{
+    width: 225px;
+}
