@@ -331,6 +331,7 @@ button:focus{
     margin-left: -1px; 
     padding-top: 4px;
     padding-bottom: 4px;
+    min-width: 100px;
 }
 #tabs_table td a:hover{
     background: #ffffff;
@@ -356,5 +357,5 @@ button:focus{
 }
 
 .support_col{
-    width: 225px;
+   width: 180px;
 }
