@@ -87,3 +87,21 @@
 .quest_info h1{
     color: #46172B;
 }
+
+.creator_of_quest{
+    display: inline-block; 
+    min-width: 100%; 
+    margin-bottom: 20px;
+    margin-top: 15px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.creator_of_quest a{
+    color: #45172B;
+}
+.creator_of_quest a:hover{
+    text-decoration: underline;
+}
+.creator_of_quest img{
+    margin: 0 5px 0 0 ;
+}

@@ -98,20 +98,21 @@ a {
     font-weight: bold;
     position: relative;
     left: 115px;
+    color: #3C97F1;   
 }
 
 .location_filter{
     display: inline-block;
     width: 400px;
     clear: left;
-    padding-bottom: 5px;
+    padding-bottom: 5px;  
 }
 
 .filters_title{
     font-size: 10pt;
     text-align: center; 
     font-weight: bold;
-    color:#46172B ;   
+         
 }
 
 
@@ -119,7 +120,7 @@ a {
     display: inline-block;
     width: 530px;
     float: left;
-    padding-bottom: 5px;    
+    padding-bottom: 5px;       
 }
 
 .inputs_container{
@@ -133,7 +134,8 @@ a {
     width: 100px;   
     float: left;        
     font-size: 10pt;   
-    font-weight: bold;     
+    font-weight: bold; 
+    color: #3C97F1;    
 }
 
 .location_filter_label{
@@ -141,6 +143,7 @@ a {
     font-size: 10pt;
     float: left;
     font-weight: bold;
+    color: #3C97F1;   
 
 }
 
@@ -158,6 +161,7 @@ a {
     font-size: 10pt;
     bottom: 3px;
     font-weight: bold;
+    color: #3C97F1;   
 }
 
 .filters select{
@@ -282,11 +286,8 @@ a.tab.disabledTab {
 }
 
 .filter_input:focus{
-    background: #ffffff;
-    border: solid 2px #71AAFA;
-    padding: 2px 0px 2px 3px;
-    
-     
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 67, 78, 0.5);
 }
 
 
@@ -304,6 +305,10 @@ a.tab.disabledTab {
     box-shadow:  1px 1px 0px #efefef;
 }
 
+.selector:focus{
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 67, 78, 0.5);
+}
 .photos_container{
     padding-left: 22px;
 }

@@ -148,11 +148,14 @@
 }
 
 #user_photos_link{
-    width: 300px;
+    width: 100%;
     word-wrap: break-word;
     font-weight: bold;
-    padding-top: 5px;
+    padding-top: 3px;
     border-bottom: solid 1px #BCBCBC;
+    border-top: solid 1px #BCBCBC;
+    text-align: center;
+    padding-bottom: 3px;
    
 }
 
@@ -165,14 +168,15 @@
 }
 
 #user_photoquest_link{
-    width: 300px;
+    width: 100%;
     border-bottom: solid 1px #BCBCBC;
     display: inline-block;
     word-wrap: break-word;
     clear: left;
     font-weight: bold;
-    padding-top: 5px;
-    
+    padding-top: 3px;
+    text-align: center;
+    padding-bottom: 3px;
 }
 #user_photoquest_link a{
     color: #4772DF;

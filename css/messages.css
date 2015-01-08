@@ -4,12 +4,13 @@
     height: 300px;
     overflow: scroll;
     border-width: 1px;
-    border-color: #4DB1BC;
+    border-color: #969696;
     border-style: solid;
     overflow-x: hidden;
     overflow-y: scroll;
     text-align: left;
     padding-top: 5px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
 #message_form{
