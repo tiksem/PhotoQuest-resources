@@ -185,11 +185,12 @@ a {
     font-family:"Trebuchet MS";
     font-size: 10pt;
     border-top: solid 1px #6AACAC;
+    
 }
 
 .category_tabs_container a{
     background: #D4ECEC;
-    
+    margin-left: -1px;
 }
 
 .rating_tab
@@ -215,8 +216,9 @@ a {
 {   
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 90px;
     background: #94D6D6;
     border-left: solid 1px #6AACAC;
     border-right: solid 1px #6AACAC;
