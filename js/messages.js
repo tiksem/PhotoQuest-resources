@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("MessagesController", function($scope, $location, $element, ngDialog, $http){
+main.controller("MessagesController", function($scope, $location, $timeout, $element, ngDialog, $http){
     var userId = $scope.userId = $location.search()["id"];
     Http.loadUserToScope($scope.user = $scope.user || {}, $http, userId);
 
@@ -10,6 +10,16 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
             return user.avatar;
         } else {
             return signedIn.avatar;
+        }
+    };
+
+    $scope.keyPressed = function(event) {
+        var key = event.which;
+        if(key == 13){
+            var text = $scope.messageText;
+            if(text != ""){
+                $scope.sendMessage();
+            }
         }
     };
 
@@ -24,6 +34,7 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
     };
 
     var messageArea = $("#message_textarea");
+    var messagesContainer = $("#messages_container");
     $scope.sendMessage = function() {
         var text = $scope.messageText;
         var user = $scope.user;
@@ -42,6 +53,9 @@ main.controller("MessagesController", function($scope, $location, $element, ngDi
         $http.get(url, config).success(function(data) {
             if(!data.error){
                 $scope.messages.push(data);
+                $timeout(function() {
+                    messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+                });
             } else {
                 console.error(data.error);
             }
