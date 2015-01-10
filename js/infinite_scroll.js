@@ -90,6 +90,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             var scopeArrayName = attr.showMoreLoad;
             var scopeArray = scope.$parent[scopeArrayName] = [];
             var showMoreButton = $(element).find("#" + showMoreId);
+            var upDirection = attr.direction === "up";
 
             var reloadFuncName = attr.reloadFuncName;
             if(reloadFuncName){
@@ -106,7 +107,11 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                             showMoreButton.remove();
                         }
 
-                        scopeArray.pushAll(arr);
+                        if (!upDirection) {
+                            scopeArray.pushAll(arr);
+                        } else {
+                            scopeArray.unshiftAll(arr);
+                        }
                     }
                 },
                 finished: function() {
@@ -126,7 +131,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                     loadRequested = true;
                     return;
                 }
-                if(clearScope){
+                if(clearScope === true){
                     scopeArray = scope.$parent[scopeArrayName] = [];
                 }
 
@@ -151,14 +156,22 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                     return scopeArray.length > 0;
                 },
                 args: function() {
+                    var index = upDirection ? scopeArray.length - 1 : 0;
                     return {
-                        startingDate: scopeArray[0].addingDate
+                        afterId: scopeArray[index].id
                     }
                 },
                 success: function(data) {
                     var arr = data[scopeArrayName];
-                    for(var i = arr.length - 1; i >= 0; i--) {
-                        scopeArray.unshift(arr[i]);
+                    var length = arr.length;
+                    if (!upDirection) {
+                        for (var i = length - 1; i >= 0; i--) {
+                            scopeArray.unshift(arr[i]);
+                        }
+                    } else {
+                        for (var i = 0; i < length; i++) {
+                            scopeArray.push(arr[i]);
+                        }
                     }
                 }
             });

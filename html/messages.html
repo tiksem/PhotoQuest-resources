@@ -5,10 +5,21 @@
     </div>
     <shortcut></shortcut>
     <div id="messages_container"
-        top-infinite-scroll="messages" stopped="{{!user}}"
-        page-size="10"
-        load-url="/messages?userId={{userId}}" class="wrapper">              
-        
+         show-more-load="messages"
+         stopped="{{!user}}"
+         show-more-id="show_more_messages_button"
+         limit="10"
+         url="//messages?userId={{userId}}"
+         direction="up"
+         reload-func-name="reloadMessages"
+         class="wrapper">
+
+        <div>
+            <button id="show_more_messages_button" class="button">
+                Show more...
+            </button>
+        </div>
+
         <div class="single_message" ng-repeat="message in messages" ng-click="openMessages(dialog)">
             <a ng-href="#?profile_{{message.fromUserId}}">
                 <div class="message_user_photo">
