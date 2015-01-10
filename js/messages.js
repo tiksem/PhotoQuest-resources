@@ -42,26 +42,18 @@ main.controller("MessagesController", function($scope, $location, $timeout, $ele
         messageArea.val("");
         $scope.messageText = "";
 
-        var config = {
-            params: {
-                toUserId: user.id,
-                message: text
-            }
-        }
+        var params = {
+            toUserId: user.id,
+            message: text
+        };
 
-        var url = window.location.origin + "//sendMessage"
-        $http.get(url, config).success(function(data) {
-            if(!data.error){
-                $scope.messages.push(data);
-                $timeout(function() {
-                    messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
-                });
-            } else {
-                console.error(data.error);
-            }
-        }).error(function(data){
-            console.error(data);
-        })
+        var url = "//sendMessage";
+        Utilities.get($http, url, params, function(data) {
+            $scope.messages.push(data);
+            $timeout(function() {
+                messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+            });
+        });
     };
 
     $scope.getMessageText = function(message) {
