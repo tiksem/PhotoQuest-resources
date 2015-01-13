@@ -1,4 +1,7 @@
 var main = angular.module("main");
+var MAX_PHOTO_WIDTH = 760;
+var MAX_PHOTO_HEIGHT = 500;
+
 main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
     $scope.putComment = function(comment) {
         var message = $scope.message;
@@ -136,6 +139,35 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         if(checkPath()){
             $scope.reloadComments();
         }
+    });
+
+    $("#photo_image").bind("load", function() {
+        var img = $(this);
+        var width = img.width();
+        var height = img.height();
+
+        if(width <= MAX_PHOTO_WIDTH && height <= MAX_PHOTO_HEIGHT){
+            return;
+        }
+
+        var fix = function() {
+            if(width > MAX_PHOTO_WIDTH) {
+                var k = MAX_PHOTO_WIDTH / width;
+                width = MAX_PHOTO_WIDTH;
+                height *= k;
+
+                if(height > MAX_PHOTO_HEIGHT){
+                    fix();
+                }
+            } else {
+                var k = MAX_PHOTO_HEIGHT / height;
+                height = MAX_PHOTO_HEIGHT;
+                width *= k;
+            }
+        };
+
+        fix();
+        img.width(width).height(height);
     });
 
     Utilities.applyLinksBehavior($location, $scope, $element);
