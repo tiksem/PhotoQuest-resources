@@ -10,7 +10,7 @@ angular.module('main')
                 };
 
                 var onEnabledClick = function() {
-                    var tabs = element.parent().children("a.tab");
+                    var tabs = element.parent().parent().find("a.tab");
                     tabs.removeClass("activeTab");
                     element.addClass("activeTab");
                 };

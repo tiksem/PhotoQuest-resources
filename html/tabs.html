@@ -4,21 +4,21 @@
         <td class="support_col" ></td>
         <td>
             <a tab-link disabled="{{contentIsLoading}}"
-               class="table_tab{{getOrder() === 'newest'  ? ' activeTab' : ''}}"
+               class="tab{{getOrder() === 'newest'  ? ' activeTab' : ''}}"
                ng-href="{{getNewestHref()}}">
                 Newest
             </a>
         </td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
-               class="table_tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
+               class="tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
                ng-href="{{getMostRatedHref()}}">
                 Most rated
             </a>
         </td>
         <td>
             <a tab-link disabled="{{contentIsLoading}}"
-               class="table_tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
+               class="tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
                ng-href="{{getHottestHref()}}">
                 Hottest
             </a>
@@ -29,21 +29,21 @@
         <td class="support_col" style="background: #C6F4F4;"></td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
-               class="table_tab{{getPath() === 'created_quests'  ? ' activeTab' : ''}}"
+               class="tab{{getPath() === 'created_quests'  ? ' activeTab' : ''}}"
             ng-href="{{getPathChangeHref('created_quests')}}"  >
                 Created
             </a>
         </td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
-               class="table_tab{{getPath() === 'following_quests'  ? ' activeTab' : ''}}"
+               class="tab{{getPath() === 'following_quests'  ? ' activeTab' : ''}}"
                ng-href="{{getPathChangeHref('following_quests')}}"  >
                 Following
             </a>
         </td>
         <td>
             <a   tab-link disabled="{{contentIsLoading}}"
-               class="table_tab{{getPath() === 'performed_quests'  ? ' activeTab' : ''}}"
+               class="tab{{getPath() === 'performed_quests'  ? ' activeTab' : ''}}"
                ng-href="{{getPathChangeHref('performed_quests')}}"  >
                 Performed
             </a>
