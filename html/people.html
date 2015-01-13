@@ -37,22 +37,36 @@
             </a>          
         </div>
     </div>
-    <div id="friends_tabs" class="tab_container" style="width: 697px;  padding-right:0;" ng-show="showFriendTabs">
-        <a tab-link disabled="{{contentIsLoading}}"
-           class="tab{{getPath() === 'friends'  ? ' activeTab' : ''}}"
-           ng-href="#?path=friends">
-            Friends
-        </a>
-        <a tab-link disabled="{{contentIsLoading}}"
-           class="tab{{getPath() === 'sent_requests'  ? ' activeTab' : ''}}"
-           ng-href="#?path=sent_requests" style="padding-left: 10px; padding-right: 10px;">
-            Sent requests
-        </a>
-        <a tab-link disabled="{{contentIsLoading}}"
-           class="tab{{getPath() === 'received_requests'  ? ' activeTab' : ''}}"
-           ng-href="#?path=received_requests" style="padding-left: 10px; padding-right: 10px;">
-            Received requests
-        </a>
+    <div class="tab_container" style="width: 697px;  padding-right:0;" ng-show="showFriendTabs">
+        
+        <table id="tabs_table">
+    <tr>
+        <td class="support_col" ></td>
+        <td>
+            <a tab-link disabled="{{contentIsLoading}}"
+               class="tab{{getOrder() === 'newest'  ? ' activeTab' : ''}}"
+               ng-href="#?path=friends">
+                Friends
+            </a>
+        </td>
+        <td>
+            <a  tab-link disabled="{{contentIsLoading}}"
+               class="tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
+               ng-href="#?path=sent_requests" >
+                Sent requests
+            </a>
+        </td>
+        <td>
+            <a tab-link disabled="{{contentIsLoading}}"
+               class="tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
+               ng-href="#?path=received_requests" style="padding-left: 5px; padding-right: 5px;">
+               Received requests
+            </a>
+        </td>
+        <td class="support_col" ></td>         
+    </tr>
+    </table>
+        
     </div>                     
     <div class="people_title">
         <h1>People</h1>

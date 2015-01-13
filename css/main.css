@@ -216,34 +216,15 @@ a {
     
 }
 
-.tab
-{   
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    min-width: 90px;
-    background: #94D6D6;
-    border-left: solid 1px #6AACAC;
-    border-right: solid 1px #6AACAC;
-    color: #3E4242;
-    display: inline-block;
-    margin: 0px;
 
-    
-}
 
-.table_tab{
-    display: block;
-    color: #3E4242;
-    border: solid 1px black;
-}
+
 #friends_tabs{
     border-top: solid 1px silver;
+    display: inline-block;
+    min-width: 100%;
 }
-#friends_tabs a{
-    margin-left: -5px;
-}
+
 
 #following_quests_link{
     border: none;
@@ -263,11 +244,11 @@ a {
     border: none;
 }
 
-a.tab.disabledTab {
+#tabs_table td a.disabledTab {
     background: #0012d6;
 }
 
-.tab:hover, a.tab.activeTab
+ #tabs_table td a:hover, #tabs_table td a.activeTab
 {
     background: white;
 }
@@ -324,7 +305,7 @@ button:focus{
 
     
 #tabs_table td{
-    
+    min-width: 100px;
     padding: 0;
     margin-left: -1px;
    
@@ -337,11 +318,9 @@ button:focus{
     padding-top: 4px;
     padding-bottom: 4px;
     min-width: 100px;
+    display: block;
 }
-#tabs_table td a:hover{
-    background: #ffffff;
-    
-}
+
 
 #category_tabs{
     border-top:solid 1px #6DAFAF;    
