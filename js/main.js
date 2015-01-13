@@ -30,6 +30,10 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
     var getCenterPageContent = function(){
         var defaultContent = 'html/photoquests.html'
 
+        if(!signedInUser){
+            defaultContent = 'html/welcome.html';
+        }
+
         var search = $location.search();
         if(!search){
             return defaultContent;
