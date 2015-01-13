@@ -5,6 +5,8 @@ var MAX_PHOTO_HEIGHT = 450;
 main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
     $scope.putComment = function(comment) {
         var message = $scope.message;
+        $("#message_text_area").val("");
+        $scope.message = "";
         if(message == ""){
             alert("Enter message");
             return;
@@ -106,6 +108,14 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         }
 
         var key = event.which;
+        if(key == 13){
+            var text = $scope.message;
+            if(text != ""){
+                $scope.putComment();
+            }
+            return;
+        }
+
         var next = key == 39;
         if(!next && key != 37){
             return;
