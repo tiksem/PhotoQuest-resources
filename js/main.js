@@ -62,6 +62,8 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             }
         } else if(path == "register") {
             return 'html/register_dialog.html';
+        } else if(path == "welcome" && !signedInUser) {
+            return 'html/welcome.html';
         } else if(signedInUser) {
             if(path == "dialogs") {
                 return 'html/dialogs.html';
@@ -90,7 +92,7 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             }
         }
 
-        $location.search("path", "quests");
+        $location.search("path", signedInUser ? "quests" : "welcome");
 
         return defaultContent;
     };
