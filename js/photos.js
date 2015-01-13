@@ -1,7 +1,7 @@
 var main = angular.module("main");
 main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $location, $upload, $timeout){
     $scope.contentLoaded = false;
-    $scope.pageSize = 10;
+    $scope.pageSize = 40;
 
     var query = $location.search();
     var path = query["path"];
