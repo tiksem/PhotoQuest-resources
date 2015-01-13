@@ -1,21 +1,23 @@
 <div id="photoquests_page" ng-controller="PhotoQuests">
     <div class="tab_container">
-        
-        <div  id="tabs_container" ng-show="showRatingTab" ng-include="'html/tabs.html'">       
-        
-        </div>        
+
+        <div id="tabs_container" ng-show="showRatingTab" ng-include="'html/tabs.html'">
+
+        </div>
     </div>
     <div>
         <h1>{{title}}</h1>
+
         <div>
             <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
                 Create PhotoQuest
             </button>
         </div>
-        <br />
-        <div >
-            <input  style="width: 175px; margin-bottom: 5px;" class="filter_input" ng-model="filter" /><br />
-            <a  ng-href="{{getSearchHref(filter)}}">
+        <br/>
+
+        <div>
+            <input style="width: 175px; margin-bottom: 5px;" class="filter_input" ng-model="filter"/><br/>
+            <a ng-href="{{getSearchHref(filter)}}">
                 <button class="button">
                     Search
                 </button>
@@ -42,13 +44,21 @@
                 <a class="quest_name_link" ng-href="#?path=quest&id={{quest.id}}">
                     <span class="photoquest_info_quest_name">{{quest.name}}</span>
                 </a>
+
                 <div class="creator_of_quest">
-                    <span style="color:#696969; font-size: 10pt; font-weight: bold;">
-                        Created by {{quest.user.name + " " + quest.user.lastName}}<br/>
-                    </span>
-                    <div style="margin-top: 2px; word-wrap: break-word;">
-                        <a href=""><img src="src" width="30px" height="30px" style="float: left;"/> </a>
-                        <a href=""  >Eblo Ivan</a>
+                    <div ng-show="quest.user">
+                        <span style="color:#696969; font-size: 10pt; font-weight: bold;">
+                            Created by<br/>
+                        </span>
+
+                        <div style="margin-top: 2px; word-wrap: break-word;">
+                            <a href="#?path=profile&id={{quest.user.id}}">
+                                <thumbnail src="quest.user.avatar" size="30" style="float: left;"/>
+                            </a>
+                            <a href="#?path=profile&id={{quest.user.id}}">
+                                {{quest.user.name + " " + quest.user.lastName}}
+                            </a>
+                        </div>
                     </div>
                 </div>
 
