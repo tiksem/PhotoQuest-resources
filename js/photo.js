@@ -164,35 +164,36 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
 
     $("#photo_image").bind("load", function() {
         var img = $(this);
-        img[0].width = "100%";
-        
-        $timeout(function () {
-            var width = img.width();
-            var height = img.height();
+        img.css({
+            width: "100%",
+            height: "100%"
+        });
 
-            if (width <= MAX_PHOTO_WIDTH && height <= MAX_PHOTO_HEIGHT) {
-                return;
-            }
+        var width = img.width();
+        var height = img.height();
 
-            var fix = function () {
-                if (width > MAX_PHOTO_WIDTH) {
-                    var k = MAX_PHOTO_WIDTH / width;
-                    width = MAX_PHOTO_WIDTH;
-                    height *= k;
+        if (width <= MAX_PHOTO_WIDTH && height <= MAX_PHOTO_HEIGHT) {
+            return;
+        }
 
-                    if (height > MAX_PHOTO_HEIGHT) {
-                        fix();
-                    }
-                } else {
-                    var k = MAX_PHOTO_HEIGHT / height;
-                    height = MAX_PHOTO_HEIGHT;
-                    width *= k;
+        var fix = function () {
+            if (width > MAX_PHOTO_WIDTH) {
+                var k = MAX_PHOTO_WIDTH / width;
+                width = MAX_PHOTO_WIDTH;
+                height *= k;
+
+                if (height > MAX_PHOTO_HEIGHT) {
+                    fix();
                 }
-            };
+            } else {
+                var k = MAX_PHOTO_HEIGHT / height;
+                height = MAX_PHOTO_HEIGHT;
+                width *= k;
+            }
+        };
 
-            fix();
-            img.width(width).height(height);
-        }, 100);
+        fix();
+        img.width(width).height(height);
     });
 
     Utilities.applyLinksBehavior($location, $scope, $element);
