@@ -112,7 +112,7 @@ Utilities = {
         })
     },
     getTotalCount: function(url, params, $http, onSuccess) {
-        $http.get(url, {
+        $http.get(window.location.origin + url, {
             params: params
         }).success(function(data){
             if (!data.error) {

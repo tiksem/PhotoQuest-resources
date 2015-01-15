@@ -71,6 +71,10 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
             params.userId = search.userId;
         } else if(search.photoquestId) {
             params.photoquestId = search.photoquestId
+
+            if(search.category){
+                params.category = search.category;
+            }
         }
 
         loadPhotoToScope(url, params, $http);
@@ -131,8 +135,15 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
             params.userId = search.userId;
             url = "//getNextPrevPhotoOfUser";
         } else if(search.photoquestId) {
-            params.photoquestId = search.photoquestId
-            url = "//getNextPrevPhotoOfPhotoquest";
+            params.photoquestId = search.photoquestId;
+            var category = search.category;
+            if (category == "all") {
+                url = "//getNextPrevPhotoOfPhotoquest";
+            } else if(category == "mine") {
+                url = "//getNextPrevPhotoOfUserInPhotoquest";
+            } else {
+                url = "//getNextPrevPhotoOfFriendsInPhotoquest";
+            }
         } else {
             return;
         }
@@ -153,31 +164,35 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
 
     $("#photo_image").bind("load", function() {
         var img = $(this);
-        var width = img.width();
-        var height = img.height();
+        img[0].width = "100%";
+        
+        $timeout(function () {
+            var width = img.width();
+            var height = img.height();
 
-        if(width <= MAX_PHOTO_WIDTH && height <= MAX_PHOTO_HEIGHT){
-            return;
-        }
-
-        var fix = function() {
-            if(width > MAX_PHOTO_WIDTH) {
-                var k = MAX_PHOTO_WIDTH / width;
-                width = MAX_PHOTO_WIDTH;
-                height *= k;
-
-                if(height > MAX_PHOTO_HEIGHT){
-                    fix();
-                }
-            } else {
-                var k = MAX_PHOTO_HEIGHT / height;
-                height = MAX_PHOTO_HEIGHT;
-                width *= k;
+            if (width <= MAX_PHOTO_WIDTH && height <= MAX_PHOTO_HEIGHT) {
+                return;
             }
-        };
 
-        fix();
-        img.width(width).height(height);
+            var fix = function () {
+                if (width > MAX_PHOTO_WIDTH) {
+                    var k = MAX_PHOTO_WIDTH / width;
+                    width = MAX_PHOTO_WIDTH;
+                    height *= k;
+
+                    if (height > MAX_PHOTO_HEIGHT) {
+                        fix();
+                    }
+                } else {
+                    var k = MAX_PHOTO_HEIGHT / height;
+                    height = MAX_PHOTO_HEIGHT;
+                    width *= k;
+                }
+            };
+
+            fix();
+            img.width(width).height(height);
+        }, 100);
     });
 
     Utilities.applyLinksBehavior($location, $scope, $element);

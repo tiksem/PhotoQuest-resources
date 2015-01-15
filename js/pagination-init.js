@@ -10,7 +10,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
     $scope.totalItems = 0;
 
     var url = params.url;
-    var countUrl = params.countUrl ? window.location.origin + params.countUrl : undefined;
+    var countUrl = params.countUrl;
     var args = params.args;
     var countArgs = params.countArgs || args;
     var success = params.success;
@@ -48,6 +48,11 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
 
     var getTotalItems = function(callback) {
         if (countUrl) {
+            var countUrlArg = countUrl;
+            if(typeof countUrl === "function"){
+                countUrlArg = countUrl();
+            }
+
             var search = $location.search();
             var urlParams = {
                 filter: search["filter"],
@@ -61,7 +66,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             }
 
             Utilities.addProperties(urlParams, params);
-            Utilities.getTotalCount(countUrl, urlParams, $http, function (count) {
+            Utilities.getTotalCount(countUrlArg, urlParams, $http, function (count) {
                 $scope.totalItems = count;
                 callback(count);
             });
@@ -92,7 +97,12 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
         }
 
         Utilities.addProperties(urlParams, params);
-        Utilities.get($http, url, urlParams, function(data){
+        var urlArg = url;
+        if(typeof url === "function"){
+            urlArg = url();
+        }
+
+        Utilities.get($http, urlArg, urlParams, function(data){
             if (!shouldAppend) {
                 $scope[scopeArrayName] = data[scopeArrayName];
             } else {
@@ -163,6 +173,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
 
     var off = $scope.$on('$locationChangeStart', function(event, next, current) {
         if(checkPath()){
+            delete $scope.totalItems;
             loadData();
         }
     });

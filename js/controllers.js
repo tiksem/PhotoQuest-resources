@@ -41,12 +41,20 @@ ControllerUtils = {
             return that.getAddSearchParamFunction($location, "path", newPath)();
         };
 
+        $scope.getChangeHref = function(key, value) {
+            return that.getAddSearchParamFunction($location, key, value)();
+        };
+
         $scope.getDisplayDate = function(addingDate) {
             return Utilities.getDisplayDate(addingDate);
         };
 
         $scope.getPath = function() {
             return $location.search()["path"];
+        };
+
+        $scope.getCategory = function() {
+            return $location.search()["category"];
         };
 
         $scope.getId = function() {

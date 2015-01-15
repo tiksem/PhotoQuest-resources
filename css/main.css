@@ -322,10 +322,10 @@ button:focus{
 }
 
 
-#category_tabs{
+.category_tabs{
     border-top:solid 1px #6DAFAF;    
 }
-#category_tabs a{
+.category_tabs a{
     background: #C6F4F4;
 }
 
