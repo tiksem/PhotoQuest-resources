@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("RegisterController", function($location, $scope, $element, $http, $upload){
+main.controller("RegisterController", function($location, $timeout, $scope, $element, $http, $upload){
     $scope.onFileSelect = function($files) {
         $scope.avatar = $files[0];
     };
@@ -14,7 +14,24 @@ main.controller("RegisterController", function($location, $scope, $element, $htt
             gender: $scope.gender === "male"
         };
 
-        var url = window.location.origin + "//register";
+        var url = "//register";
+        Utilities.get($http, url, data, {
+            success: function() {
+                Http.signin($scope, $timeout, $http, $scope.login, $scope.password, function() {
+                    if($scope.getSignedInUser() != null){
+                        document.location.href = '#?path=first';
+                    } else {
+                        alert("Unknown error!");
+                    }
+                });
+            },
+            error: function(data) {
+                if (data.message) {
+                    alert(data.message);
+                }
+            }
+        })
+
         $scope.upload = $upload.upload({
             url: url,
             method: 'POST',

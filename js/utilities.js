@@ -227,6 +227,27 @@ Utilities = {
     post: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         this.request("post", $http, url, params, argsOrOnSuccess, withoutSuccessLogs);
     },
+    uploadPhoto: function($scope, $upload, url, data, success) {
+        $scope.upload = $upload.upload({
+            url: window.location.origin + url,
+            method: 'POST',
+            data: data,
+            file: $scope.file
+        }).progress(function (evt) {
+            console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+        }).success(function (data, status, headers, config) {
+            if (!data.error) {
+                alert("Success");
+            } else {
+                console.error(data);
+            }
+            if (success) {
+                success(data);
+            }
+        }).error(function(data){
+            console.error(data);
+        })
+    },
     addCounterWatcher: function($scope, params) {
         var valueProvider = params.valueProvider;
         var onIncrease = params.onIncrease;

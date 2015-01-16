@@ -115,25 +115,13 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                 };
 
                 $scope.uploadPhoto = function() {
-                    $scope.upload = $upload.upload({
-                        url: '/addPhotoToPhotoQuest?photoquest=' + id,
-                        method: 'POST',
-                        data: {
-                            message: $scope.message,
-                            follow: $("#follow_checkbox").is(':checked')
-                        },
-                        file: $scope.file
-                    }).progress(function (evt) {
-                        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                    }).success(function (data, status, headers, config) {
-                        if (!data.error) {
-                            alert("Success");
-                        } else {
-                            console.error(data);
-                        }
-                    }).error(function(data){
-                        console.error(data);
-                    })
+                    var uploadUrl = '/addPhotoToPhotoQuest?photoquest=' + id;
+                    var data = {
+                        message: $scope.message,
+                        follow: $("#follow_checkbox").is(':checked')
+                    };
+
+                    Utilities.uploadPhoto($scope, $upload, uploadUrl, data);
                 };
             }
         });
