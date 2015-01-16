@@ -9,7 +9,9 @@
     <div class="quest_info "ng-show="quest">
         <h1>{{quest.name}}</h1>
         <div>
-            <button class="button" ng-click="openAddPhotoDialog()">Add Photo</button>
+            <button class="button" ng-click="openAddPhotoDialog()">
+                {{quest.name !== "Avatar" ? "Add Photo" : "Change Avatar"}}
+            </button>
         </div>
     </div>
     <div class="photos_container"  ng-show="contentLoaded">
