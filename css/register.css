@@ -56,28 +56,4 @@
     box-shadow:  1px 1px 0px #efefef;
 }
 
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.custom-file-input::before {
-    content: 'Select image';
-    background: -webkit-linear-gradient(top, #D1F3FF, #EEFFFF);
-    border: 1px solid #76AABA;
-    border-radius: 3px;
-    padding: 2px 8px;
-    outline: none;
-    color: #46172B;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: bold;
-    font-size: 10pt;
-}
-.custom-file-input:hover::before {
-    box-shadow:2px 2px 2px #C3E3EE; 
-  
-}
-.custom-file-input:active::before {
-  
-}
+

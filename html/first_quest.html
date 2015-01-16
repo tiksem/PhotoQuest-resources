@@ -1,3 +1,14 @@
 <div ng-show="getSignedInUser()">
-    <div>Create your first photoquest</div>
+    <div id="first-quest-page">
+        <div id="first-quest-text">
+            Perform your first photoquest - <span style="font-size: 16pt;">Avatar</span>
+        </div>
+        <div id="input-container">
+            <label style=" font-size: 13pt; font-weight: normal; color: white; text-shadow: 1px 1px 1px black, 0 0 1px black;">
+             Choose avatar
+            </label >
+            <input style="margin-bottom: 10px; line-height: 10px; margin-left: -2px; width: 300px;" class="custom-file-input" type="file" name="file" ng-file-select="onFileSelect($files)"
+               multiple accept="image/*">
+        </div>
+    </div>
 </div>
