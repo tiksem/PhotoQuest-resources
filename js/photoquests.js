@@ -17,6 +17,7 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                     var url = "//createPhotoquest";
                     Utilities.get($http, url, params, function(){
                         $scope.closeThisDialog(null);
+                        init();
                     });
                 };
             }
