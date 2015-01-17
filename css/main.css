@@ -87,8 +87,8 @@ a {
     width: 100%;
     text-align: left;
     margin-top: -1px;
-    background-color:#F7F7F7;
-   
+    background-color: #C7CEDE;
+    color: #0C7FF1;
 }
 
 .sorting_selector{
@@ -97,8 +97,7 @@ a {
     font-size: 10pt;
     font-weight: bold;
     position: relative;
-    left: 115px;
-    color: #3C97F1;   
+    left: 115px;   
 }
 
 .location_filter{
@@ -134,16 +133,14 @@ a {
     width: 100px;   
     float: left;        
     font-size: 10pt;   
-    font-weight: bold; 
-    color: #3C97F1;    
+    font-weight: bold;     
 }
 
 .location_filter_label{
     width: 100px;  
     font-size: 10pt;
     float: left;
-    font-weight: bold;
-    color: #3C97F1;   
+    font-weight: bold;  
 
 }
 
@@ -160,8 +157,7 @@ a {
     left: 145px;
     font-size: 10pt;
     bottom: 3px;
-    font-weight: bold;
-    color: #3C97F1;   
+    font-weight: bold;  
 }
 
 .filters select{
@@ -263,7 +259,6 @@ a {
     -moz-border-radius: 3px;
     border-radius: 3px;
     border: 1px solid #76AABA;
-    box-shadow:  1px 1px 0px #efefef;
 }
 
 .filter_input:focus{
@@ -274,16 +269,15 @@ a {
 
 
 .selector{     
-     border: solid 1px #76AABA;
-     border-radius: 4px;  
-     padding: 1px;  
-      background: -webkit-gradient(linear, left top, left bottom, from(#D1F3FF), to(#EEFFFF));
-    background: -moz-linear-gradient(top,  #D1F3FF,  #EEFFFF);
+    border: solid 1px #429EBA;
+    border-radius: 4px;  
+    padding: 1px;  
+    background: -webkit-gradient(linear, left top, left bottom, from(#B4DCEA), to(#F1FFFF));
+    background: -moz-linear-gradient(top,  #B4DCEA,  #F1FFFF);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     border: 1px solid #76AABA;
-    box-shadow:  1px 1px 0px #efefef;
 }
 
 .selector:focus{
