@@ -7,12 +7,6 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     var path = query["path"];
     var id = query["id"];
 
-    if(path == "quest"){
-        if(!query["category"]){
-            $location.search("category", "all");
-        }
-    }
-
     var parentScope;
     if (path === "quest") {
         parentScope = $scope.quest = {};

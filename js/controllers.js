@@ -54,7 +54,7 @@ ControllerUtils = {
         };
 
         $scope.getCategory = function() {
-            return $location.search()["category"];
+            return $location.search()["category"] || "all";
         };
 
         $scope.getId = function() {

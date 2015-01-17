@@ -152,6 +152,10 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
     };
 
     $scope.onPageChanged = function(pageNumber) {
+        if(pageNumber === ($location.search()["page"] || 1)) {
+            return;
+        }
+
         if(onPageChanged){
             onPageChanged();
         }
