@@ -111,9 +111,12 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                 $scope.uploadPhoto = function() {
                     var uploadUrl = '/addPhotoToPhotoQuest?photoquest=' + id;
                     var data = {
-                        message: $scope.message,
                         follow: $("#follow_checkbox").is(':checked')
                     };
+
+                    if($scope.message){
+                        data.message = $scope.message;
+                    }
 
                     Utilities.uploadPhoto($scope, $upload, uploadUrl, data);
                 };
