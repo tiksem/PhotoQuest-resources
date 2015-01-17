@@ -48,6 +48,8 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
             }
         } else if(path == "people") {
             return 'html/people.html';
+        } else if(path == "quests") {
+            return 'html/photoquests.html';
         } else if(path == "photo"){
             if(id && id.isNumber()){
                 return 'html/photo.html';
