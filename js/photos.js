@@ -28,7 +28,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
 
             var url = function() {
                 if (path === "quest") {
-                    var category = $location.search()["category"];
+                    var category = $scope.getCategory();
                     if (category == "friends") {
                         return "//getFiendsPhotosOfPhotoquest";
                     } else if (category == "mine") {
@@ -43,7 +43,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
 
             var countUrl = function() {
                 if (path === "quest") {
-                    var category = $location.search()["category"];
+                    var category = $scope.getCategory();
                     if (category == "friends") {
                         return "//getFiendsPhotosOfPhotoquestCount";
                     } else if (category == "mine") {
@@ -129,7 +129,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
 
         if(path == "quest"){
             href += "&photoquestId=" + id;
-            href += "&category=" + search["category"];
+            href += "&category=" + $scope.getCategory();
         } else if(path == "photos") {
             href += "&userId=" + id;
         }
@@ -137,11 +137,11 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         return href;
     };
 
-    var prevCategory = $location.search()["category"];
+    var prevCategory = $scope.getCategory();
     var checkPath = function() {
         var search = $location.search();
         var path = search.path;
-        var category = search.category;
+        var category = $scope.getCategory();
         var result = path == "quest" && search.photoquestId != undefined && category != prevCategory;
         prevCategory = category;
         return result;
