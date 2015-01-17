@@ -118,8 +118,13 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         data.message = $scope.message;
                     }
 
-                    Utilities.uploadPhoto($scope, $upload, uploadUrl, data, function() {
+                    Utilities.uploadPhoto($scope, $upload, uploadUrl, data, function(data) {
                         $scope.closeThisDialog(null);
+                        if($scope.quest.name === "Avatar"){
+                            var signedInUser = scope.getSignedInUser();
+                            signedInUser.avatar = data.url;
+                            signedInUser.avatarId = data.id;
+                        }
                         init();
                     }, function(data) {
                         if(data){

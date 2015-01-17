@@ -8,7 +8,7 @@
     <h1 ng-show="!contentLoaded">Loading...</h1>
     <div class="quest_info "ng-show="quest">
         <h1>{{quest.name}}</h1>
-        <div>
+        <div ng-show="getSignedInUser()">
             <button class="button" ng-click="openAddPhotoDialog()">
                 {{quest.name !== "Avatar" ? "Add Photo" : "Change Avatar"}}
             </button>
