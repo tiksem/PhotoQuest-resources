@@ -118,7 +118,9 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         data.message = $scope.message;
                     }
 
-                    Utilities.uploadPhoto($scope, $upload, uploadUrl, data);
+                    Utilities.uploadPhoto($scope, $upload, uploadUrl, data, function() {
+                        $scope.closeThisDialog(null);
+                    });
                 };
             }
         });
