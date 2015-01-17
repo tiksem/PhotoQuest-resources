@@ -36,7 +36,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
     };
 
     var loadPhotoToScope = function(url, params, $http) {
-        var scope = $scope.photo = {};
+        var scope = $scope.photo = $scope.photo || {};
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, function(){
             $scope.showNextPrevButtons = scope.showNextPrevButtons;
 

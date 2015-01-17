@@ -29,7 +29,8 @@
             </div>
         </div>
     </div>
-    <div style="width: 100%; background:#EFEFEF; padding-top: 15px; padding-bottom: 30px; display: inline-block; min-width: 100%;">
+    <div style="width: 100%; background:#EFEFEF; padding-top: 15px; padding-bottom: 30px; display: inline-block;
+    min-width: 100%;">
         <div class="photo_main_info_container">
             Published by
             <div class="photo_info_user">
@@ -82,7 +83,7 @@
                 <div  class="single_comment" ng-repeat="comment in comments">
 
                     <div class="comment_user_photo">
-                    <thumbnail size="50" src="comment.user.avatar"></thumbnail>
+                        <thumbnail size="50" src="comment.user.avatar"></thumbnail>
                     </div>
                     <div class="comment_text">
                         <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
@@ -119,7 +120,7 @@
                         Show More
                     </button>
                 </div>
+            </div>
         </div>
-    </div>
     </div>
 </div>
