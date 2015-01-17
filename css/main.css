@@ -88,7 +88,9 @@ a {
     text-align: left;
     margin-top: -1px;
     background-color: #C7CEDE;
-    color: #0C7FF1;
+    color: #46172B;
+    text-shadow: 1px 1px 1px #CCCCCC, 0 0 1px #CCCCCC;
+    
 }
 
 .sorting_selector{
@@ -268,16 +270,13 @@ a {
 
 
 
-.selector{     
-    border: solid 1px #429EBA;
-    border-radius: 4px;  
+.selector{        
     padding: 1px;  
-    background: -webkit-gradient(linear, left top, left bottom, from(#B4DCEA), to(#F1FFFF));
-    background: -moz-linear-gradient(top,  #B4DCEA,  #F1FFFF);
+    background: linear-gradient(#EAFEFF 30%, #BBD8DA 60%, #BBD8DA 52%, #EAFEFF);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    border: 1px solid #76AABA;
+    border: solid 1px #618C99;
 }
 
 .selector:focus{

@@ -8,14 +8,14 @@
     <div>
         <h1>{{title}}</h1>
 
-        <div>
+        <div id="create-button">
             <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
                 Create PhotoQuest
             </button>
         </div>
         <br/>
 
-        <div>
+        <div id="search-quest">
             <input style="width: 175px; margin-bottom: 5px;" class="filter_input" ng-model="filter"/><br/>
             <a ng-href="{{getSearchHref(filter)}}">
                 <button class="button">

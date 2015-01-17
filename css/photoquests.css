@@ -105,3 +105,11 @@
 .creator_of_quest img{
     margin: 0 5px 0 0 ;
 }
+
+#create-button{
+    float: left;
+}
+
+#search-quest{
+    float:right;
+}
