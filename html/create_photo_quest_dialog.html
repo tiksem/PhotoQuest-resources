@@ -1,5 +1,5 @@
 <style>
-#many_tags_error_message {
+#create_photoquest_error_message {
     color: #b10001;
 }
 </style>
@@ -18,8 +18,16 @@
                         allowed-tags-pattern="([^\u0000-\u0080]|[a-zA-Z])+"
                     ></tags-input>
         </div>
-        <div id="many_tags_error_message" ng-show="tags.length > maxTags">
-            Only {{maxTags}} tags are allowed!
+        <div id="create_photoquest_error_message" ng-show="tags.length > maxTags || errorMessage">
+            <div ng-show="tags.length > maxTags">
+                Only {{maxTags}} tags are allowed!
+            </div>
+            <div ng-show="errorMessage">
+                {{errorMessage}}
+            </div>
+        </div>
+        <div>
+
         </div>
         <br>
         <div ng-init="follow=true">

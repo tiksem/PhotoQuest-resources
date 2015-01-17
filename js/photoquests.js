@@ -15,9 +15,19 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                         follow: $("#follow_checkbox").is(':checked')
                     };
                     var url = "//createPhotoquest";
-                    Utilities.get($http, url, params, function(){
-                        $scope.closeThisDialog(null);
-                        init();
+                    Utilities.get($http, url, params, {
+                        success: function() {
+                            $scope.closeThisDialog(null);
+                            init();
+                        },
+                        error: function(data) {
+                            var message = "Unknown error";
+                            if(data && data.message){
+                                message = data.message;
+                            }
+
+                            $scope.errorMessage = message;
+                        }
                     });
                 };
             }
