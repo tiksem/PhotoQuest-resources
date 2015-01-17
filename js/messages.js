@@ -60,5 +60,5 @@ main.controller("MessagesController", function($scope, $location, $timeout, $ele
         return message.message.replace(/\n/g, "<br />")
     };
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

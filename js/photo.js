@@ -196,6 +196,6 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         img.width(width).height(height);
     });
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });
 

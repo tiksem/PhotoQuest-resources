@@ -92,5 +92,5 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         }
     });
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

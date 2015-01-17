@@ -13,6 +13,6 @@ main.controller("FirstQuest", function($location, $cookies, $timeout, $scope, $e
         });
     };
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });
 

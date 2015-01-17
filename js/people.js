@@ -62,5 +62,5 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         }
     });
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

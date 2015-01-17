@@ -103,5 +103,5 @@ main.controller("Main", function($http, $element, $timeout, $scope, $location, $
         $scope.getCenterPageContent = getCenterPageContent;
     });
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

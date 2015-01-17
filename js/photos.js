@@ -161,5 +161,5 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
 
     init();
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

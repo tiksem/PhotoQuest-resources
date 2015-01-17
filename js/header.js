@@ -4,5 +4,5 @@ main.controller("HeaderController", function($scope, $location, $element, ngDial
         Http.signout($scope, $http);
     };
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

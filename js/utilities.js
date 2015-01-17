@@ -9,6 +9,15 @@ Utilities = {
 
         var that = this;
 
+        var scrollToZero = function() {
+            window.scrollTo(0, 0);
+            var absUrl = $location.absUrl();
+            scrollHash[absUrl] = {
+                x: 0,
+                y: 0
+            };
+        };
+
         var applyScroll = this.applyScroll = this.applyScroll || function() {
             if (!that.fromLink) {
                 var url = $location.absUrl();
@@ -16,20 +25,23 @@ Utilities = {
                 if (scroll) {
                     window.scrollTo(scroll.x, scroll.y);
                 } else {
-                    window.scrollTo(0, 0);
+                    scrollToZero();
                 }
             } else {
-                window.scrollTo(0, 0);
-                that.fromLink = false;
+                scrollToZero();
             }
+
+            that.fromLink = false;
         };
 
         this.fromLink = this.fromLink || false;
         var onLocationChangedDefault = this.onLocationChangedDefault =
             this.onLocationChangedDefault || function(event, next, current) {
+                that.scrollAplied = false;
                 applyScroll();
+                that.scrollAplied = false;
                 if (next == current) {
-                    window.scrollTo(0, 0);
+                    scrollToZero();
                 }
         };
         var offDefault = this.offDefault = this.offDefault ||
@@ -49,7 +61,13 @@ Utilities = {
         });
 
         return function() {
-            applyScroll();
+            var url = $location.absUrl();
+            var scroll = scrollHash[url];
+            if (scroll) {
+                window.scrollTo(scroll.x, scroll.y);
+            } else {
+                scrollToZero();
+            }
         }
     },
     ajax: function(params){

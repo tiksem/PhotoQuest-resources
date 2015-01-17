@@ -53,6 +53,6 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
         });
     };
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });
 

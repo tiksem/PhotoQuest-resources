@@ -110,7 +110,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             }
 
             $timeout(function(){
-                Utilities.applyLinksBehavior($location, $scope, $element);
+                Utilities.applyLinksBehavior($location, $scope, $element)();
                 updateScroll();
             });
             $scope.contentIsLoading = false;

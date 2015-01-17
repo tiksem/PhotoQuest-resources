@@ -37,5 +37,5 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
             }
         });
     };
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });

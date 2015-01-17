@@ -22,5 +22,5 @@ main.controller("FeedController", function($scope, $location, $element, $http, $
         scopeArrayName: "feeds"
     });
 
-    Utilities.applyLinksBehavior($location, $scope, $element);
+    Utilities.applyLinksBehavior($location, $scope, $element)();
 });
