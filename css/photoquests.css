@@ -108,8 +108,12 @@
 
 #create-button{
     float: left;
+    display: inline-block;
+    margin-left: 20px;
 }
 
 #search-quest{
     float:right;
+    display: inline-block;
+    margin-right: 20px;
 }

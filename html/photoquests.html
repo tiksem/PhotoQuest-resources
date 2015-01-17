@@ -5,25 +5,24 @@
 
         </div>
     </div>
-    <div>
-        <h1>{{title}}</h1>
+    <div >
+        <h1>{{title}}</h1><br />
 
         <div id="create-button">
             <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
                 Create PhotoQuest
             </button>
         </div>
-        <br/>
 
         <div id="search-quest">
-            <input style="width: 175px; margin-bottom: 5px;" class="filter_input" ng-model="filter"/><br/>
+            <input style="width: 175px; float: left; margin-bottom: 5px;" class="filter_input" ng-model="filter"/>
             <a ng-href="{{getSearchHref(filter)}}">
-                <button class="button">
+                <button  style="float: left;"class="button">
                     Search
                 </button>
             </a>
         </div>
-    </div>
+    </div><br />
     <div class="quests_container">
         <div class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize"
              total-items="totalItems"
