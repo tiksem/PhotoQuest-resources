@@ -236,7 +236,7 @@ Utilities = {
     post: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         this.request("post", $http, url, params, argsOrOnSuccess, withoutSuccessLogs);
     },
-    uploadPhoto: function($scope, $upload, url, data, success) {
+    uploadPhoto: function($scope, $upload, url, data, success, error) {
         $scope.upload = $upload.upload({
             url: window.location.origin + url,
             method: 'POST',
@@ -246,15 +246,21 @@ Utilities = {
             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
         }).success(function (data, status, headers, config) {
             if (!data.error) {
+                if (success) {
+                    success(data);
+                }
                 alert("Success");
             } else {
+                if(error){
+                    error(data);
+                }
                 console.error(data);
-            }
-            if (success) {
-                success(data);
             }
         }).error(function(data){
             console.error(data);
+            if(error){
+                error();
+            }
         })
     },
     addCounterWatcher: function($scope, params) {

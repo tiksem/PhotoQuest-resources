@@ -14,6 +14,9 @@
             <input id="follow_checkbox" type="checkbox" ng-model="follow" />
             Follow photoquest {{quest.name}}
         </div>
+        <div ng-show="errorMessage">
+            {{errorMessage}}
+        </div>
         <div>
             <button class="button" ng-click="uploadPhoto()">Publish</button>
         </div>
