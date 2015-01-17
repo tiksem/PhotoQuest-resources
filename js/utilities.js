@@ -7,58 +7,49 @@ Utilities = {
     applyLinksBehavior: function($location, $scope, element) {
         var scrollHash = this.scrollHash = this.scrollHash || {};
 
-        var locationChangeStarted = this.locationChangeStarted = this.locationChangeStarted ||
-            function(event, next, current) {
-                if (next == current) {
-                    window.scrollTo(0, 0);
-                    return;
-                }
-
-                scrollHash[current] = {
-                    x: window.scrollX,
-                    y: window.scrollY
-                };
-
-                locationChanged = false;
-            };
-        $scope.$on('$locationChangeStart', locationChangeStarted);
+        var that = this;
 
         var applyScroll = this.applyScroll = this.applyScroll || function() {
-            var url = $location.absUrl();
-            var scroll = scrollHash[url];
-            if(scroll){
-                window.scrollTo(scroll.x, scroll.y);
+            if (!that.fromLink) {
+                var url = $location.absUrl();
+                var scroll = scrollHash[url];
+                if (scroll) {
+                    window.scrollTo(scroll.x, scroll.y);
+                } else {
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                window.scrollTo(0, 0);
+                that.fromLink = false;
             }
         };
 
-        var locationChanged = false;
+        this.fromLink = this.fromLink || false;
         var onLocationChangedDefault = this.onLocationChangedDefault =
-            this.onLocationChangedDefault || function() {
-            locationChanged = true;
-            applyScroll();
+            this.onLocationChangedDefault || function(event, next, current) {
+                applyScroll();
+                if (next == current) {
+                    window.scrollTo(0, 0);
+                }
         };
         var offDefault = this.offDefault = this.offDefault ||
-        $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
+        $scope.$on('$locationChangeStart', onLocationChangedDefault);
 
-        var that = this;
         $(element).find("a").click(function(e){
-            if (this.href != $location.absUrl()) {
-                offDefault();
-                var off = $scope.$on('$locationChangeSuccess', function (event) {
-                    window.scrollTo(0, 0);
-                    off();
-                    that.offDefault = $scope.$on('$locationChangeSuccess', onLocationChangedDefault);
-                });
+            var absUrl = $location.absUrl();
+            if (this.href != absUrl) {
+                that.fromLink = true;
+                scrollHash[absUrl] = {
+                    x: window.scrollX,
+                    y: window.scrollY
+                };
             } else {
                 window.scrollTo(0, 0);
             }
         });
 
         return function() {
-            if(locationChanged){
-                applyScroll();
-                locationChanged = false;
-            }
+            applyScroll();
         }
     },
     ajax: function(params){
