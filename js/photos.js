@@ -120,6 +120,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
 
                     Utilities.uploadPhoto($scope, $upload, uploadUrl, data, function() {
                         $scope.closeThisDialog(null);
+                        init();
                     });
                 };
             }
