@@ -56,4 +56,8 @@
     box-shadow:  1px 1px 0px #efefef;
 }
 
+#register_error_message {
+    color: #c00726;
+}
+
 

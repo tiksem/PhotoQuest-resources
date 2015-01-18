@@ -4,6 +4,18 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
         $scope.avatar = $files[0];
     };
 
+    var loadCaptcha = function() {
+        delete $scope.captchaKey;
+        Utilities.get($http, "//getCaptcha", {}, function(data) {
+            $scope.captchaKey = data.id;
+        });
+    };
+    loadCaptcha();
+
+    $scope.getCaptchaUrl = function() {
+        return window.location.origin + "//captcha/" + $scope.captchaKey;
+    };
+
     $scope.register = function(){
         var data = {
             login: $scope.login,
@@ -11,7 +23,9 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             name: $scope.name,
             lastName: $scope.lastName,
             location: $scope.placeId,
-            gender: $scope.gender === "male"
+            gender: $scope.gender === "male",
+            captcha: $scope.captchaKey,
+            answer: $scope.answer
         };
 
         var url = "//register";
@@ -26,9 +40,14 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
                 });
             },
             error: function(data) {
+                if(data.error = "InvalidCaptchaException"){
+                    $scope.errorMessage = "Enter correct code!";
+                }
+
                 if (data.message) {
                     alert(data.message);
                 }
+                loadCaptcha();
             }
         })
 
