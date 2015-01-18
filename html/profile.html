@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div class="profile_container" ng-controller="ProfileController">
     <div ng-show="id">
-        <a ng-href="#?path=photo&id={{avatarId}}">
+        <a ng-href="#?path=photo&id={{avatarId}}&category=avatar&userId={{id}}">
             <div>
                 <thumbnail class="profile_avatar" size="250" src="avatar"></thumbnail>
             </div>
@@ -11,7 +11,7 @@
         <span class="profile_user_name">
             {{name + " " + lastName}}
         </span><br/>
-            Ukraine, Kharkov<br/> <br/>
+            {{user.city + ", " + user.country}}<br/> <br/>
 
             <div ng-if="getSignedInUser().id !== getId()">
                 <div id="user_photos_link">
@@ -39,7 +39,8 @@
             </div>
             <div class="send_message_button">
                 <a ng-href="#?path=messages&id={{id}}">
-                    <button class="button" ng-show="getSignedInUser()">
+                    <button class="button" ng-show="getSignedInUser() &&
+                    getSignedInUser().id != getId()">
                         Write message
                     </button>
                 </a>

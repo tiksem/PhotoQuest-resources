@@ -15,7 +15,7 @@
     </form>
 
     <div id="user_menu_block" ng-show="getSignedInUser()">
-        <a ng-href="#?path=photo&id={{getSignedInUser().avatarId}}">
+        <a ng-href="#?path=profile&id={{getSignedInUser().id}}">
             <div id="user_avatar">
                 <thumbnail size="120" src="getSignedInUser().avatar"></thumbnail>
             </div>

@@ -133,7 +133,11 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         var url;
         if(search.userId){
             params.userId = search.userId;
-            url = "//getNextPrevPhotoOfUser";
+            if (search.category === "avatar") {
+                url = "//getNextPrevAvatar";
+            } else {
+                url = "//getNextPrevPhotoOfUser";
+            }
         } else if(search.photoquestId) {
             params.photoquestId = search.photoquestId;
             var category = search.category;
