@@ -18,11 +18,9 @@
                     <span>{{photo.likesCount + " like it!"}}</span>
                     <span ng-show="photo.yourLike">&nbsp; including You</span>
                 </div>
-                <a href="#?path=quest&id={{photo.photoquestId}}&photoId={{photo.id}}">
-                    <div id="photo_position" class="count_widget">
-                        position: {{photo.position}}
-                    </div>
-                </a>
+                <div ng-show="getCategory()=='avatar'">
+                    <button class="button" ng-click="setAsAvatar()">Set As Avatar</button>
+                </div>
             </div>
             <div  class="photo_message">
                 {{photo.message}}

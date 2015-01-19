@@ -1,6 +1,6 @@
 var main = angular.module("main");
 var MAX_PHOTO_WIDTH = 850;
-var MAX_PHOTO_HEIGHT = 450;
+var MAX_PHOTO_HEIGHT = 500;
 
 main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
     $scope.putComment = function(comment) {
@@ -153,6 +153,19 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         }
 
         loadPhotoToScope(url, params, $http);
+    };
+
+    $scope.setAsAvatar = function() {
+        var url = "//setAvatar";
+        var params = {
+            photoId : $location.search()["id"]
+        };
+
+        Utilities.get($http, url, params, function(data) {
+            var signedInUser = $scope.getSignedInUser();
+            signedInUser.avatar = data.url;
+            signedInUser.avatarId = data.id;
+        });
     };
 
     var checkPath = function() {
