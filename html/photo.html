@@ -14,11 +14,13 @@
                 <div class="photo_date">
                     {{getDisplayDate(photo.addingDate)}}
                 </div>
-                <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
-                    <span>{{photo.likesCount + " like it!"}}</span>
-                    <span ng-show="photo.yourLike">&nbsp; including You</span>
+                <div class="photo-likes-container">
+                    <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
+                        <span>{{photo.likesCount + " like it!"}}</span>
+                        <span ng-show="photo.yourLike">&nbsp; including You</span>
+                    </div>
                 </div>
-                <div ng-show="getCategory()=='avatar'">
+                <div class="set_as_avatar_button" ng-show="getCategory()=='avatar'">
                     <button class="button" ng-click="setAsAvatar()">Set As Avatar</button>
                 </div>
             </div>

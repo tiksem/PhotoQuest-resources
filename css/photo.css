@@ -15,8 +15,6 @@
 #photo_likes_count {
     display: inline-block;
     float: left;
-    margin-left: 10px;
-    margin-right: 10px;
     
 }
 
@@ -329,4 +327,16 @@
 
 .photo_main_info_container a:hover{
     text-decoration: underline;
+}
+
+.set_as_avatar_button{
+    display: inline-block;
+    float: right;
+}
+
+.photo-likes-container{
+    float: left;  
+    display: inline-block; 
+    min-width: 155px;
+    margin: 0 5px 0 10px;
 }

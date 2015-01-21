@@ -101,3 +101,18 @@ input[type="text"]:focus, input[type="password"]:focus
 {
     text-decoration: underline;
 }
+
+#login_form .empty-input {
+    border: solid 1px #DC143C;
+    background: #FCE5E5;
+    
+}
+#login_form .empty-input:focus{
+    box-shadow: 0 0 12px rgba(247, 0, 0, 0.5);
+}
+
+#login-error-block{
+    display: inline-block; 
+    word-wrap: break-word; 
+    color: #DC143C;
+}

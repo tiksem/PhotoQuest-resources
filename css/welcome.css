@@ -10,6 +10,7 @@
 
 #welcome-title{
     width: 100%;
+    font-family: Gautami;
     text-align: center;
     font-size: 15pt;
     display: inline-block;
@@ -53,6 +54,7 @@
 
 #welcom-logo{
     float: left;
+    
 }
 
 #welcome-logo-text{

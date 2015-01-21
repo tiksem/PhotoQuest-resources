@@ -2,7 +2,7 @@
     <form id="login_form" ng-show="!getSignedInUser()">
         <label>
             Enter your login
-            <input style="width: 155px;"name="login" ng-model="login" type="text"/>
+            <input class="empty-input" style="width: 155px;"name="login" ng-model="login" type="text"/>
         </label>
         <label>
             Enter your password
@@ -11,7 +11,10 @@
         <button class="button"  id="button_sign_in" ng-click="signin();">Sign In</button><br />
         <a id="register_link" href="#?path=register">
             Register
-        </a>
+        </a><br /><br />
+        <div id="login-error-block">
+            The login or password you entered is incorrect.
+        </div>
     </form>
 
     <div id="user_menu_block" ng-show="getSignedInUser()">

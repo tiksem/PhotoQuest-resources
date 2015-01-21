@@ -5,8 +5,8 @@
 
         </div>
     </div>
-    <div >
-        <h1>{{title}}</h1><br />
+    <div style="text-align: center; margin-top: 20px; min-height: 30px; line-height: 30px;" >
+       <span style="font-weight: bold; font-size: 19pt; color: #44192D;">{{title}}</span>
 
         <div id="create-button">
             <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
@@ -14,15 +14,18 @@
             </button>
         </div>
 
-        <div id="search-quest">
-            <input style="width: 175px; float: left; margin-bottom: 5px;" class="filter_input" ng-model="filter"/>
-            <a ng-href="{{getSearchHref(filter)}}">
-                <button  style="float: left;"class="button">
-                    Search
-                </button>
-            </a>
-        </div>
-    </div><br />
+        
+    </div><br /><br />
+    <div id="search-quest">
+        <input style="width: 200px; float: left; 
+        margin-right: 10px;" class="filter_input" ng-model="filter"/>
+        <a ng-href="{{getSearchHref(filter)}}">
+            <button  style="float: left;"class="button">
+                Search
+            </button>
+        </a>
+    </div>
+    <br />
     <div class="quests_container">
         <div class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize"
              total-items="totalItems"
