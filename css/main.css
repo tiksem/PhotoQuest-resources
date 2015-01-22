@@ -335,3 +335,7 @@ button:focus{
 .support_col{
    width: 180px;
 }
+
+.loading{
+    margin: 20px auto 0 auto;
+}

@@ -5,11 +5,12 @@
             <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">Prev</button>
             <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
         </div>
+        
         <div class="photo">
+            <img  src="../images/loading.gif" height="50" width="50" class="loading"/> 
             <div id="photo_img" >
                 <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
             </div>
-
             <div id="photo_info">
                 <div class="photo_date">
                     {{getDisplayDate(photo.addingDate)}}
@@ -80,8 +81,8 @@
                  url="//getCommentsOnPhoto?photoId={{photo.id}}"
                  reload-func-name="reloadComments"
                  class="wrapper">
+                 <img src="../images/loading.gif" height="50" width="50" class="loading"/>
                 <div  class="single_comment" ng-repeat="comment in comments">
-
                     <div class="comment_user_photo">
                         <thumbnail size="50" src="comment.user.avatar"></thumbnail>
                     </div>

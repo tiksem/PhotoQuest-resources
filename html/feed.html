@@ -1,5 +1,6 @@
 <div class="feed_content" ng-controller="FeedController">
     <div class="feed_title" ng-show="getPath() === 'profile'">Activity</div>
+    <img  src="../images/loading.gif" height="50" width="50" class="loading"/>
     <div>        
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber">

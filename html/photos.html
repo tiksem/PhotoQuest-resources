@@ -4,19 +4,16 @@
 
         </div>       
     </div>
-    
-    <h1 ng-show="!contentLoaded">Loading...</h1>
     <div class="quest_info "ng-show="quest">
         <h1>{{quest.name}}</h1>
+        
         <div ng-show="getSignedInUser()">
             <button class="button" ng-click="openAddPhotoDialog()">
                 {{quest.name !== "Avatar" ? "Add Photo" : "Change Avatar"}}
             </button>
         </div>
     </div>
-    <div class="photos_container"  ng-show="contentLoaded">
-        
-
+    <div class="photos_container"  ng-show="contentLoaded">   
         <div ng-show="user">
             <h1>Photos of&nbsp;
                 <a ng-href="#?path=profile&id={{user.id}}">
@@ -24,8 +21,8 @@
                 </a>
             </h1>
         </div>
-
-        <br>
+        <img src="../images/loading.gif" height="50" width="50" class="loading"/>
+        <br/>
         <div class="single_photo_container" dir-paginate="photo in photos | itemsPerPage: pageSize"
              total-items="totalItems"
              current-page="pageNumber">
