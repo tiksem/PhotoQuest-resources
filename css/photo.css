@@ -84,7 +84,7 @@
 .photo_date{
     display: inline-block;
     float: left;
-    padding-top: 5px;
+    padding-top: 3px;
     font-size: 10pt;
 }
 
@@ -333,11 +333,18 @@
 .set_as_avatar_button{
     display: inline-block;
     float: right;
+    min-width: 115px;
+}
+
+.set_as_avatar_button .button{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 0;
 }
 
 .photo-likes-container{
     float: left;  
     display: inline-block; 
-    min-width: 155px;
+    min-width: 185px;
     margin: 0 5px 0 10px;
 }

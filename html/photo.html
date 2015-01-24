@@ -20,9 +20,11 @@
                         <span>{{photo.likesCount + " like it!"}}</span>
                         <span ng-show="photo.yourLike">&nbsp; including You</span>
                     </div>
+                    <img src="../images/mini_loading.gif" style="float: left;" 
+                    height="20" width="20" class="loading_small"/>
                 </div>
-                <div class="set_as_avatar_button" ng-show="getCategory()=='avatar'">
-                    <button class="button" ng-click="setAsAvatar()">Set As Avatar</button>
+                <div class="set_as_avatar_button" >
+                    <button ng-show="getCategory()=='avatar'" class="button" ng-click="setAsAvatar()">Set As Avatar</button>
                 </div>
             </div>
             <div  class="photo_message">
@@ -66,6 +68,7 @@
                         </textarea>
                     </div>
                     <div class="comment_button_container">
+                        <img src="../images/mini_loading.gif" style="position: relative; top: 5px;" height="20" width="20" class="loading_small"/>
                         <button class="comment_button" ng-click="putComment()">Comment</button>
                     </div>
                 </form>
@@ -81,7 +84,6 @@
                  url="//getCommentsOnPhoto?photoId={{photo.id}}"
                  reload-func-name="reloadComments"
                  class="wrapper">
-                 <img src="../images/loading.gif" height="50" width="50" class="loading"/>
                 <div  class="single_comment" ng-repeat="comment in comments">
                     <div class="comment_user_photo">
                         <thumbnail size="50" src="comment.user.avatar"></thumbnail>
@@ -106,16 +108,21 @@
                                     <span>{{comment.likesCount + " like it!"}}</span>
                                     <span ng-show="comment.yourLike">&nbsp; including You</span>
                                 </div>
+                                <img src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
                             </div>
+                            <img src="../images/mini_loading.gif" style="margin-top: 2px; position: relative; float: right;" 
+                            height="20" width="20" class="loading_small"/>
                             <a class="delete_button"  ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
                                 Delete
                             </a>
                             <a class="reply_button" ng-click="putComment(comment)">
                                 Reply
                             </a>
+                            
                         </div>
                     </div>
                 </div>
+                <img src="../images/loading.gif" height="50" width="50" class="loading"/>
                 <div  class="show_more_button_container" >
                     <button id="show_more_comments_button" >
                         Show More
