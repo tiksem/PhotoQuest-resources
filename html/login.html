@@ -2,7 +2,7 @@
     <form id="login_form" ng-show="!getSignedInUser()">
         <label>
             Enter your login
-            <input class="empty-input" style="width: 155px;"name="login" ng-model="login" type="text"/>
+            <input style="width: 155px;"name="login" ng-model="login" type="text"/>
         </label>
         <label>
             Enter your password
@@ -14,9 +14,9 @@
         <a id="register_link" href="#?path=register">
             Register
         </a><br /><br />
-        <div id="login-error-block">
-            The login or password you entered is incorrect.
-        </div>
+        <!--<div id="login-error-block">-->
+            <!--The login or password you entered is incorrect.-->
+        <!--</div>-->
     </form>
 
     <div id="user_menu_block" ng-show="getSignedInUser()">
@@ -34,12 +34,22 @@
             </div>
             <div class="user_menu_link_container">
                 <a  class="user_info_link" ng-href="#?path=dialogs">
-                   <span class="user_button"> Messages {{getSignedInUser().unreadMessagesCount}}</span>
+                    <span class="user_button">
+                         Messages
+                         <span ng-show="getSignedInUser().unreadMessagesCount">
+                             (+{{getSignedInUser().unreadMessagesCount}})
+                         </span>
+                     </span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=friends">
-                     <span class="user_button">Friends {{getSignedInUser().friendRequestsCount}}</span>
+                    <span class="user_button">
+                         Friends
+                         <span ng-show="getSignedInUser().friendRequestsCount">
+                             (+{{getSignedInUser().friendRequestsCount}})
+                         </span>
+                     </span>
                 </a>
             </div>
             <div class="user_menu_link_container">
