@@ -1,8 +1,8 @@
-<div ng-controller="RepliesController" class="replies_page" ">
+<div ng-controller="RepliesController" class="replies_page">
     <div style="text-align: center; position: relative">
         <h1>Replies</h1>
     </div>
-    <img  src="../images/loading.gif" height="50" width="50" class="loading"/>
+    <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
     <div id="replies_container">
         <div class="single_reply" dir-paginate="reply in replies | itemsPerPage: pageSize" total-items="totalItems"
              current-page="pageNumber"
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div>
+        <div ng-show="!contentIsLoading">
             <dir-pagination-controls boundary-links="true"
                                      on-page-change="onPageChanged(newPageNumber)"
                                      template-url="html/pagination_template.html">

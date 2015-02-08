@@ -2,7 +2,7 @@
     <div style="text-align: center; position: relative">
         <h1>Messages</h1>
     </div>
-    <img src="../images/loading.gif" style="margin-bottom: 10px;" height="50" width="50" class="loading"/>
+    <img ng-show="contentIsLoading" src="../images/loading.gif" style="margin-bottom: 10px;" height="50" width="50" class="loading"/>
     <div id="dialogs_container">
             <div class="single_dialog" ng-repeat="dialog in dialogs"> 
                  <a ng-href="#?path=messages&id={{dialog.user.id}}">

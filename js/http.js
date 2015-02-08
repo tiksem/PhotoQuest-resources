@@ -159,28 +159,39 @@ Http = {
             updater.destroy();
         });
     },
-    unlike: function ($http, item) {
+    unlike: function ($http, item, finished) {
         var url = "//unlike";
         var params = {
             id: item.yourLike.id
         };
-        Utilities.get($http, url, params, function (data) {
-            item.yourLike = null;
-            item.likesCount--;
+        Utilities.get($http, url, params, {
+            success: function (data) {
+                item.yourLike = null;
+                item.likesCount--;
+            },
+            finished: finished
         });
     },
-    like: function ($http, item, params) {
+    like: function ($http, item, params, finished) {
         var url = "//like";
-        Utilities.get($http, url, params, function (data) {
-            item.yourLike = data;
-            item.likesCount++;
+        Utilities.get($http, url, params, {
+            success: function (data) {
+                item.yourLike = data;
+                item.likesCount++;
+            },
+            finished: finished
         });
     },
     toggleLikeState: function ($http, item, params) {
+        item.likeLoading = true;
+        var onFinish = function(){
+            item.likeLoading = false;
+        };
+
         if (item.yourLike) {
-            this.unlike($http, item);
+            this.unlike($http, item, onFinish);
         } else {
-            this.like($http, item, params);
+            this.like($http, item, params, onFinish);
         }
     }
 };

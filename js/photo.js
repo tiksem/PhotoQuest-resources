@@ -40,6 +40,8 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, function(){
             $scope.showNextPrevButtons = scope.showNextPrevButtons;
 
+            $scope.showPhotoLoading = false;
+
             $scope.likePhoto = function() {
                 var params = {
                     photoId: $location.search()["id"]
@@ -152,6 +154,7 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
             return;
         }
 
+        $scope.showPhotoLoading = true;
         loadPhotoToScope(url, params, $http);
     };
 

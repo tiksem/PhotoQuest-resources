@@ -21,7 +21,7 @@
                 </a>
             </h1>
         </div>
-        <img src="../images/loading.gif" height="50" width="50" class="loading"/>
+        <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
         <br/>
         <div class="single_photo_container" dir-paginate="photo in photos | itemsPerPage: pageSize"
              total-items="totalItems"
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="photoquest_pagination_container">
+    <div ng-show="!contentIsLoading" class="photoquest_pagination_container">
         <dir-pagination-controls boundary-links="true"
                                  on-page-change="onPageChanged(newPageNumber)"
                                  template-url="html/pagination_template.html">

@@ -5,9 +5,11 @@
             <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">Prev</button>
             <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
         </div>
-        
-        <div class="photo">
-            <img  src="../images/loading.gif" height="50" width="50" class="loading"/> 
+
+        <img ng-show="!photo.id || showPhotoLoading"
+             src="../images/loading.gif" height="50" width="50" class="loading"/>
+
+        <div ng-show="photo.id" class="photo">
             <div id="photo_img" >
                 <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
             </div>
@@ -20,7 +22,7 @@
                         <span>{{photo.likesCount + " like it!"}}</span>
                         <span ng-show="photo.yourLike">&nbsp; including You</span>
                     </div>
-                    <img src="../images/mini_loading.gif" style="float: left;" 
+                    <img ng-show="photo.likeLoading" src="../images/mini_loading.gif" style="float: left;"
                     height="20" width="20" class="loading_small"/>
                 </div>
                 <div class="set_as_avatar_button" >
@@ -108,7 +110,9 @@
                                     <span>{{comment.likesCount + " like it!"}}</span>
                                     <span ng-show="comment.yourLike">&nbsp; including You</span>
                                 </div>
-                                <img src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
+                                <img ng-show="comment.likeLoading"
+                                     src="../images/mini_loading.gif" height="20" width="20"
+                                     class="loading_small"/>
                             </div>
                             <img src="../images/mini_loading.gif" style="margin-top: 2px; position: relative; float: right;" 
                             height="20" width="20" class="loading_small"/>

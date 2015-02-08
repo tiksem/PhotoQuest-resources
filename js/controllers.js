@@ -83,18 +83,17 @@ ControllerUtils = {
     },
     initProfileButtons: function($scope, $http) {
         $scope.addOrRemoveFriend = function(user, decline) {
-            var config = {
-                params: {
-                    id: user.id
-                }
+            var params = {
+                id: user.id
             };
 
             var removeFriend = user.relation == "friend" || user.relation == "request_sent" || decline;
-            var url = window.location.origin +
-                (removeFriend ? "//removeFriend" : "//addFriend");
+            var url = removeFriend ? "//removeFriend" : "//addFriend";
 
-            $http.get(url, config).success(function(data){
-                if(!data.error){
+            user.addFriendLoading = true;
+
+            Utilities.get($http, url, params, {
+                success: function() {
                     if(removeFriend){
                         if (!decline) {
                             delete user.relation;
@@ -108,8 +107,9 @@ ControllerUtils = {
                             user.relation = "request_sent";
                         }
                     }
-                } else {
-                    console.error(data);
+                },
+                finished: function() {
+                    user.addFriendLoading = false;
                 }
             });
         };

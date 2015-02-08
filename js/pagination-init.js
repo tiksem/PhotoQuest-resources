@@ -102,21 +102,25 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             urlArg = url();
         }
 
-        Utilities.get($http, urlArg, urlParams, function(data){
-            if (!shouldAppend) {
-                $scope[scopeArrayName] = data[scopeArrayName];
-            } else {
-                $scope[scopeArrayName].pushAll(data[scopeArrayName]);
-            }
+        Utilities.get($http, urlArg, urlParams, {
+            success: function(data){
+                if (!shouldAppend) {
+                    $scope[scopeArrayName] = data[scopeArrayName];
+                } else {
+                    $scope[scopeArrayName].pushAll(data[scopeArrayName]);
+                }
 
-            $timeout(function(){
-                Utilities.applyLinksBehavior($location, $scope, $element)();
-                updateScroll();
-            });
-            $scope.contentIsLoading = false;
+                $timeout(function(){
+                    Utilities.applyLinksBehavior($location, $scope, $element)();
+                    updateScroll();
+                });
 
-            if(success){
-                success();
+                if(success){
+                    success();
+                }
+            },
+            finished: function() {
+                $scope.contentIsLoading = false;
             }
         });
     };
