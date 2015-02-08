@@ -21,17 +21,23 @@ main.controller("PhotoController", function($scope, ngDialog, $element, $http, $
             params.commentId = comment.id;
         } else {
             params.photoId = $location.search()["id"];
+            $scope.putCommentLoading = true;
         }
 
         $scope.commentsUpdatingStopped = true;
-        Utilities.get($http, url, params, function(data) {
-            var comments = $scope.comments = $scope.comments || [];
-            comments.unshift(data);
-            $scope.commentsUpdatingStopped = false;
-            $timeout(function(){
-                var commentsController = $("#comments_container")[0];
-                commentsController.scrollTop = 0;
-            });
+        Utilities.get($http, url, params, {
+            success: function(data) {
+                var comments = $scope.comments = $scope.comments || [];
+                comments.unshift(data);
+                $scope.commentsUpdatingStopped = false;
+                $timeout(function(){
+                    var commentsController = $("#comments_container")[0];
+                    commentsController.scrollTop = 0;
+                });
+            },
+            finished: function() {
+                $scope.putCommentLoading = false;
+            }
         });
     };
 
