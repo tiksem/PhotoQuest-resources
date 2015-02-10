@@ -21,7 +21,7 @@
         </div>
 
         <div class="single_message" ng-repeat="message in messages" ng-click="openMessages(dialog)">
-            <a ng-href="#?profile_{{message.fromUserId}}">
+            <a ng-href="#?path=profile&id={{message.fromUserId}}">
                 <div class="message_user_photo">
                     <thumbnail size="40" src="message.fromUserId == getSignedInUser().id
                     ?
