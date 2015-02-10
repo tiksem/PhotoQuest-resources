@@ -98,7 +98,7 @@ ControllerUtils = {
                         if (!decline) {
                             delete user.relation;
                         } else {
-                            user.relation = "follows";
+                            user.relation = "followed";
                         }
                     } else {
                         if(user.relation == "request_received"){
