@@ -1,0 +1,10 @@
+<div ng-controller="ProgressController">
+    <div ng-repeat="operation in operations">
+        <h1>
+            {{operation.operationName}}
+        </h1>
+        <div>
+            {{operation.progress + " of " + operation.maxProgress}}
+        </div>
+    </div>
+</div>

@@ -99,6 +99,8 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 }
             }
 
+            var firstLoad = true;
+
             var loadCallbacks = {
                 success: function(data) {
                     if (!loadRequested) {
@@ -117,6 +119,15 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 finished: function() {
                     showMoreButton.show();
                     stopped = false;
+
+                    if(firstLoad){
+                        if (upDirection) {
+                            $timeout(function () {
+                                $(element).scrollTop(element[0].scrollHeight);
+                            });
+                        }
+                        firstLoad = false;
+                    }
                 }
             };
 

@@ -1,5 +1,5 @@
 var main = angular.module("main");
-main.controller("MessagesController", function($scope, $location, $timeout, $element, ngDialog, $http){
+main.controller("MessagesController", function($scope, $interval, $location, $timeout, $element, ngDialog, $http){
     var userId = $scope.userId = $location.search()["id"];
     Http.loadUserToScope($scope.user = $scope.user || {}, $http, userId);
 
@@ -34,13 +34,17 @@ main.controller("MessagesController", function($scope, $location, $timeout, $ele
     };
 
     var messageArea = $("#message_textarea");
+
     var messagesContainer = $("#messages_container");
     $scope.sendMessage = function() {
-        var text = $scope.messageText;
+        var text = messageArea.val();
         var user = $scope.user;
 
         messageArea.val("");
-        $scope.messageText = "";
+
+        if(text[text.length - 1] == '\n'){
+            text = text.substr(0, text.length - 1);
+        }
 
         var params = {
             toUserId: user.id,
