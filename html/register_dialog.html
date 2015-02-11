@@ -30,24 +30,27 @@
         <span class="location_label">Female</span> <br/>
 
         <br/>
+
         <label>
-            Enter your city
+            Enter your country
         </label>
-        <input id="select_location_input" style="width: 250px; height: 20px;"
-               location-input clear-value="true"/>
+        <input class="select_location_input" style="width: 250px; height: 20px;"
+               country-input/>
 
         <br/>
 
-        <div style="margin-top: 10px;" ng-show="country && city">
-            <div>
-                <span class="location_label">Country:</span>
-                <span class="current_location">{{country}}</span>
-            </div>
-            <div>
-                <span class="location_label">City:</span>
-                <span class="current_location">{{city}}</span>
-            </div>
+        <br/>
+
+        <div ng-show="country">
+            <label>
+                Enter your city
+            </label>
+            <input class="select_location_input" style="width: 250px; height: 20px;"
+               city-input/>
         </div>
+
+        <br/>
+
         <div>
             <img ng-src="{{getCaptchaUrl()}}"/>
         </div>

@@ -9,7 +9,7 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
         Utilities.get($http, "//editProfile", {
             name: $scope.name,
             lastName: $scope.lastName,
-            location: $scope.placeId
+            cityId: $scope.city
         }, function(data) {
             $scope.setSignedInUser(data);
             alert("Success!");

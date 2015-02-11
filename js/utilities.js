@@ -160,7 +160,9 @@ Utilities = {
         var strs = [];
         for (var i in map) {
             if (map.hasOwnProperty(i)) {
-                strs.push(encodeURIComponent(i) + "=" + encodeURIComponent(map[i]));
+                if (map[i] !== undefined) {
+                    strs.push(encodeURIComponent(i) + "=" + encodeURIComponent(map[i]));
+                }
             }
         }
 
@@ -202,7 +204,12 @@ Utilities = {
             if (!data.error) {
                 success(data);
                 if (!withoutSuccessLogs) {
-                    console.log("Success " + url);
+                    var query = Utilities.createQueryString(params);
+                    var urlLog = url;
+                    if(query != ""){
+                        urlLog += "?" + query;
+                    }
+                    console.log("Success " + urlLog);
                     console.log(data);
                 }
             } else {

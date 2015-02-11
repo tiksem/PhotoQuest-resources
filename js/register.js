@@ -22,7 +22,7 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             password: $scope.password,
             name: $scope.name,
             lastName: $scope.lastName,
-            location: $scope.placeId,
+            cityId: $scope.city,
             gender: $scope.gender === "male",
             captcha: $scope.captchaKey,
             answer: $scope.answer

@@ -22,10 +22,14 @@ ControllerUtils = {
             } else {
                 delete copy.filter;
             }
-            if ($scope.placeId) {
-                copy.location = $scope.placeId;
+            if ($scope.city) {
+                copy.cityId = $scope.city;
+                delete copy.countryId;
             } else {
-                delete copy.location;
+                delete copy.cityId;
+                if($scope.country){
+                    copy.countryId = $scope.country;
+                }
             }
             if ($scope.gender) {
                 copy.gender = $scope.gender;

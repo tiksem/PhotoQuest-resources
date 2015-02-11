@@ -8,11 +8,19 @@
                 <div class="name_filter">                   
                     <input class="filter_input" style="width: 273px;" ng-model="filter" />
                 </div>
-                <div class="location_filter_label">
-                    Enter location
-                </div>
-                <div class="location_filter">                   
-                    <input class="filter_input" style="width: 273px;" location-input />
+
+                <label>
+                    Enter country
+                </label>
+                <input ng-model="countryName" class="select_location_input" style="width: 250px; height: 20px;"
+                       country-input/>
+
+                <div ng-show="country">
+                    <label>
+                        Enter city
+                    </label>
+                    <input ng-model="cityName" class="select_location_input" style="width: 250px; height: 20px;"
+                           city-input/>
                 </div>
             </div>  
             <div  class="sorting_selector">

@@ -56,9 +56,13 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             var search = $location.search();
             var urlParams = {
                 filter: search["filter"],
-                location: search["location"],
+                cityId: search["cityId"],
                 gender: search["gender"]
             };
+
+            if(!urlParams.cityId && search.countryId){
+                urlParams.countryId = search.countryId;
+            }
 
             var params = countArgs;
             if (typeof countArgs === "function") {
@@ -82,10 +86,14 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             offset: offset || (($scope.pageNumber - 1) * $scope.pageSize),
             limit: limit || $scope.pageSize,
             filter: search["filter"],
-            location: search["location"],
+            cityId: search["cityId"],
             gender: search["gender"],
             order: getOrder()
         };
+
+        if(!urlParams.cityId && search.countryId){
+            urlParams.countryId = search.countryId;
+        }
 
         if(onLoadingStarted){
             onLoadingStarted();
@@ -116,7 +124,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
                 });
 
                 if(success){
-                    success();
+                    success(data);
                 }
             },
             finished: function() {

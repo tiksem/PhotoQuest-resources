@@ -42,7 +42,18 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
             url: url,
             countUrl: countUrl,
             scopeArrayName: "users",
-            countProvider: countProvider
+            countProvider: countProvider,
+            success: function(data) {
+                var location = data.location;
+                if(!location){
+                    location = {};
+                }
+
+                $scope.city = location.cityId;
+                $scope.country = location.countryId;
+                $scope.cityName = location.cityName;
+                $scope.countryName = location.countryName;
+            }
         });
     };
     init();
