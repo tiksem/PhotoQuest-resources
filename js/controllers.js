@@ -97,7 +97,9 @@ ControllerUtils = {
                 id: user.id
             };
 
-            var removeFriend = user.relation == "friend" || user.relation == "request_sent" || decline;
+            var removeFriend = user.relation == "friend" || user.relation == "request_sent"
+                    || user.relation == "follows"
+                || decline;
             var url = removeFriend ? "//removeFriend" : "//addFriend";
 
             user.addFriendLoading = true;
