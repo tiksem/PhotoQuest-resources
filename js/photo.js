@@ -16,11 +16,15 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             return;
         }
 
-        var replyMessageTextArea = $("#reply_message_text_area");
         var message = comment ? comment.replyMessage : $scope.message;
 
         $("#message_text_area").val("");
-        $scope.message = comment.replyMessage = "";
+        if (!comment) {
+            $scope.message = "";
+        } else {
+            comment.replyMessage = "";
+        }
+
         if(message == ""){
             alert("Enter message");
             return;
