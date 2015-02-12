@@ -2,7 +2,7 @@ var main = angular.module("main");
 var MAX_PHOTO_WIDTH = 850;
 var MAX_PHOTO_HEIGHT = 500;
 
-main.controller("PhotoController", function($scope, ngDialog, $element, $http, $location, $timeout){
+main.controller("PhotoController", function($scope, $interval, ngDialog, $element, $http, $location, $timeout){
     $scope.putComment = function(comment) {
         var message = $scope.message;
         $("#message_text_area").val("");

@@ -401,5 +401,14 @@ Utilities = {
                 }
             }
         }
+    },
+    interval: function($scope, $interval, callback, delay) {
+        var handle = $interval(function(){
+            callback();
+        }, delay);
+
+        $scope.$on('$destroy', function() {
+            $interval.cancel(handle);
+        });
     }
 }

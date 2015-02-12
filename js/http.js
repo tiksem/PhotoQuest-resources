@@ -183,6 +183,10 @@ Http = {
         });
     },
     toggleLikeState: function ($http, item, params) {
+        if(item.likeLoading){
+            return;
+        }
+
         item.likeLoading = true;
         var onFinish = function(){
             item.likeLoading = false;

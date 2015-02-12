@@ -18,7 +18,8 @@
                     {{getDisplayDate(photo.addingDate)}}
                 </div>
                 <div class="photo-likes-container">
-                    <div id="photo_likes_count" class="count_widget" ng-click="likePhoto()">
+                    <div id="photo_likes_count" class="count_widget"
+                         ng-click="likePhoto()">
                         <span>{{photo.likesCount + " like it!"}}</span>
                         <span ng-show="photo.yourLike">&nbsp; including You</span>
                     </div>
