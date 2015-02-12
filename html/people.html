@@ -1,6 +1,6 @@
 <div ng-controller="PeopleController" class="people_page">
     <div class="filters"> 
-        <div ng-init="gender=getGender()">
+        <div ng-init="gender=getGender(); filter = getFilter()">
             <div class="inputs_container">            
                 <div class="name_filter_label">
                     By name

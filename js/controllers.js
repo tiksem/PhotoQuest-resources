@@ -83,6 +83,10 @@ ControllerUtils = {
             return "";
         };
 
+        $scope.getFilter = function() {
+            return $location.search()["filter"];
+        };
+
         $scope.Utilities = Utilities;
     },
     initProfileButtons: function($scope, $http) {
