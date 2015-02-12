@@ -26,7 +26,7 @@
                     {{feed.photo ? "photoquest" : ""}}
                 </div>
     
-                <a ng-href="#?path=photo&id={{feed.photo.id}}&photoquestId={{feed.photo.photoquestId}}"
+                <a ng-href="#?path=photo&id={{feed.photo.id}}&photoquestId={{feed.photo.photoquestId}}&category=all"
                    ng-show="feed.photo">
                     <div class="post_photo">
                         <thumbnail src="feed.photo.url" size="300"></thumbnail>
