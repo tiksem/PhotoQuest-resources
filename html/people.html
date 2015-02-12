@@ -52,21 +52,21 @@
                 <td class="support_col"></td>
                 <td>
                     <a tab-link disabled="{{contentIsLoading}}"
-                       class="tab{{getOrder() === 'newest'  ? ' activeTab' : ''}}"
+                       class="tab{{getPath() === 'friends'  ? ' activeTab' : ''}}"
                        ng-href="#?path=friends">
                         Friends
                     </a>
                 </td>
                 <td>
                     <a tab-link disabled="{{contentIsLoading}}"
-                       class="tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
+                       class="tab{{getPath() === 'sent_requests'  ? ' activeTab' : ''}}"
                        ng-href="#?path=sent_requests">
                         Sent requests
                     </a>
                 </td>
                 <td>
                     <a tab-link disabled="{{contentIsLoading}}"
-                       class="tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
+                       class="tab{{getPath() === 'received_requests'  ? ' activeTab' : ''}}"
                        ng-href="#?path=received_requests" style="padding-left: 5px; padding-right: 5px;">
                         Received requests
                     </a>
