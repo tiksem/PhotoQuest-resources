@@ -3,11 +3,14 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
     ControllerUtils.initProfileButtons($scope, $http);
 
     var requestType;
+    var id;
     var init = function() {
         var url;
         var countUrl;
         var countProvider;
-        requestType = $location.search()["path"];
+        var search = $location.search();
+        requestType = search["path"];
+        id = search.id;
         if(requestType == "friends"){
             url = "//friends";
             countUrl = "//getFriendsCount";
@@ -36,13 +39,16 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
             }
         }
 
-        $scope.showFriendTabs = requestType !== "people";
+        $scope.showFriendTabs = requestType !== "people" && (requestType !== "friends" || !id);
 
         PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
             url: url,
             countUrl: countUrl,
             scopeArrayName: "users",
             countProvider: countProvider,
+            args: {
+                id: id
+            },
             success: function(data) {
                 var location = data.location;
                 if(!location){
