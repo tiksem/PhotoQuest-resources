@@ -18,13 +18,16 @@ angular.module('main')
                         var onChange = function(){
                             element.unbind('change', onChange);
                             $scope.$apply(function(){
-                                delete $scope.country;
-                                element.val("");
+                                if (suggestion.value != element.val()) {
+                                    delete $scope.country;
+                                    element.val("");
+                                }
                             });
                         };
-                        element.change(onChange);
+                        element.change(onChange)
                     }
                 });
             }
         };
     });
+

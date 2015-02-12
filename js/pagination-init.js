@@ -70,9 +70,15 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             }
 
             Utilities.addProperties(urlParams, params);
-            Utilities.getTotalCount(countUrlArg, urlParams, $http, function (count) {
-                $scope.totalItems = count;
-                callback(count);
+            Utilities.get($http, countUrlArg, urlParams, {
+                success: function (data) {
+                    var count = data.count;
+                    $scope.totalItems = count;
+                    callback(count);
+                },
+                error: function() {
+                    $scope.contentIsLoading = false;
+                }
             });
         } else {
             $scope.totalItems = countProvider();

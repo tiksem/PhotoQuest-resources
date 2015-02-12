@@ -29,6 +29,8 @@ ControllerUtils = {
                 delete copy.cityId;
                 if($scope.country){
                     copy.countryId = $scope.country;
+                } else {
+                    delete copy.countryId;
                 }
             }
             if ($scope.gender) {
