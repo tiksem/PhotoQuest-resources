@@ -2,22 +2,29 @@
     <div style="text-align: center; position: relative">
         <h1>Messages</h1>
     </div>
-    <img ng-show="contentIsLoading" src="../images/loading.gif" style="margin-bottom: 10px;" height="50" width="50" class="loading"/>
+    <img ng-show="contentIsLoading" src="../images/loading.gif" style="margin-bottom: 10px;"
+         height="50" width="50" class="loading"/>
     <div id="dialogs_container">
             <div class="single_dialog" ng-repeat="dialog in dialogs"> 
                  <a ng-href="#?path=messages&id={{dialog.user.id}}">
-                    <div class="dialog_container{{dialog.lastMessage.read ||
-                    dialog.lastMessage.toUserId != getSignedInUser().id ? '' :
+                    <div class="dialog_container{{dialog.lastMessage.read ? '' :
                         ' unread_message_dialog_container'}}">
                         <div class="dialog_user_photo">             
                             <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
                         </div>
                         <div class="dialog_text">
-                            <span class="dialog_user_name">{{dialog.user.name + " " + dialog.user.lastName}}</span>
-                            <div class="dialog_date">{{getDisplayDate(dialog.lastMessage.addingDate)}}</div>
-                            <thumbnail class="last_message_user_photo" ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"
+                            <span class="dialog_user_name">
+                                {{dialog.user.name + " " + dialog.user.lastName}}
+                            </span>
+                            <div class="dialog_date">
+                                {{getDisplayDate(dialog.lastMessage.addingDate)}}
+                            </div>
+                            <thumbnail class="last_message_user_photo"
+                                       ng-show="dialog.lastMessage.toUserId != getSignedInUser().id"
                                        src="getSignedInUser().avatar" size="25"></thumbnail>
-                            <span class="text_font" style="font-size: 11pt;">{{dialog.lastMessage.message.getPreview(35, "...")}}</span>
+                            <span class="text_font" style="font-size: 11pt;">
+                                {{dialog.lastMessage.message.getPreview(35, "...")}}
+                            </span>
                         </div>
                     </div>
                 </a>
