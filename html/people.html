@@ -98,7 +98,8 @@
             {{user.country}}<br/> {{user.city}}<br/>
 
             <div class="add_friend_button">
-                <button class="button" ng-show="getSignedInUser()" ng-click="addOrRemoveFriend(user)">
+                <button class="button" ng-show="getSignedInUser().id != user.id"
+                        ng-click="addOrRemoveFriend(user)">
                     {{getToggleFriendStatusButtonName(user)}}
                 </button>
                 <img ng-show="user.addFriendLoading" src="../images/mini_loading.gif"
@@ -112,7 +113,7 @@
             </div>
             <div class="send_message_button">
                 <a ng-href="#?path=messages&id={{user.id}}">
-                    <button class="button" ng-show="getSignedInUser()">
+                    <button class="button" ng-show="getSignedInUser().id != user.id">
                         Write message
                     </button>
                 </a>
