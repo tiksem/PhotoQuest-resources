@@ -214,12 +214,14 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     $("#photo_image").bind("load", function() {
         var img = $(this);
         img.css({
-            width: "100%",
-            height: "100%"
+            width: "auto",
+            height: "auto"
         });
 
-        var width = img.width();
-        var height = img.height();
+        var width = img[0].width;
+        var height = img[0].height;
+
+        console.log("width = " + width + " height = " + height);
 
         if (width <= MAX_PHOTO_WIDTH && height <= MAX_PHOTO_HEIGHT) {
             return;
@@ -242,7 +244,11 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         };
 
         fix();
-        img.width(width).height(height);
+        //img.width(width).height(height);
+        img.css({
+            width: width,
+            height: height
+        });
     });
 
     Utilities.applyLinksBehavior($location, $scope, $element)();
