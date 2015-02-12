@@ -32,7 +32,7 @@
                 
                 <br />
 
-                <div class="add_friend_button">
+                <div ng-show="getSignedInUser()" class="add_friend_button">
                     <button class="button"
                             ng-click="addOrRemoveFriend(user)">
                         {{getToggleFriendStatusButtonName(user)}}
