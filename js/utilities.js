@@ -169,6 +169,16 @@ Utilities = {
         return strs.join("&");
     },
     request: function(type, $http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+        var getUrlLog = function() {
+            var query = Utilities.createQueryString(params);
+            var urlLog = url;
+            if(query != ""){
+                urlLog += "?" + query;
+            }
+
+            return urlLog;
+        };
+
         var success = argsOrOnSuccess;
         var finished;
         var error;
@@ -204,16 +214,11 @@ Utilities = {
             if (!data.error) {
                 success(data);
                 if (!withoutSuccessLogs) {
-                    var query = Utilities.createQueryString(params);
-                    var urlLog = url;
-                    if(query != ""){
-                        urlLog += "?" + query;
-                    }
-                    console.log("Success " + urlLog);
+                    console.log("Success " + getUrlLog());
                     console.log(data);
                 }
             } else {
-                console.error("Error " + url);
+                console.error("Error " + getUrlLog());
                 console.error(data);
                 if(error){
                     error(data);
@@ -225,7 +230,7 @@ Utilities = {
             }
 
         }).error(function(){
-            console.error("Error " + url);
+            console.error("Error " + getUrlLog());
             console.error(data);
 
             if(error){

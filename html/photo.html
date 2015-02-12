@@ -35,8 +35,12 @@
             </div>
         </div>
     </div>
-    <div style="width: 100%; background:#EFEFEF; padding-top: 15px; padding-bottom: 30px; display: inline-block;
-    min-width: 100%;">
+    <div style="
+        width: 100%; background:#EFEFEF;
+        padding-top: 15px;
+        padding-bottom: 30px;
+        display: inline-block;
+        min-width: 100%;">
         <div class="photo_main_info_container">
             Published by
             <div class="photo_info_user">
@@ -116,15 +120,29 @@
                                      src="../images/mini_loading.gif" height="20" width="20"
                                      class="loading_small"/>
                             </div>
-                            <img src="../images/mini_loading.gif" style="margin-top: 2px; position: relative; float: right;" 
+                            <img src="../images/mini_loading.gif" style="margin-top: 2px; position: relative; float: right;"
                             height="20" width="20" class="loading_small"/>
                             <a class="delete_button"  ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
                                 Delete
                             </a>
-                            <a class="reply_button" ng-click="putComment(comment)">
+                            <a class="reply_button" ng-click="reply(comment)">
                                 Reply
                             </a>
-                            
+
+                        </div>
+                    </div>
+                    <div ng-show="comment.showReplyForm">
+                        <div>
+                            <textarea class="reply_message_text_area" ng-model="comment.replyMessage"></textarea>
+                        </div>
+                        <div class="comment_button_container">
+                            <img ng-show="comment.replyCommentLoading" src="../images/mini_loading.gif" style="
+                            position: relative;
+                            top: 5px;"
+                                 height="20" width="20" class="loading_small"/>
+                            <button class="comment_button" ng-click="putComment(comment)">
+                                Comment
+                            </button>
                         </div>
                     </div>
                 </div>

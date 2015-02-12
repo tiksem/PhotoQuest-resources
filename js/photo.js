@@ -3,10 +3,24 @@ var MAX_PHOTO_WIDTH = 850;
 var MAX_PHOTO_HEIGHT = 500;
 
 main.controller("PhotoController", function($scope, $interval, ngDialog, $element, $http, $location, $timeout){
+    $scope.reply = function(comment) {
+        comment.showReplyForm = true;
+    };
+
     $scope.putComment = function(comment) {
-        var message = $scope.message;
+        if(comment){
+            if (comment.replyCommentLoading) {
+                return;
+            }
+        } else if($scope.putCommentLoading) {
+            return;
+        }
+
+        var replyMessageTextArea = $("#reply_message_text_area");
+        var message = comment ? comment.replyMessage : $scope.message;
+
         $("#message_text_area").val("");
-        $scope.message = "";
+        $scope.message = comment.replyMessage = "";
         if(message == ""){
             alert("Enter message");
             return;
@@ -19,6 +33,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
         if(comment){
             params.commentId = comment.id;
+            comment.replyCommentLoading = true;
         } else {
             params.photoId = $location.search()["id"];
             $scope.putCommentLoading = true;
@@ -37,6 +52,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             },
             finished: function() {
                 $scope.putCommentLoading = false;
+                if (comment) {
+                    comment.replyCommentLoading = false;
+                    comment.showReplyForm = false;
+                }
             }
         });
     };
