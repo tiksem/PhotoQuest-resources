@@ -21,27 +21,31 @@ Http = {
         })
     },
     signin: function ($scope, $timeout, $http, login, password, callback) {
-        callback = callback || function () {
-        };
+        callback = callback || {};
 
-        if (login == "") {
-            alert("Enter login!");
+        callback.error = callback.error || function(){};
+
+        if (!login) {
+            callback.error({
+                message: "Enter login!"
+            });
             return;
         }
 
-        if (password == "") {
-            alert("Enter password");
+        if (!password) {
+            callback.error({
+                message: "Enter password!"
+            });
             return;
         }
 
-        var config = {
-            params: {
-                login: login,
-                password: password
-            }
+        var params = {
+            login: login,
+            password: password
         };
-        $http.get(window.location.origin + "//login", config).success(function (data) {
-            if (!data.error) {
+
+        Utilities.get($http, "//login", params, {
+            success: function(data) {
                 $scope.setSignedInUser(data);
 
                 $scope.statsUpdater = new Http.RemoteValueUpdater($http, $timeout, {
@@ -52,21 +56,21 @@ Http = {
                     interval: 2000
                 });
 
-                console.log("login success");
-                console.log(data);
-            } else {
-                var message = data.error + " " + data.message;
-                alert(message);
-                console.error(message);
-            }
-            callback();
-        }).error(callback);
+                if(callback.success){
+                    callback.success();
+                }
+            },
+            finished: callback.finished,
+            error: callback.error
+        });
     },
     trySignInFromCookies: function ($cookies, $timeout, $scope, $http, callback) {
         var login = $cookies.login;
         var password = $cookies.password;
         if (login && password) {
-            Http.signin($scope, $timeout, $http, login, password, callback);
+            Http.signin($scope, $timeout, $http, login, password, {
+                finished: callback
+            });
         } else {
             callback();
         }

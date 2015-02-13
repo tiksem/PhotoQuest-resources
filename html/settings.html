@@ -14,27 +14,32 @@
                     Enter your last name
                 </label>
                 <input name="lastName" ng-model="lastName" type="text" />
-                
-                <label>
-                    Enter your city
-                </label>
-                <input id="change_location_input"   style="width: 250px; height: 20px;" location-input clear-value="true"/>
-                
-    
-                <div ng-show="country && city" style="margin-top: 10px;">
-                    <div>
-                        <span class="location_label">Country:</span> 
-                        <span class="current_location">{{country}}</span>
-                    </div>
-                    <div>
-                        <span class="location_label">City:</span> 
-                        <span class="current_location">{{city}}</span>
-                    </div>
+
+                <div>
+                    <label>
+                        Enter your country
+                    </label>
+                    <input ng-model="countryName" class="select_location_input"
+                           style="width: 250px; height: 20px;"
+                       country-input/>
                 </div>
-    
+
+                <div ng-show="country">
+                    <label>
+                        Enter your city
+                    </label>
+                    <input ng-model="cityName" class="select_location_input" style="width: 250px; height: 20px;"
+                           city-input/>
+                </div>
+
+                <div>
+                    {{getErrorMessage()}}
+                </div>
+
                 <div class="change_button">
                     <button class="button" ng-click="saveProfile()">Save</button>
-                    <img src="../images/mini_loading.gif" style="position: relative; top: 5px;" height="20" width="20" class="loading_small"/>
+                    <img ng-show="changeLoading"
+                            src="../images/mini_loading.gif" style="position: relative; top: 5px;" height="20" width="20" class="loading_small"/>
                 </div>
                 
             </div>
@@ -70,7 +75,8 @@
     
                 <div class="change_button">
                     <button class="button" ng-click="changePassword()">Save</button>
-                    <img src="../images/mini_loading.gif" style="position: relative; top: 5px;" height="20" width="20" class="loading_small"/>
+                    <img ng-show="changePasswordLoading"
+                         src="../images/mini_loading.gif" style="position: relative; top: 5px;" height="20" width="20" class="loading_small"/>
                 </div>
             </div>
         </div>

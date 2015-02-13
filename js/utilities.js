@@ -226,7 +226,9 @@ Utilities = {
 
         call.success(function(data) {
             if (!data.error) {
-                success(data);
+                if (success) {
+                    success(data);
+                }
                 if (!withoutSuccessLogs) {
                     console.log("Success " + getUrlLog());
                     console.log(data);
@@ -288,6 +290,18 @@ Utilities = {
                 error();
             }
         })
+    },
+    addWatcher: function($scope, valueProvider, callback) {
+        $scope.$watch(
+            function($scope){
+                return valueProvider($scope);
+            },
+            function(newValue, oldValue) {
+                if(newValue !== undefined && oldValue !== undefined){
+                    callback(newValue, oldValue);
+                }
+            }
+        )
     },
     addCounterWatcher: function($scope, params) {
         var valueProvider = params.valueProvider;

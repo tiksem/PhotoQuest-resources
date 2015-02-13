@@ -4,7 +4,19 @@ main.controller("LoginController", function(
     $scope.signin = function() {
         var login = $scope.login;
         var password = $scope.password;
-        Http.signin($scope, $timeout, $http, login, password);
+        $scope.loginLoading = true;
+
+        Http.signin($scope, $timeout, $http, login, password, {
+            error: function(data){
+                $scope.errorMessage = data.message;
+            },
+            finished: function() {
+                $scope.loginLoading = false;
+            },
+            success: function() {
+                $scope.errorMessage = "";
+            }
+        });
     };
 
     $scope.signout = function() {

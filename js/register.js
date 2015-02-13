@@ -31,11 +31,12 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
         var url = "//register";
         Utilities.get($http, url, data, {
             success: function() {
-                Http.signin($scope, $timeout, $http, $scope.login, $scope.password, function() {
-                    if($scope.getSignedInUser() != null){
+                Http.signin($scope, $timeout, $http, $scope.login, $scope.password, {
+                    error: function(data) {
+                        alert(data.message)
+                    },
+                    success: function() {
                         document.location.href = '#?path=first';
-                    } else {
-                        alert("Unknown error!");
                     }
                 });
             },
