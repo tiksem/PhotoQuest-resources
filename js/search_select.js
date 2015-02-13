@@ -3,6 +3,7 @@ angular.module('main')
         return {
             link: function(scope, element, attrs) {
                 element = $(element);
+                element.val(scope.getOrder());
                 element.on('change', function () {
                     var valueSelected = this.value;
                     document.location.href =
