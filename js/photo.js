@@ -102,10 +102,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             params.userId = search.userId;
         } else if(search.photoquestId) {
             params.photoquestId = search.photoquestId
+        }
 
-            if(search.category){
-                params.category = search.category;
-            }
+        if(search.category){
+            params.category = search.category;
         }
 
         loadPhotoToScope(url, params, $http);
