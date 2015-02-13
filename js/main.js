@@ -3,7 +3,12 @@ var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
 main.controller("Main", function($http, $element, $timeout, $scope, $locale, $location, $cookies){
     ControllerUtils.initController($scope, $location);
 
-    console.log("lang = " + $locale.id);
+    var setLang = $scope.setLang = function(lang) {
+        $scope.lang = lang;
+        $scope.tr = TRANSLATION[lang] || TRANSLATION["en"];
+    };
+    //setLang($locale.id.split("-")[0]);
+    setLang("ru");
 
     var onSignedInChanged = [];
 

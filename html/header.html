@@ -14,12 +14,12 @@
     </div>
     <a  class="header_menu" ng-href="#?path=people">
         <div id="people_link_container">
-                People
+            {{tr.people}}
         </div>
      </a> 
     <a class="header_menu" ng-href="#?path=quests">
-        <div id="photoquest_link_container">                  
-                Photoquests           
+        <div id="photoquest_link_container">
+            {{tr.photoquests}}
         </div>
     </a>
     <div id="sign_out_button_container" ng-show="getSignedInUser()">             
