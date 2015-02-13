@@ -1,7 +1,9 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
     'angularUtils.directives.dirPagination', 'infinite-scroll', 'ngTagsInput', 'tiksem-keyboard', 'ngSanitize']);
-main.controller("Main", function($http, $element, $timeout, $scope, $location, $cookies){
+main.controller("Main", function($http, $element, $timeout, $scope, $locale, $location, $cookies){
     ControllerUtils.initController($scope, $location);
+
+    console.log("lang = " + $locale.id);
 
     var onSignedInChanged = [];
 
