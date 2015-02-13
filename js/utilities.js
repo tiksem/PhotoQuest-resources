@@ -101,6 +101,18 @@ Utilities = {
         }
     },
     loadDataToScope: function(url, params, $scope, $http, onSuccess) {
+        var time = new Date().getTime();
+
+        var getUrlLog = function() {
+            var query = Utilities.createQueryString(params);
+            var urlLog = url;
+            if(query != ""){
+                urlLog += "?" + query + " time: " + (new Date().getTime() - time);
+            }
+
+            return urlLog;
+        };
+
         $http.get(url, {
             params: params
         }).success(function(data){
@@ -109,14 +121,14 @@ Utilities = {
                 if (onSuccess) {
                     onSuccess(data);
                 }
-                console.log("Success " + url);
+                console.log("Success " + getUrlLog());
                 console.log(data);
             } else {
-                console.log("Error " + url);
+                console.log("Error " + getUrlLog());
                 console.log(data);
             }
         }).error(function(data){
-            console.log("Error " + url);
+            console.log("Error " + getUrlLog());
             console.log(data);
         })
     },
@@ -169,11 +181,13 @@ Utilities = {
         return strs.join("&");
     },
     request: function(type, $http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+        var time = new Date().getTime();
+
         var getUrlLog = function() {
             var query = Utilities.createQueryString(params);
             var urlLog = url;
             if(query != ""){
-                urlLog += "?" + query;
+                urlLog += "?" + query + " time: " + (new Date().getTime() - time);
             }
 
             return urlLog;
