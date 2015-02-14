@@ -75,6 +75,8 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
             return 'html/register_dialog.html';
         } else if(path == "welcome" && !signedInUser) {
             return 'html/welcome.html';
+        } else if(path == "about") {
+            return 'html/about.html';
         } else if(path == "following_quests") {
             if(id && id.isNumber()) {
                 return 'html/photoquests.html';
