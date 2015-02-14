@@ -1,11 +1,12 @@
 var main = angular.module("main");
 main.controller("SettingsController", function($rootScope, $scope, ngDialog, $element, $http, $location){
-    $scope.name = $scope.getSignedInUser().name;
-    $scope.lastName = $scope.getSignedInUser().lastName;
-    $scope.cityName = $scope.getSignedInUser().city;
-    $scope.countryName = $scope.getSignedInUser().country;
-    $scope.city = $scope.getSignedInUser().cityId;
-    $scope.country = $scope.getSignedInUser().cityId;
+    var signedInUser = $scope.getSignedInUser();
+    $scope.name = signedInUser.name;
+    $scope.lastName = signedInUser.lastName;
+    $scope.cityName = signedInUser.city;
+    $scope.countryName = signedInUser.country;
+    $scope.city = signedInUser.cityId;
+    $scope.country = signedInUser.cityId;
 
     $scope.errorType = "";
 
