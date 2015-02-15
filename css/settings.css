@@ -69,7 +69,7 @@
 }
 
 .change_button{
-    width: 100%;
+	display:inline-block;
     text-align: left;
     margin-top: 15px;
 }

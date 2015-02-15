@@ -6,7 +6,8 @@
         </div>
     </div>
     <div style="text-align: center; margin-top: 20px; min-height: 30px; line-height: 30px;" >
-       <span style="font-weight: bold; font-size: 19pt; color: #44192D;">{{title}}</span>
+       <span style="font-weight: bold; font-size: 19pt; color: #44192D;">{{title}}</span><br/>
+	   <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
 
         <div id="create-button" ng-show="!contentIsLoading">
             <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
@@ -28,7 +29,6 @@
     <br />
     
     <div class="quests_container">
-        <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
         <div class="photoquest_container" dir-paginate="quest in quests | itemsPerPage: pageSize"
              total-items="totalItems"
              current-page="pageNumber"
@@ -65,13 +65,14 @@
                         </div>
                     </div>
                 </div>
-
-                <button class="button" class="photoquest_info_follow_button" ng-click="toggleFollowState(quest);"
-                        ng-show="getSignedInUser()">
-                    {{quest.isFollowing ? "Unfollow" : "Follow"}}
-                </button>
-                <img ng-show="quest.followLoading" src="../images/mini_loading.gif" style="position: relative; top:4px;"
-                    height="20" width="20" class="loading_small"/>
+				<div style="display:inline-block;">
+					<button class="button" class="photoquest_info_follow_button" ng-click="toggleFollowState(quest);"
+							ng-show="getSignedInUser()">
+						{{quest.isFollowing ? "Unfollow" : "Follow"}}
+					</button>
+					<img ng-show="quest.followLoading" src="../images/mini_loading.gif" style="position: relative; top:4px;float:right;"
+						height="20" width="20" class="loading_small"/>
+				</div>
             </div>
 
         </div>

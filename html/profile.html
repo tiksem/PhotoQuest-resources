@@ -32,14 +32,16 @@
                 
                 <br />
 
-                <div ng-show="getSignedInUser()" class="add_friend_button">
+                <div style="display:inline-block;" ng-show="getSignedInUser()" class="add_friend_button">
                     <button class="button"
                             ng-click="addOrRemoveFriend(user)">
                         {{getToggleFriendStatusButtonName(user)}}
                     </button>
+					<img style="float:right; position:relative; top:3px;"
+                         src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
                 </div>
             </div>
-            <div ng-show="user.relation === 'request_received'">
+            <div style="display:inline-block;" ng-show="user.relation === 'request_received'">
                 <button class="button" ng-click="addOrRemoveFriend(user, true)">
                     Decline friend request
                 </button>

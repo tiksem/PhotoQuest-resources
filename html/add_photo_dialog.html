@@ -17,8 +17,10 @@
         <div ng-show="errorMessage">
             {{errorMessage}}
         </div>
-        <div>
+        <div style="display:inline-block;">
             <button class="button" ng-click="uploadPhoto()">Publish</button>
+			<img style="float:right; position:relative; top:3px;"
+                         src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
         </div>
     </form>
 </div>
