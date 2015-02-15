@@ -167,7 +167,7 @@
     background: #CCDBDC;
 }
 
-#user_photoquest_link{
+.user_photoquest_link{
     width: 100%;
     border-bottom: solid 1px #BCBCBC;
     display: inline-block;
@@ -178,14 +178,14 @@
     text-align: center;
     padding-bottom: 3px;
 }
-#user_photoquest_link a{
+.user_photoquest_link a{
     color: #4772DF;
     display: block;
 }
 
-#user_photoquest_link:hover{
+.user_photoquest_link:hover{
     background: #CCDBDC;
 }
-#user_photoquest_link:hover, #user_photos_link:hover{
+.user_photoquest_link:hover, #user_photos_link:hover{
     cursor: pointer;
 } 
