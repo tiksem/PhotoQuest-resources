@@ -6,43 +6,48 @@
                     By name
                 </div>
                 <div class="name_filter">
-                    <input class="filter_input" style="width: 273px;" ng-model="filter"/>
-                </div>
+                    <input class="filter_input" style="width: 200px;height: 15px;" ng-model="filter"/>
+                </div><br/>
+				<div>
+					<div class="filter_country">
+						<label style="color:#46172B;">
+							Enter country
+						</label>
+						<input class="filter_input" ng-model="countryName"  style="width: 200px; height:15px;"
+							   country-input/>
+					</div>
 
-                <label>
-                    Enter country
-                </label>
-                <input ng-model="countryName" class="select_location_input" style="width: 250px; height: 20px;"
-                       country-input/>
-
-                <div ng-show="country">
-                    <label>
-                        Enter city
-                    </label>
-                    <input ng-model="cityName" class="select_location_input" style="width: 250px; height: 20px;"
-                           city-input/>
-                </div>
+					<div ng-show="country" class="filter_city" >
+						<label style="color:#46172B;">
+							Enter city
+						</label>
+						<input ng-model="cityName" class="filter_input" style="width: 200px; height: 15px;"
+							   city-input/>
+					</div>
+				</div>
             </div>
-            <div class="sorting_selector">
-                Sort by
-                <select class="selector" style="position: relative;left: 10px;" search-select="order">
-                    <option value="newest">Registration date</option>
-                    <option value="rated">Rating</option>
-                </select>
-            </div>
-            <div class="gender_selector">
-                Gender
-                <select ng-model="gender" class="selector" style="position: relative;left: 10px;">
-                    <option value="">Select gender</option>
-                    <option value="true">Male</option>
-                    <option value="false">Female</option>
-                </select>
-            </div>
-            <a class="filter_search_button" ng-href="{{getSearchHref()}}">
-                <button class="button">
-                    Search
-                </button>
-            </a>
+			<div class="selector_container">
+				<div class="sorting_selector">
+					Sort by
+					<select class="selector" style="float:right;" search-select="order">
+						<option value="newest">Registration date</option>
+						<option value="rated">Rating</option>
+					</select>
+				</div><br/>
+				<div class="gender_selector">
+					Gender
+					<select ng-model="gender" class="selector" >
+						<option value="">Select gender</option>
+						<option value="true">Male</option>
+						<option value="false">Female</option>
+					</select>
+				</div><br/>
+				<a class="filter_search_button" ng-href="{{getSearchHref()}}">
+					<button class="button">
+						Search
+					</button>
+				</a>
+			</div>
         </div>
     </div>
     <div class="tab_container" style="width: 697px;  padding-right:0;" ng-show="showFriendTabs">
