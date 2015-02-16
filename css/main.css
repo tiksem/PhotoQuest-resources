@@ -345,3 +345,11 @@ button:focus{
 .loading_small{
     margin-left: 5px;
 }
+
+.midle{
+    
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}

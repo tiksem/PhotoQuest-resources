@@ -103,7 +103,7 @@
             {{user.country}}<br/> {{user.city}}<br/>
 
             <div class="add_friend_button">
-                <button class="button" ng-show="getSignedInUser() && getSignedInUser().id != user.id"
+                <button style="float: left;" class="button" ng-show="getSignedInUser() && getSignedInUser().id != user.id"
                         ng-click="addOrRemoveFriend(user)">
                     {{getToggleFriendStatusButtonName(user)}}
                 </button>
