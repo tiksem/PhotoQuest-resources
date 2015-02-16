@@ -6,9 +6,9 @@
             <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">Next</button>
         </div>
 
-        <img ng-show="!photo.id || showPhotoLoading"
+        
+        <img ng-show="!photo.id || showPhotoLoading"style="position: absolute; top: 150px; left: 48% ;"
              src="../images/loading.gif" height="50" width="50" class="loading"/>
-
         <div ng-show="photo.id" class="photo">
             <div id="photo_img" >
                 <img id="photo_image" ng-src="{{photo.url}}" alt=""/>
@@ -132,8 +132,8 @@
 
                         </div>
                     </div>
-                    <div ng-show="comment.showReplyForm">
-                        <div>
+                    <div ng-show="comment.showReplyForm" class="reply_form_container">
+                        <div class="reply_form">
                             <textarea class="reply_message_text_area" ng-model="comment.replyMessage"></textarea>
                         </div>
                         <div class="comment_button_container">
@@ -146,13 +146,16 @@
                             </button>
                         </div>
                     </div>
+                    
                 </div>
-                <img src="../images/loading.gif" height="50" width="50" class="loading"/>
                 <div  class="show_more_button_container" >
                     <button id="show_more_comments_button" >
                         Show More
                     </button>
                 </div>
+            </div>
+            <div style="width: 500px; text-align: center;">
+                <img src="../images/loading.gif" height="50" width="50" class="loading"/>
             </div>
         </div>
     </div>

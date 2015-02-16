@@ -6,10 +6,11 @@
 }
 
 #photo_info {
-    min-width: 100%;
+    min-width: inherit;
     position: relative;
     text-align: center;
     display: inline-block;
+    float: left;
 }
 
 #photo_likes_count {
@@ -248,13 +249,14 @@
     display: inline-block;
     background: #ffffff;
     padding: 15px 15px 10px 15px;
-    margin: 0 auto 0 auto;
+    margin: 15px auto 0 auto;
     box-shadow: 0 0 6px rgba(0,0,0,0.3);
 }
 
 .photo_controls{
     min-width: 100%;
-    display: inline-block;    
+    display: inline-block; 
+    margin-bottom: -15px;   
 }
 
 .comments_block{
@@ -347,4 +349,20 @@
     display: inline-block; 
     min-width: 185px;
     margin: 0 5px 0 10px;
+}
+
+.reply_form_container{
+    display: inline-block;
+    float: left;
+    margin-left: 55px;
+}
+
+.reply_form{
+    width: 300px;
+}
+.reply_form textarea{
+    width: 295px;
+    height: 35px;
+    max-width: 295px;
+    max-height: 35px;
 }
