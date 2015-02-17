@@ -149,13 +149,13 @@ a {
     display: inline-block;
     min-width: 680px;
     margin-left: 15px;
-    
 }
 
 .filter_search_button{
 	float:right;
-    margin-top: 15px;
     margin-right: 35px;
+    display: inline-block;
+    margin-top: -3px;
 }
 .gender_selector select, .sorting_selector select{
 	float:right;
@@ -166,7 +166,6 @@ a {
     font-weight: bold; 
 	width:200px;
 	float: left;
-    margin-left: 20px;
 }
 
 
