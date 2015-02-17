@@ -98,6 +98,7 @@ a {
     font-size: 10pt;
     font-weight: bold;
     position: relative; 
+    float: left;
 }
 
 
@@ -112,18 +113,18 @@ a {
 	width:200px;
 	float: left;
     padding-bottom: 5px;
+    margin-left: 15px;
 	
 }
 .filter_city{
 	width:200px;
 	float: left;
     padding-bottom: 5px;
-	margin-left:10px;
+	margin-left:20px;
 }
 
 .name_filter{
     display: inline-block;
-    width: 100%;
     float: left;
     padding-bottom: 5px;       
 }
@@ -133,7 +134,7 @@ a {
     clear: left;
     left:15px;
 	display:inline-block;
-	min-width:400px;
+	width:680px;
 }
 
 
@@ -145,15 +146,16 @@ a {
 }
 
 .selector_container{
-	float:right;
-	display: inline-block;
-	margin-right:50px;
-	margin-top:5px;
+    display: inline-block;
+    min-width: 680px;
+    margin-left: 15px;
+    
 }
 
 .filter_search_button{
 	float:right;
-	margin-top:-5px;
+    margin-top: 15px;
+    margin-right: 35px;
 }
 .gender_selector select, .sorting_selector select{
 	float:right;
@@ -163,7 +165,8 @@ a {
     font-size: 10pt;
     font-weight: bold; 
 	width:200px;
-	margin-top:-5px;
+	float: left;
+    margin-left: 20px;
 }
 
 

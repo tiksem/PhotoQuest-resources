@@ -2,12 +2,13 @@
     <div class="filters">
         <div>
             <div class="inputs_container">
-                <div class="name_filter_label">
-                    By name
-                </div>
+                
                 <div class="name_filter">
+                    <label style="color:#46172B;" class="name_filter_label">
+                        By name
+                    </label><br />
                     <input class="filter_input" style="width: 200px;height: 15px;" ng-model="filter"/>
-                </div><br/>
+                </div>
 				<div>
 					<div class="filter_country">
 						<label style="color:#46172B;">
@@ -25,23 +26,23 @@
 							   city-input/>
 					</div>
 				</div>
-            </div>
+            </div><br/>
 			<div class="selector_container">
 				<div class="sorting_selector">
-					Sort by
-					<select class="selector" style="float:right;" search-select="order">
+					Sort by<br />
+					<select class="selector" style="float:left;" search-select="order">
 						<option value="newest">Registration date</option>
 						<option value="rated">Rating</option>
 					</select>
-				</div><br/>
+				</div>
 				<div class="gender_selector">
-					Gender
-					<select ng-model="gender" class="selector" >
+					Gender<br />
+					<select ng-model="gender" style="float:left;" class="selector" >
 						<option value="">Select gender</option>
 						<option value="true">Male</option>
 						<option value="false">Female</option>
 					</select>
-				</div><br/>
+				</div>
 				<a class="filter_search_button" ng-href="{{getSearchHref()}}">
 					<button class="button">
 						Search
