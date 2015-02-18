@@ -128,6 +128,10 @@ ControllerUtils = {
 
         $scope.getToggleFriendStatusButtonName = function(user) {
             var relation = user.relation;
+            if(!user){
+                return "Error";
+            }
+
             if(relation == "friend"){
                 return "Remove friend";
             } else if(relation == "request_sent") {

@@ -2,15 +2,16 @@ var main = angular.module("main");
 main.controller("PeopleController", function($scope, $location, $element, ngDialog, $http, $timeout){
     ControllerUtils.initProfileButtons($scope, $http);
 
+    var tr = $scope.tr;
+
     var requestType;
     var id;
-    var init = function() {
+
+    var initPagination = function() {
         var url;
         var countUrl;
         var countProvider;
-        var search = $location.search();
-        requestType = search["path"];
-        id = search.id;
+
         if(requestType == "friends"){
             url = "//friends";
             countUrl = "//getFriendsCount";
@@ -19,24 +20,10 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
             countUrl = "//getUsersCount";
         } else if(requestType == "received_requests") {
             url = "//getReceivedFriendRequests";
-            countProvider = function() {
-                var user = $scope.getSignedInUser();
-                if(user){
-                    return user.receivedRequestsCount;
-                }
-
-                return 0;
-            }
+            countUrl = "getReceivedRequestsCount";
         } else if(requestType == "sent_requests") {
             url = "//getSentFriendRequests";
-            countProvider = function() {
-                var user = $scope.getSignedInUser();
-                if(user){
-                    return user.sentRequestsCount;
-                }
-
-                return 0;
-            }
+            countUrl = "getSentRequestsCount";
         }
 
         $scope.showFriendTabs = requestType !== "people" && (requestType !== "friends" || !id);
@@ -45,7 +32,6 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
             url: url,
             countUrl: countUrl,
             scopeArrayName: "users",
-            countProvider: countProvider,
             args: {
                 id: id
             },
@@ -65,7 +51,47 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
             }
         });
     };
+
+    var init = function() {
+        var search = $location.search();
+        requestType = search["path"];
+        id = search.id;
+
+        var signedInUser = $scope.getSignedInUser();
+        if(!id || (signedInUser && id == signedInUser.id)){
+            $scope.user = signedInUser;
+            initPagination();
+        } else {
+            Http.loadUserToScope($scope.user = {}, $http, id, function(){
+                initPagination();
+            });
+        }
+    };
     init();
+
+    $scope.getTitle = function() {
+        var search = $location.search();
+        var path = search.path;
+
+        if(path == "people"){
+            return "People"
+        } else if(path == "received_requests") {
+            return "Received Friend Requests";
+        } else if(path == "sent_requests") {
+            return "Sent Friend Requests";
+        } else if(path == "friends") {
+            if(search.id){
+                try {
+                    var user = $scope.user;
+                    return tr.friendsOf(user.name, user.gender);
+                } catch (e) {
+                    return "Friends";
+                }
+            } else {
+                return "Friends";
+            }
+        }
+    };
 
     var checkPath = function() {
         var path = $location.search()["path"];
