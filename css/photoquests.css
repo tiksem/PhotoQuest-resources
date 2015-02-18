@@ -89,12 +89,12 @@
 }
 
 .creator_of_quest{
-    display: inline-block; 
-    min-width: 100%; 
+    display: inline-block;  
     margin-bottom: 20px;
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 10pt;
     font-weight: bold;
+    float: right;
 }
 .creator_of_quest a{
     color: #45172B;
