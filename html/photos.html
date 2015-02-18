@@ -15,10 +15,8 @@
     </div>
     <div class="photos_container"  ng-show="contentLoaded">   
         <div ng-show="user">
-            <h1>Photos of&nbsp;
-                <a ng-href="#?path=profile&id={{user.id}}">
-                    {{user.name + " " + user.lastName}}
-                </a>
+            <h1>
+                {{tr.photosOf(user.name, user.gender)}}
             </h1>
         </div>
         <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
