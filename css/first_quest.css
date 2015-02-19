@@ -59,3 +59,11 @@
 .custom-file-input:active::before {
   
 }
+
+#perform_button_container{
+    margin-top: 10px;
+}
+
+#preview{
+    margin-top: 10px;
+}
