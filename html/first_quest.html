@@ -8,9 +8,19 @@
             text-shadow: 1px 1px 1px black, 0 0 1px black;">
              Choose avatar
             </label >
-            <input style=" padding: 4px 0 4px 0; margin-bottom: 10px; margin-left: -2px; width: 300px;"
-                   class="custom-file-input" type="file" name="file" ng-file-select="onFileSelect($files)"
-               multiple accept="image/*">
+            <div file-select-container
+                 preview-container-id="preview"
+                 preview-width="100"
+                 preview-height="100"
+                 select-file-button-id="select_file_button">
+                <div>
+                    <button id="select_file_button" class="button">Select file</button>
+                    <span>{{file.name ? file.name.getPreview(25, "...") : "No file selected"}}</span>
+                </div>
+                <div id="preview">
+
+                </div>
+            </div>
 
             <div>
                 <button class="button" ng-click="perform()">Perform</button>

@@ -1,9 +1,5 @@
 var main = angular.module("main");
 main.controller("FirstQuest", function($location, $cookies, $timeout, $scope, $element, $http, $upload){
-    $scope.onFileSelect = function($files) {
-        $scope.file = $files[0];
-    };
-
     $scope.perform = function() {
         var url = "//changeAvatar";
         Utilities.uploadPhoto($scope, $upload, url, {}, function() {
