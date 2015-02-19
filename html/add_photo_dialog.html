@@ -2,8 +2,19 @@
     <h2>Upload image</h2>
 
     <form>
-        <input type="file" ng-file-select="onFileSelect($files)"
-               multiple accept="image/*">
+        <div file-select-container
+             preview-container-id="preview"
+             preview-width="100"
+             preview-height="100"
+             select-file-button-id="select_file_button">
+            <div>
+                <button id="select_file_button" class="button">Select file</button>
+                <span>{{file.name ? file.name.getPreview(25, "...") : "No file selected"}}</span>
+            </div>
+            <div id="preview">
+
+            </div>
+        </div>
         <label>
             Enter photo description
             <textarea ng-model="message">

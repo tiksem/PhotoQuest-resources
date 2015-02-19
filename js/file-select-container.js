@@ -10,6 +10,7 @@ angular.module('main')
                 var selectFileButtonId = attrs.selectFileButtonId;
                 var previewWidth = attrs.previewWidth || 100;
                 var previewHeight = attrs.previewHeight || 100;
+                element = $(element);
 
                 scope.onFileSelect = function($files) {
                     var file = scope.$parent.file = $files[0];
@@ -25,7 +26,7 @@ angular.module('main')
 
                         var parent = element;
                         if(previewContainerId){
-                            parent = $("#" + previewContainerId);
+                            parent = element.find("#" + previewContainerId);
                         }
 
                         parent.html("");
@@ -35,18 +36,18 @@ angular.module('main')
                     reader.readAsDataURL(file);
                 };
 
-                element = $(element);
-                input = $($compile('<input class="custom-file-input" type="file" name="file" ' +
+                input = $($compile('<input style="opacity:0;width:0px;height:0px;" ' +
+                'class="custom-file-input" type="file" name="file" ' +
                 'ng-file-select="onFileSelect($files)" multiple accept="image/*">')(scope));
-                input.hide();
                 input.insertBefore(element);
 
                 var button = element;
                 if(selectFileButtonId){
-                    button = $("#" + selectFileButtonId);
+                    button = element.find("#" + selectFileButtonId);
                 }
 
                 button.click(function(){
+                    alert("click");
                     input.click();
                 });
             }

@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="photos_container"  ng-show="contentLoaded">   
-        <div ng-show="user">
+        <div ng-if="user">
             <h1>
                 {{tr.photosOf(user.name, user.gender)}}
             </h1>
