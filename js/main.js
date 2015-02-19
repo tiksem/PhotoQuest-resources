@@ -71,10 +71,8 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
             if(id && id.isNumber()){
                 return 'html/photos.html';
             }
-        } else if(path == "friends"){
-            if(id && id.isNumber()){
-                return 'html/friends.html';
-            }
+        } else if(path == "friends" && id && id.isNumber()){
+            return 'html/friends.html';
         } else if(path == "register") {
             return 'html/register_dialog.html';
         } else if(path == "welcome" && !signedInUser) {
