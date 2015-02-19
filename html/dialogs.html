@@ -1,16 +1,15 @@
 <div ng-controller="DialogsController" >
     <div style="text-align: center; position: relative">
         <h1>Messages</h1>
-		<img src="../images/loading.gif" height="50" width="50" class="loading"/>
+        <img ng-show="contentIsLoading" src="../images/loading.gif" style="margin-bottom: 10px;"
+             height="50" width="50" class="loading"/>
     </div>
-    <img ng-show="contentIsLoading" src="../images/loading.gif" style="margin-bottom: 10px;"
-         height="50" width="50" class="loading"/>
     <div id="dialogs_container">
-            <div class="single_dialog" ng-repeat="dialog in dialogs"> 
+            <div class="single_dialog" ng-repeat="dialog in dialogs">
                  <a ng-href="#?path=messages&id={{dialog.user.id}}">
                     <div class="dialog_container{{dialog.lastMessage.read ? '' :
                         ' unread_message_dialog_container'}}">
-                        <div class="dialog_user_photo">             
+                        <div class="dialog_user_photo">
                             <thumbnail src="dialog.user.avatar" size="50"></thumbnail>
                         </div>
                         <div class="dialog_text">
@@ -29,9 +28,13 @@
                         </div>
                     </div>
                 </a>
-            </div>  
+            </div>
     </div>
-            </div> 
-        </a>
+
+    <div ng-show="!contentIsLoading" class="photoquest_pagination_container">
+        <dir-pagination-controls boundary-links="true"
+                                 on-page-change="onPageChanged(newPageNumber)"
+                                 template-url="html/pagination_template.html">
+        </dir-pagination-controls>
     </div>
 </div>
