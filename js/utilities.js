@@ -367,7 +367,7 @@ Utilities = {
         return months[date.getMonth()];
     },
     getDay: function(date) {
-        var day = date.getDay();
+        var day = date.getDate();
         if(day < 10){
             day = "0" + day;
         }
