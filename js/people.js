@@ -20,10 +20,10 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
             countUrl = "//getUsersCount";
         } else if(requestType == "received_requests") {
             url = "//getReceivedFriendRequests";
-            countUrl = "getReceivedRequestsCount";
+            countUrl = "//getReceivedRequestsCount";
         } else if(requestType == "sent_requests") {
             url = "//getSentFriendRequests";
-            countUrl = "getSentRequestsCount";
+            countUrl = "//getSentRequestsCount";
         }
 
         $scope.showFriendTabs = requestType !== "people" && (requestType !== "friends" || !id);
