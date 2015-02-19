@@ -67,9 +67,13 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
             if(id && id.isNumber()){
                 return 'html/profile.html';
             }
-        }  else if(path == "photos"){
+        } else if(path == "photos"){
             if(id && id.isNumber()){
                 return 'html/photos.html';
+            }
+        } else if(path == "friends"){
+            if(id && id.isNumber()){
+                return 'html/friends.html';
             }
         } else if(path == "register") {
             return 'html/register_dialog.html';
