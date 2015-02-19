@@ -47,7 +47,6 @@ angular.module('main')
                 }
 
                 button.click(function(){
-                    alert("click");
                     input.click();
                 });
             }
