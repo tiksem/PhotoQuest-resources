@@ -88,7 +88,7 @@
     <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
 
     <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
-         current-page="pageNumber"
+         current-page="pageNumber" style="padding-bottom: 40px;"
             >
 
         <div class="people_avatar">
@@ -96,7 +96,7 @@
                 <thumbnail size="150" src="user.avatar"></thumbnail>
             </a>
         </div>
-        <div class="people_info_container">
+        <div class="people_info_container" style="padding-bottom: 40px; width: 400px;">
             <a class="people_link" ng-href="#?path=profile&id={{user.id}}">
                 <span class="user_info_text">{{user.name + " " + user.lastName}}</span><br/>
             </a>
@@ -111,11 +111,20 @@
                 <img ng-show="user.addFriendLoading" src="../images/mini_loading.gif"
                      style="position:relative; float:right;margin-top:2px;"
                      height="20" width="20" class="loading_small"/>
-            </div>
-            <div class="friend_requests_button" ng-show="user.relation === 'request_received'">
-                <button class="button" ng-click="addOrRemoveFriend(user, true)">
-                    Decline friend request
+            </div><br />
+            <div class="friend_requests_button" ng-show="user.relation === 'request_received'"
+            style="width: 350px; word-wrap: break-word; margin-bottom: 5px;"  >
+                <div style="display: inline-block; ">Ivan wants to add you as a friend</div><br />
+                <button style="float: left; margin-right: 5px;" class="button" >
+                    accept
                 </button>
+                <button style="float: left;" class="button" ng-click="addOrRemoveFriend(user, true)">
+                    Decline
+                </button>
+                <div style="width: 20px; height: 20px; float: right;position: relative; bottom:10px;"><img  src="../images/mini_loading.gif"
+                     style="position:relative; float:right;margin-top:2px;"
+                     height="20" width="20" class="loading_small"/>
+                </div>
             </div>
             <div class="send_message_button">
                 <a ng-href="#?path=messages&id={{user.id}}">
