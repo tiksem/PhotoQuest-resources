@@ -100,6 +100,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             }
 
             var firstLoad = true;
+            var lastScrollHeight = 0;
 
             var loadCallbacks = {
                 success: function(data) {
@@ -123,10 +124,19 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                     if(firstLoad){
                         if (upDirection) {
                             $timeout(function () {
-                                $(element).scrollTop(element[0].scrollHeight);
+                                lastScrollHeight = element[0].scrollHeight;
+                                $(element).scrollTop(lastScrollHeight);
                             });
                         }
                         firstLoad = false;
+                    } else {
+                        if (upDirection) {
+                            $timeout(function () {
+                                var scrollHeight = element[0].scrollHeight;
+                                $(element).scrollTop(scrollHeight - lastScrollHeight);
+                                lastScrollHeight = scrollHeight;
+                            });
+                        }
                     }
                 }
             };
