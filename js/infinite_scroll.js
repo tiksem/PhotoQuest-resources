@@ -3,13 +3,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
     return function(scope, element, attr) {
         var busy = false;
         var scrollPositionUpdated = false;
-
-        var updateScrollPosition = function() {
-            if(!scrollPositionUpdated && raw.scrollHeight > 0){
-                raw.scrollTop = raw.scrollHeight;
-                scrollPositionUpdated = true;
-            }
-        };
+        var loadingFlag = attr.loadingFlag;
 
         var load = function() {
             if(busy){
@@ -35,6 +29,10 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 limit: pageSize
             };
 
+            if(loadingFlag){
+                scope.$parent[loadingFlag] = true;
+            }
+
             Utilities.get($http, loadUrl, args, function(data) {
                 data = data[attr.topInfiniteScroll];
                 if(data.length <= 0){
@@ -42,6 +40,10 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 }
 
                 scope[attr.topInfiniteScroll].unshiftAll(data);
+
+                if(loadingFlag){
+                    scope.$parent[loadingFlag] = false;
+                }
 
                 busy = false;
             });
@@ -91,6 +93,7 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
             var scopeArray = scope.$parent[scopeArrayName] = [];
             var showMoreButton = $(element).find("#" + showMoreId);
             var upDirection = attr.direction === "up";
+            var loadingFlag = attr.loadingFlag;
 
             var reloadFuncName = attr.reloadFuncName;
             if(reloadFuncName){
@@ -118,6 +121,10 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                     }
                 },
                 finished: function() {
+                    if(loadingFlag){
+                        scope.$parent[loadingFlag] = false;
+                    }
+
                     showMoreButton.show();
                     stopped = false;
 
@@ -154,6 +161,10 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
                 }
                 if(clearScope === true){
                     scopeArray = scope.$parent[scopeArrayName] = [];
+                }
+
+                if(loadingFlag){
+                    scope.$parent[loadingFlag] = true;
                 }
 
                 loadRequested = false;
