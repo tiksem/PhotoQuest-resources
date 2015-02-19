@@ -225,7 +225,7 @@
     padding-bottom: 5px;
 }
 
-#show_more_comments_button{
+.show_more_comments_button{
     width: 480px;   
     background: #DDE5EC;
     height: 30px;
@@ -240,7 +240,7 @@
     margin-bottom: 5px;
 }
 
-#show_more_comments_button:hover{
+.show_more_comments_button:hover{
     cursor: pointer;
     background: #CDD5DC;
 }

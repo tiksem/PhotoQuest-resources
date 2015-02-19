@@ -15,42 +15,48 @@
          loading-flag="showLoading"
          class="wrapper">
 
-        <div>
-            <button id="show_more_messages_button" class="button">
-                Show more...
-            </button>
-        </div>
-
-        <div class="single_message" ng-repeat="message in messages" ng-click="openMessages(dialog)">
-            <a ng-href="#?path=profile&id={{message.fromUserId}}">
-                <div class="message_user_photo">
-                    <thumbnail size="40" src="message.fromUserId == getSignedInUser().id
-                    ?
-                    getSignedInUser().avatar : user.avatar"></thumbnail>
-                </div>
-            </a>
-            <div class="message_text" >
-                <a  ng-href="#?path=profile&id={{message.fromUserId}}">
-                    {{getMessageTitle(message)}}
-                </a><br />
-                <span ng-bind-html="getMessageText(message)" class="messages_text_font" style="font-size: 11pt;">
-                </span>
-           </div>
-           <div class="message_date">
-               {{
-               Utilities.getDayRaw(message.addingDate) + " "
-               }}
-               {{
-               Utilities.getMonthRaw(message.addingDate)
-               }}
-               <br />
-               {{
-               "at " + Utilities.getHoursAndMinutesRaw(message.addingDate)
-               }}
-           </div>
-        </div> 
-        <img ng-show="showLoading" src="../images/mini_loading.gif" style="margin-left: 15px;"
-             height="20" width="20" class="loading_small"/></div>
+            <div class="show_more_button_container" style="width: 465px; margin-top: -10px;">
+                <button class="show_more_comments_button" style="width: 454px;">
+                    Show more...
+                </button>
+            </div>
+            <div style="width: 100%; text-align: center;">
+            <img  src="../images/mini_loading.gif" style="margin:0 auto 0 auto;"
+                 height="20" width="20" class="loading_small"/>
+            </div>
+    
+            <div class="single_message" ng-repeat="message in messages" ng-click="openMessages(dialog)">
+                <a ng-href="#?path=profile&id={{message.fromUserId}}">
+                    <div class="message_user_photo">
+                        <thumbnail size="40" src="message.fromUserId == getSignedInUser().id
+                        ?
+                        getSignedInUser().avatar : user.avatar"></thumbnail>
+                    </div>
+                </a>
+                <div class="message_text" >
+                    <a  ng-href="#?path=profile&id={{message.fromUserId}}">
+                        {{getMessageTitle(message)}}
+                    </a><br />
+                    <span ng-bind-html="getMessageText(message)" class="messages_text_font" style="font-size: 11pt;">
+                    </span>
+               </div>
+               <div class="message_date">
+                   {{
+                   Utilities.getDayRaw(message.addingDate) + " "
+                   }}
+                   {{
+                   Utilities.getMonthRaw(message.addingDate)
+                   }}
+                   <br />
+                   {{
+                   "at " + Utilities.getHoursAndMinutesRaw(message.addingDate)
+                   }}
+               </div>
+            </div> 
+            <img ng-show="showLoading" src="../images/mini_loading.gif" style="margin-left: 15px;
+            margin-bottom: 10px;"
+                 height="20" width="20" class="loading_small"/>
+    </div>
 
     <div id="message_form">
         <div style="display: inline-block; float: left;">
