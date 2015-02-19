@@ -277,7 +277,6 @@ Utilities = {
                 if (success) {
                     success(data);
                 }
-                alert("Success");
             } else {
                 if(error){
                     error(data);

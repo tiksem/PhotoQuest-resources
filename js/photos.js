@@ -115,7 +115,9 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         data.message = $scope.message;
                     }
 
+                    $scope.uploadPhotoLoading = true;
                     Utilities.uploadPhoto($scope, $upload, uploadUrl, data, function(data) {
+                        $scope.uploadPhotoLoading = false;
                         $scope.closeThisDialog(null);
                         if($scope.quest.name === "Avatar"){
                             var signedInUser = scope.getSignedInUser();
@@ -124,6 +126,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         }
                         init();
                     }, function(data) {
+                        $scope.uploadPhotoLoading = false;
                         if(data){
                             $scope.errorMessage = data.message || "Unknown error";
                         } else {
