@@ -7,6 +7,7 @@ angular.module('main')
             link: function(scope, element, attrs) {
                 var $scope = scope.$parent;
                 element = $(element);
+                var lastSuggestion;
                 element.autocomplete({
                     autoSelectFirst: true,
                     serviceUrl: function() {
@@ -16,19 +17,21 @@ angular.module('main')
                         $scope.$apply(function(){
                             $scope.city = suggestion.id;
                         });
-
-                        var onChange = function(){
-                            element.unbind('change', onChange);
-                            $scope.$apply(function(){
-                                if (suggestion.value != element.val()) {
-                                    delete $scope.city;
-                                    element.val("");
-                                }
-                            });
-                        };
-                        element.change(onChange);
+                        lastSuggestion = suggestion;
                     }
                 });
+
+                var onChange = function(){
+                    if (lastSuggestion) {
+                        $scope.$apply(function () {
+                            if (lastSuggestion.value != element.val()) {
+                                delete $scope.city;
+                                element.val("");
+                            }
+                        });
+                    }
+                };
+                element.change(onChange);
 
                 scope.$watch(function() {
                     return element.is(':visible')
