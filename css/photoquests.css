@@ -89,12 +89,13 @@
 }
 
 .creator_of_quest{
-    display: inline-block;  
-    margin-bottom: 20px;
-    margin-top: 25px;
+    display: inline-block;     
     font-size: 10pt;
+    min-width: 180px;
+    max-width: 180px;
     font-weight: bold;
-    float: right;
+    float: left;
+    margin-bottom: 5px;
 }
 .creator_of_quest a{
     color: #45172B;
@@ -126,4 +127,35 @@
 #search-quest input{
     min-height: 18px;
     height: inherit;
+}
+.right_info_block{
+    display: inline-block;
+    min-width: 160px; 
+    max-width: 160px; 
+    float:right;
+    
+}
+
+.count_container{
+    display: inline-block; 
+    height: 20px; 
+    float:left; 
+    line-height: 20px;
+    min-width: 160px;
+}
+
+.heart_count{
+    display: inline-block; 
+    float:left; 
+    margin-left: 5px; 
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.eye_count{
+    display: inline-block; 
+    float:left; 
+    margin-left: 5px; 
+    line-height: 20px;
+    font-size: 15px;
 }
