@@ -129,20 +129,16 @@ ControllerUtils = {
         $scope.getToggleFriendStatusButtonName = function(user) {
             var relation = user.relation;
             if(!user){
-                return "Error";
+                return undefined;
             }
 
             if(relation == "friend"){
                 return "Remove friend";
             } else if(relation == "request_sent") {
                 return "Cancel friend request"
-            } else if(relation == "request_received") {
-                return "Accept friend request"
             } else if(relation == "follows") {
                 return "Unfollow"
-            } else if(relation == "followed") {
-                return "Accept friend request"
-            } else {
+            } else if(!relation) {
                 return "Add friend";
             }
         };
