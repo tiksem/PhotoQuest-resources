@@ -111,12 +111,9 @@
 #create-button{
     float: right;
     display: inline-block;
-    position: absolute;
-    right: 15px;
-    top:40px;
-
-    
-
+    position: relative;
+    margin-top: -40px;
+    margin-right: 15px;
 }
 
 #search-quest{
