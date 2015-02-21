@@ -134,10 +134,11 @@
     min-width: 160px; 
     max-width: 160px; 
     float:right;
-    background:#D5EEF1;
-    margin-top: 2px;
+    background: #EAFDFF;
+    margin-top: 5px;
     padding: 2px 0 2px 0;
-    
+    position: relative;
+    left: 15px;
 }
 
 .count_container{
