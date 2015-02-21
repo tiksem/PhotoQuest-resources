@@ -8,12 +8,13 @@
     <div style="text-align: center; margin-top: 20px; min-height: 30px; line-height: 30px;" >
        <span style="font-weight: bold; font-size: 19pt; color: #44192D;">{{title}}</span><br/>
 	   <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
-    </div>
-    <div id="create-button" ng-show="!contentIsLoading">
+       <div id="create-button" ng-show="!contentIsLoading">
             <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
                 Create PhotoQuest
             </button>
         </div>
+    </div>
+    
     <div id="search-quest" ng-show="!contentIsLoading">
         <input style="width: 200px; float: left; 
         margin-right: 10px;" class="filter_input" ng-model="filter"/>
