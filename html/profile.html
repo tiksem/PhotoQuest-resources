@@ -13,18 +13,18 @@
         </span><br/>
             {{user.city + ", " + user.country}}<br/> <br/>
 
-            <div ng-if="getSignedInUser().id !== getId()">
+            <div style="text-align: center;" ng-if="getSignedInUser().id !== getId()">
                 <div id="user_photos_link">
                     <a ng-href="#?path=photos&id={{id}}">
                         Photos
                     </a>
-                </div>
+                </div><br />
                 <div class="user_photoquest_link">
                     <a href="#?path=friends&id={{id}}">
                         Friends
                     </a>
-                </div>
-                <div class="user_photoquest_link">
+                </div><br />
+                <div class="user_photoquest_link" style="margin-top: 5px; position: relative; left:3px;">
                     <a ng-href="#?path=created_quests&id={{id}}">
                         Photoquests
                     </a>
@@ -32,7 +32,7 @@
                 
                 <br />
 
-                <div style="display:inline-block;" ng-show="getSignedInUser()" class="add_friend_button">
+                <div style="display:inline-block;float:left;min-width: 100%;" ng-show="getSignedInUser()" class="add_friend_button">
                     <button style="float: left;" class="button"
                             ng-click="addOrRemoveFriend(user)">
                         {{getToggleFriendStatusButtonName(user)}}
@@ -41,12 +41,12 @@
                          src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
                 </div>
             </div>
-            <div style="display:inline-block;" ng-show="user.relation === 'request_received'">
+            <div style="display:inline-block; float:left;" ng-show="user.relation === 'request_received'">
                 <button class="button" ng-click="addOrRemoveFriend(user, true)">
                     Decline friend request
                 </button>
             </div>
-            <div class="send_message_button">
+            <div class="send_message_button" style="float: left;">
                 <a ng-href="#?path=messages&id={{id}}">
                     <button class="button" ng-show="getSignedInUser() &&
                     getSignedInUser().id != getId()">
