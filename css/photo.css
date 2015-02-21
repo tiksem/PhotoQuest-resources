@@ -289,7 +289,6 @@
     position: relative;
     word-wrap: break-word;
     display: inline-block;
-    border: solid 1px black;
 }
 
 .photo_main_info_container{
