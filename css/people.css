@@ -86,3 +86,17 @@
 .people_link:hover{
        text-decoration: underline;
 }
+
+.people_title a{
+    float: left;
+    color:#44192D ;
+    font-weight: bold;
+}
+
+.friend_title_user_avatar{
+    display: inline-block; 
+    float:left; 
+    margin-right: 20px; 
+    position: relative; 
+    top:15px;
+}

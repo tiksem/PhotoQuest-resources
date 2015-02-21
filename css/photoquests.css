@@ -27,16 +27,17 @@
     width: 600px;
     text-align: left;
     max-height:170px ;
-    margin-top: 20px;
+    margin-top: 15px;
     position: relative;
     left: -24px;
-    
+    display: inline-block;
 }
 
 .photoquest_img_container
 {
     width: 150px; 
-    height: 170px;    
+    height: 170px;  
+    float:left;  
 }
 
 .photoquest_info_container
@@ -46,10 +47,10 @@
     max-width: 430px;
     max-height: 170px;
     height: 170px;
-    left: 165px;
-    bottom: 170px;
+    margin-left: 5px;
     font-size: 10pt;
-    color:#000000;    
+    color:#000000;  
+    float: left;  
 }
 
 .photoquest_info_quest_name
@@ -91,11 +92,11 @@
 .creator_of_quest{
     display: inline-block;     
     font-size: 10pt;
-    min-width: 180px;
-    max-width: 180px;
+    min-width: 150px;
+    max-width: 150px;
     font-weight: bold;
     float: left;
-    margin-bottom: 5px;
+    margin-left: 5px;
 }
 .creator_of_quest a{
     color: #45172B;
@@ -133,6 +134,9 @@
     min-width: 160px; 
     max-width: 160px; 
     float:right;
+    background:#D5EEF1;
+    margin-top: 2px;
+    padding: 2px 0 2px 0;
     
 }
 
@@ -146,16 +150,20 @@
 
 .heart_count{
     display: inline-block; 
-    float:left; 
-    margin-left: 5px; 
+    float:left;  
     line-height: 20px;
-    font-size: 15px;
+    font-size: 13px;
+    color: #4772DF;
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 .eye_count{
     display: inline-block; 
     float:left; 
-    margin-left: 5px; 
+    color: #4772DF;
     line-height: 20px;
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 5px;
 }
