@@ -14,3 +14,11 @@
 h1{
     color:#45162A;
 }
+
+.photos_title_user_avatar{
+    display: inline-block; 
+    float:left;  
+    position: absolute; 
+    left: 220px;
+    top:40px;
+}

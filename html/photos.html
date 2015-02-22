@@ -14,11 +14,21 @@
         </div>
     </div>
     <div class="photos_container"  ng-show="contentLoaded">   
-        <div ng-if="user">
+        <div ng-if="user" >
+            <div  class="photos_title_user_avatar" >  
+                <a href="#?path=profile&id={{quest.user.id}}" style="float:left;">
+                    <thumbnail src="quest.user.avatar" size="40" />
+                </a>
+                <a style="margin-left: 5px;float:left; " href="#?path=profile&id={{quest.user.id}}">
+                    Иван Ебло
+                </a>
+            </div>
             <h1>
                 {{tr.photosOf(user.name, user.gender)}}
             </h1>
+           
         </div>
+        
         <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
         <br/>
         <div class="single_photo_container" dir-paginate="photo in photos | itemsPerPage: pageSize"

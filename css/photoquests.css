@@ -168,3 +168,12 @@
     font-weight: bold;
     margin-left: 5px;
 }
+
+.pq_title_user_avatar{
+     display: inline-block; 
+    float:left; 
+    min-width: 100%;
+    margin-left: 25px; 
+    position: relative; 
+    margin-top: -40px;
+}
