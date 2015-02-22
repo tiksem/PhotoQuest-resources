@@ -22,3 +22,25 @@ h1{
     left: 220px;
     top:40px;
 }
+
+.like_eye_container{
+    width: 100%;
+    height: 20px;
+    background: black;
+    position: relative;
+    top:150px;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.like_eye_container img{
+    margin-top: 1px;
+    float:left;
+}
+
+.photo_counts{
+    display: inline-block; 
+    margin-left: 4px; 
+    color: white; 
+    float: left;
+}

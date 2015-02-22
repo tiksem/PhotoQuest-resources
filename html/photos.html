@@ -35,8 +35,20 @@
              total-items="totalItems"
              current-page="pageNumber">
             <a ng-href="{{getPhotoHref(photo)}}">
+                <div class="like_eye_container">
+                    <div style="display: inline-block; margin-right: 10px; ">
+                        <img src="../images/like.png" alt="" />
+                        <div class="photo_counts" >123</div>
+                    </div>
+                    <div style="display: inline-block; ">
+                        <img src="../images/eye.png" alt="" />
+                        <div class="photo_counts" >892</div>
+                    </div>
+                </div>
                 <thumbnail size="150" src="photo.url"></thumbnail>
+                
             </a>
+            
         </div>
     </div>
 
