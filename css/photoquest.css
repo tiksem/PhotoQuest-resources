@@ -20,7 +20,12 @@ h1{
     float:left;  
     position: absolute; 
     left: 220px;
+    height: 30px;
     top:40px;
+}
+
+.photos_title_user_avatar a:hover{
+    text-decoration: underline;
 }
 
 .like_eye_container{

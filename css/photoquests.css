@@ -170,10 +170,20 @@
 }
 
 .pq_title_user_avatar{
-     display: inline-block; 
+    display: inline-block; 
     float:left; 
-    min-width: 100%;
     margin-left: 25px; 
     position: relative; 
     margin-top: -40px;
+    font-weight: bold;
+    height: 35px;
+    
+}
+
+.pq_title_user_avatar a:hover{
+    text-decoration: underline;
+}
+
+.pq_title_user_avatar a{
+    color:#46172B ;
 }

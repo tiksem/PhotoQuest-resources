@@ -99,5 +99,10 @@
     min-width: 100%;
     margin-left: 25px; 
     position: relative; 
+    height: 20px;
     top:-55px;
+}
+
+.friend_title_user_avatar a:hover{
+    text-decoration: underline;
 }
