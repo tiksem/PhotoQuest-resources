@@ -51,6 +51,7 @@ h1{
     float: left;
     font-size: 12px;
     height: 20px;
+    line-height: 20px;
 }
 
 .counts_icons{
