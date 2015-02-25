@@ -1,21 +1,21 @@
 <div id="user_left_sidebar_block" ng-controller="LoginController">
     <form id="login_form" ng-show="!getSignedInUser()">
         <label>
-            Enter your login
+             {{tr.login}}
             <input style="width: 155px;"name="login" ng-model="login" type="text"/>
         </label>
         <label>
-            Enter your password
-            <input name="password" ng-model="password" type="password">
+            {{tr.password}}
+            <input name="password" ng-model="password" type="password"/>
         </label>
 		<div style="display:inline-block;">
-			<button class="button" style="float: left;" id="button_sign_in" ng-click="signin();">Sign In</button>
+			<button class="button" style="float: left;" id="button_sign_in" ng-click="signin();">{{tr.signIn}}</button>
 			<img ng-show="loginLoading" src="../images/mini_loading.gif" height="20" width="20"  style="position: relative;
 			top: 4px; float:right;"class="loading_small"/>
 		</div>
 			<br />
         <a id="register_link" href="#?path=register">
-            Register
+            {{tr.register}}
         </a><br /><br />
         <div id="login-error-block">
             {{errorMessage}}
@@ -32,13 +32,13 @@
         <div id="user_menu" >
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="{{'#?path=profile&id=' + getSignedInUser().id}}">
-                    <span class="user_button">Profile</span>
+                    <span class="user_button"> {{tr.profile}}</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a  class="user_info_link" ng-href="#?path=dialogs">
                     <span class="user_button">
-                         Messages
+                          {{tr.messages}}
                          <span ng-show="getSignedInUser().unreadMessagesCount">
                              (+{{getSignedInUser().unreadMessagesCount}})
                          </span>
@@ -48,7 +48,7 @@
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=friends">
                     <span class="user_button">
-                         Friends
+                          {{tr.friends}}
                          <span ng-show="getSignedInUser().friendRequestsCount">
                              (+{{getSignedInUser().friendRequestsCount}})
                          </span>
@@ -57,23 +57,23 @@
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=following_quests&id={{getSignedInUser().id}}">
-                    <span class="user_button">My photoquests</span>
+                    <span class="user_button"> {{tr.myPhotoquests}}</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=photos&id={{getSignedInUser().id}}">
-                    <span class="user_button">My photos</span>
+                    <span class="user_button"> {{tr.myPhotos}}</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=news">
-                    <span class="user_button"> News</span>
+                    <span class="user_button">  {{tr.news}}</span>
                 </a>
             </div>
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=replies">
                      <span class="user_button">
-                         Replies
+                          {{tr.replies}}
                          <span ng-show="getSignedInUser().unreadRepliesCount">
                              (+{{getSignedInUser().unreadRepliesCount}})
                          </span>
@@ -82,7 +82,7 @@
             </div>    
             <div class="user_menu_link_container">
                 <a class="user_info_link" ng-href="#?path=settings">
-                     <span class="user_button">Settings</span>
+                     <span class="user_button"> {{tr.settings}}</span>
                 </a>
             </div>
         </div>

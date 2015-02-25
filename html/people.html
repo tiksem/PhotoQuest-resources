@@ -5,14 +5,14 @@
                 
                 <div class="name_filter">
                     <label style="color:#46172B;" class="name_filter_label">
-                        By name
+                       {{tr.byName}}
                     </label><br />
                     <input class="filter_input" style="width: 200px;height: 15px;" ng-model="filter"/>
                 </div>
 				<div>
 					<div class="filter_country">
 						<label style="color:#46172B;">
-							Enter country
+							{{tr.country}}
 						</label>
 						<input class="filter_input" ng-model="countryName"  style="width: 200px; height:15px;"
 							   country-input/>
@@ -20,7 +20,7 @@
 
 					<div ng-show="country" class="filter_city" >
 						<label style="color:#46172B;">
-							Enter city
+							{{tr.city}}
 						</label>
 						<input ng-model="cityName" class="filter_input" style="width: 200px; height: 15px;"
 							   city-input/>
@@ -29,23 +29,23 @@
             </div><br/>
 			<div class="selector_container">
 				<div class="sorting_selector" style="height: 20px; line-height: 20px;">
-					<div style="display: inline-block; float: left; margin-right: 10px;">Sort by</div>
+					<div style="display: inline-block; float: left; margin-right: 10px;">{{tr.sortBy}}</div>
 					<select class="selector" style="float:left;" search-select="order">
-						<option value="newest">Registration date</option>
-						<option value="rated">Rating</option>
+						<option value="newest">{{tr.regDate}}</option>
+						<option value="rated">{{tr.rating}}</option>
 					</select>
 				</div>
 				<div class="gender_selector" style="height: 20px; line-height: 20px;">
-					<div style="display: inline-block; float: left;margin-right: 10px;">Gender</div>
+					<div style="display: inline-block; float: left;margin-right: 10px;">{{tr.gender}}</div>
 					<select ng-model="gender" style="float:left;" class="selector" >
-						<option value="">Select gender</option>
-						<option value="true">Male</option>
-						<option value="false">Female</option>
+						<option value="">{{tr.selectGender}}</option>
+						<option value="true">{{tr.male}}</option>
+						<option value="false">{{tr.female}}</option>
 					</select>
 				</div>
 				<a class="filter_search_button" ng-href="{{getSearchHref()}}">
 					<button class="button">
-						Search
+						{{tr.search}}
 					</button>
 				</a>
 			</div>

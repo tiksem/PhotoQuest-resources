@@ -1,39 +1,39 @@
-<div id="register_title"><h2>Registration</h2></div>
+<div id="register_title"><h2>{{tr.registration}}</h2></div>
 <img  src="../images/loading.gif" height="50" width="50" class="loading"/>
 <div style="text-align: left;" ng-controller="RegisterController" ng-show="captchaKey">
     <form id="register_form">
         <label>
-            Enter your login
+            {{tr.login}}
         </label>
         <input name="login" ng-model="login" type="text">
 
         <label>
-            Enter your password
+            {{tr.password}}
         </label>
         <input name="password" ng-model="password" type="password">
 
         <label>
-            Enter your name
+            {{tr.name}}
         </label>
         <input name="name" ng-model="name" type="text">
 
         <label>
-            Enter your last name
+            {{tr.lastName}}
         </label>
         <input name="lastName" ng-model="lastName" type="text">
 
         <label>
-            Select gender
+            {{tr.gender}}
         </label>
         <input type="radio" ng-model="gender" value="male">
-        <span class="location_label">Male</span> <br/>
+        <span class="location_label">{{tr.male}}</span> <br/>
         <input style="margin-bottom: 10px;" type="radio" ng-model="gender" value="female">
-        <span class="location_label">Female</span> <br/>
+        <span class="location_label">{{tr.female}}</span> <br/>
 
         <br/>
 
         <label>
-            Enter your country
+            {{tr.country}}
         </label>
         <input class="select_location_input" style="width: 250px; height: 20px;"
                country-input/>
@@ -44,7 +44,7 @@
 
         <div ng-show="country">
             <label>
-                Enter your city
+                {{tr.country}}
             </label>
             <input class="select_location_input" style="width: 250px; height: 20px;"
                city-input/>
@@ -57,7 +57,7 @@
         </div>
         <div>
             <label>
-                Enter the code
+               {{tr.code}}
             </label>
             <input class="select_location_input" style="height: 20px;" ng-model="answer" />
         </div>
@@ -68,7 +68,7 @@
             <button
                     style=" float:left" class="button"
                     ng-click="register()">
-                Register
+                {{tr.register}}
             </button>
             <img  src="../images/mini_loading.gif"
                          style="float: left; margin-top: 2px;"

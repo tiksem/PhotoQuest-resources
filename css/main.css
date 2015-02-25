@@ -94,7 +94,7 @@ a {
 }
 
 .sorting_selector{
-    width:200px;
+    min-width:200px;
     font-size: 10pt;
     font-weight: bold;
     position: relative; 
@@ -153,7 +153,7 @@ a {
 
 .filter_search_button{
 	float:right;
-    margin-right: 35px;
+    margin-right: 36px;
     display: inline-block;
     margin-top: -3px;
 }
@@ -164,8 +164,9 @@ a {
 .gender_selector{
     font-size: 10pt;
     font-weight: bold; 
-	width:200px;
+	min-width:200px;
 	float: left;
+    margin-left: 20px;
 }
 
 
@@ -354,4 +355,8 @@ button:focus{
     display: inline-block;
     position: relative;
     vertical-align: middle;
+}
+
+.inputs_container input{
+    margin-left: -1px;
 }
