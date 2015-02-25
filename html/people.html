@@ -84,12 +84,12 @@
     </div>
     <div class="people_title" >
         <div style="display: inline-block;"><h1>{{getTitle()}}</h1></div>
-        <div  class="friend_title_user_avatar" >  
-            <a href="#?path=profile&id={{quest.user.id}}">
-                <thumbnail src="quest.user.avatar" size="40" />
+        <div  class="friend_title_user_avatar" ng-show="user && user.id != getSignedInUser().id">
+            <a href="#?path=profile&id={{user.id}}">
+                <thumbnail src="user.avatar" size="40" />
             </a>
-            <a style="margin-left: 5px;" href="#?path=profile&id={{quest.user.id}}">
-                Иван Ебло
+            <a style="margin-left: 5px;" href="#?path=profile&id={{user.id}}">
+                {{user.name + " " + user.lastName}}
             </a>
         </div>
         
