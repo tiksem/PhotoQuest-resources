@@ -15,10 +15,14 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                         follow: $("#follow_checkbox").is(':checked')
                     };
                     var url = "//createPhotoquest";
+                    $scope.showLoading = true;
                     Utilities.get($http, url, params, {
                         success: function() {
                             $scope.closeThisDialog(null);
                             init();
+                        },
+                        finished: function(){
+                            $scope.showLoading = false;
                         },
                         error: function(data) {
                             var message = "Unknown error";
