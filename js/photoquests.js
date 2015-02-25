@@ -34,6 +34,12 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         });
     };
 
+    var id = $location.search()["id"];
+    var signedInUser = $scope.getSignedInUser();
+    if(id && (!signedInUser || id != signedInUser.id)){
+        Http.loadUserToScope($scope.user = {}, $http, id);
+    }
+
     $scope.toggleFollowState = function(quest) {
         var isFollowing = quest.isFollowing;
         var url = isFollowing ? "//unfollowQuest" : "//followQuest";
