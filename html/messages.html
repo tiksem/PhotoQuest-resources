@@ -16,12 +16,12 @@
          class="wrapper">
 
             <div class="show_more_button_container" style="width: 465px; margin-top: -15px;">
-                <button class="show_more_comments_button" style="width: 454px;">
+                <button id="show_more_messages_button" class="show_more_comments_button" style="width: 454px;">
                     Show more...
                 </button>
             </div>
             <div style="width: 100%; text-align: center;">
-            <img  src="../images/mini_loading.gif" style="margin:0 auto 0 auto;"
+            <img ng-show="showLoading" src="../images/mini_loading.gif" style="margin:0 auto 0 auto;"
                  height="20" width="20" class="loading_small"/>
             </div>
     
@@ -53,7 +53,7 @@
                    }}
                </div>
             </div> 
-            <img ng-show="showLoading" src="../images/mini_loading.gif" style="margin-left: 15px;
+            <img ng-show="showSendMessageLoading" src="../images/mini_loading.gif" style="margin-left: 15px;
             margin-bottom: 10px;"
                  height="20" width="20" class="loading_small"/>
     </div>

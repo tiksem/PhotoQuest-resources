@@ -52,11 +52,17 @@ main.controller("MessagesController", function($scope, $interval, $location, $ti
         };
 
         var url = "//sendMessage";
-        Utilities.get($http, url, params, function(data) {
-            $scope.messages.push(data);
-            $timeout(function() {
-                messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
-            });
+        $scope.showSendMessageLoading = true;
+        Utilities.get($http, url, params,{
+            success: function(data) {
+                $scope.messages.push(data);
+                $timeout(function() {
+                    messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
+                });
+            },
+            finished: function() {
+                $scope.showSendMessageLoading = false;
+            }
         });
     };
 
