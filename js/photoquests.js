@@ -72,20 +72,20 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         if (requestType == "quests" || !requestType) {
             url = "//getPhotoquests";
             countUrl = "//getPhotoquestsCount";
-            $scope.title = "Photoquests";
+            $scope.title = $scope.tr.photoquests;
             $scope.showCategoryTab = false;
         } else if (requestType == "following_quests") {
             url = "//getFollowingPhotoquests";
             countUrl = "//getFollowingPhotoquestsCount";
-            $scope.title = "Following photoquests";
+            $scope.title = $scope.tr.followingPQ;
         } else if (requestType == "created_quests") {
             url = "//getCreatedPhotoquests";
             countUrl = "//getCreatedPhotoquestsCount";
-            $scope.title = "Created photoquests";
+            $scope.title = $scope.tr.createdPQ;
         } else if (requestType == "performed_quests") {
             url = "//getPerformedPhotoquests";
             countUrl = "//getPerformedPhotoquestsCount";
-            $scope.title = "Performed photoquests";
+            $scope.title = $scope.tr.performedPQ;
         } else {
             throw new Error("Invalid path");
         }

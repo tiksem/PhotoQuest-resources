@@ -11,6 +11,15 @@ TRANSLATION = {
         },
         photoquestsOf: function(name) {
             return name + "'s Photoquests";
+        }, 
+        textOfLikes: function(num){
+            return "лайков";   
+        }, 
+        createdPQTextInFeed: function(gender){
+            return "Created photoquest";
+        },
+        publishedPhotoTexInFeed: function(gender){
+            return "Published photo on";
         },
         people: "People",
         photoquests: "Photoquests",
@@ -41,12 +50,49 @@ TRANSLATION = {
         registration: "Registration",
         name: "Name",
         lastName: "Last name",
-        code: "Security code"
-        
-        
-        
-        
-        
+        code: "Security code",
+        newest: "Newest",
+        mostRated: "Most rated",
+        hottest: "Hottest",
+        all: "All",
+        mine: "Mine",
+        friendsPhotos: "Friends",
+        created: "Created",
+        following: "Following",
+        performed: "Performed",
+        followingPQ: "Following photoquests",
+        createdPQ: "Created photoquests",
+        performedPQ: "Performed photoquests",
+        createPQ: "Create PhotoQuest",
+        perform: "Perform",
+        follow: "Follow",
+        unfollow: "Unfollow",
+        createdBy: "Created by",
+        sentRequests: "Send requests",
+        receivedRequests: "Received requests",
+        sentFriendRequests: "Sent Friend Requests",
+        receivedFriendRequests: "Received Friend Requests",
+        accept: "Accept",
+        decline: "Decline",
+        writeMessage: "Write message",
+        receivedFriendRequestMessage: "wants to add you as a friend",
+        removeFriend: "Remove friend",
+        cancelFriendRequest: "Cancel friend request",
+        addFriend: "Add friend",
+        photos: "Photos",
+        publishPhoto: "Publish Photo",
+        changeAvatar: "Change Avatar",
+        activity: "Activity",
+        declineFriendRequest: "Decline friend request",
+        photoquest: "photoquest",
+        dialogs: "Dialogs",
+        founders: "Founders",
+        softwareDeveloper: "Software Developer",
+        conceptDesigner: "Concept Designer",
+        coFounder: "Co-Founder",
+        webDeveloper: "Web Developer",
+        includingYou: "including You",
+        back: "Back"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -70,6 +116,29 @@ TRANSLATION = {
         photoquestsOf: function(name, gender) {
             return this.of(name, gender, "Фотоквесты", "Photoquests");
         },
+        textOfLikes: function(num){
+          if(num==1) return "лайк";
+          var lastDigit = num%10;
+          var strOfNum = num.toString();
+          if(strOfNum[strOfNum.length-1]=="1" && strOfNum[strOfNum.length-2]=="1"){
+            return "лайков";
+          }
+          if(lastDigit>0 && lastDigit<5) 
+          {
+            if (strOfNum[strOfNum.length-2]=="1" )return "лайков";
+            else if(lastDigit==1)return "лайк";
+            else return "лайка";
+          }
+          else  return "лайков";
+        },
+        createdPQTextInFeed: function(gender){
+            if(gender===true) return "Создал фотоквест";
+            if(gender==false) return "Создала фотоквест";
+        },
+        publishedPhotoTexInFeed: function(gender){
+            if(gender==true) return "Опубликовал фото в фотоквесте";
+            if(gender==false) return "Опубликовала фото в фотоквесте";
+        }, 
         people: "Люди",
         photoquests: "Фотоквесты",
         profile: "Профайл",
@@ -99,6 +168,48 @@ TRANSLATION = {
         registration: "Регистрация",
         name: "Имя",
         lastName: "Фамилия",
-        code: "Защитный код"
+        code: "Защитный код",
+        newest: "Новые",
+        mostRated: "По рейтингу",
+        hottest: "Топ новых",
+        all: "Все",
+        mine: "Мои",
+        friendsPhotos: "Друзей",
+        created: "Созданные",
+        following: "Следуемые",
+        performed: "Выполненные",
+        followingPQ: "Следуемые фотоквесты",
+        createdPQ: "Созданные фотоквесты",
+        performedPQ: "Выполненные фотоквесты",
+        createPQ: "Создать Фотоквест",
+        perform: "Выполнить",
+        follow: "Следовать",
+        unfollow: "Не следовать",
+        createdBy: "Создал",
+        sentRequests: "отправленные",
+        receivedRequests: "полученные",
+        sentFriendRequests: "Отправленные предложения дружбы",
+        receivedFriendRequests: "Полученные предложения дружбы",
+        accept: "Принять",
+        decline: "Отклонить",
+        writeMessage: "Написать сообщение",
+        receivedFriendRequestMessage: "хочет добавить вас в друзья",
+        removeFriend: "Удалить с друзей",
+        cancelFriendRequest: "Отменить предложение дружбы",
+        addFriend: "Добавить в друзья",
+        photos: "Фотографии",
+        publishPhoto: "Опубликовать фото",
+        changeAvatar: "Изменить аватар",
+        activity: "Активность",
+        declineFriendRequest: "Отклонить предложение дружбы",
+        photoquest: "",
+        dialogs: "Диалоги",
+        founders: "Создатели",
+        softwareDeveloper: "Разработчик программного обеспечения",
+        conceptDesigner: "Концепт дизайнер",
+        coFounder: "Сооснователь",
+        webDeveloper: "Веб разработчик",
+        includingYou: "включая Ваш",
+        back: "Вернуться"
     }
 };

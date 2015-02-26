@@ -9,7 +9,7 @@
         
         <div ng-show="getSignedInUser()">
             <button class="button" ng-click="openAddPhotoDialog()">
-                {{quest.name !== "Avatar" ? "Publish Photo" : "Change Avatar"}}
+                {{quest.name !== "Avatar" ? tr.publishPhoto : tr.changeAvatar  }}
             </button>
         </div>
     </div>
@@ -24,7 +24,7 @@
                 </a>
             </div>
             <h1>
-                {{tr.photosOf(user.name, user.gender)}}
+                {{tr.photos}}
             </h1>
            
         </div>

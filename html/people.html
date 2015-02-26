@@ -60,21 +60,21 @@
                     <a tab-link disabled="{{contentIsLoading}}"
                        class="tab{{getPath() === 'friends'  ? ' activeTab' : ''}}"
                        ng-href="#?path=friends">
-                        Friends
+                        {{tr.friends}}
                     </a>
                 </td>
                 <td>
                     <a tab-link disabled="{{contentIsLoading}}"
                        class="tab{{getPath() === 'sent_requests'  ? ' activeTab' : ''}}"
                        ng-href="#?path=sent_requests">
-                        Sent requests
+                        {{tr.sentRequests}}
                     </a>
                 </td>
                 <td>
                     <a tab-link disabled="{{contentIsLoading}}"
                        class="tab{{getPath() === 'received_requests'  ? ' activeTab' : ''}}"
                        ng-href="#?path=received_requests" style="padding-left: 5px; padding-right: 5px;">
-                        Received requests
+                        {{tr.receivedRequests}}
                     </a>
                 </td>
                 <td class="support_col"></td>
@@ -97,7 +97,7 @@
     <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
 
     <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
-         current-page="pageNumber" style="padding-bottom: 40px;"
+         current-page="pageNumber" style="padding-bottom: 40px; "
             >
 
         <div class="people_avatar">
@@ -125,12 +125,12 @@
             </div><br />
             <div class="friend_requests_button" ng-show="user.relation === 'request_received'"
             style="width: 350px; word-wrap: break-word; margin-bottom: 5px; margin-top: -15px;"  >
-                <div style="display: inline-block;">{{user.name}} wants to add you as a friend</div><br />
+                <div style="display: inline-block;">{{user.name}} {{tr.receivedFriendRequestMessage}}</div><br />
                 <button style="float: left; margin-right: 5px;" class="button" >
-                    Accept
+                    {{tr.accept}}
                 </button>
                 <button style="float: left;" class="button" ng-click="addOrRemoveFriend(user, true)">
-                    Decline
+                    {{tr.decline}}
                 </button>
                 <img  src="../images/mini_loading.gif"
                      style="float:left;margin-top:3px;"
@@ -140,14 +140,14 @@
             <div class="send_message_button">
                 <a ng-href="#?path=messages&id={{user.id}}">
                     <button class="button" ng-show="getSignedInUser() && getSignedInUser().id != user.id">
-                        Write message
+                        {{tr.writeMessage}}
                     </button>
                 </a>
             </div>
         </div>
     </div>
 
-    <div ng-show="!contentIsLoading">
+    <div ng-show="!contentIsLoading" style="margin-top: 20px; margin-bottom: 10px;">
         <dir-pagination-controls boundary-links="true"
                                  on-page-change="onPageChanged(newPageNumber)"
                                  template-url="html/pagination_template.html">

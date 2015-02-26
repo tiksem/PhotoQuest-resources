@@ -133,13 +133,13 @@ ControllerUtils = {
             }
 
             if(relation == "friend"){
-                return "Remove friend";
+                return $scope.tr.removeFriend;
             } else if(relation == "request_sent") {
-                return "Cancel friend request"
+                return $scope.tr.cancelFriendRequest;
             } else if(relation == "follows") {
-                return "Unfollow"
+                return $scope.tr.unfollow;
             } else if(!relation) {
-                return "Add friend";
+                return $scope.tr.addFriend;
             }
         };
     }

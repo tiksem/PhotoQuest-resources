@@ -103,7 +103,7 @@
     border-left:solid 1px #449DA7;
 }
 
-#sign_out_button:hover
+.sign_out_button:hover
 {
     color:#E4E4E4;
     background:#449DA7;
@@ -117,7 +117,7 @@
     position: relative;
     top:2px;
 }
-#sign_out_button
+.sign_out_button
 {
     background-color: #4DB1BC;
     font-size: 12pt; 
@@ -146,14 +146,20 @@
     color: #ffffff;        
 } 
 
-#sign_out_button:hover
+.sign_out_button:hover
 {
     background:#449DA7;
     color:#E4E4E4;    
 }
 
-#sign_out_text
+.sign_out_text
 {
     position: relative;
     bottom: 2px;      
+}
+
+#back_button{
+     margin-left: 75px; 
+     position: relative;
+     top:2px
 }

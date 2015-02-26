@@ -21,7 +21,7 @@
     </div>
     <div id="create-button" ng-show="!contentIsLoading">
         <button ng-show="getSignedInUser()" class="button" ng-click="openCreatePhotoquestDialog()">
-            Create PhotoQuest
+            {{tr.createPQ}}
         </button>
     </div>
     <div id="search-quest" ng-show="!contentIsLoading">
@@ -29,7 +29,7 @@
         margin-right: 10px;" class="filter_input" ng-model="filter"/>
         <a ng-href="{{getSearchHref(filter)}}">
             <button style="float: left;" class="button">
-                Search
+                {{tr.search}}
             </button>
         </a>
     </div>
@@ -57,7 +57,7 @@
                     <div class="creator_of_quest">
                         <div ng-show="quest.user" style="display: inline-block; padding-bottom: 5px;">
                             <span style="color:#696969; font-size: 10pt; font-weight: bold;">
-                                Created by<br/>
+                                {{tr.createdBy}}<br/>
                             </span>
 
                             <div style="margin-top: 2px; word-wrap: break-word; display: inline-block;">
@@ -84,14 +84,14 @@
                     <button style="float: left; margin-bottom: 5px; margin-top: 5px;" class="button"
                             class="photoquest_info_follow_button" ng-click="toggleFollowState(quest);"
                             ng-show="getSignedInUser()">
-                        {{quest.isFollowing ? "Unfollow" : "Follow"}}
+                        {{quest.isFollowing ? tr.unfollow : tr.follow }}
                     </button>
                     <img ng-show="quest.followLoading" src="../images/mini_loading.gif"
                          style="position: relative; top:4px;float:right;"
                          height="20" width="20" class="loading_small"/><br/>
                     <button style="float: left;" class="button" class="photoquest_info_follow_button"
                             ng-show="getSignedInUser()">
-                        Perform
+                        {{tr.perform}}
                     </button>
                 </div>
 

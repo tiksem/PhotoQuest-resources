@@ -6,21 +6,21 @@
             <a tab-link disabled="{{contentIsLoading}}"
                class="tab{{getOrder() === 'newest'  ? ' activeTab' : ''}}"
                ng-href="{{getNewestHref()}}">
-                Newest
+                {{tr.newest}}
             </a>
         </td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
                class="tab{{getOrder() === 'rated'  ? ' activeTab' : ''}}"
                ng-href="{{getMostRatedHref()}}">
-                Most rated
+                {{tr.mostRated}}
             </a>
         </td>
         <td>
             <a tab-link disabled="{{contentIsLoading}}"
                class="tab{{getOrder() === 'hottest'  ? ' activeTab' : ''}}"
                ng-href="{{getHottestHref()}}">
-                Hottest
+                {{tr.hottest}}
             </a>
         </td>
         <td class="support_col" ></td>         
@@ -32,21 +32,21 @@
             <a  tab-link disabled="{{contentIsLoading}}"
                 class="tab{{getCategory() === 'all'  ? ' activeTab' : ''}}"
                 ng-href="{{getChangeHref('category', 'all')}}"  >
-                All
+                {{tr.all}}
             </a>
         </td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
                 class="tab{{getCategory() === 'mine'  ? ' activeTab' : ''}}"
                 ng-href="{{getChangeHref('category', 'mine')}}"  >
-                Mine
+                {{tr.mine}}
             </a>
         </td>
         <td>
             <a   tab-link disabled="{{contentIsLoading}}"
                  class="tab{{getCategory() === 'friends'  ? ' activeTab' : ''}}"
                  ng-href="{{getChangeHref('category', 'friends')}}"  >
-                Friends
+                {{tr.friendsPhotos}}
             </a>
         </td>
         <td class="support_col" style="background: #C6F4F4;" ></td>
@@ -58,21 +58,21 @@
             <a  tab-link disabled="{{contentIsLoading}}"
                class="tab{{getPath() === 'created_quests'  ? ' activeTab' : ''}}"
             ng-href="{{getPathChangeHref('created_quests')}}"  >
-                Created
+                {{tr.created}}
             </a>
         </td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
                class="tab{{getPath() === 'following_quests'  ? ' activeTab' : ''}}"
                ng-href="{{getPathChangeHref('following_quests')}}"  >
-                Following
+                {{tr.following}}
             </a>
         </td>
         <td>
             <a   tab-link disabled="{{contentIsLoading}}"
                class="tab{{getPath() === 'performed_quests'  ? ' activeTab' : ''}}"
                ng-href="{{getPathChangeHref('performed_quests')}}"  >
-                Performed
+                {{tr.performed}}
             </a>
         </td>
         <td class="support_col" style="background: #C6F4F4;" ></td>

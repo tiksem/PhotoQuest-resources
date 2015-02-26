@@ -1,5 +1,5 @@
 <div class="feed_content" ng-controller="FeedController">
-    <div class="feed_title" ng-show="getPath() === 'profile'">Activity</div>
+    <div class="feed_title" ng-show="getPath() === 'profile'">{{tr.activity}}</div>
     <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
     <div>        
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"
@@ -15,15 +15,16 @@
                 </div>
                 <div class="post_date">
                     {{getDisplayDate(feed.addingDate)}}
+                    
                 </div><br />
                 <div class="post_info">
                     {{
                     feed.photo ?
-                    "Published photo on" : "Created photoquest"}}
+                    tr.publishedPhotoTexInFeed(feed.user.gender || gender) : tr.createdPQTextInFeed(feed.user.gender || gender) }}
                     <a  ng-href="#?path=quest&id={{feed.photoquest.id}}">
                        {{feed.photoquest.name}}
                     </a>
-                    {{feed.photo ? "photoquest" : ""}}
+                    {{feed.photo ? tr.photoquest : ""}}
                 </div>
     
                 <a ng-href="#?path=photo&id={{feed.photo.id}}&photoquestId={{feed.photo.photoquestId}}&category=all"
@@ -34,8 +35,8 @@
                 </a>
                 <div style="display:inline-block;" ng-show="feed.photo">
                     <div  style="float: left;"class="post_photo_likes_count count_widget" ng-click="likePhoto(feed.photo)">
-                        <span > {{feed.photo.likesCount + " like it!"}}</span>
-                        <span ng-show="feed.photo.yourLike">&nbsp; including You</span>
+                        <span > {{feed.photo.likesCount + " " + tr.textOfLikes(feed.photo.likesCount) }}</span>
+                        <span ng-show="feed.photo.yourLike">&nbsp;{{tr.includingYou}}</span>
                     </div>
                     <img ng-show="feed.photo.likeLoading" style="float:right; position:relative; bottom:2px;"
                          src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>

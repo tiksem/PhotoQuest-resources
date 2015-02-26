@@ -74,21 +74,21 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         var path = search.path;
 
         if(path == "people"){
-            return "People"
+            return $scope.tr.people;
         } else if(path == "received_requests") {
-            return "Received Friend Requests";
+            return $scope.tr.receivedFriendRequests;
         } else if(path == "sent_requests") {
-            return "Sent Friend Requests";
+            return $scope.tr.sentFriendRequests;
         } else if(path == "friends") {
             if(search.id){
                 try {
                     var user = $scope.user;
-                    return tr.friendsOf(user.name, user.gender);
+                    return $scope.tr.friends;
                 } catch (e) {
-                    return "Friends";
+                    return $scope.tr.friends;
                 }
             } else {
-                return "Friends";
+                return $scope.tr.friends;
             }
         }
     };

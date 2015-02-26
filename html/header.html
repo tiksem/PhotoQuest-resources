@@ -22,8 +22,9 @@
             {{tr.photoquests}}
         </div>
     </a>
+    <button class="sign_out_button" id="back_button" ><span class="sign_out_text">{{tr.back}}</span></button>
     <div id="sign_out_button_container" ng-show="getSignedInUser()">             
-        <button id="sign_out_button" ng-click="signout()"><span id="sign_out_text">{{tr.signOut}}</span></button>       
+        <button class="sign_out_button" ng-click="signout()"><span class="sign_out_text">{{tr.signOut}}</span></button>       
     </div>
 
 </div>
