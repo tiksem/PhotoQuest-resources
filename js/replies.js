@@ -2,6 +2,7 @@ var main = angular.module("main");
 main.controller("RepliesController", function($scope, $location, $element, $http, $timeout){
     var url = "//getReplies";
     var countUrl = "//getRepliesCount";
+    var tr =$scope.tr;
 
     $scope.getReplyMessage = function(reply) {
         var type = reply.type;

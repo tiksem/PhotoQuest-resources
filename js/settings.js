@@ -7,14 +7,15 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
     $scope.countryName = signedInUser.country;
     $scope.city = signedInUser.cityId;
     $scope.country = signedInUser.cityId;
+    var tr = $scope.tr;
 
     $scope.errorType = "";
 
     var errorMessage;
 
     var errorMessages = {
-        "country": "Enter your country!",
-        "city": "Enter your city!"
+        "country": tr.enterYourCountry,
+        "city": tr.enterYourCity
     };
 
     $scope.getErrorMessage = function() {
@@ -68,7 +69,7 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
     };
     $scope.changePassword = function() {
         if($scope.retypedPassword !== $scope.newPassword){
-            $scope.changePasswordError = "Passwords do not match";
+            $scope.changePasswordError = tr.passwordsDoNotMatch;
             return;
         }
 
@@ -93,7 +94,7 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
                 $scope.oldPassword = "";
                 $scope.newPassword = "";
                 $scope.retypedPassword = "";
-                alert("Password was changed!")
+                alert(tr.passwordWasChanged)
             }
         });
     };

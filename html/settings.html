@@ -2,42 +2,39 @@
     <div id="settings">
         <div class="main_info_container">
             <div style="width: 100%; text-align: center;">
-                <h2>Main information</h2>
+                <h2>{{tr.mainInformation}}</h2>
             </div>
             <div class="change_main_info">
                 <label>
-                    Enter your name
+                    {{tr.name}}
                 </label>
                 <input name="name" ng-model="name" type="text">
                 
                 <label>
-                    Enter your last name
+                    {{tr.lastName}}
                 </label>
                 <input name="lastName" ng-model="lastName" type="text" />
 
                 <div>
                     <label>
-                        Enter your country
+                        {{tr.country}}
                     </label>
-                    <input ng-model="countryName" class="select_location_input"
-                           style="width: 250px; height: 20px;"
-                       country-input/>
+                    <input ng-model="countryName" class="select_location_input" country-input/>
                 </div>
 
                 <div ng-show="country">
                     <label>
-                        Enter your city
+                        {{tr.city}}
                     </label>
-                    <input ng-model="cityName" class="select_location_input" style="width: 250px; height: 20px;"
-                           city-input/>
+                    <input ng-model="cityName" class="select_location_input" city-input/>
                 </div>
-
-                <div>
+                
+                <div style="color: #DC143C;">
                     {{getErrorMessage()}}
                 </div>
 
                 <div class="change_button" style="display:inline-block;">
-                    <button style="float: left;" class="button" ng-click="saveProfile()">Save</button>
+                    <button style="float: left;" class="button" ng-click="saveProfile()">{{tr.save}}</button>
                     <img ng-show="changeLoading"
                             src="../images/mini_loading.gif" style="position: relative; top: 3px; float:right;" height="20" width="20" class="loading_small"/>
                 </div>
@@ -49,32 +46,32 @@
 
         <div class="password_info_container">
             <div style="width: 100%; text-align: center;">
-                <h2>Change password</h2>
+                <h2>{{tr.changePassword}}</h2>
             </div>
             <div class="change_password">
                 
     
-                <div style="color: #b10001">
+                <div style="color: #DC143C;">
                     {{changePasswordError}}
                 </div>
                 <label>
-                    Old password
+                    {{tr.oldPassword}}
                 </label>
                     <input name="oldPassword" ng-model="oldPassword" type="text">
                 
                 <label>
-                    New password
+                    {{tr.newPassword}}
                 </label>
                     <input name="newPassword" ng-model="newPassword" type="text">
                 
                 <label>
-                    Retype new password
+                    {{tr.retypeNewPassword}}
                 </label>
                     <input ng-model="retypedPassword" type="text"><br/>
                 
     
                 <div class="change_button" style="display:inline-block";>
-                    <button style="float: left;" class="button" ng-click="changePassword()">Save</button>
+                    <button style="float: left;" class="button" ng-click="changePassword()">{{tr.save}}</button>
                     <img ng-show="changePasswordLoading"
                          src="../images/mini_loading.gif" style="float:right;position: relative; top: 3px;" height="20" width="20" class="loading_small"/>
                 </div>
