@@ -20,7 +20,8 @@
                 <div class="post_info">
                     {{
                     feed.photo ?
-                    tr.publishedPhotoTexInFeed(feed.user.gender || gender) : tr.createdPQTextInFeed(feed.user.gender || gender) }}
+                    tr.publishedPhotoTexInFeed(feed.user.gender === undefined ? gender : feed.user.gender) :
+                    tr.createdPQTextInFeed(feed.user.gender === undefined ? gender : feed.user.gender) }}
                     <a  ng-href="#?path=quest&id={{feed.photoquest.id}}">
                        {{feed.photoquest.name}}
                     </a>
