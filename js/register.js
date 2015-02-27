@@ -29,6 +29,7 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
         };
 
         var url = "//register";
+        $scope.registerLoading = true;
         Utilities.get($http, url, data, {
             success: function() {
                 Http.signin($scope, $timeout, $http, $scope.login, $scope.password, {
@@ -49,8 +50,11 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
                     alert(data.message);
                 }
                 loadCaptcha();
+            },
+            finished: function() {
+                $scope.registerLoading = false;
             }
-        })
+        });
 
         $scope.upload = $upload.upload({
             url: url,
