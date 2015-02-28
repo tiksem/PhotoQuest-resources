@@ -138,7 +138,15 @@ TRANSLATION = {
         monthOfYear: ["Jan", "Feb", "Mar","Apr", "May", 
                     "Jun", "Jul", "Aug", "Sep","Oct", 
                     "Nov", "Dec"],
-        at: "at" 
+        at: "at",
+        enterPhotoDescription: "Enter photo description",
+        uploadImage: "Upload image",
+        noFileSelected: "No file selected",
+        selectFile: "Select file",
+        publish: "Publish",
+        followPhotoquest: "Follow photoquest",
+        performYourFirsPhotoques: "Perform your first photoques",
+        chooseAvatar: "Choose avatar"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -268,8 +276,8 @@ TRANSLATION = {
         performedPQ: "Выполненные фотоквесты",
         createPQ: "Создать Фотоквест",
         perform: "Выполнить",
-        follow: "Следовать",
-        unfollow: "Не следовать",
+        follow: "Подписаться",
+        unfollow: "Отписаться",
         createdBy: "Создал",
         sentRequests: "отправленные",
         receivedRequests: "полученные",
@@ -304,8 +312,8 @@ TRANSLATION = {
         comment: "комментарий",
         commentButton: "Комментировать",
         photo: "фото",
-        prev: "<",
-        next: ">",
+        prev: "Предыдущая",
+        next: "Следующая",
         send: "Отправить",
         oldPassword: "Старый пароль",
         newPassword: "Новый пароль",
@@ -320,6 +328,14 @@ TRANSLATION = {
         monthOfYear: ["Янв", "Фев", "Март","Апр", "Май", 
                     "Июнь", "Июль", "Авг", "Сент","Окт", 
                     "Нояб", "Дек"],
-        at: "в"            
+        at: "в",
+        enterPhotoDescription: "Описание к фото",
+        uploadImage: "Загрузить Фотографию",
+        noFileSelected: "Файл не выбран",
+        selectFile: "Выбрать файл",
+        publish: "Опубликовать",
+        followPhotoquest: "Подписаться на фотоквест",
+        performYourFirsPhotoques: "Выполните свой первый фотоквест",
+        chooseAvatar: "Выберете аватар"            
     }
 };
