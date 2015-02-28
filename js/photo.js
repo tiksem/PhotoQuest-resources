@@ -259,9 +259,44 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         });
     });
 
-    var checkPath = function() {
-        var path = $location.search()["path"];
-        return path == "photo";
+    var scope = $scope;
+    $scope.openDeletePhotoDialog = function() {
+        ngDialog.open({
+            template: 'html/delete_photo_dialog.html',
+            className: 'ngdialog-theme-default',
+            controller: function($scope){
+                $scope.tr = scope.tr;
+
+                $scope.deletePhoto = function() {
+                    $scope.showLoading = true;
+                    var url = "//deletePhoto";
+                    var params = {
+                        id: scope.photo.id
+                    };
+                    Utilities.get($http, url, params, {
+                        success: function() {
+                            $scope.closeThisDialog(null);
+                        },
+                        finished: function(){
+                            $scope.showLoading = false;
+                        },
+                        error: function(data) {
+                            var message = "Unknown error";
+                            if(data && data.message){
+                                message = data.message;
+                            }
+
+                            $scope.errorMessage = message;
+                            alert(message);
+                        }
+                    });
+                };
+
+                $scope.cancel = function() {
+                    $scope.closeThisDialog(null);
+                }
+            }
+        });
     };
 
     Utilities.applyLinksBehavior($location, $scope, $element)();

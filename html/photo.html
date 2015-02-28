@@ -74,7 +74,9 @@
                 </div>
             </div>
             <div>
-                <button class="comment_button" style="margin-top: 20px;" >{{tr.deleteText}} {{tr.photo}}</button>
+                <button ng-click="openDeletePhotoDialog()" class="comment_button" style="margin-top: 20px;" >
+                    {{tr.deleteText}} {{tr.photo}}
+                </button>
             </div>
         </div>
         <div class="comments_block" >
