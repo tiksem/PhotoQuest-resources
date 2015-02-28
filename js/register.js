@@ -43,7 +43,7 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             },
             error: function(data) {
                 if(data.error == "InvalidCaptchaException"){
-                    $scope.errorMessage = "Enter correct code!";
+                    $scope.errorMessage = $scope.tr.enterCorrectCode;
                 } else if(data.error == "MissingServletRequestParameterException") {
                     $scope.errorMessage = data.data.capitalize() + " field is blank";
                 } else if(data.message) {

@@ -150,7 +150,19 @@ TRANSLATION = {
         enterPhotoquestName: "Enter photoquest name",
         only: "Only",
         tagsAreAllowed: "tags are allowed",
-        create: "Create"
+        create: "Create",
+        dalatePhoto: "Delete",
+        deletePhotoText: "Delete photo",
+        cancel: "Cancel",
+        welcomeToPhotoQuest: "Welcome to PhotoQuest",
+        firstWelcomeText: "You can perform photoquests and create your own.",
+        secondWelcomeText: "Take part in a photo competition with people from all over the world.",
+        thirdWelcomeText: "It is a good way to find new friends and get a lot of fun.",
+        photoquestLogoText: "PhotoQuest",
+        firstPromotext: "We make photography so interesting",
+        secondPromoText: "like never before",
+        enterCorrectCode: "Enter correct code"
+        
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -344,6 +356,20 @@ TRANSLATION = {
         enterPhotoquestName: "Имя фотоквеста",
         only: "Только",
         tagsAreAllowed: "теги разрешены",
-        create: "Создать"            
+        create: "Создать",
+        create: "Create",
+        dalatePhoto: "Удалить",
+        deletePhotoText: "Удалить фото",
+        cancel: "Отменить",
+        welcomeToPhotoQuest: "Добро пожаловать в PhotoQuest",
+        firstWelcomeText: "Вы можете выполнять фотоквесты и создавать собственные.",
+        secondWelcomeText: "Участвуйте в фотоконкурсах с людьми со всего мира.",
+        thirdWelcomeText: "Это хороший способ найти новых друзей и получить массу удовольствия.",
+        photoquestLogoText: "PhotoQuest",
+        firstPromotext: "Мы делаем фотографирование настолько интересным",
+        secondPromoText: "как никогда ранее",
+        enterCorrectCode: "Неверный защитный код"
+        
+                    
     }
 };
