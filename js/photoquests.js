@@ -2,11 +2,14 @@ var main = angular.module("main");
 main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $http, $timeout){
     $scope.filter = $location.search()["filter"];
 
+    var scope = $scope;
     $scope.openCreatePhotoquestDialog = function() {
         ngDialog.open({
             template: 'html/create_photo_quest_dialog.html',
             className: 'ngdialog-theme-default',
             controller: function($scope){
+                $scope.tr = scope.tr;
+
                 $scope.createPhotoquest = function() {
                     var tags = $.map($scope.tags, function(tag){
                         return tag.text;
