@@ -21,6 +21,24 @@ TRANSLATION = {
         publishedPhotoTexInFeed: function(gender){
             return "Published photo on";
         },
+        acceptedYourFriendRequest: function(gender){
+            return "accepted your friend request";
+        },
+        declinedYourFriendRequest: function(gender){
+            return "declined your friend request";
+        },
+        commentedYourPhoto: function(gender){
+            return "commented your photo";
+        },
+        answeredYourComment: function(gender){
+            return "answered your comment";
+        },
+        likedYourComment: function(gender){
+            return "liked your comment";
+        },
+        likedYourPhoto: function(gender){
+            return "liked your photo";
+        },
         people: "People",
         photoquests: "Photoquests",
         profile: "Profile",
@@ -104,12 +122,6 @@ TRANSLATION = {
         prev: "Prev",
         next: "Next",
         send: "Send",
-        acceptedYourFriendRequest: "accepted your friend request",
-        declinedYourFriendRequest: "declined your friend request",
-        commentedYourPhoto: "commented your photo",
-        answeredYourComment: "answered your comment",
-        likedYourComment: "liked your comment",
-        likedYourPhoto: "liked your photo",
         oldPassword: "Old password",
         newPassword: "New password",
         retypeNewPassword: "Retype new password",
@@ -165,6 +177,30 @@ TRANSLATION = {
         publishedPhotoTexInFeed: function(gender){
             if(gender==true) return "Опубликовал фото в фотоквесте";
             if(gender==false) return "Опубликовала фото в фотоквесте";
+        },
+        acceptedYourFriendRequest: function(gender){
+            if(gender==true) return "Принял Ваше предложение дружбы";
+            if(gender==false) return "Приняла Ваше предложение дружбы";
+        },
+        declinedYourFriendRequest: function(gender){
+            if(gender==true) return "Отклонил Ваше предложение дружбы";
+            if(gender==false) return "Отклонила Ваше предложение дружбы";
+        },
+        commentedYourPhoto: function(gender){
+            if(gender==true) return "прокомментировал Ваше фото";
+            if(gender==false) return "прокомментировала Ваше фото";
+        },
+        answeredYourComment: function(gender){
+            if(gender==true) return "ответил на Ваш комментарий";
+            if(gender==false) return "ответила на Ваш комментарий";
+        },
+        likedYourComment: function(gender){
+            if(gender==true) return "лайкнул Ваш комментарий";
+            if(gender==false) return "лайкнула Ваш комментарий";
+        },
+        likedYourPhoto: function(gender){
+            if(gender==true) return "лайкнул Ваше фото";
+            if(gender==false) return "лайкнула Ваше фото";
         }, 
         people: "Люди",
         photoquests: "Фотоквесты",
@@ -249,12 +285,6 @@ TRANSLATION = {
         prev: "<",
         next: ">",
         send: "Отправить",
-        acceptedYourFriendRequest: "Принял Ваше предложение дружбы",
-        declinedYourFriendRequest: "Отклонил Ваше предложение дружбы",
-        commentedYourPhoto: "прокомментировал Ваше фото",
-        answeredYourComment: "ответил на Ваш комментарий",
-        likedYourComment: "лайкнул Ваш комментарий",
-        likedYourPhoto: "лайкнул Ваше фото",
         oldPassword: "Старый пароль",
         newPassword: "Новый пароль",
         retypeNewPassword: "Повторите новый пароль",

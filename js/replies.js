@@ -2,29 +2,30 @@ var main = angular.module("main");
 main.controller("RepliesController", function($scope, $location, $element, $http, $timeout){
     var url = "//getReplies";
     var countUrl = "//getRepliesCount";
-    var tr =$scope.tr;
+    var tr =$scope.tr;  
 
     $scope.getReplyMessage = function(reply) {
+        var userGender = reply.user.gender;
         var type = reply.type;
         if(type === 0){ //FRIEND_REQUEST_ACCEPTED
-            return "accepted your friend request";
+            return tr.acceptedYourFriendRequest(userGender);
         } else if(type === 1) { //FRIEND_REQUEST_DECLINED
-            return "declined your friend request";
+            return tr.declinedYourFriendRequest(userGender);
         } else if(type === 2) { //COMMENT
             var comment = reply.comment;
             if(comment.photoId){
-                return "commented your photo";
+                return tr.commentedYourPhoto(userGender);
             } else if(comment.toCommentId) {
-                return "answered your comment";
+                return tr.answeredYourComment(userGender);
             } else {
                 return "error?";
             }
         } else if(type === 3) { //LIKE
             var like = reply.like;
             if (like.commentId) {
-                return "liked your comment";
+                return tr.likedYourComment(userGender);
             } else if(like.photoId) {
-                return "liked your photo";
+                return tr.likedYourPhoto(userGender);
             } else {
                 return "error?";
             }
