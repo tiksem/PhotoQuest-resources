@@ -30,7 +30,7 @@
                     <button ng-show="getCategory()=='avatar' &&
                     getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
                             class="button" ng-click="setAsAvatar()">
-                        Set As Avatar
+                        {{tr.setAsAvatar}}
                     </button>
                 </div>
             </div>

@@ -161,8 +161,8 @@ TRANSLATION = {
         photoquestLogoText: "PhotoQuest",
         firstPromotext: "We make photography so interesting",
         secondPromoText: "like never before",
-        enterCorrectCode: "Enter correct code"
-        
+        enterCorrectCode: "Enter correct code",
+        setAsAvatar: "Set As Avatar"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -357,7 +357,6 @@ TRANSLATION = {
         only: "Только",
         tagsAreAllowed: "теги разрешены",
         create: "Создать",
-        create: "Create",
         deletePhoto: "Удалить",
         deletePhotoText: "Удалить фото",
         cancel: "Отменить",
@@ -368,7 +367,8 @@ TRANSLATION = {
         photoquestLogoText: "PhotoQuest",
         firstPromotext: "Мы делаем фотографирование настолько интересным",
         secondPromoText: "как никогда ранее",
-        enterCorrectCode: "Неверный защитный код"
+        enterCorrectCode: "Неверный защитный код",
+        setAsAvatar: "Сделать Аватаром"
         
                     
     }

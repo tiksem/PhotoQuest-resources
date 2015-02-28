@@ -1,13 +1,9 @@
-<style>
-#create_photoquest_error_message {
-    color: #b10001;
-}
-</style>
-<div style="width: 300px; align-self: center" class="dialog-contents" title="Create new photoquest">
-    <h2>{{tr.enterPhotoquestName}}</h2>
+
+<div style="width: 250px; align-self: center" class="dialog-contents" title="Create new photoquest">
+    <span style="color: #46172B; font-size: 14pt; font-weight: bold;">{{tr.enterPhotoquestName}}</span>
 
     <form ng-init="maxTags = 7">
-        <input ng-model="createQuestName" name="name" type="text"/>
+        <input ng-model="createQuestName" style="width: 250px; margin-top: 5px;"name="name" type="text"/>
         <div>
             <tags-input ng-model="tags"
                         min-length="3"
@@ -22,7 +18,7 @@
             <div ng-show="tags.length > maxTags">
                 {{tr.only}} {{maxTags}} {{tr.tagsAreAllowed}}!
             </div>
-            <div ng-show="errorMessage">
+            <div ng-show="errorMessage" class="error_text_color">
                 {{errorMessage}}
             </div>
         </div>

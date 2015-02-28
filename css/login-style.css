@@ -111,8 +111,12 @@ input[type="text"]:focus, input[type="password"]:focus
     box-shadow: 0 0 12px rgba(247, 0, 0, 0.5);
 }
 
-#login-error-block{
+.login-error-block{
     display: inline-block; 
     word-wrap: break-word; 
+    color: #DC143C;
+}
+
+.error_text_color{
     color: #DC143C;
 }
