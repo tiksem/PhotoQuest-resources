@@ -46,11 +46,11 @@
                    Utilities.getDayRaw(message.addingDate) + " "
                    }}
                    {{
-                   Utilities.getMonthRaw(message.addingDate)
+                   Utilities.getMonthRaw(message.addingDate, tr.monthOfYear)
                    }}
                    <br />
                    {{
-                   "at " + Utilities.getHoursAndMinutesRaw(message.addingDate)
+                   tr.at+ " " + Utilities.getHoursAndMinutesRaw(message.addingDate)
                    }}
                </div>
             </div> 

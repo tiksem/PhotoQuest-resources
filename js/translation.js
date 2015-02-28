@@ -13,7 +13,10 @@ TRANSLATION = {
             return name + "'s Photoquests";
         }, 
         textOfLikes: function(num){
-            return "лайков";   
+            return "likes";   
+        },
+        textOfViews: function(num){
+            return "views";   
         }, 
         createdPQTextInFeed: function(gender){
             return "Created photoquest";
@@ -131,7 +134,11 @@ TRANSLATION = {
         enterYourCountry: "Enter your country",
         enterYourCity: "Enter your city",
         passwordsDoNotMatch: "Passwords do not match",
-        passwordWasChanged: "Password was changed"
+        passwordWasChanged: "Password was changed",
+        monthOfYear: ["Jan", "Feb", "Mar","Apr", "May", 
+                    "Jun", "Jul", "Aug", "Sep","Oct", 
+                    "Nov", "Dec"],
+        at: "at" 
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -216,7 +223,7 @@ TRANSLATION = {
         likedYourPhoto: function(gender){
             if(gender==true) return "лайкнул Ваше фото";
             if(gender==false) return "лайкнула Ваше фото";
-        }, 
+        },
         people: "Люди",
         photoquests: "Фотоквесты",
         profile: "Профайл",
@@ -309,6 +316,10 @@ TRANSLATION = {
         enterYourCountry: "Введите Вашу страну",
         enterYourCity: "Введите Ваш город",
         passwordsDoNotMatch: "Пароли не совпадают",
-        passwordWasChanged: "Пароль был изменен"
+        passwordWasChanged: "Пароль был изменен",
+        monthOfYear: ["Янв", "Фев", "Март","Апр", "Май", 
+                    "Июнь", "Июль", "Авг", "Сент","Окт", 
+                    "Нояб", "Дек"],
+        at: "в"            
     }
 };

@@ -8,7 +8,7 @@ Utilities = {
         var scrollHash = this.scrollHash = this.scrollHash || {};
 
         var that = this;
-
+        
         var scrollToZero = function() {
             window.scrollTo(0, 0);
             var absUrl = $location.absUrl();
@@ -358,10 +358,8 @@ Utilities = {
 
         return "#?" + add;
     },
-    getMonth: function(date) {
-        var months = this.names = this.names || ["Jan", "Feb", "Mar",
-            "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-            "Oct", "Nov", "Dec"];
+    getMonth: function(date, monthOfYear) {
+        var months =  monthOfYear;
 
         return months[date.getMonth()];
     },
@@ -389,9 +387,9 @@ Utilities = {
 
         return minutes;
     },
-    getMonthRaw: function(raw) {
+    getMonthRaw: function(raw, monthOfYear) {
         var date = new Date(raw);
-        return this.getMonth(date);
+        return this.getMonth(date, monthOfYear);
     },
     getDayRaw: function(raw) {
         var date = new Date(raw);
@@ -409,10 +407,10 @@ Utilities = {
         var date = new Date(raw);
         return this.getHours(date) + ":" + this.getMinutes(date);
     },
-    getDisplayDate: function(rawValue) {
+    getDisplayDate: function(rawValue, monthOfYear, at) {
         var date = new Date(rawValue);
-
-        var month = this.getMonth(date);
+        
+        var month = this.getMonth(date, monthOfYear);
         var year = date.getFullYear();
 
         var day = this.getDay(date);
@@ -421,9 +419,7 @@ Utilities = {
 
         var minutes = this.getMinutes(date);
 
-        var at = " at ";
-
-        return day + " " + month + " " + year + at + hours + ":" + minutes;
+        return day + " " + month + " " + year + " " + at + " " + hours + ":" + minutes;
     },
     deleteUndefinedValues: function(arr) {
         for(var i in arr){

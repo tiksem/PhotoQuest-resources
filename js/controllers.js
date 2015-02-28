@@ -52,7 +52,7 @@ ControllerUtils = {
         };
 
         $scope.getDisplayDate = function(addingDate) {
-            return Utilities.getDisplayDate(addingDate);
+            return Utilities.getDisplayDate(addingDate, $scope.tr.monthOfYear, $scope.tr.at);
         };
 
         $scope.getPath = function() {

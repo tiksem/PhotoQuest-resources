@@ -140,7 +140,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     };
 
     $scope.getDisplayDate = function(addingDate) {
-        return Utilities.getDisplayDate(addingDate);
+        return Utilities.getDisplayDate(addingDate, $scope.tr.monthOfYear, $scope.tr.at);
     };
 
     $scope.keyPressed = function(event) {
