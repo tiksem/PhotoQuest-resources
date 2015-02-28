@@ -88,10 +88,16 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             }
 
             $location.search("id", scope.id);
+            disableLoadData = false;
         });
     };
 
+    var disableLoadData = false;
     var loadData = function() {
+        if(disableLoadData){
+            return;
+        }
+
         var url = "//getPhotoById";
         var search = $location.search();
         var params = {
@@ -183,6 +189,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             return;
         }
 
+        disableLoadData = true;
         $scope.showPhotoLoading = true;
         loadPhotoToScope(url, params, $http);
     };
@@ -207,6 +214,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
     $scope.$on('$locationChangeSuccess', function (event) {
         if(checkPath()){
+            loadData();
             $scope.reloadComments();
         }
     });
@@ -250,6 +258,11 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             height: height
         });
     });
+
+    var checkPath = function() {
+        var path = $location.search()["path"];
+        return path == "photo";
+    };
 
     Utilities.applyLinksBehavior($location, $scope, $element)();
 });
