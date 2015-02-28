@@ -42,6 +42,9 @@ TRANSLATION = {
         likedYourPhoto: function(gender){
             return "liked your photo";
         },
+        publishedBy: function(gender){
+            return "Published by";
+        },
         people: "People",
         photoquests: "Photoquests",
         profile: "Profile",
@@ -114,7 +117,6 @@ TRANSLATION = {
         webDeveloper: "Web Developer",
         includingYou: "including You",
         back: "Back",
-        publishedBy: "Published by",
         inPhotoquest: "In photoquest",
         reply: "Reply",
         deleteText: "Delete",
@@ -248,6 +250,10 @@ TRANSLATION = {
             if(gender==true) return "лайкнул Ваше фото";
             if(gender==false) return "лайкнула Ваше фото";
         },
+        publishedBy: function(gender){
+            if(gender==true) return "Опубликовал";
+            if(gender==false) return "Опубликовала";
+        },
         people: "Люди",
         photoquests: "Фотоквесты",
         profile: "Профайл",
@@ -320,7 +326,6 @@ TRANSLATION = {
         webDeveloper: "Веб разработчик",
         includingYou: "включая Ваш",
         back: "Вернуться",
-        publishedBy: "Опубликовал",
         inPhotoquest: "В фотоквесте",
         reply: "Ответить",
         deleteText: "Удалить",

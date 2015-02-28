@@ -46,7 +46,7 @@
         display: inline-block;
         min-width: 100%;">
         <div class="photo_main_info_container">
-            {{tr.publishedBy}}
+            {{tr.publishedBy(photo.user.gender)}}
             <div class="photo_info_user">
                 <a href="#?path=profile&id={{photo.user.id}}">
                     <div style="width: 50px; height: 50px; float: left;">
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div>
-                <button ng-click="openDeletePhotoDialog()" class="comment_button" style="margin-top: 20px;" >
+                <button ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 20px;" >
                     {{tr.deleteText}} {{tr.photo}}
                 </button>
             </div>
@@ -90,7 +90,7 @@
                     <div class="comment_button_container">
                         <img ng-show="putCommentLoading" src="../images/mini_loading.gif" style="position: relative; top: 5px;"
                              height="20" width="20" class="loading_small"/>
-                        <button class="comment_button" ng-click="putComment()">{{tr.commentButton}}</button>
+                        <button class="silver_button" ng-click="putComment()">{{tr.commentButton}}</button>
                     </div>
                 </form>
             </div>
@@ -154,7 +154,7 @@
                             position: relative;
                             top: 5px;"
                                  height="20" width="20" class="loading_small"/>
-                            <button class="comment_button" ng-click="putComment(comment)">
+                            <button class="silver_button" ng-click="putComment(comment)">
                                 {{tr.reply}}
                             </button>
                         </div>

@@ -23,7 +23,7 @@
         </label>
         <div ng-if="quest && !quest.isFollowing" ng-init="follow=true">
             <input id="follow_checkbox" type="checkbox" ng-model="follow" />
-            {{quest.followPhotoquest}}
+            {{tr.followPhotoquest}}
         </div>
         <div ng-show="errorMessage" class="error_text_color">
             {{errorMessage}}

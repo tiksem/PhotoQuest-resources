@@ -108,7 +108,7 @@
     text-align: right;
 }
 
-.comment_button{
+.silver_button{
     border-style: none;
     border: solid 1px silver;
     background:#ffffff;
@@ -118,7 +118,7 @@
     color:#262626 ;
 }
 
-.comment_button:hover{
+.silver_button:hover{
     background: #EAEAEA;
     cursor: pointer;
 }
