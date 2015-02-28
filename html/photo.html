@@ -27,7 +27,11 @@
                     height="20" width="20" class="loading_small"/>
                 </div>
                 <div class="set_as_avatar_button" >
-                    <button ng-show="getCategory()=='avatar'" class="button" ng-click="setAsAvatar()">Set As Avatar</button>
+                    <button ng-show="getCategory()=='avatar' &&
+                    getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
+                            class="button" ng-click="setAsAvatar()">
+                        Set As Avatar
+                    </button>
                 </div>
             </div>
             <div  class="photo_message">
