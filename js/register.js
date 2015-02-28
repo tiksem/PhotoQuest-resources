@@ -42,13 +42,14 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
                 });
             },
             error: function(data) {
-                if(data.error = "InvalidCaptchaException"){
+                if(data.error == "InvalidCaptchaException"){
                     $scope.errorMessage = "Enter correct code!";
+                } else if(data.error == "MissingServletRequestParameterException") {
+                    $scope.errorMessage = data.data.capitalize() + " field is blank";
+                } else if(data.message) {
+                    $scope.errorMessage = data.message;
                 }
 
-                if (data.message) {
-                    alert(data.message);
-                }
                 loadCaptcha();
             },
             finished: function() {
