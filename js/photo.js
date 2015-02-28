@@ -262,7 +262,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     var scope = $scope;
     $scope.openDeletePhotoDialog = function() {
         ngDialog.open({
-            template: 'html/delete_photo_dialog.htm',
+            template: 'html/delete_photo_dialog.html',
             className: 'ngdialog-theme-default',
             controller: function($scope){
                 $scope.tr = scope.tr;
