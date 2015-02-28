@@ -146,7 +146,11 @@ TRANSLATION = {
         publish: "Publish",
         followPhotoquest: "Follow photoquest",
         performYourFirsPhotoques: "Perform your first photoques",
-        chooseAvatar: "Choose avatar"
+        chooseAvatar: "Choose avatar",
+        enterPhotoquestName: "Enter photoquest name",
+        only: "Only",
+        tagsAreAllowed: "tags are allowed",
+        create: "Create"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -336,6 +340,10 @@ TRANSLATION = {
         publish: "Опубликовать",
         followPhotoquest: "Подписаться на фотоквест",
         performYourFirsPhotoques: "Выполните свой первый фотоквест",
-        chooseAvatar: "Выберете аватар"            
+        chooseAvatar: "Выберете аватар",
+        enterPhotoquestName: "Имя фотоквеста",
+        only: "Только",
+        tagsAreAllowed: "теги разрешены",
+        create: "Создать"            
     }
 };

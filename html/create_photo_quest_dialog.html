@@ -4,7 +4,7 @@
 }
 </style>
 <div style="width: 300px; align-self: center" class="dialog-contents" title="Create new photoquest">
-    <h2>Enter photoquest name</h2>
+    <h2>{{tr.enterPhotoquestName}}</h2>
 
     <form ng-init="maxTags = 7">
         <input ng-model="createQuestName" name="name" type="text"/>
@@ -20,7 +20,7 @@
         </div>
         <div id="create_photoquest_error_message" ng-show="tags.length > maxTags || errorMessage">
             <div ng-show="tags.length > maxTags">
-                Only {{maxTags}} tags are allowed!
+                {{tr.only}} {{maxTags}} {{tr.tagsAreAllowed}}!
             </div>
             <div ng-show="errorMessage">
                 {{errorMessage}}
@@ -32,10 +32,10 @@
         <br>
         <div ng-init="follow=true">
             <input id="follow_checkbox" type="checkbox" ng-model="follow" />
-            Follow photoquest
+            {{tr.followPhotoquest}}
         </div>
         <div style="display:inline-block;">
-            <button style="float: left;" class="button" ng-click="createPhotoquest()" >Create</button>
+            <button style="float: left;" class="button" ng-click="createPhotoquest()" >{{tr.create}}</button>
 			<img style="float:right; position:relative; top:3px;"
                  ng-show="showLoading"
                          src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
