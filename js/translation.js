@@ -170,6 +170,21 @@ TRANSLATION = {
           }
           else  return "лайков";
         },
+        textOfViews: function(num){
+          if(num==1) return "просмотр";
+          var lastDigit = num%10;
+          var strOfNum = num.toString();
+          if(strOfNum[strOfNum.length-1]=="1" && strOfNum[strOfNum.length-2]=="1"){
+            return "просмотров";
+          }
+          if(lastDigit>0 && lastDigit<5) 
+          {
+            if (strOfNum[strOfNum.length-2]=="1" )return "просмотров";
+            else if(lastDigit==1)return "просмотр";
+            else return "просмотра";
+          }
+          else  return "просмотров";
+        },
         createdPQTextInFeed: function(gender){
             if(gender===true) return "Создал фотоквест";
             if(gender==false) return "Создала фотоквест";
