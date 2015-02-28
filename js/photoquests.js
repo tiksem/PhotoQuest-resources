@@ -1,5 +1,7 @@
 var main = angular.module("main");
 main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $http, $timeout){
+    $scope.filter = $location.search()["filter"];
+
     $scope.openCreatePhotoquestDialog = function() {
         ngDialog.open({
             template: 'html/create_photo_quest_dialog.html',
