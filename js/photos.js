@@ -104,6 +104,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             className: 'ngdialog-theme-default',
             controller: function($scope) {
                 $scope.quest = scope.quest;
+                $scope.tr = scope.tr;
 
                 $scope.uploadPhoto = function() {
                     var uploadUrl = '/addPhotoToPhotoQuest?photoquest=' + id;
