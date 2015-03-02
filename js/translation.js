@@ -166,7 +166,15 @@ TRANSLATION = {
         enterCorrectCode: "Enter correct code",
         setAsAvatar: "Set As Avatar",
         loginFailed: "Invalid login or password!",
-        unknownError: "Unknown error occurred, try again later"
+        unknownError: "Unknown error occurred, try again later",
+        loginFieldBlank: "Specify your login, please",
+        passwordFieldBlank: "Enter your password, please",
+        nameFieldBlank: "Enter your name, please",
+        lastNameFieldBlank: "Enter your last name, please",
+        genderFieldIsBlank: "Select your gender, please",
+        countryFieldIsBlank: "Select your country, please",
+        cityFieldIsBlank: "Select your city, please",
+        captchaFieldIsBlank: "Enter the code!"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -377,6 +385,17 @@ TRANSLATION = {
         enterCorrectCode: "Неверный защитный код",
         setAsAvatar: "Сделать Аватаром",
         loginFailed: "Неправильный логин или пароль!",
-        unknownError: "Произошла неизвестная ошибка, попробуйте позже!"
+        unknownError: "Произошла неизвестная ошибка, попробуйте позже!",
+        loginFieldBlank: "Пожалуйста, укажите ваш логин",
+        passwordFieldBlank: "Пожалуйста, введите ваш пароль",
+        nameFieldBlank: "Пожалуйста, укажите ваше имя",
+        lastNameFieldBlank: "Пожалуйста, укажите вашу фамилию",
+        genderFieldIsBlank: "Пожалуйста, укажите ваш пол",
+        countryFieldIsBlank: "Выберете страну, пожалуйста",
+        cityFieldIsBlank: "Выберете город, пожалуйста",
+        captchaFieldIsBlank: "Введите защитный код"
     }
 };
+
+Utilities.addProperties(TRANSLATION.en, TRANSLATION.general);
+Utilities.addProperties(TRANSLATION.ru, TRANSLATION.general);

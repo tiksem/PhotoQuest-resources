@@ -20,6 +20,7 @@ angular.module('main')
                             $scope.$apply(function(){
                                 if (suggestion.value != element.val()) {
                                     delete $scope.country;
+                                    delete $scope.city;
                                     element.val("");
                                 }
                             });

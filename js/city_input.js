@@ -37,7 +37,9 @@ angular.module('main')
                     return element.is(':visible')
                 }, function(newValue, oldValue) {
                     if(oldValue === true && newValue === false){
-                        element.val("");
+                        if (!$scope.city) {
+                            element.val("");
+                        }
                     }
                 });
             }

@@ -1,5 +1,7 @@
 var main = angular.module("main");
 main.controller("RegisterController", function($location, $timeout, $scope, $element, $http, $upload){
+    var tr = $scope.tr;
+
     $scope.onFileSelect = function($files) {
         $scope.avatar = $files[0];
     };
@@ -28,6 +30,46 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             answer: $scope.answer
         };
 
+        if(!data.login){
+            $scope.errorMessage = tr.loginFieldBlank;
+            return;
+        }
+
+        if(!data.password){
+            $scope.errorMessage = tr.passwordFieldBlank;
+            return;
+        }
+
+        if(!data.name){
+            $scope.errorMessage = tr.nameFieldBlank;
+            return;
+        }
+
+        if(!data.lastName){
+            $scope.errorMessage = tr.lastNameFieldBlank;
+            return;
+        }
+
+        if(!data.gender) {
+            $scope.errorMessage = tr.genderFieldIsBlank;
+            return;
+        }
+
+        if(!$scope.country){
+            $scope.errorMessage = tr.countryFieldIsBlank;
+            return;
+        }
+
+        if(!data.cityId){
+            $scope.errorMessage = tr.cityFieldIsBlank;
+            return;
+        }
+
+        if(!data.answer){
+            $scope.errorMessage = tr.captchaFieldIsBlank;
+            return;
+        }
+
         var url = "//register";
         $scope.registerLoading = true;
         Utilities.get($http, url, data, {
@@ -43,11 +85,9 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             },
             error: function(data) {
                 if(data.error == "InvalidCaptchaException"){
-                    $scope.errorMessage = $scope.tr.enterCorrectCode;
-                } else if(data.error == "MissingServletRequestParameterException") {
-                    $scope.errorMessage = data.data.capitalize() + " field is blank";
-                } else if(data.message) {
-                    $scope.errorMessage = data.message;
+                    $scope.errorMessage = tr.enterCorrectCode;
+                } else {
+                    $scope.errorMessage = tr.unknownError;
                 }
 
                 loadCaptcha();
