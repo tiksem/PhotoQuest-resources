@@ -55,18 +55,29 @@
                 </div>
                 <div class="right_info_block">
                     <div class="creator_of_quest">
-                        <div ng-show="quest.user" style="display: inline-block; padding-bottom: 5px;">
+                        <div style="display: inline-block; padding-bottom: 5px;">
                             <span style="color:#696969; font-size: 10pt; font-weight: bold;">
                                 {{tr.createdBy}}<br/>
                             </span>
 
                             <div style="margin-top: 2px; word-wrap: break-word; display: inline-block;">
-                                <a href="#?path=profile&id={{quest.user.id}}">
-                                    <thumbnail src="quest.user.avatar" size="30" style="float: left;"/>
-                                </a>
-                                <a href="#?path=profile&id={{quest.user.id}}">
-                                    {{quest.user.name + " " + quest.user.lastName}}
-                                </a>
+                                <div ng-show="quest.user">
+                                    <a href="#?path=profile&id={{quest.user.id}}">
+                                        <thumbnail src="quest.user.avatar" size="30" style="float: left;"/>
+                                    </a>
+                                    <a href="#?path=profile&id={{quest.user.id}}">
+                                        {{quest.user.name + " " + quest.user.lastName}}
+                                    </a>
+                                </div>
+                                <div ng-show="!quest.user">
+                                    <span>
+                                        <img src="../images/logo.png" width="30px" height="30px"
+                                             style="float: left;"/>
+                                    </span>
+                                    <span>
+                                        PhotoQuest
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
