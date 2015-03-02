@@ -177,13 +177,14 @@ TRANSLATION = {
         captchaFieldIsBlank: "Enter the code!",
         invalidName: "Your name should contain only letters",
         invalidLastName: "Your last name should contain only letters",
-        invalidPassword: "Your password should be 6-20 characters long",
+        invalidPasswordPattern: "Your password should be 6-20 characters long",
         invalidLogin: "Your login should be 3-20 characters long and may contain only letters and digits",
         nameIsTooBig: "Name should not contain more than 20 characters",
         lastNameIsTooBig: "Last name should not contain more than 20 characters",
         userExists : function(name) {
             return "Login " + name + " is taken"
-        }
+        },
+        invalidPassword: "Invalid password"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -405,13 +406,14 @@ TRANSLATION = {
         captchaFieldIsBlank: "Введите защитный код",
         invalidName: "Ваше имя может содержать только буквы",
         invalidLastName: "Ваша фамилия может содержать только буквы",
-        invalidPassword: "Ваш пароль должен быть длиной 6-20 символов",
+        invalidPasswordPattern: "Ваш пароль должен быть длиной 6-20 символов",
         invalidLogin: "Ваш Логин должен быть длиной 3-20 символов и может содержать только латинские буквы и цифры",
         nameIsTooBig: "Имя не должно содержать более 20 символов",
         lastNameIsTooBig: "Фамилия не должна содержать более 20 символов",
         userExists : function(name) {
             return "Пользователь с логином " + name + " уже зарегистрирован"
-        }
+        },
+        invalidPassword: "Неверный пароль"
     }
 };
 

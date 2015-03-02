@@ -95,8 +95,8 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             return;
         }
 
-        if(!XRegExp(".{6,20}").test(password)){
-            $scope.errorMessage = tr.invalidPassword;
+        if(!Utilities.checkPassword(password)){
+            $scope.errorMessage = tr.invalidPasswordPattern;
             return;
         }
 

@@ -438,5 +438,8 @@ Utilities = {
         $scope.$on('$destroy', function() {
             $interval.cancel(handle);
         });
+    },
+    checkPassword: function(password) {
+        return XRegExp(".{6,20}").test(password);
     }
 }

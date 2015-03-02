@@ -73,6 +73,11 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
             return;
         }
 
+        if(!Utilities.checkPassword($scope.newPassword)){
+            $scope.changePasswordError = tr.invalidPasswordPattern;
+            return;
+        }
+
         $scope.changePasswordLoading = true;
         Utilities.post($http, "//changePassword", {
             old: $scope.oldPassword,
@@ -82,10 +87,11 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
                 $scope.changePasswordLoading = false;
             },
             error: function(data) {
-                if(data && data.error){
-                    $scope.changePasswordError = data.message;
-                } else {
-                    $scope.changePasswordError = "Unknown error!";
+                if(data){
+                    if(data.error == "PermissionDeniedException"){
+                        $scope.changePasswordError = tr.invalidPassword;
+                        return;
+                    }
                 }
             },
             success: function(data) {
