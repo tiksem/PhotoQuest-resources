@@ -1,48 +1,48 @@
 TRANSLATION = {
-    en : {
-        of: function(name, gender, what) {
+    en: {
+        of: function (name, gender, what) {
             return name + "'s " + what;
         },
-        friendsOf: function(name) {
+        friendsOf: function (name) {
             return name + "'s Friends";
         },
-        photosOf: function(name) {
+        photosOf: function (name) {
             return name + "'s Photos";
         },
-        photoquestsOf: function(name) {
+        photoquestsOf: function (name) {
             return name + "'s Photoquests";
-        }, 
-        textOfLikes: function(num){
-            return "likes";   
         },
-        textOfViews: function(num){
-            return "views";   
-        }, 
-        createdPQTextInFeed: function(gender){
+        textOfLikes: function (num) {
+            return "likes";
+        },
+        textOfViews: function (num) {
+            return "views";
+        },
+        createdPQTextInFeed: function (gender) {
             return "Created photoquest";
         },
-        publishedPhotoTexInFeed: function(gender){
+        publishedPhotoTexInFeed: function (gender) {
             return "Published photo on";
         },
-        acceptedYourFriendRequest: function(gender){
+        acceptedYourFriendRequest: function (gender) {
             return "accepted your friend request";
         },
-        declinedYourFriendRequest: function(gender){
+        declinedYourFriendRequest: function (gender) {
             return "declined your friend request";
         },
-        commentedYourPhoto: function(gender){
+        commentedYourPhoto: function (gender) {
             return "commented your photo";
         },
-        answeredYourComment: function(gender){
+        answeredYourComment: function (gender) {
             return "answered your comment";
         },
-        likedYourComment: function(gender){
+        likedYourComment: function (gender) {
             return "liked your comment";
         },
-        likedYourPhoto: function(gender){
+        likedYourPhoto: function (gender) {
             return "liked your photo";
         },
-        publishedBy: function(gender){
+        publishedBy: function (gender) {
             return "Published by";
         },
         people: "People",
@@ -137,9 +137,9 @@ TRANSLATION = {
         enterYourCity: "Enter your city",
         passwordsDoNotMatch: "Passwords do not match",
         passwordWasChanged: "Password was changed",
-        monthOfYear: ["Jan", "Feb", "Mar","Apr", "May", 
-                    "Jun", "Jul", "Aug", "Sep","Oct", 
-                    "Nov", "Dec"],
+        monthOfYear: ["Jan", "Feb", "Mar", "Apr", "May",
+            "Jun", "Jul", "Aug", "Sep", "Oct",
+            "Nov", "Dec"],
         at: "at",
         enterPhotoDescription: "Enter photo description",
         uploadImage: "Upload image",
@@ -181,98 +181,97 @@ TRANSLATION = {
         invalidLogin: "Your login should be 3-20 characters long and may contain only letters and digits",
         nameIsTooBig: "Name should not contain more than 20 characters",
         lastNameIsTooBig: "Last name should not contain more than 20 characters",
-        userExists : function(name) {
+        userExists: function (name) {
             return "Login " + name + " is taken"
         },
         invalidPassword: "Invalid password"
     },
     ru: {
-        of: function(name, gender, what, whatEn) {
+        of: function (name, gender, what, whatEn) {
             var person = {
                 gender: gender ? 'male' : 'female',
                 first: name
             };
             var result = petrovich(person, 'genitive').first.split("-")[0];
-            if(result ===  name){
+            if (result === name) {
                 return TRANSLATION.en.of(name, gender, whatEn);
             }
 
             return what + " " + result;
         },
-        friendsOf: function(name, gender) {
+        friendsOf: function (name, gender) {
             return this.of(name, gender, "Друзья", "Friends");
         },
-        photosOf: function(name, gender) {
+        photosOf: function (name, gender) {
             return this.of(name, gender, "Фотографии", "Photos");
         },
-        photoquestsOf: function(name, gender) {
+        photoquestsOf: function (name, gender) {
             return this.of(name, gender, "Фотоквесты", "Photoquests");
         },
-        textOfLikes: function(num){
-          if(num==1) return "лайк";
-          var lastDigit = num%10;
-          var strOfNum = num.toString();
-          if(strOfNum[strOfNum.length-1]=="1" && strOfNum[strOfNum.length-2]=="1"){
-            return "лайков";
-          }
-          if(lastDigit>0 && lastDigit<5) 
-          {
-            if (strOfNum[strOfNum.length-2]=="1" )return "лайков";
-            else if(lastDigit==1)return "лайк";
-            else return "лайка";
-          }
-          else  return "лайков";
+        textOfLikes: function (num) {
+            num = num || 0;
+            if (num == 1) return "лайк";
+            var lastDigit = num % 10;
+            var strOfNum = num.toString();
+            if (strOfNum[strOfNum.length - 1] == "1" && strOfNum[strOfNum.length - 2] == "1") {
+                return "лайков";
+            }
+            if (lastDigit > 0 && lastDigit < 5) {
+                if (strOfNum[strOfNum.length - 2] == "1")return "лайков";
+                else if (lastDigit == 1)return "лайк";
+                else return "лайка";
+            }
+            else  return "лайков";
         },
-        textOfViews: function(num){
-          if(num==1) return "просмотр";
-          var lastDigit = num%10;
-          var strOfNum = num.toString();
-          if(strOfNum[strOfNum.length-1]=="1" && strOfNum[strOfNum.length-2]=="1"){
-            return "просмотров";
-          }
-          if(lastDigit>0 && lastDigit<5) 
-          {
-            if (strOfNum[strOfNum.length-2]=="1" )return "просмотров";
-            else if(lastDigit==1)return "просмотр";
-            else return "просмотра";
-          }
-          else  return "просмотров";
+        textOfViews: function (num) {
+            if (num == 1) return "просмотр";
+            var lastDigit = num % 10;
+            var strOfNum = num.toString();
+            if (strOfNum[strOfNum.length - 1] == "1" && strOfNum[strOfNum.length - 2] == "1") {
+                return "просмотров";
+            }
+            if (lastDigit > 0 && lastDigit < 5) {
+                if (strOfNum[strOfNum.length - 2] == "1")return "просмотров";
+                else if (lastDigit == 1)return "просмотр";
+                else return "просмотра";
+            }
+            else  return "просмотров";
         },
-        createdPQTextInFeed: function(gender){
-            if(gender===true) return "Создал фотоквест";
-            if(gender==false) return "Создала фотоквест";
+        createdPQTextInFeed: function (gender) {
+            if (gender === true) return "Создал фотоквест";
+            if (gender == false) return "Создала фотоквест";
         },
-        publishedPhotoTexInFeed: function(gender){
-            if(gender==true) return "Опубликовал фото в фотоквесте";
-            if(gender==false) return "Опубликовала фото в фотоквесте";
+        publishedPhotoTexInFeed: function (gender) {
+            if (gender == true) return "Опубликовал фото в фотоквесте";
+            if (gender == false) return "Опубликовала фото в фотоквесте";
         },
-        acceptedYourFriendRequest: function(gender){
-            if(gender==true) return "Принял Ваше предложение дружбы";
-            if(gender==false) return "Приняла Ваше предложение дружбы";
+        acceptedYourFriendRequest: function (gender) {
+            if (gender == true) return "Принял Ваше предложение дружбы";
+            if (gender == false) return "Приняла Ваше предложение дружбы";
         },
-        declinedYourFriendRequest: function(gender){
-            if(gender==true) return "Отклонил Ваше предложение дружбы";
-            if(gender==false) return "Отклонила Ваше предложение дружбы";
+        declinedYourFriendRequest: function (gender) {
+            if (gender == true) return "Отклонил Ваше предложение дружбы";
+            if (gender == false) return "Отклонила Ваше предложение дружбы";
         },
-        commentedYourPhoto: function(gender){
-            if(gender==true) return "прокомментировал Ваше фото";
-            if(gender==false) return "прокомментировала Ваше фото";
+        commentedYourPhoto: function (gender) {
+            if (gender == true) return "прокомментировал Ваше фото";
+            if (gender == false) return "прокомментировала Ваше фото";
         },
-        answeredYourComment: function(gender){
-            if(gender==true) return "ответил на Ваш комментарий";
-            if(gender==false) return "ответила на Ваш комментарий";
+        answeredYourComment: function (gender) {
+            if (gender == true) return "ответил на Ваш комментарий";
+            if (gender == false) return "ответила на Ваш комментарий";
         },
-        likedYourComment: function(gender){
-            if(gender==true) return "лайкнул Ваш комментарий";
-            if(gender==false) return "лайкнула Ваш комментарий";
+        likedYourComment: function (gender) {
+            if (gender == true) return "лайкнул Ваш комментарий";
+            if (gender == false) return "лайкнула Ваш комментарий";
         },
-        likedYourPhoto: function(gender){
-            if(gender==true) return "лайкнул Ваше фото";
-            if(gender==false) return "лайкнула Ваше фото";
+        likedYourPhoto: function (gender) {
+            if (gender == true) return "лайкнул Ваше фото";
+            if (gender == false) return "лайкнула Ваше фото";
         },
-        publishedBy: function(gender){
-            if(gender==true) return "Опубликовал";
-            if(gender==false) return "Опубликовала";
+        publishedBy: function (gender) {
+            if (gender == true) return "Опубликовал";
+            if (gender == false) return "Опубликовала";
         },
         people: "Люди",
         photoquests: "Фотоквесты",
@@ -366,9 +365,9 @@ TRANSLATION = {
         enterYourCity: "Введите Ваш город",
         passwordsDoNotMatch: "Пароли не совпадают",
         passwordWasChanged: "Пароль был изменен",
-        monthOfYear: ["Янв", "Фев", "Март","Апр", "Май", 
-                    "Июнь", "Июль", "Авг", "Сент","Окт", 
-                    "Нояб", "Дек"],
+        monthOfYear: ["Янв", "Фев", "Март", "Апр", "Май",
+            "Июнь", "Июль", "Авг", "Сент", "Окт",
+            "Нояб", "Дек"],
         at: "в",
         enterPhotoDescription: "Описание к фото",
         uploadImage: "Загрузить Фотографию",
@@ -410,7 +409,7 @@ TRANSLATION = {
         invalidLogin: "Ваш Логин должен быть длиной 3-20 символов и может содержать только латинские буквы и цифры",
         nameIsTooBig: "Имя не должно содержать более 20 символов",
         lastNameIsTooBig: "Фамилия не должна содержать более 20 символов",
-        userExists : function(name) {
+        userExists: function (name) {
             return "Пользователь с логином " + name + " уже зарегистрирован"
         },
         invalidPassword: "Неверный пароль"

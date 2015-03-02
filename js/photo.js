@@ -87,6 +87,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                 Http.toggleLikeState($http, comment, params);
             }
 
+            disableLoadData = true;
             $location.search("id", scope.id);
             disableLoadData = false;
         });
@@ -189,7 +190,6 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             return;
         }
 
-        disableLoadData = true;
         $scope.showPhotoLoading = true;
         loadPhotoToScope(url, params, $http);
     };
