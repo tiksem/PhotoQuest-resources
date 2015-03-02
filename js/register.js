@@ -30,22 +30,26 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             answer: $scope.answer
         };
 
-        if(!data.login){
+        var login = data.login;
+        if(!login){
             $scope.errorMessage = tr.loginFieldBlank;
             return;
         }
 
-        if(!data.password){
+        var password = data.password;
+        if(!password){
             $scope.errorMessage = tr.passwordFieldBlank;
             return;
         }
 
-        if(!data.name){
+        var name = data.name;
+        if(!name){
             $scope.errorMessage = tr.nameFieldBlank;
             return;
         }
 
-        if(!data.lastName){
+        var lastName = data.lastName;
+        if(!lastName){
             $scope.errorMessage = tr.lastNameFieldBlank;
             return;
         }
@@ -70,6 +74,32 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             return;
         }
 
+        if(!XRegExp("^\\p{L}+$").test(name)){
+            $scope.errorMessage = tr.invalidName;
+            return;
+        } else if(name.length > 20) {
+            $scope.errorMessage = tr.nameIsTooBig;
+            return;
+        }
+
+        if(!XRegExp("^\\p{L}+$").test(lastName)){
+            $scope.errorMessage = tr.invalidLastName;
+            return;
+        } else if(lastName.length > 40) {
+            $scope.errorMessage = tr.lastNameIsTooBig;
+            return;
+        }
+
+        if(!XRegExp("^[a-zA-Z0-9]{3,20}$").test(login)){
+            $scope.errorMessage = tr.invalidLogin;
+            return;
+        }
+
+        if(!XRegExp(".{6,20}").test(password)){
+            $scope.errorMessage = tr.invalidPassword;
+            return;
+        }
+
         var url = "//register";
         $scope.registerLoading = true;
         Utilities.get($http, url, data, {
@@ -84,8 +114,11 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
                 });
             },
             error: function(data) {
-                if(data.error == "InvalidCaptchaException"){
+                var error = data.error;
+                if(error == "InvalidCaptchaException"){
                     $scope.errorMessage = tr.enterCorrectCode;
+                } else if(error == "UserExistsRegisterException") {
+                    $scope.errorMessage = tr.userExists(data.data);
                 } else {
                     $scope.errorMessage = tr.unknownError;
                 }
