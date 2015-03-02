@@ -164,7 +164,9 @@ TRANSLATION = {
         firstPromotext: "We make photography so interesting",
         secondPromoText: "like never before",
         enterCorrectCode: "Enter correct code",
-        setAsAvatar: "Set As Avatar"
+        setAsAvatar: "Set As Avatar",
+        loginFailed: "Invalid login or password!",
+        unknownError: "Unknown error occurred, try again later"
     },
     ru: {
         of: function(name, gender, what, whatEn) {
@@ -373,8 +375,8 @@ TRANSLATION = {
         firstPromotext: "Мы делаем фотографирование настолько интересным",
         secondPromoText: "как никогда ранее",
         enterCorrectCode: "Неверный защитный код",
-        setAsAvatar: "Сделать Аватаром"
-        
-                    
+        setAsAvatar: "Сделать Аватаром",
+        loginFailed: "Неправильный логин или пароль!",
+        unknownError: "Произошла неизвестная ошибка, попробуйте позже!"
     }
 };

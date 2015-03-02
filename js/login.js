@@ -1,6 +1,8 @@
 var main = angular.module("main");
 main.controller("LoginController", function(
     $location, $rootScope, $scope, $timeout, $element, $http, $cookies){
+    var tr = $scope.tr;
+
     $scope.signin = function() {
         var login = $scope.login;
         var password = $scope.password;
@@ -8,7 +10,11 @@ main.controller("LoginController", function(
 
         Http.signin($scope, $timeout, $http, login, password, {
             error: function(data){
-                $scope.errorMessage = data.message;
+                if (data.error = "LoginFailedException") {
+                    $scope.errorMessage = tr.loginFailed;
+                } else {
+                    $scope.errorMessage = tr.unknownError;
+                }
             },
             finished: function() {
                 $scope.loginLoading = false;
