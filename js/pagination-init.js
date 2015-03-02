@@ -56,9 +56,13 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             var search = $location.search();
             var urlParams = {
                 filter: search["filter"],
-                cityId: search["cityId"],
-                gender: search["gender"]
+                cityId: search["cityId"]
             };
+
+            var gender = search.gender;
+            if(gender !== undefined){
+                urlParams.gender = gender === "male"
+            }
 
             if(!urlParams.cityId && search.countryId){
                 urlParams.countryId = search.countryId;
@@ -93,12 +97,16 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
             limit: limit || $scope.pageSize,
             filter: search["filter"],
             cityId: search["cityId"],
-            gender: search["gender"],
             order: getOrder()
         };
 
         if(!urlParams.cityId && search.countryId){
             urlParams.countryId = search.countryId;
+        }
+
+        var gender = search.gender;
+        if(gender !== undefined){
+            urlParams.gender = gender === "male"
         }
 
         if(onLoadingStarted){

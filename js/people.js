@@ -45,11 +45,11 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
                 $scope.country = location.countryId;
                 $scope.cityName = location.cityName;
                 $scope.countryName = location.countryName;
-
-                $scope.gender = $scope.getGender();
-                $scope.filter = $scope.getFilter();
             }
         });
+
+        $scope.gender = $scope.getGender();
+        $scope.filter = $scope.getFilter();
     };
 
     var init = function() {
