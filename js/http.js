@@ -11,7 +11,6 @@ Http = {
         $http.get(window.location.origin + "//logout").success(function (data) {
             if (!data.error) {
                 $scope.setSignedInUser(null);
-                alert("Success!");
                 $scope.statsUpdater.destroy();
             } else {
                 var message = data.error + " " + data.message;
