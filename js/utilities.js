@@ -4,12 +4,12 @@
 
 Utilities = {
     ajax_request_base_url: location.origin,
-    applyLinksBehavior: function($location, $scope, element) {
+    applyLinksBehavior: function ($location, $scope, element) {
         var scrollHash = this.scrollHash = this.scrollHash || {};
 
         var that = this;
-        
-        var scrollToZero = function() {
+
+        var scrollToZero = function () {
             window.scrollTo(0, 0);
             var absUrl = $location.absUrl();
             scrollHash[absUrl] = {
@@ -18,7 +18,7 @@ Utilities = {
             };
         };
 
-        var applyScroll = this.applyScroll = this.applyScroll || function() {
+        var applyScroll = this.applyScroll = this.applyScroll || function () {
             if (!that.fromLink) {
                 var url = $location.absUrl();
                 var scroll = scrollHash[url];
@@ -36,18 +36,18 @@ Utilities = {
 
         this.fromLink = this.fromLink || false;
         var onLocationChangedDefault = this.onLocationChangedDefault =
-            this.onLocationChangedDefault || function(event, next, current) {
+            this.onLocationChangedDefault || function (event, next, current) {
                 that.scrollAplied = false;
                 applyScroll();
                 that.scrollAplied = false;
                 if (next == current) {
                     scrollToZero();
                 }
-        };
+            };
         var offDefault = this.offDefault = this.offDefault ||
         $scope.$on('$locationChangeStart', onLocationChangedDefault);
 
-        $(element).find("a").click(function(e){
+        $(element).find("a").click(function (e) {
             var absUrl = $location.absUrl();
             if (this.href != absUrl) {
                 that.fromLink = true;
@@ -60,7 +60,7 @@ Utilities = {
             }
         });
 
-        return function() {
+        return function () {
             var url = $location.absUrl();
             var scroll = scrollHash[url];
             if (scroll) {
@@ -70,43 +70,43 @@ Utilities = {
             }
         }
     },
-    ajax: function(params){
+    ajax: function (params) {
         var url = this.ajax_request_base_url + params.url;
         var data = params.data;
         var method = params.method;
         var onSuccess = params.success;
-        var onError = params.error || function(message) {
-            alert(message);
-        }
+        var onError = params.error || function (message) {
+                alert(message);
+            }
 
         jQuery.ajax({
             url: url,
             data: data,
             method: method,
-            success: function(data){
-                if(data.error){
+            success: function (data) {
+                if (data.error) {
                     onError(data.error);
                 }
             },
-            error: function(xhr, ajaxOptions, thrownError) {
+            error: function (xhr, ajaxOptions, thrownError) {
                 onError(thrownError)
             }
         });
     },
-    addProperties: function(object, properties) {
-        for(var i in properties){
+    addProperties: function (object, properties) {
+        for (var i in properties) {
             if (properties.hasOwnProperty(i)) {
                 object[i] = properties[i];
             }
         }
     },
-    loadDataToScope: function(url, params, $scope, $http, onSuccess) {
+    loadDataToScope: function (url, params, $scope, $http, onSuccess) {
         var time = new Date().getTime();
 
-        var getUrlLog = function() {
+        var getUrlLog = function () {
             var query = Utilities.createQueryString(params);
             var urlLog = url;
-            if(query != ""){
+            if (query != "") {
                 urlLog += "?" + query + " time: " + (new Date().getTime() - time);
             }
 
@@ -115,7 +115,7 @@ Utilities = {
 
         $http.get(url, {
             params: params
-        }).success(function(data){
+        }).success(function (data) {
             if (!data.error) {
                 Utilities.addProperties($scope, data);
                 if (onSuccess) {
@@ -127,15 +127,15 @@ Utilities = {
                 console.log("Error " + getUrlLog());
                 console.log(data);
             }
-        }).error(function(data){
+        }).error(function (data) {
             console.log("Error " + getUrlLog());
             console.log(data);
         })
     },
-    getTotalCount: function(url, params, $http, onSuccess) {
+    getTotalCount: function (url, params, $http, onSuccess) {
         $http.get(window.location.origin + url, {
             params: params
-        }).success(function(data){
+        }).success(function (data) {
             if (!data.error) {
                 if (onSuccess) {
                     onSuccess(data.count);
@@ -146,20 +146,24 @@ Utilities = {
                 console.error("Error " + url);
                 console.error(data);
             }
-        }).error(function(data){
+        }).error(function (data) {
             console.error("Error " + url);
             console.error(data);
         });
     },
-    parseHashPath: function(hash) {
+    parseHashPath: function (hash) {
         return hash.split("_");
     },
-    parseQuery: function(qstr)
-    {
+    getParameterByName: function (name, url) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(url);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    },
+    parseQuery: function (qstr) {
         var query = {};
         var a = qstr.split('&');
-        for (var i in a)
-        {
+        for (var i in a) {
             if (a.hasOwnProperty(i)) {
                 var b = a[i].split('=');
                 query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
@@ -168,7 +172,7 @@ Utilities = {
 
         return query;
     },
-    createQueryString: function(map) {
+    createQueryString: function (map) {
         var strs = [];
         for (var i in map) {
             if (map.hasOwnProperty(i)) {
@@ -180,13 +184,13 @@ Utilities = {
 
         return strs.join("&");
     },
-    request: function(type, $http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+    request: function (type, $http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         var time = new Date().getTime();
 
-        var getUrlLog = function() {
+        var getUrlLog = function () {
             var query = Utilities.createQueryString(params);
             var urlLog = url;
-            if(query != ""){
+            if (query != "") {
                 urlLog += "?" + query + " time: " + (new Date().getTime() - time);
             }
 
@@ -197,7 +201,7 @@ Utilities = {
         var finished;
         var error;
 
-        if(typeof argsOrOnSuccess !== "function"){
+        if (typeof argsOrOnSuccess !== "function") {
             success = argsOrOnSuccess.success;
             finished = argsOrOnSuccess.finished;
             error = argsOrOnSuccess.error;
@@ -212,7 +216,7 @@ Utilities = {
             };
 
             var config = {
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 transformRequest: transform
             };
 
@@ -224,7 +228,7 @@ Utilities = {
             call = func(window.location.origin + url, config);
         }
 
-        call.success(function(data) {
+        call.success(function (data) {
             if (!data.error) {
                 if (success) {
                     success(data);
@@ -236,35 +240,35 @@ Utilities = {
             } else {
                 console.error("Error " + getUrlLog());
                 console.error(data);
-                if(error){
+                if (error) {
                     error(data);
                 }
             }
 
-            if(finished){
+            if (finished) {
                 finished();
             }
 
-        }).error(function(){
+        }).error(function () {
             console.error("Error " + getUrlLog());
             console.error(data);
 
-            if(error){
+            if (error) {
                 error(data);
             }
 
-            if(finished){
+            if (finished) {
                 finished();
             }
         })
     },
-    get: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+    get: function ($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         this.request("get", $http, url, params, argsOrOnSuccess, withoutSuccessLogs);
     },
-    post: function($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
+    post: function ($http, url, params, argsOrOnSuccess, withoutSuccessLogs) {
         this.request("post", $http, url, params, argsOrOnSuccess, withoutSuccessLogs);
     },
-    uploadPhoto: function($scope, $upload, url, data, success, error) {
+    uploadPhoto: function ($scope, $upload, url, data, success, error) {
         $scope.upload = $upload.upload({
             url: window.location.origin + url,
             method: 'POST',
@@ -278,43 +282,43 @@ Utilities = {
                     success(data);
                 }
             } else {
-                if(error){
+                if (error) {
                     error(data);
                 }
                 console.error(data);
             }
-        }).error(function(data){
+        }).error(function (data) {
             console.error(data);
-            if(error){
+            if (error) {
                 error();
             }
         })
     },
-    addWatcher: function($scope, valueProvider, callback) {
+    addWatcher: function ($scope, valueProvider, callback) {
         $scope.$watch(
-            function($scope){
+            function ($scope) {
                 return valueProvider($scope);
             },
-            function(newValue, oldValue) {
-                if(newValue !== undefined && oldValue !== undefined){
+            function (newValue, oldValue) {
+                if (newValue !== undefined && oldValue !== undefined) {
                     callback(newValue, oldValue);
                 }
             }
         )
     },
-    addCounterWatcher: function($scope, params) {
+    addCounterWatcher: function ($scope, params) {
         var valueProvider = params.valueProvider;
         var onIncrease = params.onIncrease;
         var onChanged = params.onChanged;
         var onDecrease = params.onDecrease;
 
         $scope.$watch(
-            function($scope){
+            function ($scope) {
                 return valueProvider($scope);
             },
-            function(newValue, oldValue) {
-                if(newValue !== undefined && oldValue !== undefined){
-                    if(newValue > oldValue){
+            function (newValue, oldValue) {
+                if (newValue !== undefined && oldValue !== undefined) {
+                    if (newValue > oldValue) {
                         if (onIncrease) {
                             onIncrease(oldValue - newValue);
                         }
@@ -324,92 +328,91 @@ Utilities = {
                         }
                     }
 
-                    if(onChanged){
+                    if (onChanged) {
                         onChanged(newValue, oldValue);
                     }
                 }
             }
         )
     },
-    searchToUrlPart: function(search) {
+    searchToUrlPart: function (search) {
         var pairs = [];
-        for(var key in search){
-            if(search.hasOwnProperty(key)){
+        for (var key in search) {
+            if (search.hasOwnProperty(key)) {
                 pairs.push(key + "=" + search[key]);
             }
         }
 
-        if(pairs.length <= 0){
+        if (pairs.length <= 0) {
             return "";
         }
 
         return "#?" + pairs.join("&");
     },
-
-    getUrlSearchPath: function($location) {
+    getUrlSearchPath: function ($location) {
         var search = $location.search();
         return this.searchToUrlPart(search);
     },
-    addToSearchPath: function($location, add) {
+    addToSearchPath: function ($location, add) {
         var search = this.getUrlSearchPath($location);
-        if(search){
+        if (search) {
             return search + "&" + add;
         }
 
         return "#?" + add;
     },
-    getMonth: function(date, monthOfYear) {
-        var months =  monthOfYear;
+    getMonth: function (date, monthOfYear) {
+        var months = monthOfYear;
 
         return months[date.getMonth()];
     },
-    getDay: function(date) {
+    getDay: function (date) {
         var day = date.getDate();
-        if(day < 10){
+        if (day < 10) {
             day = "0" + day;
         }
 
         return day;
     },
-    getHours: function(date) {
+    getHours: function (date) {
         var hours = date.getHours();
-        if(hours < 10){
+        if (hours < 10) {
             hours = "0" + hours;
         }
 
         return hours;
     },
-    getMinutes: function(date) {
+    getMinutes: function (date) {
         var minutes = date.getMinutes();
-        if(minutes < 10){
+        if (minutes < 10) {
             minutes = "0" + minutes;
         }
 
         return minutes;
     },
-    getMonthRaw: function(raw, monthOfYear) {
+    getMonthRaw: function (raw, monthOfYear) {
         var date = new Date(raw);
         return this.getMonth(date, monthOfYear);
     },
-    getDayRaw: function(raw) {
+    getDayRaw: function (raw) {
         var date = new Date(raw);
         return this.getDay(date);
     },
-    getHoursRaw: function(raw) {
+    getHoursRaw: function (raw) {
         var date = new Date(raw);
         return this.getHours(date);
     },
-    getMinutesRaw: function(raw) {
+    getMinutesRaw: function (raw) {
         var date = new Date(raw);
         return this.getMinutes(date);
     },
-    getHoursAndMinutesRaw: function(raw) {
+    getHoursAndMinutesRaw: function (raw) {
         var date = new Date(raw);
         return this.getHours(date) + ":" + this.getMinutes(date);
     },
-    getDisplayDate: function(rawValue, monthOfYear, at) {
+    getDisplayDate: function (rawValue, monthOfYear, at) {
         var date = new Date(rawValue);
-        
+
         var month = this.getMonth(date, monthOfYear);
         var year = date.getFullYear();
 
@@ -421,8 +424,8 @@ Utilities = {
 
         return day + " " + month + " " + year + " " + at + " " + hours + ":" + minutes;
     },
-    deleteUndefinedValues: function(arr) {
-        for(var i in arr){
+    deleteUndefinedValues: function (arr) {
+        for (var i in arr) {
             if (arr.hasOwnProperty(i)) {
                 if (i === undefined || i === null || i === "undefined") {
                     delete arr[i];
@@ -430,16 +433,16 @@ Utilities = {
             }
         }
     },
-    interval: function($scope, $interval, callback, delay) {
-        var handle = $interval(function(){
+    interval: function ($scope, $interval, callback, delay) {
+        var handle = $interval(function () {
             callback();
         }, delay);
 
-        $scope.$on('$destroy', function() {
+        $scope.$on('$destroy', function () {
             $interval.cancel(handle);
         });
     },
-    checkPassword: function(password) {
+    checkPassword: function (password) {
         return XRegExp(".{6,20}").test(password);
     }
 }
