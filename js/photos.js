@@ -3,6 +3,8 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     $scope.contentLoaded = false;
     $scope.pageSize = 40;
 
+    var tr = $scope.tr;
+
     var query = $location.search();
     var path = query["path"];
     var id = query["id"];
@@ -128,10 +130,10 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         init();
                     }, function(data) {
                         $scope.uploadPhotoLoading = false;
-                        if(data){
-                            $scope.errorMessage = data.message || "Unknown error";
+                        if(data.error = "MissingServletRequestParameterException"){
+                            $scope.errorMessage = tr.photoIsNotSelected;
                         } else {
-                            $scope.errorMessage = "Unknown error";
+                            $scope.errorMessage = tr.unknownError;
                         }
                     });
                 };

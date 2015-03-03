@@ -184,7 +184,8 @@ TRANSLATION = {
         userExists: function (name) {
             return "Login " + name + " is taken"
         },
-        invalidPassword: "Invalid password"
+        invalidPassword: "Invalid password",
+        photoIsNotSelected: "Photo is not selected"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -412,7 +413,8 @@ TRANSLATION = {
         userExists: function (name) {
             return "Пользователь с логином " + name + " уже зарегистрирован"
         },
-        invalidPassword: "Неверный пароль"
+        invalidPassword: "Неверный пароль",
+        photoIsNotSelected: "Фотография не выбрана"
     }
 };
 
