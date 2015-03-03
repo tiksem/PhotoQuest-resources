@@ -136,8 +136,13 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             id: comment.id
         };
         comment.deleteLoading = true;
-        Utilities.get($http, url, params, function (data) {
-            $scope.comments.remove(comment);
+        Utilities.get($http, url, params, {
+            success: function (data) {
+                $scope.comments.remove(comment);
+            },
+            finished: function() {
+                comment.deleteLoading = false;
+            }
         });
     };
 
