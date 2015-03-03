@@ -26,7 +26,7 @@
         <td class="support_col" ></td>         
     </tr>
 
-    <tr class="category_tabs" ng-show="getPath() == 'quest'">
+    <tr class="category_tabs" ng-show="getPath() == 'quest' && getSignedInUser()">
         <td class="support_col" style="background: #C6F4F4;"></td>
         <td>
             <a  tab-link disabled="{{contentIsLoading}}"
