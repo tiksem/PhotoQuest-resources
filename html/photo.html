@@ -104,6 +104,7 @@
                  ng-show="comments.length > 0"
                  url="//getCommentsOnPhoto?photoId={{photo.id}}"
                  reload-func-name="reloadComments"
+                 loading-flag="commentsLoading"
                  class="wrapper">
                 <div  class="single_comment" ng-repeat="comment in comments">
                     <div class="comment_user_photo">
@@ -167,7 +168,7 @@
                     </button>
                 </div>
             </div>
-            <div style="width: 500px; text-align: center;">
+            <div ng-show="commentsLoading" style="width: 500px; text-align: center;">
                 <img src="../images/loading.gif" height="50" width="50" class="loading"/>
             </div>
         </div>
