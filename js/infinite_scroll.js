@@ -97,8 +97,8 @@ angular.module('infinite-scroll', []).directive('topInfiniteScroll', ['$timeout'
 
             var reloadFuncName = attr.reloadFuncName;
             if(reloadFuncName){
-                scope.$parent[reloadFuncName] = function() {
-                    load(true);
+                scope.$parent[reloadFuncName] = function(clearScope) {
+                    load(clearScope);
                 }
             }
 

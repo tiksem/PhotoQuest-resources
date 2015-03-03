@@ -139,6 +139,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         Utilities.get($http, url, params, {
             success: function (data) {
                 $scope.comments.remove(comment);
+                $scope.reloadComments();
             },
             finished: function() {
                 comment.deleteLoading = false;
@@ -221,7 +222,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     $scope.$on('$locationChangeSuccess', function (event) {
         if(checkPath()){
             loadData();
-            $scope.reloadComments();
+            $scope.reloadComments(true);
         }
     });
 
