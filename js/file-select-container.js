@@ -11,14 +11,21 @@ angular.module('main')
                 var previewWidth = attrs.previewWidth || 100;
                 var previewHeight = attrs.previewHeight || 100;
                 element = $(element);
-
+                var img;
                 scope.onFileSelect = function($files) {
                     var file = scope.$parent.file = $files[0];
+                    if(!file){
+                        if(img){
+                            img.remove();
+                        }
+                        return;
+                    }
+
                     var reader = new FileReader();
 
                     reader.onload = function (e) {
                         var url = e.target.result;
-                        var img = $('<img src="' + url + '" />');
+                        img = $('<img src="' + url + '" />');
                         img.css({
                             maxWidth: previewWidth + "px",
                             maxHeight: previewHeight + "px"
