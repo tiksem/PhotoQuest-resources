@@ -15,12 +15,13 @@
     </div>
     <div class="photos_container"  ng-show="contentLoaded">   
         <div ng-if="user" >
-            <div  class="photos_title_user_avatar" >  
-                <a href="#?path=profile&id={{quest.user.id}}" style="float:left;">
-                    <thumbnail src="quest.user.avatar" size="40" />
+            <div ng-show="user.id && (!getSignedInUser() ||
+            user.id != getSignedInUser().id)" class="photos_title_user_avatar" >
+                <a href="#?path=profile&id={{user.id}}" style="float:left;">
+                    <thumbnail src="user.avatar" size="40" />
                 </a>
-                <a style="margin-left: 5px;float:left;color:#46172B; font-weight: bold;" href="#?path=profile&id={{quest.user.id}}">
-                    Иван Ебло
+                <a style="margin-left: 5px;float:left;color:#46172B; font-weight: bold;" href="#?path=profile&id={{user.id}}">
+                    {{user.name + " " + user.lastName}}
                 </a>
             </div>
             <h1>
