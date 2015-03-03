@@ -185,7 +185,14 @@ TRANSLATION = {
             return "Login " + name + " is taken"
         },
         invalidPassword: "Invalid password",
-        photoIsNotSelected: "Photo is not selected"
+        photoIsNotSelected: "Photo is not selected",
+        tooManyTags: function(maxTags) {
+            return "You can not specify more than " + maxTags + " tags";
+        },
+        emptyPhotoquestNameError: "Enter photoquest name",
+        photoquestExists: function(photoQuestName) {
+            return "Photoquest " + photoQuestName + " already exists"
+        }
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -414,7 +421,14 @@ TRANSLATION = {
             return "Пользователь с логином " + name + " уже зарегистрирован"
         },
         invalidPassword: "Неверный пароль",
-        photoIsNotSelected: "Фотография не выбрана"
+        photoIsNotSelected: "Фотография не выбрана",
+        tooManyTags: function(maxTags) {
+            return "Вы не можете указать больше " + maxTags + " тегов";
+        },
+        emptyPhotoquestNameError: "Введите имя фотоквеста",
+        photoquestExists: function(photoQuestName) {
+            return "Фотоквест " + photoQuestName + " уже существует"
+        }
     }
 };
 

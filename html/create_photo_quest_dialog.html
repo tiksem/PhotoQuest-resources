@@ -15,9 +15,6 @@
                     ></tags-input>
         </div>
         <div id="create_photoquest_error_message" ng-show="tags.length > maxTags || errorMessage">
-            <div ng-show="tags.length > maxTags">
-                {{tr.only}} {{maxTags}} {{tr.tagsAreAllowed}}!
-            </div>
             <div ng-show="errorMessage" class="error_text_color">
                 {{errorMessage}}
             </div>

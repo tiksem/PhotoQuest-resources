@@ -8,14 +8,28 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
             template: 'html/create_photo_quest_dialog.html',
             className: 'ngdialog-theme-default',
             controller: function($scope){
-                $scope.tr = scope.tr;
+                var tr = $scope.tr = scope.tr;
 
                 $scope.createPhotoquest = function() {
-                    var tags = $.map($scope.tags, function(tag){
+                    var tags = $scope.tags;
+                    var maxTags = $scope.maxTags;
+                    if(tags.length > maxTags) {
+                        $scope.errorMessage = tr.tooManyTags(maxTags);
+                        return;
+                    }
+
+                    var photoQuestName = $scope.createQuestName;
+                    if (!photoQuestName || $.trim(photoQuestName) == "") {
+                        $scope.errorMessage = tr.emptyPhotoquestNameError;
+                        return;
+                    }
+
+                    tags = $.map(tags, function(tag){
                         return tag.text;
                     });
+
                     var params = {
-                        name: $scope.createQuestName,
+                        name: photoQuestName,
                         tags: tags.join(" "),
                         follow: $("#follow_checkbox").is(':checked')
                     };
@@ -30,12 +44,11 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                             $scope.showLoading = false;
                         },
                         error: function(data) {
-                            var message = "Unknown error";
-                            if(data && data.message){
-                                message = data.message;
+                            if(data.error == "PhotoquestExistsException") {
+                                $scope.errorMessage = tr.photoquestExists(photoQuestName)
+                            } else {
+                                $scope.errorMessage = tr.unknownError;
                             }
-
-                            $scope.errorMessage = message;
                         }
                     });
                 };
