@@ -192,6 +192,9 @@ TRANSLATION = {
         emptyPhotoquestNameError: "Enter photoquest name",
         photoquestExists: function(photoQuestName) {
             return "Photoquest " + photoQuestName + " already exists"
+        },
+        smallImageException: function(minWidth, minHeight) {
+            return "The image is too small, should be bigger than " + minWidth + "x" + minHeight;
         }
     },
     ru: {
@@ -428,6 +431,9 @@ TRANSLATION = {
         emptyPhotoquestNameError: "Введите имя фотоквеста",
         photoquestExists: function(photoQuestName) {
             return "Фотоквест " + photoQuestName + " уже существует"
+        },
+        smallImageException: function(minWidth, minHeight) {
+            return "Слишком маленькое изображение, должно быть как минимум " + minWidth + " на " + minHeight;
         }
     }
 };

@@ -130,8 +130,12 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         init();
                     }, function(data) {
                         $scope.uploadPhotoLoading = false;
-                        if(data.error = "MissingServletRequestParameterException"){
+                        var error = data.error;
+                        if(error == "MissingServletRequestParameterException"){
                             $scope.errorMessage = tr.photoIsNotSelected;
+                        } else if(error == "SmallImageException") {
+                            var dimensions = data.data;
+                            $scope.errorMessage = tr.smallImageException(dimensions.minWidth, dimensions.minHeight);
                         } else {
                             $scope.errorMessage = tr.unknownError;
                         }
