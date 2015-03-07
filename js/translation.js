@@ -194,7 +194,7 @@ TRANSLATION = {
             return "Photoquest " + photoQuestName + " already exists"
         },
         smallImageException: function(minWidth, minHeight) {
-            return "The image is too small, should be bigger than " + minWidth + "x" + minHeight;
+            return "The image is too small, should be at least " + minWidth + "x" + minHeight;
         }
     },
     ru: {
