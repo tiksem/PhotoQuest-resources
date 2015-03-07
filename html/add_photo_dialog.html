@@ -1,14 +1,13 @@
-<div style="width: 300px; align-self: center" class="dialog-contents">
+<div style="width: 300px;" class="dialog-contents">
     <span style="color: #46172B; font-size: 14pt; font-weight: bold;">{{tr.uploadImage}}</span>
 
-    <form >
         <div file-select-container
              preview-container-id="preview"
              preview-width="100"
              preview-height="100"
-             select-file-button-id="select_file_button" class="select_photo_form" >
-            <div>
-                <button id="select_file_button" class="button" >{{tr.selectFile}}</button>
+             select-file-button-id="select_file_button" class="select_photo_form"  >
+            <div style="margin-top: 0;">
+                <button style="margin-top: 0;" id="select_file_button" class="button" >{{tr.selectFile}}</button>
                 <span>{{file.name ? file.name.getPreview(25, "...") : tr.noFileSelected}}</span>
             </div>
             <div id="preview" >
@@ -33,5 +32,5 @@
 			<img ng-show="uploadPhotoLoading" style="float:right; position:relative; top:3px;"
                          src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
         </div>
-    </form>
+
 </div>

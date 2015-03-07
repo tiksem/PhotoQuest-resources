@@ -61,27 +61,10 @@ h1{
 .photo_likes{
     margin-left: 2px;
 }
-
-@-moz-document url-prefix() {
-     .select_photo_form{
-        position: relative; 
-        bottom: 0px;
-     }
-     
-     .photo_description_label{
-        position: relative; 
-        bottom: 5px;
-     }
-
-}
-
 .select_photo_form{
-    position: relative; 
-    bottom: 20px;
+    margin-top: 10px;
 }
 
 .photo_description_label{
     color: #46172B; 
-    position: relative; 
-    bottom: 20px;
 }
