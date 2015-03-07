@@ -31,10 +31,9 @@ h1{
 .like_eye_container{
     width: 100%;
     height: 20px;
-    background: black;
+    background: rgba(0, 0, 0, 0.7);
     position: relative;
     top:150px;
-    opacity: 0.7;
     text-align: center;
     line-height: 20px;
 }
@@ -57,4 +56,8 @@ h1{
 .counts_icons{
    position: relative;
    top:3px;
+}
+
+.photo_likes{
+    margin-left: 2px;
 }

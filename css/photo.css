@@ -108,6 +108,13 @@
     text-align: right;
 }
 
+@-moz-document url-prefix() {
+     .comment_button_container{
+        margin-top:4px;
+     }
+
+}
+
 .silver_button{
     border-style: none;
     border: solid 1px silver;
