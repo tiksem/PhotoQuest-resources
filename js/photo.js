@@ -85,20 +85,14 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                 };
 
                 Http.toggleLikeState($http, comment, params);
-            }
+            };
 
-            disableLoadData = true;
             $location.search("id", scope.id);
-            disableLoadData = false;
         });
     };
 
     var disableLoadData = false;
     var loadData = function() {
-        if(disableLoadData){
-            return;
-        }
-
         var url = "//getPhotoById";
         var search = $location.search();
         var params = {
@@ -221,7 +215,9 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
     $scope.$on('$locationChangeSuccess', function (event) {
         if(checkPath()){
-            loadData();
+            if ($scope.photo.id != $scope.getId()) {
+                loadData();
+            }
             $scope.reloadComments(true);
         }
     });
