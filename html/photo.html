@@ -74,7 +74,8 @@
                 </div>
             </div>
             <div>
-                <button ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 20px;" >
+                <button ng-show="getSignedInUser().id == photo.userId"
+                        ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 20px;" >
                     {{tr.deleteText}} {{tr.photo}}
                 </button>
             </div>
