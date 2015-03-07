@@ -112,36 +112,8 @@
 
             {{user.country}}<br/> {{user.city}}<br/>
 
-            <div class="add_friend_button">
-                <button style="float: left;" class="button"
-                        ng-show="getToggleFriendStatusButtonName(user) && getSignedInUser() &&
-                        getSignedInUser().id != user.id"
-                        ng-click="addOrRemoveFriend(user)">
-                    {{getToggleFriendStatusButtonName(user)}}
-                </button>
-                <img ng-show="user.addFriendLoading" src="../images/mini_loading.gif"
-                     style="position:relative; float:right;margin-top:2px;"
-                     height="20" width="20" class="loading_small"/>
-            </div>
-            <div class="friend_requests_button" ng-show="user.relation === 'request_received'" >
-                <div style="display: inline-block;">{{user.name}} {{tr.receivedFriendRequestMessage}}</div><br />
-                <button style="float: left; margin-right: 5px;" class="button" >
-                    {{tr.accept}}
-                </button>
-                <button style="float: left;" class="button" ng-click="addOrRemoveFriend(user, true)">
-                    {{tr.decline}}
-                </button>
-                <img  src="../images/mini_loading.gif"
-                     style="float:left;margin-top:3px;"
-                     height="20" width="20" class="loading_small"/>
-                
-            </div>
-            <div class="send_message_button">
-                <a ng-href="#?path=messages&id={{user.id}}">
-                    <button class="button" ng-show="getSignedInUser() && getSignedInUser().id != user.id">
-                        {{tr.writeMessage}}
-                    </button>
-                </a>
+            <div profile-buttons>
+
             </div>
         </div>
     </div>

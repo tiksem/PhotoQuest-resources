@@ -29,13 +29,6 @@ body {
     font-family: sans-serif;
 }
 
-@-moz-document url-prefix() {
-     .button{
-        padding:4px 8px;
-        line-height: 16px;
-     }
-}
-
 .button:hover
 {   
     background:#46172B;

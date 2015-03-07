@@ -29,7 +29,6 @@
    
 }
 
-
 .people_info_container
 {
     font-size: 12pt;
@@ -78,10 +77,6 @@
 
 .friend_requests_button{
     display: inline-block;
-    width: 350px; float:left;  
-    word-wrap: break-word; 
-    margin-bottom: 10px; 
-    margin-top: 10px;
 }
 
 .add_friend_button{   
