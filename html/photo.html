@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="comments_block" >
-            <div class="comment_textarea_container">
+            <div class="comment_textarea_container" ng-show="getSignedInUser()">
                 <form>
                     <div>
                         <textarea id="message_text_area" ng-model="message">
