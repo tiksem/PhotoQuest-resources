@@ -11,6 +11,7 @@
     padding: 0;
 }
 
+
 .profile_feed_container
 {   
     position: relative;
@@ -177,6 +178,7 @@
     text-align: center;
     margin-bottom: 5px;
     background: #45182C;
+    
 }
 .user_photoquest_link a{
     color: #ffffff;
@@ -188,9 +190,33 @@
     color:#ffffff;
 }
 
+.user_friends_link{
+    display: inline-block;
+    word-wrap: break-word;
+    min-width: 200px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    background: #45182C;
+}
+
 .user_photoquest_link:hover{
     background: #4DB1BC;
 }
-.user_photoquest_link:hover, #user_photos_link:hover{
+.user_photoquest_link:hover, #user_photos_link:hover, .user_friends_link:hover{
     cursor: pointer;
 } 
+
+.user_friends_link a{
+    color: #ffffff;
+    display: block;
+    padding: 5px 0 5px 0;
+}
+
+.user_friends_link a:hover{
+    color:#ffffff;
+}
+
+.user_friends_link:hover{
+    background: #4DB1BC;
+}
