@@ -6,8 +6,10 @@ main.controller("ProfileController", function($rootScope, $scope, ngDialog, $ele
 
     var loadData = function() {
         var userId = $location.search()["id"];
+        $scope.showProfileLoading = true;
         Http.loadUserToScope($scope, $http, userId, function(){
             $scope.user = $scope;
+            $scope.showProfileLoading = false;
         });
     };
     loadData();

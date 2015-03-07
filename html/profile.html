@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <div class="profile_container" ng-controller="ProfileController">
-<img style="margin: 10 auto 0 auto; "
+<img ng-show="showProfileLoading" style="margin: 10 auto 0 auto; "
              src="../images/loading.gif" height="50" width="50" class="loading"/>
     <div ng-show="id">
         <a ng-href="#?path=photo&id={{avatarId}}&category=avatar&userId={{id}}">
