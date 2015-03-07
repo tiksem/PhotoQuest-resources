@@ -108,5 +108,9 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         }
     });
 
+    $scope.setOnSignedInChangedListener(function() {
+        init();
+    });
+
     Utilities.applyLinksBehavior($location, $scope, $element)();
 });

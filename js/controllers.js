@@ -113,7 +113,7 @@ ControllerUtils = {
                             user.relation = "followed";
                         }
                     } else {
-                        if(user.relation == "request_received"){
+                        if(user.relation == "request_received" || user.relation == "followed"){
                             user.relation = "friend";
                         } else {
                             user.relation = "request_sent";
@@ -127,10 +127,11 @@ ControllerUtils = {
         };
 
         $scope.getToggleFriendStatusButtonName = function(user) {
-            var relation = user.relation;
             if(!user){
                 return undefined;
             }
+
+            var relation = user.relation;
 
             if(relation == "friend"){
                 return $scope.tr.removeFriend;

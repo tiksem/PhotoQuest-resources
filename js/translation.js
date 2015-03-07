@@ -99,7 +99,10 @@ TRANSLATION = {
         accept: "Accept",
         decline: "Decline",
         writeMessage: "Write message",
-        receivedFriendRequestMessage: "wants to add you as a friend",
+        receivedFriendRequestMessage: " wants to add you as a friend",
+        followedUserMessage: function(){
+            return " is following you";
+        },
         removeFriend: "Remove friend",
         cancelFriendRequest: "Cancel friend request",
         addFriend: "Add friend",
@@ -339,6 +342,17 @@ TRANSLATION = {
         decline: "Отклонить",
         writeMessage: "Написать сообщение",
         receivedFriendRequestMessage: "хочет добавить вас в друзья",
+        followedUserMessage: function(gender) {
+            if(gender === true) {
+                return " подписан на вас";
+            }
+
+            if(gender === false) {
+                return " подписана на вас";
+            }
+
+            return "Error";
+        },
         removeFriend: "Удалить с друзей",
         cancelFriendRequest: "Отменить предложение дружбы",
         addFriend: "Добавить в друзья",

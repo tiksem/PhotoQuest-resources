@@ -12,6 +12,10 @@ main.controller("ProfileController", function($rootScope, $scope, ngDialog, $ele
     };
     loadData();
 
+    $scope.setOnSignedInChangedListener(function() {
+        loadData();
+    });
+
     $scope.$on('$locationChangeStart', function(event, next, current) {
         if(checkPath()){
             loadData();
