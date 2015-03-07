@@ -6,16 +6,16 @@
              preview-container-id="preview"
              preview-width="100"
              preview-height="100"
-             select-file-button-id="select_file_button" style="margin-top: -30px;" >
+             select-file-button-id="select_file_button" class="select_photo_form" >
             <div>
-                <button id="select_file_button" class="button">{{tr.selectFile}}</button>
+                <button id="select_file_button" class="button" >{{tr.selectFile}}</button>
                 <span>{{file.name ? file.name.getPreview(25, "...") : tr.noFileSelected}}</span>
             </div>
-            <div id="preview">
+            <div id="preview" >
 
             </div>
         </div>
-        <label style="color: #46172B;">
+        <label class="photo_description_label" >
             {{tr.enterPhotoDescription}}
             <textarea ng-model="message" style="height: 40px; width: 300px; max-height: 40px; max-width: 300px;">
 
