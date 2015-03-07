@@ -8,10 +8,9 @@
     <img ng-show="user.addFriendLoading" src="../images/mini_loading.gif"
          style="position:relative; float:right;margin-top:2px;"
          height="20" width="20" class="loading_small"/>
-</div><br />
+</div>
 <div class="friend_requests_button"
-     ng-show="user.relation === 'request_received' || user.relation === 'followed'"
-     style="width: 350px; word-wrap: break-word; margin-bottom: 5px; margin-top: -15px;"  >
+     ng-show="user.relation === 'request_received' || user.relation === 'followed'"  >
     <div style="display: inline-block;">
         {{user.name}}
         <span ng-show="user.relation === 'request_received'">

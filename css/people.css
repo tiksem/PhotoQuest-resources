@@ -44,13 +44,6 @@
     left: 165px;
 }
 
-
-.people_info_container span
-{
-   font-size: 13pt;
-}
-
-
 .add_friend_button
 {
      margin-left: -1px;
@@ -72,16 +65,19 @@
 
 .user_info_text
 {
-    color:#44192D ;
+    color:#44192D;
+	font-size: 13pt;
 }
 
 
 .friend_requests_button{
     display: inline-block;
-    width: 350px; float:left;  
+    width: 350px; 
+    float:left;  
     word-wrap: break-word; 
     margin-bottom: 10px; 
     margin-top: 10px;
+    font-size: 11pt;
 }
 
 .add_friend_button{   
