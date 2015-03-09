@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en' ng-app="main">
+<head>
+    <meta charset="UTF-8"/>
+    <title>
+        PhotoQuest
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/login-style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ngDialog.css"/>
+    <link rel="stylesheet" href="css/ngDialog-theme-default.css"/>
+    <link rel="stylesheet" href="css/ngDialog-theme-plain.css"/>
+    <link rel="stylesheet" href="css/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/pagination.css"/>
+    <link rel="stylesheet" href="css/user_left_sidebar.css"/>
+    <link rel="stylesheet" href="css/register.css"/>
+    <link rel="stylesheet" href="css/people.css"/>
+    <link rel="stylesheet" href="css/photoquests.css"/>
+    <link rel="stylesheet" href="css/photoquest.css"/>
+    <link rel="stylesheet" href="css/profile.css"/>
+    <link rel="stylesheet" href="css/replies.css"/>
+    <link rel="stylesheet" href="css/dialogs.css"/>
+    <link rel="stylesheet" href="css/messages.css"/>
+    <link rel="stylesheet" href="css/photo.css"/>
+    <link rel="stylesheet" href="css/settings.css"/>
+    <link rel="stylesheet" href="css/welcome.css"/>
+    <link rel="stylesheet" href="css/first_quest.css"/>
+    <link rel="stylesheet" href="ng-tags-input/ng-tags-input.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+    <link rel="stylesheet" href="css/about.css"/>
+
+
+    <script type="application/javascript" src="js/minified.js"></script>
+
+</head>
+<body ng-controller="Main">
+
+
+<div ng-include="'html/header.html'">
+
+</div>
+<div id="body_container">
+
+    <div id="center_and_user_block_container">
+
+        <div id="left_user_block"
+             ng-show="getPath() !== 'photo' && getPath() !== 'first'"
+             ng-include="'html/login.html'">
+
+        </div>
+
+        <div ng-if="getPath() !== 'photo' && getPath() !== 'first'"
+             align="center" id="center_page_container" ng-include="getCenterPageContent()">
+        </div>
+
+        <div id="photo_content" ng-if="getPath() === 'photo'"
+             ng-include="'html/photo.html'">
+        </div>
+
+
+        <div id="first_quest_content" ng-if="getPath() === 'first'"
+             ng-include="'html/first_quest.html'">
+        </div>
+
+    </div>
+</div>
+<div id="footer">
+    <br />
+    © PhotoQuest 2015<br />
+    photoquest@gmail.com<br />
+    <a ng-href="#?path=about">{{tr.founders}}</a>
+</div>
+
+</body>
+</html>

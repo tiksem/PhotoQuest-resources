@@ -445,4 +445,4 @@ Utilities = {
     checkPassword: function (password) {
         return XRegExp(".{6,20}").test(password);
     }
-}
+};
