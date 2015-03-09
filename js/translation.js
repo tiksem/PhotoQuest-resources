@@ -198,7 +198,9 @@ TRANSLATION = {
         },
         smallImageException: function(minWidth, minHeight) {
             return "The image is too small, should be at least " + minWidth + "x" + minHeight;
-        }
+        },
+        newPQ: "New Photoquest",
+        addTags: "Add tags"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -448,7 +450,9 @@ TRANSLATION = {
         },
         smallImageException: function(minWidth, minHeight) {
             return "Слишком маленькое изображение, должно быть как минимум " + minWidth + " на " + minHeight;
-        }
+        },
+        newPQ: "Новый Фотоквест",
+        addTags: "Добавте теги"
     }
 };
 

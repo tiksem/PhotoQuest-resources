@@ -1,10 +1,12 @@
 
 <div style="width: 250px; align-self: center" class="dialog-contents" title="Create new photoquest">
-    <span style="color: #46172B; font-size: 14pt; font-weight: bold;">{{tr.enterPhotoquestName}}</span>
+    <span style="color: #46172B; font-size: 14pt; font-weight: bold;">{{tr.newPQ}}</span>
 
-    <form ng-init="maxTags = 7">
-        <input ng-model="createQuestName" style="width: 250px; margin-top: 5px;"name="name" type="text"/>
-        <div>
+    <form ng-init="maxTags = 7" style="margin-top: 10px;">
+    <label style=" color: #46172B; font-size: 11pt;">{{tr.enterPhotoquestName}}</label>
+        <input ng-model="createQuestName" style="width: 250px; margin-bottom: 10px;"name="name" type="text"/>
+        <label style="margin-bottom:-5px; color: #46172B; font-size: 11pt;">{{tr.addTags}}</label>
+        <div style="margin-top: 0;">
             <tags-input ng-model="tags"
                         min-length="3"
                         max-length="20"
