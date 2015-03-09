@@ -37,7 +37,7 @@
             <label>
                 {{tr.country}}
             </label>
-            <input class="select_location_input" style="width: 250px; height: 20px;"
+            <input class="select_location_input" style="width: 170px; height: 20px;"
                    country-input/>
 
             <br/>
@@ -46,9 +46,9 @@
 
             <div ng-show="country">
                 <label>
-                    {{tr.country}}
+                    {{tr.city}}
                 </label>
-                <input class="select_location_input" style="width: 250px; height: 20px;"
+                <input class="select_location_input" style="width: 170px; height: 20px;"
                        city-input/>
             </div>
 
@@ -61,7 +61,7 @@
                 <label>
                     {{tr.code}}
                 </label>
-                <input class="select_location_input" style="height: 20px;" ng-model="answer"/>
+                <input class="select_location_input" style="width: 150px; height: 20px;" ng-model="answer"/>
             </div>
             <div id="register_error_message" ng-show="errorMessage">
                 {{errorMessage}}
