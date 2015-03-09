@@ -200,7 +200,7 @@ TRANSLATION = {
             return "The image is too small, should be at least " + minWidth + "x" + minHeight;
         },
         newPQ: "New Photoquest",
-        addTags: "Add tags"
+        addTags: "Enter search tags"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -335,7 +335,7 @@ TRANSLATION = {
         perform: "Выполнить",
         follow: "Подписаться",
         unfollow: "Отписаться",
-        createdBy: "Создал",
+        createdBy: "Создатель",
         sentRequests: "Отправленные",
         receivedRequests: "Полученные",
         sentFriendRequests: "Отправленные предложения дружбы",
@@ -452,7 +452,7 @@ TRANSLATION = {
             return "Слишком маленькое изображение, должно быть как минимум " + minWidth + " на " + minHeight;
         },
         newPQ: "Новый Фотоквест",
-        addTags: "Добавте теги"
+        addTags: "Добавте теги для поиска"
     }
 };
 

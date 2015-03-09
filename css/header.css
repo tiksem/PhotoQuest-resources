@@ -81,7 +81,7 @@
      color: #ffffff; 
      text-decoration: none;
      font-weight: bold;
-     font-family: sans-serif;
+     font-family: "arial";
      font-variant: normal;     
 }
 
@@ -135,13 +135,9 @@
     padding-top: 10px;
 }
 
-@font-face {
-    font-family: Gautami;
-    src: url(gautami.ttf); 
-   }
 #logo_text
 {
-    font-family: Gautami; 
+    font-family: "arial"; 
     font-size: 16pt;
     color: #ffffff;        
 } 

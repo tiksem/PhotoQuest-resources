@@ -1,5 +1,5 @@
 body {
-    font: 10pt "Trebuchet MS", sans-serif;
+    font: 10pt "Trebuchet MS", "sans-serif", "arial";
     margin: 0;
     padding: 0 0 30px 0;
     background-color: aliceblue;
@@ -300,7 +300,7 @@ a {
 }
 
 .messages_text_font{
-    font-family:jester;
+    font-family: "monaco" ;
 }
 
 button:focus{
