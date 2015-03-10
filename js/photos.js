@@ -104,7 +104,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         ngDialog.open({
             template: 'html/add_photo_dialog.html',
             className: 'ngdialog-theme-default',
-            controller: function($scope) {
+            controller: ['$scope', function($scope) {
                 $scope.quest = scope.quest;
                 $scope.tr = scope.tr;
 
@@ -141,7 +141,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                         }
                     });
                 };
-            }
+            }]
         });
     };
 

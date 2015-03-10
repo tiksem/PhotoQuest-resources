@@ -7,7 +7,7 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
         ngDialog.open({
             template: 'html/create_photo_quest_dialog.html',
             className: 'ngdialog-theme-default',
-            controller: function($scope){
+            controller: ['$scope', function($scope){
                 var tr = $scope.tr = scope.tr;
 
                 $scope.createPhotoquest = function() {
@@ -52,7 +52,7 @@ main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $
                         }
                     });
                 };
-            }
+            }]
         });
     };
 
