@@ -10,8 +10,10 @@
         <img ng-show="!photo.id || showPhotoLoading"style="position: absolute; top: 150px; left: 48% ;"
              src="../images/loading.gif" height="50" width="50" class="loading"/>
         <div ng-show="photo.id" class="photo">
-            <div id="photo_img" >
-                <img id="photo_image" ng-src="{{photo.url + '?display=true'}}" alt=""/>
+            <div id="photo_img">
+                <a ng-href="{{photo.url}}">
+                    <img id="photo_image" ng-src="{{photo.url + '?display=true'}}" alt=""/>
+                </a>
             </div>
             <div id="photo_info">
                 <div class="photo_date">
