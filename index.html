@@ -146,19 +146,19 @@
 
 <div ng-show="isAndroidWelcome()">
 <img alt="" style="margin:30px auto 0 auto" height="100px" src="images/logo_for_adnroid.png"/>
-</br>
+<br/>
 <div style="display:inline-block; color:#ffffff;
 		font-family:arial; word-wrap: break-word;
 		text-shadow: 1px 1px 1px black, 0 0 2px black;
-		padding: 0 5px; 0 5px;">
-    <span style=""><h2>Welcome to PhotoQuest</h2></span>
-    <h4>You can perform photoquests and create your own.</h4>
-    <h4>Take part in a photo competition with people from all over the world.</h4>
-    <h4>It is a good way to find new friends and get a lot of fun.</h4>
+		padding: 0 5px 0 5px;">
+    <h2>{{tr.welcomeToPhotoQuest}}</h2>
+    <h4>{{tr.firstWelcomeText}}</h4>
+    <h4>{{tr.secondWelcomeText}}</h4>
+    <h4>{{tr.thirdWelcomeText}}</h4>
 </div>
-</br>
-<a href=""><img src="images/google_play.png"/></a>
-<a href=""><img src="images/go_to_site.png"/></a>
+<br/>
+<a href=""><img ng-src={{tr.androidLink}} /></a>
+<a ng-href="#?path=quests"><img ng-src={{tr.siteLink}} /></a>
 </div>
 </body>
 
