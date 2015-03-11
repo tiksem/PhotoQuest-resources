@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang='en' ng-app="main">
+<html lang='en' ng-app="main" ng-controller="Main">
 <head>
     <meta charset="UTF-8"/>
+    <meta ng-if="isAndroidWelcome()" name="viewport" content="width=device-width">
     <title>
         PhotoQuest
     </title>
+
+    <!--INCLUDE-->
     <link rel="stylesheet" type="text/css" href="css/login-style.css"/>
     <link rel="stylesheet" type="text/css" href="css/ngDialog.css"/>
     <link rel="stylesheet" href="css/ngDialog-theme-default.css"/>
@@ -65,62 +68,98 @@
     <script type="application/javascript" src="js/search_select.js"></script>
     <script type="application/javascript" src="js/shortcut.js"></script>
     <script type="application/javascript" src="js/profile_buttons.js"></script>
-
-</head>
-<body ng-controller="Main">
-
-
     <script type="application/javascript" src="js/header.js"></script>
-    <div ng-include="'html/header.html'">
-    
-    </div>
-    <div id="body_container">
-    
-        <div id="center_and_user_block_container">
-            <script type="application/javascript" src="js/login.js"></script>
-            <script type="application/javascript" src="js/register.js"></script>
-    
-            <div id="left_user_block"
-                 ng-show="getPath() !== 'photo' && getPath() !== 'first'"
-                 ng-include="'html/login.html'">
-    
-            </div>
-    
-            <script type="application/javascript" src="js/photoquests.js"></script>
-            <script type="application/javascript" src="js/photos.js"></script>
-            <script type="application/javascript" src="js/people.js"></script>
-            <script type="application/javascript" src="js/photo.js"></script>
-            <script type="application/javascript" src="js/profile.js"></script>
-            <script type="application/javascript" src="js/dialogs.js"></script>
-            <script type="application/javascript" src="js/messages.js"></script>
-            <script type="application/javascript" src="js/replies.js"></script>
-            <script type="application/javascript" src="js/feed.js"></script>
-            <script type="application/javascript" src="js/settings.js"></script>
-            <script type="application/javascript" src="js/first_quest.js"></script>
-            <script type="application/javascript" src="js/progress.js"></script>
-            <script type="application/javascript" src="js/about.js"></script>
-    
-            <div ng-if="getPath() !== 'photo' && getPath() !== 'first'"
-                 align="center" id="center_page_container" ng-include="getCenterPageContent()">
-            </div>
-    
-            <div id="photo_content" ng-if="getPath() === 'photo'"
-                 ng-include="'html/photo.html'">
-            </div>
-    
-    
-            <div id="first_quest_content" ng-if="getPath() === 'first'"
-                 ng-include="'html/first_quest.html'">
-            </div>
-    
-        </div>
-    </div>
-    <div id="footer">
-    <br />
-        © PhotoQuest 2015<br />
-        photoquest@gmail.com<br />
-        <a ng-href="#?path=about">{{tr.founders}}</a>
-    </div>
+    <script type="application/javascript" src="js/login.js"></script>
+    <script type="application/javascript" src="js/register.js"></script>
+    <script type="application/javascript" src="js/photoquests.js"></script>
+    <script type="application/javascript" src="js/photos.js"></script>
+    <script type="application/javascript" src="js/people.js"></script>
+    <script type="application/javascript" src="js/photo.js"></script>
+    <script type="application/javascript" src="js/profile.js"></script>
+    <script type="application/javascript" src="js/dialogs.js"></script>
+    <script type="application/javascript" src="js/messages.js"></script>
+    <script type="application/javascript" src="js/replies.js"></script>
+    <script type="application/javascript" src="js/feed.js"></script>
+    <script type="application/javascript" src="js/settings.js"></script>
+    <script type="application/javascript" src="js/first_quest.js"></script>
+    <script type="application/javascript" src="js/progress.js"></script>
+    <script type="application/javascript" src="js/about.js"></script>
+    <!--INCLUDE-->
 
+    <style ng-if="isAndroidWelcome()">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #4DB1BC;
+            text-align: center;
+            width:100%;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        a {
+
+        }
+    </style>
+</head>
+<body>
+<div id="body" ng-show="!isAndroidWelcome()">
+
+<div ng-include="'html/header.html'">
+
+</div>
+<div id="body_container">
+
+    <div id="center_and_user_block_container">
+
+        <div id="left_user_block"
+             ng-show="getPath() !== 'photo' && getPath() !== 'first'"
+             ng-include="'html/login.html'">
+
+        </div>
+
+        <div ng-if="getPath() !== 'photo' && getPath() !== 'first'"
+             align="center" id="center_page_container" ng-include="getCenterPageContent()">
+        </div>
+
+        <div id="photo_content" ng-if="getPath() === 'photo'"
+             ng-include="'html/photo.html'">
+        </div>
+
+
+        <div id="first_quest_content" ng-if="getPath() === 'first'"
+             ng-include="'html/first_quest.html'">
+        </div>
+
+    </div>
+</div>
+<div id="footer">
+    <br/>
+    © PhotoQuest 2015<br/>
+    photoquest@gmail.com<br/>
+    <a ng-href="#?path=about">{{tr.founders}}</a>
+</div>
+
+</div>
+
+<div ng-show="isAndroidWelcome()">
+<img alt="" style="margin:30px auto 0 auto" height="100px" src="images/logo_for_adnroid.png"/>
+</br>
+<div style="display:inline-block; color:#ffffff;
+		font-family:arial; word-wrap: break-word;
+		text-shadow: 1px 1px 1px black, 0 0 2px black;
+		padding: 0 5px; 0 5px;">
+    <span style=""><h2>Welcome to PhotoQuest</h2></span>
+    <h4>You can perform photoquests and create your own.</h4>
+    <h4>Take part in a photo competition with people from all over the world.</h4>
+    <h4>It is a good way to find new friends and get a lot of fun.</h4>
+</div>
+</br>
+<a href=""><img src="images/google_play.png"/></a>
+<a href=""><img src="images/go_to_site.png"/></a>
+</div>
 </body>
+
 </html>

@@ -13,6 +13,12 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
 
     var onSignedInChanged = [];
 
+    var isMobile = $scope.isMobile = Utilities.mobilecheck();
+    var isAndroid = $scope.isAndroid = Utilities.isAndroid();
+    $scope.isAndroidWelcome = function() {
+        return $scope.getPath() == "welcome" && isAndroid;
+    };
+
     var signedInUser = null;
     $scope.getSignedInUser = function() {
         return signedInUser;
