@@ -168,7 +168,8 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         var search = $location.search();
         var params = {
             photoId: search["id"],
-            next: next
+            next: next,
+            order: search["order"]
         };
         var url;
         if(search.userId){

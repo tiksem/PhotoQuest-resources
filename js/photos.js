@@ -158,6 +158,11 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             href += "&userId=" + id;
         }
 
+        var order = $scope.getOrder();
+        if (order) {
+            href += "&order=" + order;
+        }
+
         return href;
     };
 
