@@ -28,13 +28,10 @@
                     <img ng-show="photo.likeLoading" src="../images/mini_loading.gif" style="float: left;"
                     height="20" width="20" class="loading_small"/>
                 </div>
-                <div class="set_as_avatar_button" >
-                    <button ng-show="getCategory()=='avatar' &&
-                    getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
-                            class="button" ng-click="setAsAvatar()">
-                        {{tr.setAsAvatar}}
-                    </button>
-                </div>
+            </div>
+            <div class="views_photo_container" style="float:right; text-align: center;">
+                <span style="color:#4772DF; font-size: 10pt; font-weight: bold;">{{photo.viewsCount}}</span>
+                <span style="color:#696969; font-size: 10pt; font-weight: bold;">&nbsp;{{tr.textOfViews(photo.viewsCount)}}</span>
             </div>
             <div  class="photo_message">
                 {{photo.message}}
@@ -63,22 +60,29 @@
             </div>
             <br />
             {{tr.inPhotoquest}}
-            <div class="photo_info_quest">
+            <div class="photo_info_quest" >
                 <a href="#?path=quest&id={{photo.photoquestId}}">
                     <div style="width: 50px; height: 50px; float: left;">
                         <thumbnail src="photo.photoquest.avatar" size="50"/>
                     </div>
                 </a>
-                <div style="width: 185px;margin-left: 5px; float: left;word-wrap: break-word;">
+                <div style="width: 185px; margin-left: 5px; float: left;word-wrap: break-word;">
                     <a href="#?path=quest&id={{photo.photoquestId}}">
                         {{photo.photoquest.name}}
                     </a>
                 </div>
             </div>
+            <div class="set_as_avatar_button" >
+                <button ng-show="getCategory()=='avatar' &&
+                getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
+                        class="silver_button" ng-click="setAsAvatar()">
+                    {{tr.setAsAvatar}}
+                </button>
+            </div>
             <div>
-                <button ng-show="getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
-                        ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 20px;" >
-                    {{tr.deleteText + " " + tr.photo}}
+                <button ng-show="getSignedInUser().id == photo.userId"
+                        ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 10px;" >
+                    {{tr.deleteText}} {{tr.photo}}                
                 </button>
             </div>
         </div>

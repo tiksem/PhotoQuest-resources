@@ -330,6 +330,7 @@
     color: #45172B;
     font-size: 10pt;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .photo_main_info_container a{
@@ -342,8 +343,8 @@
 
 .set_as_avatar_button{
     display: inline-block;
-    float: right;
-    min-width: 115px;
+    float: left;
+    margin-top: 10px;
 }
 
 .set_as_avatar_button .button{
@@ -355,7 +356,7 @@
 .photo-likes-container{
     float: left;  
     display: inline-block; 
-    min-width: 185px;
+    min-width: 180px;
     margin: 0 5px 0 10px;
 }
 
@@ -373,4 +374,11 @@
     height: 35px;
     max-width: 295px;
     max-height: 35px;
+}
+
+.views_photo_container{
+    border: solid 1px silver;
+    background:#ffffff;
+    padding: 2px 6px;
+    background: #EAEAEA;
 }
