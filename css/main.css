@@ -373,3 +373,7 @@ button:focus{
 .inputs_container input{
     margin-left: -1px;
 }
+
+textarea {
+    overflow: hidden;
+}

@@ -2,6 +2,20 @@
  * Created by CM on 11/1/2014.
  */
 
+$.fn.getHiddenOffsetWidth = function () {
+    // save a reference to a cloned element that can be measured
+    var $hiddenElement = $(this).clone().appendTo($(this).
+        parents(':visible').first());
+
+    // calculate the width of the clone
+    var width = $hiddenElement.outerWidth();
+
+    // remove the clone from the DOM
+    $hiddenElement.remove();
+
+    return width;
+};
+
 Utilities = {
     ajax_request_base_url: location.origin,
     applyLinksBehavior: function ($location, $scope, element) {
