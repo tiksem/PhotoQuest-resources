@@ -69,8 +69,6 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, function(){
             $scope.showNextPrevButtons = scope.showNextPrevButtons;
 
-            $scope.showPhotoLoading = false;
-
             $scope.likePhoto = function() {
                 var params = {
                     photoId: $location.search()["id"]
@@ -227,6 +225,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     });
 
     $("#photo_image").bind("load", function() {
+        $scope.$apply(function () {
+            $scope.showPhotoLoading = false;
+        });
+
         var img = $(this);
         img.css({
             width: "auto",
