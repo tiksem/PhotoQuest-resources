@@ -375,5 +375,6 @@ button:focus{
 }
 
 textarea {
+    resize: none;
     overflow: hidden;
 }
