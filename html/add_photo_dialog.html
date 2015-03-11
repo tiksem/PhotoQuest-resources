@@ -16,11 +16,11 @@
         </div>
         <label class="photo_description_label" >
             {{tr.enterPhotoDescription}}
-            <textarea ng-model="message"  class="photo_description_textarea" 
-            style=" height:30px; width:300px; resize:none;" maxlength="100" >
-
-            </textarea>
         </label>
+            <textarea ng-model="message"  class="photo_description_textarea" 
+            style="width:300px; height:40px; display: inline-block;" maxlength="100">
+            </textarea>
+        
         <div ng-if="quest && !quest.isFollowing" ng-init="follow=true">
             <input id="follow_checkbox" type="checkbox" ng-model="follow" />
             {{tr.followPhotoquest}}
