@@ -22,7 +22,7 @@
                 <div class="photo-likes-container">
                     <div id="photo_likes_count" class="count_widget"
                          ng-click="likePhoto()">
-                        <span>{{photo.likesCount +" " + tr.textOfLikes(photo.likesCount)}}</span>
+                        <span>{{photo.likesCount +" " + tr.textOfLikes(photo.likesCount || 0)}}</span>
                         <span ng-show="photo.yourLike">&nbsp;{{tr.includingYou}}</span>
                     </div>
                     <img ng-show="photo.likeLoading" src="../images/mini_loading.gif" style="float: left;"
