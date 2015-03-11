@@ -92,7 +92,7 @@
             <div class="comment_textarea_container" ng-show="getSignedInUser()">
                 <form>
                     <div>
-                        <textarea id="message_text_area" ng-model="message">
+                        <textarea id="message_text_area" ng-model="message" maxlength="300">
 
                         </textarea>
                     </div>
@@ -160,7 +160,7 @@
                     </div>
                     <div ng-show="comment.showReplyForm" class="reply_form_container">
                         <div class="reply_form">
-                            <textarea class="reply_message_text_area" ng-model="comment.replyMessage"></textarea>
+                            <textarea class="reply_message_text_area" ng-model="comment.replyMessage" maxlength="300" ></textarea>
                         </div>
                         <div class="comment_button_container">
                             <img ng-show="comment.replyCommentLoading" src="../images/mini_loading.gif" style="
