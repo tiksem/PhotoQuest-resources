@@ -9,6 +9,11 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     var path = query["path"];
     var id = query["id"];
 
+    var perform = query["action"] == "perform" && query["path"] == "quest";
+    if(perform){
+        $location.search("action", undefined);
+    }
+
     var parentScope;
     if (path === "quest") {
         parentScope = $scope.quest = {};
@@ -73,6 +78,12 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             var initPagination = function () {
                 PhotoquestUtils.initPagination($scope, $http, $location, $element, $timeout, {
                     url: url,
+                    success: function() {
+                        if(perform){
+                            $scope.openAddPhotoDialog();
+                            perform = false;
+                        }
+                    },
                     countUrl: countUrl,
                     scopeArrayName: "photos",
                     args: args,

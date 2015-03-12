@@ -322,7 +322,7 @@ Utilities = {
         })
     },
     addWatcher: function ($scope, valueProvider, callback) {
-        $scope.$watch(
+        return $scope.$watch(
             function ($scope) {
                 return valueProvider($scope);
             },
@@ -332,6 +332,13 @@ Utilities = {
                 }
             }
         )
+    },
+    addOneShotWatcher: function ($scope, valueProvider, callback) {
+        var unwatch = this.addWatcher($scope, valueProvider, function() {
+            callback();
+            unwatch();
+        });
+        return unwatch;
     },
     addCounterWatcher: function ($scope, params) {
         var valueProvider = params.valueProvider;
