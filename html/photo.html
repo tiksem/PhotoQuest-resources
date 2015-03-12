@@ -148,11 +148,13 @@
                                 <img ng-show="comment.deleteLoading" src="../images/mini_loading.gif" style="margin-top: 2px; position:
                                 relative; float: right;"
                                      height="20" width="20" class="loading_small"/>
-                                <a ng-show="!comment.deleteLoading"  class="delete_button"
-                                   ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
+                                <a ng-show="!comment.deleteLoading && isMineComment(comment)"
+                                   class="delete_button"
+                                   ng-click="deleteComment(comment)">
                                     {{tr.deleteText}}
                                 </a>
-                                <a ng-show="!comment.deleteLoading && !comment.showReplyForm" class="reply_button"
+                                <a ng-show="!comment.deleteLoading && !comment.showReplyForm && getSignedInUser()"
+                                   class="reply_button"
                                    ng-click="reply(comment)">
                                     {{tr.reply}}
                                 </a>
