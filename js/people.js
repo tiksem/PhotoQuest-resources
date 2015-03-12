@@ -45,6 +45,28 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
                 $scope.country = location.countryId;
                 $scope.cityName = location.cityName;
                 $scope.countryName = location.countryName;
+
+                var updateCountry = function() {
+                    var countryId;
+                    if(!$scope.city){
+                        countryId = $scope.country;
+                    }
+
+                    $location.search("countryId", $scope.country);
+                };
+
+                this.coutnryWatch = this.coutnryWatch || $scope.$watch(function() {
+                        return $scope.country;
+                    },
+                    updateCountry);
+
+                this.cityWatch = this.cityWatch || $scope.$watch(function() {
+                        return $scope.city;
+                    },
+                    function(cityId) {
+                        $location.search("cityId", $scope.city);
+                        updateCountry();
+                    });
             }
         });
 
@@ -120,20 +142,6 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
     $scope.setOnSignedInChangedListener(function() {
         init();
     });
-
-    $scope.$watch(function() {
-        return $scope.country;
-    },
-    function(countryId) {
-        $location.search("countryId", countryId);
-    });
-
-    $scope.$watch(function() {
-            return $scope.city;
-        },
-        function(cityId) {
-            $location.search("cityId", cityId);
-        });
 
     Utilities.applyLinksBehavior($location, $scope, $element)();
 });
