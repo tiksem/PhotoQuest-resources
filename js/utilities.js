@@ -118,7 +118,7 @@ Utilities = {
         var time = new Date().getTime();
         var onSuccess = onSuccessOrParams;
         var onError;
-        if(typeof onSuccess !== "function"){
+        if(onSuccessOrParams && typeof onSuccess !== "function"){
             onSuccess = onSuccessOrParams.success;
             onError = onSuccessOrParams.error;
         }
