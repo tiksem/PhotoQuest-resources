@@ -282,7 +282,9 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                     Utilities.get($http, url, params, {
                         success: function(data) {
                             if(isAvatar){
-                                scope.getSignedInUser().avatarId = null;
+                                var signedInUser = scope.getSignedInUser();
+                                delete signedInUser.avatarId;
+                                signedInUser.avatar = window.location.origin + "/images/empty_avatar.jpg"
                             }
                             if (photoId === data.id) {
                                 scope.photo.deleted = true;
