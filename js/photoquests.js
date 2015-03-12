@@ -2,6 +2,10 @@ var main = angular.module("main");
 main.controller("PhotoQuests", function($scope, $location, $element, ngDialog, $http, $timeout){
     $scope.filter = $location.search()["filter"];
 
+    $scope.onPerform = function() {
+        Utilities.perform = true;
+    };
+
     var scope = $scope;
     $scope.openCreatePhotoquestDialog = function() {
         ngDialog.open({

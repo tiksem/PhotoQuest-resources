@@ -106,7 +106,7 @@
     </style>
 </head>
 <body>
-<div id="body" ng-show="!isAndroidWelcome()">
+<div id="body" ng-if="!isAndroidWelcome()">
 
 <div ng-include="'html/header.html'">
 
@@ -116,7 +116,7 @@
     <div id="center_and_user_block_container">
 
         <div id="left_user_block"
-             ng-show="getPath() !== 'photo' && getPath() !== 'first'"
+             ng-if="getPath() !== 'photo' && getPath() !== 'first'"
              ng-include="'html/login.html'">
 
         </div>
@@ -145,7 +145,7 @@
 
 </div>
 
-<div ng-show="isAndroidWelcome()">
+<div ng-if="isAndroidWelcome()">
 <img alt="" style="margin:30px auto 0 auto" height="100px" src="images/logo_for_adnroid.png"/>
 <br/>
 <div style="display:inline-block; color:#ffffff;

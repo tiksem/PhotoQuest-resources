@@ -100,8 +100,9 @@
                     <img ng-show="quest.followLoading" src="../images/mini_loading.gif"
                          style="position: relative; top:4px;float:right;"
                          height="20" width="20" class="loading_small"/><br/>
-                    <a ng-href="#?path=quest&id={{quest.id}}&action=perform">
-                        <button style="float: left;" class="button" class="photoquest_info_follow_button"
+                    <a ng-click="onPerform()" ng-href="#?path=quest&id={{quest.id}}">
+                        <button style="float: left;" class="button"
+                                class="photoquest_info_follow_button"
                                 ng-show="getSignedInUser()">
                             {{tr.perform}}
                         </button>

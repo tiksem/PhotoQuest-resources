@@ -9,10 +9,13 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
     var path = query["path"];
     var id = query["id"];
 
-    var perform = query["action"] == "perform" && query["path"] == "quest";
-    if(perform){
-        $location.search("action", undefined);
-    }
+    var perform;
+    $timeout(function() {
+        perform = Utilities.perform;
+        if(perform){
+            Utilities.perform = false;
+        }
+    });
 
     var parentScope;
     if (path === "quest") {
@@ -118,6 +121,10 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
             controller: ['$scope', function($scope) {
                 $scope.quest = scope.quest;
                 $scope.tr = scope.tr;
+
+                scope.$on("destroy", function() {
+                    $scope.closeThisDialog(null);
+                });
 
                 $scope.uploadPhoto = function() {
                     var uploadUrl = '/addPhotoToPhotoQuest?photoquest=' + id;
