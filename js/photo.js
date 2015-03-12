@@ -66,28 +66,33 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
     var loadPhotoToScope = function(url, params, $http, reloadComments) {
         var scope = $scope.photo = $scope.photo || {};
-        Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, function(){
-            $scope.showNextPrevButtons = scope.showNextPrevButtons;
+        Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, {
+            success: function(){
+                $scope.showNextPrevButtons = scope.showNextPrevButtons;
 
-            $scope.likePhoto = function() {
-                var params = {
-                    photoId: $location.search()["id"]
+                $scope.likePhoto = function() {
+                    var params = {
+                        photoId: $location.search()["id"]
+                    };
+
+                    Http.toggleLikeState($http, $scope.photo, params);
                 };
 
-                Http.toggleLikeState($http, $scope.photo, params);
-            };
+                $scope.likeComment = function(comment) {
+                    var params = {
+                        commentId: comment.id
+                    };
 
-            $scope.likeComment = function(comment) {
-                var params = {
-                    commentId: comment.id
+                    Http.toggleLikeState($http, comment, params);
                 };
 
-                Http.toggleLikeState($http, comment, params);
-            };
-
-            $location.search("id", scope.id);
-            if(reloadComments){
-                $scope.reloadComments(true);
+                $location.search("id", scope.id);
+                if(reloadComments){
+                    $scope.reloadComments(true);
+                }
+            },
+            error: function() {
+                scope.deleted = true;
             }
         });
     };
@@ -283,12 +288,18 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
                 $scope.deletePhoto = function() {
                     $scope.showLoading = true;
+                    var photoId = scope.photo.id;
+                    var isAvatar = photoId == scope.getSignedInUser().avatarId;
                     var url = "//deletePhoto";
                     var params = {
-                        id: scope.photo.id
+                        id: photoId
                     };
                     Utilities.get($http, url, params, {
                         success: function() {
+                            if(isAvatar){
+                                scope.getSignedInUser().avatarId = null;
+                            }
+                            scope.photo.deleted = true;
                             $scope.closeThisDialog(null);
                         },
                         finished: function(){

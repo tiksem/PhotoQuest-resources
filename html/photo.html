@@ -1,130 +1,131 @@
 <div id="photo_content" ng-controller="PhotoController" >
-    <div id="photo_container">
-        <shortcut></shortcut>
-        <div  class="photo_controls" ng-show="showNextPrevButtons">
-            <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">{{tr.prev}}</button>
-            <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">{{tr.next}}</button>
-        </div>
+    <div ng-show="!photo.deleted">
+        <div id="photo_container">
+            <shortcut></shortcut>
+            <div  class="photo_controls" ng-show="showNextPrevButtons">
+                <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">{{tr.prev}}</button>
+                <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">{{tr.next}}</button>
+            </div>
 
-        
-        <img ng-show="!photo.id || showPhotoLoading"style="position: absolute; top: 150px; left: 48% ;"
-             src="../images/loading.gif" height="50" width="50" class="loading"/>
-        <div ng-show="photo.id" class="photo">
-            <div id="photo_img">
-                <div ng-click="openPhoto()" style="cursor: pointer">
-                    <img id="photo_image" ng-src="{{photo.url + '?display=true'}}" alt=""/>
-                </div>
-            </div>
-            <div id="photo_info">
-                <div class="photo_date">
-                    {{getDisplayDate(photo.addingDate)}}
-                </div>
-                <div class="photo-likes-container">
-                    <div id="photo_likes_count" class="count_widget"
-                         ng-click="likePhoto()">
-                        <span>{{photo.likesCount +" " + tr.textOfLikes(photo.likesCount || 0)}}</span>
-                        <span ng-show="photo.yourLike">&nbsp;{{tr.includingYou}}</span>
+
+            <img ng-show="!photo.id || showPhotoLoading"style="position: absolute; top: 150px; left: 48% ;"
+                 src="../images/loading.gif" height="50" width="50" class="loading"/>
+            <div ng-show="photo.id" class="photo">
+                <div id="photo_img">
+                    <div ng-click="openPhoto()" style="cursor: pointer">
+                        <img id="photo_image" ng-src="{{photo.url + '?display=true'}}" alt=""/>
                     </div>
-                    <img ng-show="photo.likeLoading" src="../images/mini_loading.gif" style="float: left;"
-                    height="20" width="20" class="loading_small"/>
                 </div>
-            </div>
-            <div class="views_photo_container" style="float:right; text-align: center;">
-                <span style="color:#4772DF; font-size: 10pt; font-weight: bold;">{{photo.viewsCount || 0}}</span>
+                <div id="photo_info">
+                    <div class="photo_date">
+                        {{getDisplayDate(photo.addingDate)}}
+                    </div>
+                    <div class="photo-likes-container">
+                        <div id="photo_likes_count" class="count_widget"
+                             ng-click="likePhoto()">
+                            <span>{{photo.likesCount +" " + tr.textOfLikes(photo.likesCount || 0)}}</span>
+                            <span ng-show="photo.yourLike">&nbsp;{{tr.includingYou}}</span>
+                        </div>
+                        <img ng-show="photo.likeLoading" src="../images/mini_loading.gif" style="float: left;"
+                             height="20" width="20" class="loading_small"/>
+                    </div>
+                </div>
+                <div class="views_photo_container" style="float:right; text-align: center;">
+                    <span style="color:#4772DF; font-size: 10pt; font-weight: bold;">{{photo.viewsCount || 0}}</span>
                 <span style="color:#696969; font-size: 10pt; font-weight: bold;">
                     {{tr.textOfViews(photo.viewsCount || 0)}}
                 </span>
-            </div>
-            <div  class="photo_message">
-                {{photo.message}}
+                </div>
+                <div  class="photo_message">
+                    {{photo.message}}
+                </div>
             </div>
         </div>
-    </div>
-    <div style="
+        <div style="
         width: 100%; background:#EFEFEF;
         padding-top: 15px;
         padding-bottom: 30px;
         display: inline-block;
         min-width: 100%;">
-        <div class="photo_main_info_container">
-            {{tr.publishedBy(photo.user.gender)}}
-            <div class="photo_info_user">
-                <a href="#?path=profile&id={{photo.user.id}}">
-                    <div style="width: 50px; height: 50px; float: left;">
-                        <thumbnail src="photo.user.avatar" size="50"/>
-                    </div>
-                </a>
-                <div style="width: 185px; margin-left: 5px; float: left; word-wrap: break-word;">
+            <div class="photo_main_info_container">
+                {{tr.publishedBy(photo.user.gender)}}
+                <div class="photo_info_user">
                     <a href="#?path=profile&id={{photo.user.id}}">
-                        {{photo.user.name + " " + photo.user.lastName}}
+                        <div style="width: 50px; height: 50px; float: left;">
+                            <thumbnail src="photo.user.avatar" size="50"/>
+                        </div>
                     </a>
-                </div>
-            </div>
-            <br />
-            {{tr.inPhotoquest}}
-            <div class="photo_info_quest" >
-                <a href="#?path=quest&id={{photo.photoquestId}}">
-                    <div style="width: 50px; height: 50px; float: left;">
-                        <thumbnail src="photo.photoquest.avatar" size="50"/>
+                    <div style="width: 185px; margin-left: 5px; float: left; word-wrap: break-word;">
+                        <a href="#?path=profile&id={{photo.user.id}}">
+                            {{photo.user.name + " " + photo.user.lastName}}
+                        </a>
                     </div>
-                </a>
-                <div style="width: 185px; margin-left: 5px; float: left;word-wrap: break-word;">
+                </div>
+                <br />
+                {{tr.inPhotoquest}}
+                <div class="photo_info_quest" >
                     <a href="#?path=quest&id={{photo.photoquestId}}">
-                        {{photo.photoquest.name}}
+                        <div style="width: 50px; height: 50px; float: left;">
+                            <thumbnail src="photo.photoquest.avatar" size="50"/>
+                        </div>
                     </a>
+                    <div style="width: 185px; margin-left: 5px; float: left;word-wrap: break-word;">
+                        <a href="#?path=quest&id={{photo.photoquestId}}">
+                            {{photo.photoquest.name}}
+                        </a>
+                    </div>
+                </div>
+                <div class="set_as_avatar_button" >
+                    <button ng-show="getCategory()=='avatar' &&
+                getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
+                            class="silver_button" ng-click="setAsAvatar()">
+                        {{tr.setAsAvatar}}
+                    </button>
+                </div>
+                <div>
+                    <button ng-show="getSignedInUser().id == photo.userId"
+                            ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 10px;" >
+                        {{tr.deleteText}} {{tr.photo}}
+                    </button>
                 </div>
             </div>
-            <div class="set_as_avatar_button" >
-                <button ng-show="getCategory()=='avatar' &&
-                getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
-                        class="silver_button" ng-click="setAsAvatar()">
-                    {{tr.setAsAvatar}}
-                </button>
-            </div>
-            <div>
-                <button ng-show="getSignedInUser().id == photo.userId"
-                        ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 10px;" >
-                    {{tr.deleteText}} {{tr.photo}}                
-                </button>
-            </div>
-        </div>
-        <div class="comments_block" >
-            <div class="comment_textarea_container" ng-show="getSignedInUser()">
-                <form>
-                    <div>
-                        <textarea id="message_text_area" ng-model="message" maxlength="300">
+            <div class="comments_block" >
+                <div class="comment_textarea_container" ng-show="getSignedInUser()">
+                    <form>
+                        <div>
+                            <textarea id="message_text_area" ng-model="message" maxlength="300">
 
-                        </textarea>
-                    </div>
-                    <div class="comment_button_container">
-                        <img ng-show="putCommentLoading" src="../images/mini_loading.gif" style="position: relative; top: 5px;"
-                             height="20" width="20" class="loading_small"/>
-                        <button class="silver_button" ng-click="putComment()">{{tr.commentButton}}</button>
-                    </div>
-                </form>
-            </div>
+                            </textarea>
+                        </div>
+                        <div class="comment_button_container">
+                            <img ng-show="putCommentLoading" src="../images/mini_loading.gif" style="position: relative; top: 5px;"
+                                 height="20" width="20" class="loading_small"/>
+                            <button class="silver_button" ng-click="putComment()">{{tr.commentButton}}</button>
+                        </div>
+                    </form>
+                </div>
 
-            <div id="comments_container"
-                 ng-if="photo"
-                 show-more-load="comments"
-                 stopped="{{!photo || !photo.id || commentsUpdatingStopped}}"
-                 show-more-id="show_more_comments_button"
-                 limit="5"
-                 ng-show="comments.length > 0"
-                 url="//getCommentsOnPhoto?photoId={{photo.id}}"
-                 reload-func-name="reloadComments"
-                 loading-flag="commentsLoading"
-                 class="wrapper">
-                <div  class="single_comment" ng-repeat="comment in comments">
-                    <div class="comment_user_photo">
-                        <thumbnail size="50" src="comment.user.avatar"></thumbnail>
-                    </div>
-                    <div class="comment_text">
-                        <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
-                            {{comment.user.name + " " + comment.user.lastName}}
-                        </a><br />
-                        <span class="comment_date">{{getDisplayDate(photo.addingDate)}}</span><br />
-                        <div style="width: 420px; word-wrap: break-word; margin-top: 10px;" >
+                <div id="comments_container"
+                     ng-if="photo"
+                     show-more-load="comments"
+                     stopped="{{!photo || !photo.id || commentsUpdatingStopped}}"
+                     show-more-id="show_more_comments_button"
+                     limit="5"
+                     ng-show="comments.length > 0"
+                     url="//getCommentsOnPhoto?photoId={{photo.id}}"
+                     reload-func-name="reloadComments"
+                     loading-flag="commentsLoading"
+                     class="wrapper">
+                    <div  class="single_comment" ng-repeat="comment in comments">
+                        <div class="comment_user_photo">
+                            <thumbnail size="50" src="comment.user.avatar"></thumbnail>
+                        </div>
+                        <div class="comment_text">
+                            <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
+                                {{comment.user.name + " " + comment.user.lastName}}
+                            </a><br />
+                            <span class="comment_date">{{getDisplayDate(photo.addingDate)}}</span><br />
+                            <div style="width: 420px; word-wrap: break-word; margin-top: 10px;" >
                             <span class="messages_text_font" style="font-size: 11pt;">
                                 <a ng-href="#?path=profile&id={{comment.toUser.id}}"
                                    ng-show="comment.toUser" style="color: #428bca">
@@ -132,57 +133,61 @@
                                 </a>
                                 {{comment.message}}
                             </span>
-                        </div>
-                        <div class="comment_buttons" >
-                            <div class="comment_likes_container">
-                                <div ng-show="!comment.deleteLoading"
-                                     class="count_widget comment_likes_count" ng-click="likeComment(comment)">
-                                    <span>{{comment.likesCount + " " + tr.textOfLikes(comment.likesCount)}}</span>
-                                    <span ng-show="comment.yourLike">&nbsp;{{tr.includingYou}}</span>
-                                </div>
-                                <img ng-show="comment.likeLoading"
-                                     src="../images/mini_loading.gif" height="20" width="20"
-                                     class="loading_small"/>
                             </div>
-                            <img ng-show="comment.deleteLoading" src="../images/mini_loading.gif" style="margin-top: 2px; position:
+                            <div class="comment_buttons" >
+                                <div class="comment_likes_container">
+                                    <div ng-show="!comment.deleteLoading"
+                                         class="count_widget comment_likes_count" ng-click="likeComment(comment)">
+                                        <span>{{comment.likesCount + " " + tr.textOfLikes(comment.likesCount)}}</span>
+                                        <span ng-show="comment.yourLike">&nbsp;{{tr.includingYou}}</span>
+                                    </div>
+                                    <img ng-show="comment.likeLoading"
+                                         src="../images/mini_loading.gif" height="20" width="20"
+                                         class="loading_small"/>
+                                </div>
+                                <img ng-show="comment.deleteLoading" src="../images/mini_loading.gif" style="margin-top: 2px; position:
                                 relative; float: right;"
-                                height="20" width="20" class="loading_small"/>
-                            <a ng-show="!comment.deleteLoading"  class="delete_button"
-                               ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
-                                {{tr.deleteText}}
-                            </a>
-                            <a ng-show="!comment.deleteLoading && !comment.showReplyForm" class="reply_button"
-                               ng-click="reply(comment)">
-                                {{tr.reply}}
-                            </a>
+                                     height="20" width="20" class="loading_small"/>
+                                <a ng-show="!comment.deleteLoading"  class="delete_button"
+                                   ng-show="isMineComment(comment)" ng-click="deleteComment(comment)">
+                                    {{tr.deleteText}}
+                                </a>
+                                <a ng-show="!comment.deleteLoading && !comment.showReplyForm" class="reply_button"
+                                   ng-click="reply(comment)">
+                                    {{tr.reply}}
+                                </a>
 
+                            </div>
                         </div>
-                    </div>
-                    <div ng-show="comment.showReplyForm" class="reply_form_container">
-                        <div class="reply_form">
-                            <textarea class="reply_message_text_area" ng-model="comment.replyMessage" maxlength="300" ></textarea>
-                        </div>
-                        <div class="comment_button_container">
-                            <img ng-show="comment.replyCommentLoading" src="../images/mini_loading.gif" style="
+                        <div ng-show="comment.showReplyForm" class="reply_form_container">
+                            <div class="reply_form">
+                                <textarea class="reply_message_text_area" ng-model="comment.replyMessage" maxlength="300" ></textarea>
+                            </div>
+                            <div class="comment_button_container">
+                                <img ng-show="comment.replyCommentLoading" src="../images/mini_loading.gif" style="
                             position: relative;
                             top: 5px;"
-                                 height="20" width="20" class="loading_small"/>
-                            <button class="silver_button" ng-click="putComment(comment)">
-                                {{tr.reply}}
-                            </button>
+                                     height="20" width="20" class="loading_small"/>
+                                <button class="silver_button" ng-click="putComment(comment)">
+                                    {{tr.reply}}
+                                </button>
+                            </div>
                         </div>
+
                     </div>
-                    
+                    <div  class="show_more_button_container" style="margin-top: 15px;" >
+                        <button class="show_more_comments_button" id="show_more_comments_button">
+                            {{tr.showMore}}
+                        </button>
+                    </div>
                 </div>
-                <div  class="show_more_button_container" style="margin-top: 15px;" >
-                    <button class="show_more_comments_button" id="show_more_comments_button">
-                        {{tr.showMore}}
-                    </button>
+                <div ng-show="commentsLoading" style="width: 500px; text-align: center;">
+                    <img src="../images/loading.gif" height="50" width="50" class="loading"/>
                 </div>
-            </div>
-            <div ng-show="commentsLoading" style="width: 500px; text-align: center;">
-                <img src="../images/loading.gif" height="50" width="50" class="loading"/>
             </div>
         </div>
+    </div>
+    <div ng-show="photo.deleted">
+        Photo not found
     </div>
 </div>

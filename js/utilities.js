@@ -114,8 +114,14 @@ Utilities = {
             }
         }
     },
-    loadDataToScope: function (url, params, $scope, $http, onSuccess) {
+    loadDataToScope: function (url, params, $scope, $http, onSuccessOrParams) {
         var time = new Date().getTime();
+        var onSuccess = onSuccessOrParams;
+        var onError;
+        if(typeof onSuccess !== "function"){
+            onSuccess = onSuccessOrParams.success;
+            onError = onSuccessOrParams.error;
+        }
 
         var getUrlLog = function () {
             var query = Utilities.createQueryString(params);
@@ -140,10 +146,17 @@ Utilities = {
             } else {
                 console.log("Error " + getUrlLog());
                 console.log(data);
+                if(onError){
+                    onError(data);
+                }
             }
         }).error(function (data) {
             console.log("Error " + getUrlLog());
             console.log(data);
+
+            if(onError){
+                onError();
+            }
         })
     },
     getTotalCount: function (url, params, $http, onSuccess) {
