@@ -129,9 +129,7 @@
                             <span class="messages_text_font" style="font-size: 11pt;">
                                 <a ng-href="#?path=profile&id={{comment.toUser.id}}"
                                    ng-show="comment.toUser" style="color: #428bca">
-                                    {{comment.toUser.name}},
-                                </a>
-                                {{comment.message}}
+                                    {{comment.toUser.name}},</a>&nbsp;{{comment.message}}
                             </span>
                             </div>
                             <div class="comment_buttons" >
@@ -157,12 +155,13 @@
                                    class="reply_button"
                                    ng-click="reply(comment)">
                                     {{tr.reply}}
-                                </a>
+								</a>
 
                             </div>
                         </div>
                         <div ng-show="comment.showReplyForm" class="reply_form_container">
                             <div class="reply_form">
+								<div class="close_reply" >close</div>
                                 <textarea class="reply_message_text_area" ng-model="comment.replyMessage" maxlength="300" ></textarea>
                             </div>
                             <div class="comment_button_container">
