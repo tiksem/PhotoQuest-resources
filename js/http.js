@@ -11,7 +11,6 @@ Http = {
         $http.get(window.location.origin + "//logout").success(function (data) {
             if (!data.error) {
                 $scope.setSignedInUser(null);
-                $scope.statsUpdater.destroy();
             } else {
                 var message = data.error + " " + data.message;
                 alert(message);
@@ -47,7 +46,7 @@ Http = {
             success: function(data) {
                 $scope.setSignedInUser(data);
 
-                $scope.statsUpdater = new Http.RemoteValueUpdater($http, $timeout, {
+                data.statsUpdater = new Http.RemoteValueUpdater($http, $timeout, {
                     url: "//getUserStats",
                     onValueChanged: function (oldValue, newValue) {
                         Utilities.addProperties($scope.getSignedInUser(), newValue);

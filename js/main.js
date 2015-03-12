@@ -28,6 +28,10 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
             return;
         }
 
+        if(!user){
+            signedInUser.statsUpdater.destroy();
+        }
+
         var prev = signedInUser;
         signedInUser = user;
         onSignedInChanged.forEach(function(i){
