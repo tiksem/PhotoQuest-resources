@@ -34,13 +34,7 @@ body {
     font-family: sans-serif;
 }
 
-@-moz-document url-prefix() {
-     .button{
-        padding:4px 8px;
-        line-height: 16px;
-     }
 
-}
 
 .button:hover
 {   
@@ -107,7 +101,6 @@ a {
 }
 
 .sorting_selector{
-    min-width:200px;
     font-size: 10pt;
     font-weight: bold;
     position: relative; 
@@ -120,17 +113,12 @@ a {
     font-size: 10pt;
     text-align: center; 
     font-weight: bold;
-         
 }
 .filter_country{
-	width:200px;
 	float: left;
     padding-bottom: 5px;
-    margin-left: 15px;
-	
 }
 .filter_city{
-	width:200px;
 	float: left;
     padding-bottom: 5px;
 	margin-left:20px;
@@ -139,7 +127,8 @@ a {
 .name_filter{
     display: inline-block;
     float: left;
-    padding-bottom: 5px;       
+    padding-bottom: 5px; 	
+	margin-left:15px;
 }
 
 .inputs_container{
@@ -151,24 +140,23 @@ a {
 }
 
 
-.name_filter_label{
-    width: 100px;   
+.name_filter_label{   
     float: left;        
     font-size: 10pt;   
-    font-weight: bold;     
+    font-weight: bold;
+	margin-right:5px;	
 }
 
 .selector_container{
     display: inline-block;
-    min-width: 680px;
     margin-left: 15px;
+	width:682px;
 }
 
 .filter_search_button{
 	float:right;
-    margin-right: 36px;
+    margin-right: 15px;
     display: inline-block;
-    margin-top: -3px;
 }
 .gender_selector select, .sorting_selector select{
 	float:right;
@@ -177,9 +165,8 @@ a {
 .gender_selector{
     font-size: 10pt;
     font-weight: bold; 
-	min-width:200px;
 	float: left;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 
@@ -268,6 +255,10 @@ a {
     background: white;
 }
 
+#search_name_input{
+	width: 175px;
+	height: 15px;
+}
 
 .filter_input{
      padding: 3px 0 3px 3px;   
@@ -377,4 +368,26 @@ button:focus{
 textarea {
     resize: none;
     overflow: hidden;
+}
+
+.filter_search_button button{
+	padding-bottom:4px; 
+	padding-top:3px;
+}
+@-moz-document url-prefix() {
+     .button{
+        padding:4px 8px;
+        line-height: 16px;
+     }
+	 .filter_search_button button{
+	 padding-left:3px;
+	 padding-right: 3px;
+	 padding-bottom:3px;
+	 }
+	 .filter_search_button{
+		margin-right: 10px;
+	 }
+	#search_name_input{
+		width: 170px;
+	}
 }
