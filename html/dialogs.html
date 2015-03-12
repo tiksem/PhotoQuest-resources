@@ -5,7 +5,9 @@
              height="50" width="50" class="loading"/>
     </div>
     <div id="dialogs_container">
-            <div class="single_dialog" ng-repeat="dialog in dialogs">
+            <div class="single_dialog" dir-paginate="dialog in dialogs | itemsPerPage: pageSize"
+                 total-items="totalItems"
+                 current-page="pageNumber">
                  <a ng-href="#?path=messages&id={{dialog.user.id}}">
                     <div class="dialog_container{{dialog.lastMessage.read ? '' :
                         ' unread_message_dialog_container'}}">
