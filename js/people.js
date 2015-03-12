@@ -121,5 +121,19 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         init();
     });
 
+    $scope.$watch(function() {
+        return $scope.country;
+    },
+    function(countryId) {
+        $location.search("countryId", countryId);
+    });
+
+    $scope.$watch(function() {
+            return $scope.city;
+        },
+        function(cityId) {
+            $location.search("cityId", cityId);
+        });
+
     Utilities.applyLinksBehavior($location, $scope, $element)();
 });
