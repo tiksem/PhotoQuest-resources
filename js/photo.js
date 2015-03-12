@@ -151,6 +151,18 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         return Utilities.getDisplayDate(addingDate, $scope.tr.monthOfYear, $scope.tr.at);
     };
 
+    var createParams = function(next) {
+        var search = $location.search();
+        return {
+            photoId: search["id"],
+            next: next,
+            order: search["order"],
+            userId: search["userId"],
+            photoquestId: search["photoquestId"],
+            category: search["category"]
+        };
+    };
+
     $scope.keyPressed = function(event) {
         if(!$scope.photo.id){
             return;
@@ -170,33 +182,8 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             return;
         }
 
-        var search = $location.search();
-        var params = {
-            photoId: search["id"],
-            next: next,
-            order: search["order"]
-        };
-        var url;
-        if(search.userId){
-            params.userId = search.userId;
-            if (search.category === "avatar") {
-                url = "//getNextPrevAvatar";
-            } else {
-                url = "//getNextPrevPhotoOfUser";
-            }
-        } else if(search.photoquestId) {
-            params.photoquestId = search.photoquestId;
-            var category = search.category;
-            if (category == "all") {
-                url = "//getNextPrevPhotoOfPhotoquest";
-            } else if(category == "mine") {
-                url = "//getNextPrevPhotoOfUserInPhotoquest";
-            } else {
-                url = "//getNextPrevPhotoOfFriendsInPhotoquest";
-            }
-        } else {
-            return;
-        }
+        var params = createParams(next);
+        var url = "//getNextPrevPhoto";
 
         $scope.showPhotoLoading = true;
         loadPhotoToScope(url, params, $http);
@@ -291,15 +278,18 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                     var photoId = scope.photo.id;
                     var isAvatar = photoId == scope.getSignedInUser().avatarId;
                     var url = "//deletePhoto";
-                    var params = {
-                        id: photoId
-                    };
+                    var params = createParams(true);
                     Utilities.get($http, url, params, {
-                        success: function() {
+                        success: function(data) {
                             if(isAvatar){
                                 scope.getSignedInUser().avatarId = null;
                             }
-                            scope.photo.deleted = true;
+                            if (photoId === data.id) {
+                                scope.photo.deleted = true;
+                            } else {
+                                scope.photo = data;
+                                $location.search("id", scope.photo.id);
+                            }
                             $scope.closeThisDialog(null);
                         },
                         finished: function(){
