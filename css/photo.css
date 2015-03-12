@@ -231,6 +231,7 @@
     clear: left;
     border-bottom: solid 1px silver;
     padding-bottom: 5px;
+	max-width: 490px
 }
 
 .show_more_comments_button{

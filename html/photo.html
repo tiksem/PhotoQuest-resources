@@ -116,7 +116,7 @@
                      reload-func-name="reloadComments"
                      loading-flag="commentsLoading"
                      class="wrapper">
-                    <div  class="single_comment" ng-repeat="comment in comments">
+                    <div  class="single_comment"  ng-repeat="comment in comments">
                         <div class="comment_user_photo">
                             <thumbnail size="50" src="comment.user.avatar"></thumbnail>
                         </div>
@@ -160,9 +160,9 @@
                             </div>
                         </div>
                         <div ng-show="comment.showReplyForm" class="reply_form_container">
-                            <div class="reply_form">
+                            <div class="reply_form" >
 								<div class="close_reply" >close</div>
-                                <textarea class="reply_message_text_area" ng-model="comment.replyMessage" maxlength="300" ></textarea>
+                                <textarea  class="reply_message_text_area" ng-model="comment.replyMessage" maxlength="300" ></textarea>
                             </div>
                             <div class="comment_button_container">
                                 <img ng-show="comment.replyCommentLoading" src="../images/mini_loading.gif" style="
