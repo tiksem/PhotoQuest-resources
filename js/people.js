@@ -59,12 +59,12 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
                     $location.search("countryId", $scope.country);
                 };
 
-                this.coutnryWatch = this.coutnryWatch || $scope.$watch(function() {
+                $scope.coutnryWatch = $scope.coutnryWatch || $scope.$watch(function() {
                         return $scope.country;
                     },
                     updateCountry);
 
-                this.cityWatch = this.cityWatch || $scope.$watch(function() {
+                $scope.cityWatch = $scope.cityWatch || $scope.$watch(function() {
                         return $scope.city;
                     },
                     function(cityId) {
