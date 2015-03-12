@@ -47,9 +47,13 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
                 $scope.countryName = location.countryName;
 
                 var updateCountry = function() {
-                    var countryId;
-                    if(!$scope.city){
-                        countryId = $scope.country;
+                    var countryId = $scope.country;
+                    if(!countryId){
+                        delete $scope.city;
+                    }
+
+                    if($scope.city){
+                        countryId = undefined;
                     }
 
                     $location.search("countryId", $scope.country);
