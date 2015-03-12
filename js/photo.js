@@ -286,7 +286,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                                 delete signedInUser.avatarId;
                                 signedInUser.avatar = window.location.origin + "/images/empty_avatar.jpg"
                             }
-                            if (photoId === data.id) {
+                            if (!data.id || photoId === data.id) {
                                 scope.photo.deleted = true;
                             } else {
                                 scope.photo = data;
