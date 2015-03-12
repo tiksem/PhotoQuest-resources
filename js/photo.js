@@ -215,6 +215,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         return path == "photo";
     };
 
+    $scope.openPhoto = function() {
+        window.open($scope.photo.url);
+    };
+
     $scope.$on('$locationChangeSuccess', function (event) {
         if(checkPath()){
             if ($scope.photo.id != $scope.getId()) {

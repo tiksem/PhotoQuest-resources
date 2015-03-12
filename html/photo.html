@@ -11,9 +11,9 @@
              src="../images/loading.gif" height="50" width="50" class="loading"/>
         <div ng-show="photo.id" class="photo">
             <div id="photo_img">
-                <a ng-href="{{photo.url}}">
+                <div ng-click="openPhoto()" style="cursor: pointer">
                     <img id="photo_image" ng-src="{{photo.url + '?display=true'}}" alt=""/>
-                </a>
+                </div>
             </div>
             <div id="photo_info">
                 <div class="photo_date">
