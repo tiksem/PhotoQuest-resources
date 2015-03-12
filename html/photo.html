@@ -133,7 +133,7 @@
                             </span>
                             </div>
                             <div class="comment_buttons" >
-                                <div class="comment_likes_container">
+                                <div class="comment_likes_container" style="min-height:20px;">
                                     <div ng-show="!comment.deleteLoading"
                                          class="count_widget comment_likes_count" ng-click="likeComment(comment)">
                                         <span>{{comment.likesCount + " " + tr.textOfLikes(comment.likesCount)}}</span>
