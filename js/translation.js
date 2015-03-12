@@ -202,7 +202,8 @@ TRANSLATION = {
         newPQ: "New Photoquest",
         addTags: "Enter search tags",
         androidLink: "images/google_play.png",
-        siteLink: "images/go_to_site.png"
+        siteLink: "images/go_to_site.png",
+		photoNotFound: "Photo not found"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -456,7 +457,8 @@ TRANSLATION = {
         newPQ: "Новый Фотоквест",
         addTags: "Добавте теги для поиска",
         androidLink: "images/googleplay_rus.png",
-        siteLink: "images/go_to_site_rus.png"
+        siteLink: "images/go_to_site_rus.png",
+		photoNotFound: "Фото не найдено"
     }
 };
 
