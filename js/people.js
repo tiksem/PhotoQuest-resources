@@ -52,6 +52,15 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
         $scope.filter = $scope.getFilter();
     };
 
+    $scope.onGenderChanged = function() {
+        var gender = $scope.gender;
+        if(!gender){
+            gender = undefined;
+        }
+
+        $location.search("gender", gender);
+    };
+
     var init = function() {
         var search = $location.search();
         requestType = search["path"];

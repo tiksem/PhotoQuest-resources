@@ -37,7 +37,7 @@
 				</div>
 				<div class="gender_selector" style="height: 20px; line-height: 20px;">
 					<div style="display: inline-block; float: left;margin-right: 10px;">{{tr.gender}}</div>
-					<select ng-model="gender" style="float:left;" class="selector" >
+					<select ng-change="onGenderChanged()" ng-model="gender" style="float:left;" class="selector" >
 						<option value="">{{tr.selectGender}}</option>
 						<option value="male">{{tr.male}}</option>
 						<option value="female">{{tr.female}}</option>
