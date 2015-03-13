@@ -63,8 +63,8 @@
                 </label>
                 <input class="select_location_input" style="width: 150px; height: 20px;" ng-model="answer"/>
             </div>
-            <div id="register_error_message" ng-show="errorMessage">
-                {{errorMessage}}
+            <div id="register_error_message" style="min-height:20px;" >
+                <span ng-show="errorMessage">{{errorMessage}}</span>
             </div>
             <div style="display: inline-block; margin-top: 15px; margin-bottom: 20px;">
                 <button
