@@ -23,20 +23,6 @@ Http = {
 
         callback.error = callback.error || function(){};
 
-        if (!login) {
-            callback.error({
-                message: "Enter login!"
-            });
-            return;
-        }
-
-        if (!password) {
-            callback.error({
-                message: "Enter password!"
-            });
-            return;
-        }
-
         var params = {
             login: login,
             password: password

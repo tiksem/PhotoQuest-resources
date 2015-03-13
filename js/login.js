@@ -6,11 +6,22 @@ main.controller("LoginController", function(
     $scope.signin = function() {
         var login = $scope.login;
         var password = $scope.password;
+
+        if(!login){
+            $scope.errorMessage = tr.enterLogin;
+            return;
+        }
+
+        if(!password){
+            $scope.errorMessage = tr.enterPassword;
+            return;
+        }
+
         $scope.loginLoading = true;
 
         Http.signin($scope, $timeout, $http, login, password, {
             error: function(data){
-                if (data.error = "LoginFailedException") {
+                if (data.error == "LoginFailedException") {
                     $scope.errorMessage = tr.loginFailed;
                 } else {
                     $scope.errorMessage = tr.unknownError;
