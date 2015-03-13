@@ -203,7 +203,8 @@ TRANSLATION = {
         addTags: "Enter search tags",
         androidLink: "images/google_play.png",
         siteLink: "images/go_to_site.png",
-		photoNotFound: "Photo not found"
+		photoNotFound: "Photo not found",
+		close: "Close"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -458,7 +459,8 @@ TRANSLATION = {
         addTags: "Добавте теги для поиска",
         androidLink: "images/googleplay_rus.png",
         siteLink: "images/go_to_site_rus.png",
-		photoNotFound: "Фото не найдено"
+		photoNotFound: "Фото не найдено",
+		close: "Закрыть"
     }
 };
 
