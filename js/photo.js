@@ -130,6 +130,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         return comment.userId === signedUser.id;
     };
 
+    $scope.closeReplyForm = function(comment) {
+        delete comment.showReplyForm;
+    };
+
     $scope.deleteComment = function(comment) {
         var url = "//deleteComment";
         var params = {
