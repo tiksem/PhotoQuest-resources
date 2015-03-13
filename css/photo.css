@@ -221,6 +221,7 @@
     display: inline-block;
     min-width: 100%;
     margin-top: 5px;
+	min-height:24px;
 }
 
 .single_comment{
