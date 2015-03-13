@@ -169,7 +169,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
         }
 
         var key = event.which;
-        if(key == 13){
+        if(key == 13 && !event.ctrlKey){
             var text = $scope.message;
             if(text != ""){
                 $scope.putComment();
@@ -314,6 +314,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                 }
             }
         });
+    };
+
+    $scope.getMessageText = function(comment) {
+        return comment.message.replace(/\n/g, "<br />")
     };
 
     Utilities.applyLinksBehavior($location, $scope, $element)();

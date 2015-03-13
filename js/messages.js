@@ -15,7 +15,7 @@ main.controller("MessagesController", function($scope, $interval, $location, $ti
 
     $scope.keyPressed = function(event) {
         var key = event.which;
-        if(key == 13){
+        if(key == 13 && !event.ctrlKey){
             var text = $scope.messageText;
             if(text != ""){
                 $scope.sendMessage();
