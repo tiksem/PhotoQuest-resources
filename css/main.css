@@ -371,8 +371,9 @@ textarea {
 }
 
 .filter_search_button button{
-	padding-bottom:4px; 
-	padding-top:3px;
+	padding-bottom: 4px;
+  position: relative;
+  bottom: 1px;
 }
 @-moz-document url-prefix() {
      .button{
