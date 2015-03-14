@@ -34,6 +34,7 @@
         <br/>
         <div class="single_photo_container" dir-paginate="photo in photos | itemsPerPage: pageSize"
              total-items="totalItems"
+             ng-style="($index + 1) % 4 ? {'margin-right': '15px'} : {}"
              current-page="pageNumber">
             <a ng-href="{{getPhotoHref(photo)}}">
                 <div class="like_eye_container">
