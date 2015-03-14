@@ -46,11 +46,13 @@
                 </a>
             </div>
             <div class="user_menu_link_container">
-                <a class="user_info_link" ng-href="#?path=friends">
+                <a class="user_info_link" ng-href="{{
+                getSignedInUser().receivedRequestsCount > 0 ? '#?path=received_requests' : '#?path=friends'
+                }}">
                     <span class="user_button">
                           {{tr.friends}}
-                         <span ng-show="getSignedInUser().friendRequestsCount">
-                             (+{{getSignedInUser().friendRequestsCount}})
+                         <span ng-show="getSignedInUser().receivedRequestsCount">
+                             (+{{getSignedInUser().receivedRequestsCount}})
                          </span>
                      </span>
                 </a>
