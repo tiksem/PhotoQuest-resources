@@ -112,6 +112,10 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
         });
     };
 
+    $scope.isLast = function($index) {
+        return ($index + 1) % Math.min(4, $scope.photos.length);
+    };
+
     var scope = $scope;
     $scope.openAddPhotoDialog = function() {
         ngDialog.open({
