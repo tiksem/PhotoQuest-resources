@@ -168,7 +168,8 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     };
 
     $scope.keyPressed = function(event) {
-        if(!$scope.photo.id){
+        var photo = $scope.photo;
+        if(!photo.id){
             return;
         }
 
@@ -178,6 +179,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             if(text != ""){
                 $scope.putComment();
             }
+            return;
+        }
+
+        if(!photo.showNextPrevButtons){
             return;
         }
 
