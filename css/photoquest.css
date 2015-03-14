@@ -3,7 +3,6 @@
     width: 150px;
     height: 150px;
     float: left;  
-	margin-left: 15px;
 	margin-top: 10px;
 }
 
@@ -28,8 +27,7 @@ h1{
     display: inline-block; 
     margin-bottom: 20px;
 	padding: 0;
-	min-width: 184px;
-	margin-left: 9px;
+	margin: 0 auto 0 auto;
 }
 
 .photos_title_user_avatar a:hover{
