@@ -7,7 +7,7 @@
             <label>
                 {{tr.login}}
             </label>
-            <input name="login" ng-model="login" type="text">
+            <input autocapitalize="off" name="login" ng-model="login" type="text">
 
             <label>
                 {{tr.password}}
@@ -48,7 +48,7 @@
                 <label>
                     {{tr.city}}
                 </label>
-                <input class="select_location_input" style="width: 170px; height: 20px;"
+                <input autocomplete="off" class="select_location_input" style="width: 170px; height: 20px;"
                        city-input/>
             </div>
 

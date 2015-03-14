@@ -2,7 +2,7 @@
     <form id="login_form" ng-show="!getSignedInUser()">
         <label>
              {{tr.login}}
-            <input style="width: 155px;"name="login" ng-model="login" type="text"/>
+            <input autocapitalize="off" style="width: 155px;"name="login" ng-model="login" type="text"/>
         </label>
         <label>
             {{tr.password}}
