@@ -3,8 +3,8 @@
     width: 150px;
     height: 150px;
     float: left;  
-    margin-right: 15px;
-    margin-bottom: 15px;
+	margin-left: 15px;
+	margin-top: 10px;
 }
 
 .photoquest_pagination_container{
@@ -26,7 +26,10 @@ h1{
 
 .photos_container{
     display: inline-block; 
-    margin-bottom: 20px;   
+    margin-bottom: 20px;
+	padding: 0;
+	min-width: 184px;
+	margin-left: 9px;
 }
 
 .photos_title_user_avatar a:hover{

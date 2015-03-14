@@ -1,4 +1,4 @@
-<div  ng-controller="PhotoQuest"  style="">
+<div  ng-controller="PhotoQuest"  >
     <div id="photoquest_tab_container" class="tab_container">
         <div    ng-include="'html/tabs.html'">
 
@@ -13,8 +13,7 @@
             </button>
         </div>
     </div>
-    <div class="photos_container"  ng-show="contentLoaded">   
-        <div ng-if="user" >
+	<div ng-if="user" >
             <div ng-show="user.id && (!getSignedInUser() ||
             user.id != getSignedInUser().id)" class="photos_title_user_avatar" >
                 <a href="#?path=profile&id={{user.id}}" style="float:left;">
@@ -29,6 +28,7 @@
             </h1>
            
         </div>
+    <div class="photos_container"  ng-show="contentLoaded" >   
         
         <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
         <br/>
