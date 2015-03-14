@@ -4,6 +4,7 @@
     height: 150px;
     float: left;  
 	margin-top: 10px;
+	
 }
 
 .photoquest_pagination_container{
@@ -28,6 +29,7 @@ h1{
     margin-bottom: 20px;
 	padding: 0;
 	margin: 0 auto 0 auto;
+	max-width: 645px;
 }
 
 .photos_title_user_avatar a:hover{
