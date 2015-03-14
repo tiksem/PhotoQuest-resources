@@ -97,9 +97,7 @@
 
 .comment_textarea_container textarea{
     width: 495px;
-    max-width: 495px;
     height: 40px;
-    max-height: 40px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
