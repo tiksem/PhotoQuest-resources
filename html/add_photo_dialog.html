@@ -20,18 +20,28 @@
             <textarea ng-model="message"  class="photo_description_textarea" 
             style="width:300px; height:40px; display: inline-block;" maxlength="200">
             </textarea>
-        
-        <div ng-if="quest && !quest.isFollowing" ng-init="follow=true">
+        <div style="clear:left; width: 100%; margin-bottom: 15px;">
+			<div style="clear:left;color: #46172B; font-weight: bold; " >Поделиться</div>
+			<img style="float:left" alt="" src="../images/facebook.png" height="30px"/>
+			<input style="float:left; margin-right: 10px;" type="checkbox" />
+			<img style="float:left" alt="" src="../images/twitter.png" height="30px"/>
+			<input style="float:left; margin-right: 10px;" type="checkbox" />
+			<img style="float:left" alt="" src="../images/vk.png" height="30px"/>
+			<input style="float:left;" type="checkbox" />
+		</div>
+		<br/>
+        <div style="clear:left;" ng-if="quest && !quest.isFollowing" ng-init="follow=true">
             <input id="follow_checkbox" type="checkbox" ng-model="follow" />
             {{tr.followPhotoquest}}
         </div>
-        <div ng-show="errorMessage" class="error_text_color">
+        <div style="clear:left" ng-show="errorMessage" class="error_text_color">
             {{errorMessage}}
         </div>
-        <div style="display:inline-block;">
+        <div style="display:inline-block;min-width: 100%; clear:left">
             <button style="float: left;" class="button" ng-click="uploadPhoto()">{{tr.publish}}</button>
 			<img ng-show="uploadPhotoLoading" style="float:right; position:relative; top:3px;"
                          src="../images/mini_loading.gif" height="20" width="20" class="loading_small"/>
         </div>
+		
 
 </div>
