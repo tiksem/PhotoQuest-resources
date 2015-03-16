@@ -206,7 +206,8 @@ TRANSLATION = {
         androidLink: "images/google_play.png",
         siteLink: "images/go_to_site.png",
 		photoNotFound: "Photo not found",
-		close: "Close"
+		close: "Close",
+		shareIt: "Share it"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -464,7 +465,8 @@ TRANSLATION = {
         androidLink: "images/googleplay_rus.png",
         siteLink: "images/go_to_site_rus.png",
 		photoNotFound: "Фото не найдено",
-		close: "Закрыть"
+		close: "Закрыть",
+		shareIt: "Поделиться"
     }
 };
 
