@@ -66,9 +66,8 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
     var loadPhotoToScope = function(url, params, $http, reloadComments) {
         var scope = $scope.photo = $scope.photo || {};
-        delete scope.yourLike;
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, {
-            success: function(){
+            success: function(data) {
                 $scope.showNextPrevButtons = scope.showNextPrevButtons;
 
                 $scope.likePhoto = function() {
@@ -90,6 +89,10 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                 $location.search("id", scope.id);
                 if(reloadComments){
                     $scope.reloadComments(true);
+                }
+
+                if(!data.yourLike){
+                    delete scope.yourLike;
                 }
 
                 console.log("photo = " + $scope.photo);
