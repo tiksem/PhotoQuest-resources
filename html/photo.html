@@ -23,7 +23,7 @@
                     <div class="photo-likes-container">
                         <div id="photo_likes_count" class="count_widget"
                              ng-click="likePhoto()">
-                            <span>{{photo.likesCount +" " + tr.textOfLikes(photo.likesCount || 0)}}</span>
+                            <span>{{photo.likesCount + " " + tr.textOfLikes(photo.likesCount || 0)}}</span>
                             <span ng-show="photo.yourLike">&nbsp;{{tr.includingYou}}</span>
                         </div>
                         <img ng-show="photo.likeLoading" src="../images/mini_loading.gif" style="float: left;"
@@ -85,7 +85,7 @@
                 <div>
                     <button ng-show="getSignedInUser().id == photo.userId"
                             ng-click="openDeletePhotoDialog()" class="silver_button" style="margin-top: 10px;" >
-                        {{tr.deleteText}} {{tr.photo}}
+                        {{tr.deleteText + " " + tr.photo}}
                     </button>
                 </div>
             </div>

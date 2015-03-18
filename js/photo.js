@@ -65,7 +65,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     };
 
     var loadPhotoToScope = function(url, params, $http, reloadComments) {
-        var scope = $scope.photo = $scope.photo || {};
+        var scope = $scope.photo = {};
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, {
             success: function(){
                 $scope.showNextPrevButtons = scope.showNextPrevButtons;
@@ -90,6 +90,8 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                 if(reloadComments){
                     $scope.reloadComments(true);
                 }
+
+                console.log("photo = " + $scope.photo);
             },
             error: function() {
                 scope.deleted = true;
