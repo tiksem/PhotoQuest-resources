@@ -130,7 +130,7 @@ main.controller("PhotoQuest", function($scope, ngDialog, $element, $http, $locat
                 });
 
                 $scope.uploadPhoto = function() {
-                    var uploadUrl = '/addPhotoToPhotoQuest?photoquest=' + $scope.getId();
+                    var uploadUrl = '/addPhotoToPhotoQuest?photoquest=' + scope.getId();
                     var data = {
                         follow: $("#follow_checkbox").is(':checked')
                     };
