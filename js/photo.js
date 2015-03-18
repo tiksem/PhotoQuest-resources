@@ -65,7 +65,8 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
     };
 
     var loadPhotoToScope = function(url, params, $http, reloadComments) {
-        var scope = $scope.photo = {};
+        var scope = $scope.photo = $scope.photo || {};
+        delete scope.yourLike;
         Utilities.loadDataToScope(window.location.origin + url, params, scope, $http, {
             success: function(){
                 $scope.showNextPrevButtons = scope.showNextPrevButtons;
