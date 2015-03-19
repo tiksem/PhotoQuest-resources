@@ -38,6 +38,10 @@ main.controller("MessagesController", function($scope, $interval, $location, $ti
     var messagesContainer = $("#messages_container");
     $scope.sendMessage = function() {
         var text = messageArea.val();
+        if(text == ""){
+            return;
+        }
+
         var user = $scope.user;
 
         messageArea.val("");
