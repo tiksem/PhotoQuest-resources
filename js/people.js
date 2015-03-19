@@ -46,17 +46,19 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
                 $scope.cityName = location.cityName;
                 $scope.countryName = location.countryName;
 
-                var updateCountry = function() {
-                    var countryId = $scope.country;
-                    if(!countryId){
-                        delete $scope.city;
+                var updateCountry = function(newValue, oldValue) {
+                    if(!newValue && !oldValue){
+                        return;
                     }
+
+                    var countryId = $scope.country;
+                    delete $scope.city;
 
                     if($scope.city){
                         countryId = undefined;
                     }
 
-                    $location.search("countryId", $scope.country);
+                    $location.search("countryId", countryId);
                 };
 
                 $scope.coutnryWatch = $scope.coutnryWatch || $scope.$watch(function() {
@@ -67,9 +69,12 @@ main.controller("PeopleController", function($scope, $location, $element, ngDial
                 $scope.cityWatch = $scope.cityWatch || $scope.$watch(function() {
                         return $scope.city;
                     },
-                    function(cityId) {
+                    function(newValue, oldValue) {
+                        if(!newValue && !oldValue){
+                            return;
+                        }
+
                         $location.search("cityId", $scope.city);
-                        updateCountry();
                     });
             }
         });
