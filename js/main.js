@@ -1,6 +1,9 @@
 var main = angular.module("main", ['ngDialog', 'angularFileUpload', 'ngCookies',
-    'angularUtils.directives.dirPagination', 'infinite-scroll',
+    'angularUtils.directives.dirPagination', 'djds4rce.angular-socialshare', 'infinite-scroll',
     'ngTagsInput', 'tiksem-keyboard', 'ngSanitize' /*HTML_TEMPLATES_PLACEHOLDER*/]);
+main.run(['$FB', function($FB){
+    $FB.init('1550292335235820');
+}]);
 main.controller("Main", function($http, $element, $timeout, $scope, $locale, $location, $cookies){
     ControllerUtils.initController($scope, $location);
 
