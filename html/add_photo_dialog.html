@@ -30,7 +30,7 @@
 			<input style="float:left;" type="checkbox" />
 		</div>
 		<br/>
-        <div style="clear:left;" ng-if="quest && !quest.isFollowing" ng-init="follow=true">
+        <div style="clear:left;" ng-if="quest && !quest.isFollowing && quest.name != 'Avatar'" ng-init="follow=true">
             <input id="follow_checkbox" type="checkbox" ng-model="follow" />
             {{tr.followPhotoquest}}
         </div>
