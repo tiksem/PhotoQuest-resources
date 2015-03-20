@@ -25,10 +25,14 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             name: $scope.name,
             lastName: $scope.lastName,
             cityId: $scope.city,
-            gender: $scope.gender === "male",
             captcha: $scope.captchaKey,
             answer: $scope.answer
         };
+
+        var gender = $scope.gender;
+        if(gender){
+            data.gender = gender === "male";
+        }
 
         var login = data.login;
         if(!login){
@@ -54,7 +58,7 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             return;
         }
 
-        if(!data.gender) {
+        if(data.gender === undefined) {
             $scope.errorMessage = tr.genderFieldIsBlank;
             return;
         }
