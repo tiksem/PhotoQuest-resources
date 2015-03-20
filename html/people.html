@@ -93,7 +93,7 @@
     </div>
     <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
 
-    <div ng-show="users.length === 0">
+    <div ng-show="users.length === 0 && !getId()">
         <div ng-show="getPath() === 'friends'">
             You have no friends,&nbsp;<a ng-href="#?path=people">Add friends</a>
         </div>
