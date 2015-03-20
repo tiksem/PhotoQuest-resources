@@ -37,8 +37,17 @@
 {
     font-size: 14pt;
     color: #46172B;
+	
 }
 
+.about_yourself{
+	font-size: 12pt;
+    color: #46172B;
+	margin-top:15px; 
+	width: 350px; 
+	display: inline-block;
+	max-height: 200px;
+}
 .feed_content
 {
     width: 410px;

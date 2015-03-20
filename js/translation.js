@@ -207,7 +207,9 @@ TRANSLATION = {
         siteLink: "images/go_to_site.png",
 		photoNotFound: "Photo not found",
 		close: "Close",
-		shareIt: "Share it"
+		shareIt: "Share it",
+		pqName: "Photoquest name",
+		aboutMyself: "about myself"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -466,7 +468,9 @@ TRANSLATION = {
         siteLink: "images/go_to_site_rus.png",
 		photoNotFound: "Фото не найдено",
 		close: "Закрыть",
-		shareIt: "Поделиться"
+		shareIt: "Поделиться",
+		pqName: "Название фотоквеста",
+		aboutMyself: "О себе"
     }
 };
 
