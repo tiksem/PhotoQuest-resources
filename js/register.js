@@ -26,7 +26,8 @@ main.controller("RegisterController", function($location, $timeout, $scope, $ele
             lastName: $scope.lastName,
             cityId: $scope.city,
             captcha: $scope.captchaKey,
-            answer: $scope.answer
+            answer: $scope.answer,
+            about: $scope.about
         };
 
         var gender = $scope.gender;

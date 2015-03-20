@@ -24,6 +24,10 @@ main.controller("ProfileController", function($rootScope, $scope, ngDialog, $ele
         }
     });
 
+    $scope.getAboutText = function(about) {
+        return about.replace(/\n/g, "<br />")
+    };
+
     ControllerUtils.initProfileButtons($scope, $http);
     Utilities.applyLinksBehavior($location, $scope, $element)();
 });
