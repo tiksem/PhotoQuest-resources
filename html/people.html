@@ -93,6 +93,18 @@
     </div>
     <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
 
+    <div ng-show="users.length === 0">
+        <div ng-show="getPath() === 'friends'">
+            You have no friends,&nbsp;<a ng-href="#?path=people">Add friends</a>
+        </div>
+        <div ng-show="getPath() === 'sent_requests'">
+            You have no sent friend requests
+        </div>
+        <div ng-show="getPath() === 'received_requests'">
+            You have no received friend requests
+        </div>
+    </div>
+
     <div class="single_people" dir-paginate="user in users | itemsPerPage: pageSize" total-items="totalItems"
          current-page="pageNumber" style="padding-bottom: 40px; "
             >
