@@ -209,7 +209,7 @@ TRANSLATION = {
 		close: "Close",
 		shareIt: "Share it",
 		pqName: "Photoquest name",
-		aboutMyself: "about myself"
+		aboutMyself: "About myself"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
