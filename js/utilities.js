@@ -20,6 +20,7 @@ Utilities = {
     ajax_request_base_url: location.origin,
     applyLinksBehavior: function ($location, $scope, element) {
         var scrollHash = this.scrollHash = this.scrollHash || {};
+        element = $(element);
 
         var that = this;
 
@@ -61,7 +62,7 @@ Utilities = {
         var offDefault = this.offDefault = this.offDefault ||
         $scope.$on('$locationChangeStart', onLocationChangedDefault);
 
-        $(element).find("a").click(function (e) {
+        element.find("a").add(element.find(".a")).click(function (e) {
             var absUrl = $location.absUrl();
             if (this.href != absUrl) {
                 that.fromLink = true;

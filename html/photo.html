@@ -3,8 +3,13 @@
         <div id="photo_container">
             <shortcut></shortcut>
             <div  class="photo_controls" ng-show="showNextPrevButtons">
-                <button  class="photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">{{tr.prev}}</button>
-                <button class="photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">{{tr.next}}</button>
+                <!--Please, don't remove class 'a' definition-->
+                <button class="a photo_controls_buttons" id="prev_button" ng-click="keyPressed({which: 37})">
+                    {{tr.prev}}
+                </button>
+                <button class="a photo_controls_buttons" id="next_button" ng-click="keyPressed({which: 39})">
+                    {{tr.next}}
+                </button>
             </div>
 
 
