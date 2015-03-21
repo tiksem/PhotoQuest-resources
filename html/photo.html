@@ -117,11 +117,13 @@
                      loading-flag="commentsLoading"
                      class="wrapper">
                     <div  class="single_comment"  ng-repeat="comment in comments">
-                        <div class="comment_user_photo">
-                            <thumbnail size="50" src="comment.user.avatar"></thumbnail>
-                        </div>
+                        <a ng-href="#?path=profile&id={{comment.user.id}}">
+                            <div class="comment_user_photo">
+                                <thumbnail size="50" src="comment.user.avatar"></thumbnail>
+                            </div>
+                        </a>
                         <div class="comment_text">
-                            <a  class="commment_user_link" ng-href="#?profile_{{comment.user.id}}">
+                            <a  class="commment_user_link" ng-href="#?path=profile&id={{comment.user.id}}">
                                 {{comment.user.name + " " + comment.user.lastName}}
                             </a><br />
                             <span class="comment_date">{{getDisplayDate(photo.addingDate)}}</span><br />
