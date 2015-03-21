@@ -28,7 +28,14 @@
                     </label>
                     <input ng-model="cityName" class="select_location_input" city-input/>
                 </div>
-                
+
+                <div>
+                    <label>
+                        {{tr.aboutMyself}}
+                    </label>
+                    <textarea maxlength="255" ng-model="about"></textarea>
+                </div>
+
                 <div style="color: #DC143C;">
                     {{getErrorMessage()}}
                 </div>

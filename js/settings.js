@@ -7,6 +7,7 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
     $scope.countryName = signedInUser.country;
     $scope.city = signedInUser.cityId;
     $scope.country = signedInUser.cityId;
+    $scope.about = signedInUser.about;
     var tr = $scope.tr;
 
     $scope.errorType = "";
@@ -51,6 +52,7 @@ main.controller("SettingsController", function($rootScope, $scope, ngDialog, $el
         Utilities.get($http, "//editProfile", {
             name: $scope.name,
             lastName: $scope.lastName,
+            about: $scope.about,
             cityId: $scope.city
         }, {
             success: function(data) {
