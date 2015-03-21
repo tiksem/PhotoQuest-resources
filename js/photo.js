@@ -12,7 +12,13 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
             if (comment.replyCommentLoading) {
                 return;
             }
+
+            if(!comment.replyMessage){
+                return;
+            }
         } else if($scope.putCommentLoading) {
+            return;
+        } else if(!$scope.message) {
             return;
         }
 
