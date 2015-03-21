@@ -16,7 +16,7 @@
             <div profile-buttons>
 
             </div>
-			<div ng-show="user.about" class="about_yourself">
+			<div ng-if="user.about" class="about_yourself">
 				<span style=" font-size: 13pt;">{{tr.aboutMyself}}:</span><br/>
 				<span ng-bind-html="getAboutText(user.about)"></span>
 			</div>
