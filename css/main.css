@@ -375,6 +375,16 @@ textarea {
   position: relative;
   bottom: 1px;
 }
+.empty_data_text{
+	font-size: 12pt;
+	font-weight: bold;
+	color: #7B7B7B;
+}
+
+.empty_data_text a:hover{
+	text-decoration: underline;
+}
+
 @-moz-document url-prefix() {
      .button{
         padding:4px 8px;

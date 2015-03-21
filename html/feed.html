@@ -3,11 +3,11 @@
     <img ng-show="contentIsLoading" src="../images/loading.gif" height="50" width="50" class="loading"/>
     <div>
         <div ng-show="feeds.length === 0">
-            <div ng-show="getPath() === 'news'">
-                You have no news. Add friends, follow photoquests and users to get news.
+            <div ng-show="getPath() === 'news'" class="empty_data_text">
+                {{tr.noNewsText}}
             </div>
-            <div ng-show="getPath() === 'profile'">
-                There is not activity yet.
+            <div ng-show="getPath() === 'profile'" class="empty_data_text">
+                {{tr.noActivityText}}
             </div>
         </div>
         <div class="single_post" dir-paginate="feed in feeds | itemsPerPage: pageSize" total-items="totalItems"

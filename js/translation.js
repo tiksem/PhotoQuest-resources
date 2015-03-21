@@ -209,7 +209,13 @@ TRANSLATION = {
 		close: "Close",
 		shareIt: "Share it",
 		pqName: "Photoquest name",
-		aboutMyself: "About myself"
+		aboutMyself: "About myself",
+		addFriends: "add friends",
+		noFriedsText: "You have no friends",
+		noSedtFriendRequest: "You have no sent friend requests",
+		noReceivedFriendRequests: "no received friend requests",
+		noNewsText: "You have no news. Add friends, follow photoquests and users to get news.",
+		noActivityText: "There is not activity yet."
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -470,7 +476,13 @@ TRANSLATION = {
 		close: "Закрыть",
 		shareIt: "Поделиться",
 		pqName: "Название фотоквеста",
-		aboutMyself: "О себе"
+		aboutMyself: "О себе",
+		addFriends: "добавить друзей",
+		noFriedsText: "У вас нет друзей",
+		noSedtFriendRequest: "Вы не подавали предлодения дружбы",
+		noReceivedFriendRequests: "Вы не получали предложение дружбы",
+		noNewsText: "У вас нет новостей. Добавляйте друзей, подписывайтесь на фотоквесты и людей что бы получать новости.",
+		noActivityText: "Еще нет активности"
     }
 };
 
