@@ -209,7 +209,7 @@ TRANSLATION = {
 		close: "Close",
 		shareIt: "Share it",
 		pqName: "Photoquest name",
-		aboutMyself: "About myself",
+		aboutMyself: "About me",
 		addFriends: "add friends",
 		noFriedsText: "You have no friends",
 		noSedtFriendRequest: "You have no sent friend requests",
