@@ -95,7 +95,9 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
                     delete scope.yourLike;
                 }
 
-                console.log("photo = " + $scope.photo);
+                if(!data.message){
+                    delete scope.message;
+                }
             },
             error: function() {
                 scope.deleted = true;
