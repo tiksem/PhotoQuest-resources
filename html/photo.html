@@ -129,9 +129,7 @@
                             <span class="messages_text_font" style="font-size: 11pt;">
                                 <a ng-href="#?path=profile&id={{comment.toUser.id}}"
                                    ng-show="comment.toUser" style="color: #428bca">
-                                    {{comment.toUser.name}},&nbsp;
-                                </a>
-                                <span ng-bind-html="getMessageText(comment)"></span>
+                                    {{comment.toUser.name}}</a><span ng-show="comment.toUser">,&nbsp;</span><span ng-bind-html="getMessageText(comment)"></span>
                             </span>
                             </div>
                             <div class="comment_buttons" >
