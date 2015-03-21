@@ -483,7 +483,13 @@ TRANSLATION = {
 		noReceivedFriendRequests: "Вы не получали предложение дружбы",
 		noNewsText: "У вас нет новостей. Добавляйте друзей, подписывайтесь на фотоквесты и людей что бы получать новости.",
 		noActivityText: "Еще нет активности"
-    }
+    },
+    uk: this.ru,
+    kk: this.ru,
+    be: this.ru,
+    ka: this.ru,
+    az: this.ru,
+    hy: this.ru
 };
 
 Utilities.addProperties(TRANSLATION.en, TRANSLATION.general);
