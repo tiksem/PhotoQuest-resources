@@ -13,10 +13,10 @@ main.controller("RepliesController", function($scope, $location, $element, $http
             return tr.declinedYourFriendRequest(userGender);
         } else if(type === 2) { //COMMENT
             var comment = reply.comment;
-            if(comment.photoId){
-                return tr.commentedYourPhoto(userGender);
-            } else if(comment.toCommentId) {
+            if (comment.toCommentId) {
                 return tr.answeredYourComment(userGender);
+            } else if(comment.photoId) {
+                return tr.commentedYourPhoto(userGender);
             } else {
                 return "error?";
             }
