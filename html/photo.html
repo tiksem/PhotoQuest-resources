@@ -101,11 +101,14 @@
                             <textarea class="ctrlEnter" id="message_text_area" ng-model="message" maxlength="300">
 
                             </textarea>
+                            <button style="display: none" ng-click="putComment()"></button>
                         </div>
                         <div class="comment_button_container">
                             <img ng-show="putCommentLoading" src="../images/mini_loading.gif" style="position: relative; top: 5px;"
                                  height="20" width="20" class="loading_small"/>
-                            <button class="silver_button" ng-click="putComment()">{{tr.commentButton}}</button>
+                            <button class="silver_button" ng-click="putComment()">
+                                {{tr.commentButton}}
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -171,8 +174,11 @@
 								<div ng-click="closeReplyForm(comment)" class="close_reply">
                                     {{tr.close}}
                                 </div>
-                                <textarea  class="reply_message_text_area ctrlEnter"
+                                <textarea class="reply_message_text_area ctrlEnter"
                                            ng-model="comment.replyMessage" maxlength="300" ></textarea>
+                                <button style="display: none" ng-click="putComment(comment)">
+
+                                </button>
                             </div>
                             <div class="comment_button_container">
                                 <img ng-show="comment.replyCommentLoading" src="../images/mini_loading.gif" style="

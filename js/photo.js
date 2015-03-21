@@ -183,10 +183,7 @@ main.controller("PhotoController", function($scope, $interval, ngDialog, $elemen
 
         var key = event.which;
         if(key == 13 && !event.ctrlKey){
-            var text = $scope.message;
-            if(text != ""){
-                $scope.putComment();
-            }
+            $("textarea:focus").next('button').click();
             return;
         }
 
