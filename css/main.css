@@ -128,7 +128,7 @@ a {
     display: inline-block;
     float: left;
     padding-bottom: 5px; 	
-	margin-left:15px;
+	margin-left:10px;
 }
 
 .inputs_container{
@@ -155,7 +155,7 @@ a {
 
 .filter_search_button{
 	float:right;
-    margin-right: 15px;
+    margin-right: 8px;
     display: inline-block;
 }
 .gender_selector select, .sorting_selector select{
@@ -166,7 +166,7 @@ a {
     font-size: 10pt;
     font-weight: bold; 
 	float: left;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 
@@ -399,6 +399,6 @@ textarea {
 		margin-right: 10px;
 	 }
 	#search_name_input{
-		width: 170px;
+		width: 160px;
 	}
 }
