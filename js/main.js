@@ -68,6 +68,8 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
             }
         } else if(path == "people") {
             return 'html/people.html';
+        } else if(path == "request") {
+            return 'html/request.html';
         } else if(path == "progress") {
             return 'html/progress.html';
         } else if(path == "quests") {

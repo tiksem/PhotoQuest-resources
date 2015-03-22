@@ -1,0 +1,36 @@
+<style>
+    #request_container input,button {
+        margin: 2px;
+    }
+</style>
+        <h1>Execute custom request</h1>
+<div id="request_container" style="margin: 50px; text-align: left"
+     ng-controller="RequestController">
+    <form method="get" target="_blank" action="{{ actionUrl }}">
+        <label>
+            Request Url
+        </label>
+        <input class="filter_input" ng-model="actionUrl"/>
+        <div ng-repeat="param in params">
+            <label>
+                {{param}}
+            </label>
+            <textarea class="filter_input" name="{{param}}"></textarea>
+            <button style="position:relative; bottom: 10px" class="button" ng-click="remove(param)">
+                Delete
+            </button>
+        </div>
+        <div>
+            <input class="button" type="submit" value="Submit"/>
+        </div>
+    </form>
+    <div style="margin-top: 5px">
+        <label>
+            Param Name
+        </label>
+        <input class="filter_input" ng-model="addValue" />
+        <button ng-click="add()" class="button">
+            Add
+        </button>
+    </div>
+</div>
