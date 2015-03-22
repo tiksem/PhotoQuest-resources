@@ -125,7 +125,7 @@ TRANSLATION = {
         deleteText: "Delete",
         showMore: "Show More",
         comment: "Comment",
-        commentButton: "comment",
+        commentButton: "Comment",
         photo: "photo",
         prev: "Prev",
         next: "Next",
