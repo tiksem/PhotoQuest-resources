@@ -213,7 +213,7 @@ TRANSLATION = {
 		addFriends: "add friends",
 		noFriedsText: "You have no friends",
 		noSedtFriendRequest: "You have no sent friend requests",
-		noReceivedFriendRequests: "no received friend requests",
+		noReceivedFriendRequests: "You have no received friend requests",
 		noNewsText: "You have no news. Add friends, follow photoquests and users to get news.",
 		noActivityText: "There is not activity yet."
     },
