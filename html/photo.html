@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="set_as_avatar_button" >
-                    <button ng-show="getCategory()=='avatar' &&
+                    <button ng-show="photo.photoquest.name == 'Avatar' &&
                 getSignedInUser().id == photo.userId && getSignedInUser().avatarId != photo.id"
                             class="silver_button" ng-click="setAsAvatar()">
                         {{tr.setAsAvatar}}
