@@ -46,7 +46,7 @@
     color: #46172B;
 }
 
-.select_location_input, #about-myself-textarea{
+.select_location_input, .about-myself-textarea{
     background: -webkit-gradient(linear, left top, left bottom, from(#D1F3FF), to(#EEFFFF));
     background: -moz-linear-gradient(top,  #D1F3FF,  #EEFFFF);
     -webkit-border-radius: 3px;
@@ -61,7 +61,7 @@
     margin-top: 10px;
 }
 
-#about-myself-textarea{
+.about-myself-textarea{
 	width: 300px;
 	height: 40px;
 }
