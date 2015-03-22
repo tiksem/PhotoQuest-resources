@@ -70,7 +70,7 @@ ControllerUtils = {
         $scope.getOrder = function() {
             var order =  $location.search()["order"];
             if(!order){
-                order = "newest";
+                order = "rated";
             }
 
             return order;

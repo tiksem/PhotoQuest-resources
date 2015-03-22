@@ -43,7 +43,7 @@ PhotoquestUtils.initPagination = function($scope, $http, $location, $element, $t
     }
 
     var getOrder = params.getOrder || function() {
-        return $location.search()["order"] || "newest"
+        return $location.search()["order"] || "rated"
     };
 
     var getTotalItems = function(callback) {
