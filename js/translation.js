@@ -61,7 +61,7 @@ TRANSLATION = {
         signIn: "Sign in",
         register: "Register",
         byName: "By name",
-        country: "country",
+        country: "Country",
         city: "City",
         sortBy: "Sort by",
         gender: "Gender",
