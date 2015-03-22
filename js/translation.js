@@ -215,7 +215,8 @@ TRANSLATION = {
 		noSedtFriendRequest: "You have no sent friend requests",
 		noReceivedFriendRequests: "You have no received friend requests",
 		noNewsText: "You have no news. Add friends, follow photoquests and users to get news.",
-		noActivityText: "There is not activity yet."
+		noActivityText: "There is not activity yet.",
+		skip: "Skip"
     },
     ru: {
         of: function (name, gender, what, whatEn) {
@@ -482,7 +483,8 @@ TRANSLATION = {
 		noSedtFriendRequest: "Вы не подавали предлодения дружбы",
 		noReceivedFriendRequests: "Вы не получали предложение дружбы",
 		noNewsText: "У вас нет новостей. Добавляйте друзей, подписывайтесь на фотоквесты и людей что бы получать новости.",
-		noActivityText: "Еще нет активности"
+		noActivityText: "Еще нет активности",
+		skip: "Пропустить"
     },
     uk: this.ru,
     kk: this.ru,
