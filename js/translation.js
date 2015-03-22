@@ -13,10 +13,18 @@ TRANSLATION = {
             return name + "'s Photoquests";
         },
         textOfLikes: function (num) {
-            return "likes";
+            if (num !== 1) {
+                return "likes";
+            } else {
+                return "like";
+            }
         },
         textOfViews: function (num) {
-            return "views";
+            if (num !== 1) {
+                return "views";
+            } else {
+                return "view";
+            }
         },
         createdPQTextInFeed: function (gender) {
             return "Created photoquest";
