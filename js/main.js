@@ -11,7 +11,7 @@ main.controller("Main", function($http, $element, $timeout, $scope, $locale, $lo
         $scope.lang = lang;
         $scope.tr = TRANSLATION[lang] || TRANSLATION["en"];
     };
-    setLang($locale.id.split("-")[0]);
+    setLang((window.navigator.userLanguage || window.navigator.language).split("-")[0]);
 
     var onSignedInChanged = [];
 
